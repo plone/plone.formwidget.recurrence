@@ -4,10 +4,18 @@ from Products.Archetypes.tests.utils import makeContent
 
 class ATWidgetTestCase(TestCase):
 
-    def test_widget_properties(self):
-        obj = makeContent(self.folder, portal_type='RecurrenceType', id='testobj')
-        widget = obj.getField('rec').widget
+    def afterSetUp(self):
+        self.obj = makeContent(self.folder, portal_type='RecurrenceType', id='testobj')
+        self.field = self.obj.getField('rec')
+        self.widget = self.field.widget
 
+    def test_widget_properties(self):
+        self.assertEqual(self.widget.helper_js, ('++resource++recurrence.js', 'widgets/js/textcount.js'))
+        self.assertEqual(self.widget.helper_css, ('++resource++recurrence.css',))
+        self.assertEqual(self.widget.macro, 'recurring_date')
+
+    def test_widget_process(self):
+        self.assertFalse(self.widget.process_form(self.obj, self.field, {}))
 
 def test_suite():
     from unittest import defaultTestLoader
