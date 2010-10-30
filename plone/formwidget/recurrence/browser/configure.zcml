@@ -1,0 +1,25 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="plone.formwidget.recurrence">
+
+    <browser:page
+        for="*"
+        name="recurring_date"
+        class=".atwidget.RecurrenceWidget"
+        permission="zope2.View"
+        />
+    
+    <browser:resource
+        name="recurrence.js"
+        file="recurrence.js"
+        permission="zope.Public"
+        />
+
+    <browser:resource
+        name="recurrence.css"
+        file="recurrence.css"
+        permission="zope.Public"
+        />
+
+</configure>
