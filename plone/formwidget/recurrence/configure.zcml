@@ -4,5 +4,6 @@
     i18n_domain="plone.formwidget.recurrence">
 
   <five:registerPackage package="." initialize=".initialize" />
-
+  <include package=".browser" />
+ 
 </configure>

@@ -26,6 +26,7 @@ setup(name='plone.formwidget.recurrence',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          'Products.Archetypes',
       ],
       entry_points="""
       # -*- Entry points: -*-
