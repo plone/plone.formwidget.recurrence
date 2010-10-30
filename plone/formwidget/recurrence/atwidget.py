@@ -1,10 +1,8 @@
-from AccessControl import ClassSecurityInfo
 from App.class_init import InitializeClass
 
-from Products.Archetypes.atapi import ObjectField
 from Products.Archetypes.atapi import LinesWidget
 from Products.Archetypes.Registry import registerWidget
-from Products.Archetypes.Registry import registerField
+
 
 class RecurrenceWidget(LinesWidget):
     _properties = LinesWidget._properties.copy()
@@ -13,6 +11,7 @@ class RecurrenceWidget(LinesWidget):
         'helper_js': ('++resource++recurrence.js', 'widgets/js/textcount.js',),
         'helper_css': ('++resource++recurrence.css',),
         })
+
 
 InitializeClass(RecurrenceWidget)
 registerWidget(RecurrenceWidget,

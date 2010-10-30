@@ -3,6 +3,7 @@ from Products.Archetypes.atapi import process_types, listTypes
 from Products.CMFCore.permissions import AddPortalContent
 from plone.formwidget.recurrence.config import PROJECTNAME
 
+
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""
     from plone.formwidget.recurrence.examples import RecurrenceType
