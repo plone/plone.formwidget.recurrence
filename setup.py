@@ -27,7 +27,11 @@ setup(name='plone.formwidget.recurrence',
           'setuptools',
           # -*- Extra requirements: -*-
           'Products.Archetypes',
+          'Products.CMFCore',
+          'Zope2',
       ],
+      extras_require={'test': ['Products.PloneTestCase',
+                               'Products.GenericSetup',]},
       entry_points="""
       # -*- Entry points: -*-
 
