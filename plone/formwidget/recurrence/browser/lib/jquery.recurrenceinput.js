@@ -128,9 +128,9 @@
 
         // TEMPATE NAMES
         template: {
-            form: 'jquery-recurrenceinput-form-tmpl',
-            display: 'jquery-recurrenceinput-display-tmpl',
-            dateinput: 'collective-z3cform-dateinput-tmpl'
+            form: '#jquery-recurrenceinput-form-tmpl',
+            display: '#jquery-recurrenceinput-display-tmpl',
+            dateinput: '#collective-z3cform-dateinput-tmpl'
         },
 
         // CLASS NAMES
@@ -441,8 +441,8 @@
     function RecurrenceInput(conf) {
 
         var self = this;
-        var display = $.tmpl(conf.template.display, conf);                      // display part of the widget
-        var form = $.tmpl(conf.template.form, conf);                            // recurrance form (will be displayed in overlay
+        var display = $(conf.template.display).tmpl(conf);                      // display part of the widget
+        var form = $(conf.template.form).tmpl(conf);                            // recurrance form (will be displayed in overlay
 
 
         function clickableLabel() {                                             //  and on click select radion button
@@ -549,9 +549,6 @@
     $.fn.recurrenceinput = function(conf) {
         if (this.data('recurrenceinput')) { return this; }                      // plugin already installed
         var conf = $.extend(default_conf, conf)                                 // "compile" configuration for widget
-        $.template(conf.template.display, $("#"+conf.template.display));
-        $.template(conf.template.form, $("#"+conf.template.form));
-        $.template(conf.template.dateinput, $("#"+conf.template.dateinput));
         this.each(function() {                                                  // apply this for every textarea
             var textarea = $(this);
             if (textarea[0].type == 'textarea') {
