@@ -12,10 +12,11 @@ class ATWidgetTestCase(TestCase):
 
     def test_widget_properties(self):
         self.assertEqual(self.widget.helper_js,
-                ('++resource++recurrence.js', 'widgets/js/textcount.js'))
+                ('++resource++jquery.tmpl.js',
+                 '++resource++jquery.recurrenceinput.js', ))
         self.assertEqual(self.widget.helper_css,
-                ('++resource++recurrence.css',))
-        self.assertEqual(self.widget.macro, 'recurring_date')
+                ('++resource++jquery.recurrenceinput.css',))
+        self.assertEqual(self.widget.macro_edit, 'recurrence_widget')
 
     def test_widget_process(self):
         self.assertFalse(self.widget.process_form(self.obj, self.field, {}))

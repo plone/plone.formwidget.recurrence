@@ -5,20 +5,33 @@
 
     <browser:page
         for="*"
-        name="recurring_date"
+        name="recurrence_widget"
         class=".atwidget.RecurrenceWidget"
         permission="zope2.View"
         />
     
+    <browser:page
+        for="*"
+        name="recurrence_tmpl"
+        class=".atwidget.Templates"
+        permission="zope2.View"
+        />
+
     <browser:resource
-        name="recurrence.js"
-        file="recurrence.js"
+        name="jquery.recurrenceinput.js"
+        file="lib/jquery.recurrenceinput.js"
         permission="zope.Public"
         />
 
     <browser:resource
-        name="recurrence.css"
-        file="recurrence.css"
+        name="jquery.recurrenceinput.css"
+        file="lib/jquery.recurrenceinput.css"
+        permission="zope.Public"
+        />
+
+    <browser:resource
+        name="jquery.tmpl.js"
+        file="lib/jquery.tmpl-beta1.js"
         permission="zope.Public"
         />
 
