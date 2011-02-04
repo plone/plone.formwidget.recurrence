@@ -560,9 +560,10 @@
                     e.preventDefault();
                     textarea.val(recurrenceinput.save());
                 });
-                textarea.hide();
-                textarea.after(recurrenceinput.display);                 // hide textarea and place display_widget after textarea
-            };
+                var widget = textarea.closest('.ArchetypesRecurrenceWidget');
+                widget.hide();
+                widget.after(recurrenceinput.display);                 // hide textarea and place display_widget after textarea
+            }
         });
     };
 
