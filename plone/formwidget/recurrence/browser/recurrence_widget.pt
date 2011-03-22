@@ -12,16 +12,16 @@
       <div tal:replace="structure context/@@recurrence_tmpl" />
       <script type="text/javascript">
         jQuery(document).ready(function() {
-            jQuery('.ArchetypesRecurrenceWidget textarea').recurrenceinput();
+//            jQuery('.ArchetypesRecurrenceWidget textarea').recurrenceinput();
         });
       </script>
       <div metal:use-macro="field_macro | context/widgets/field/macros/edit">
           <div metal:fill-slot="widget_body">
-              <textarea tal:attributes="name string:$fieldName:lines;
+              <textarea tal:attributes="name string:$fieldName;
                                         id fieldName;
                                         cols widget/cols;
                                         rows widget/rows;"
-                        tal:content="python:value and '\n'.join(value) or ''"></textarea>
+                        tal:content="python:value or ''"></textarea>
           </div>
       </div>
     </div>
