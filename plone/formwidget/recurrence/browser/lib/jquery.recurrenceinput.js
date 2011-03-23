@@ -7,7 +7,7 @@
  */
 (function($) {
 
-    var today = new Date()
+    var today = new Date();
     var basename = 'recurrenceinput';
 
     /**
@@ -36,7 +36,7 @@
             yearly_weekday_of_month_weekday: 'Weekday',
             yearly_weekday_of_month_weekend_day: 'Weekend Day',
 
-            range_label: 'End recurrance',
+            range_label: 'End recurrence',
             range_no_end_label: 'No end',
             range_by_occurences_label: 'End after [INPUT] occurence(s)',
             range_by_end_date_label: 'End by: ',
@@ -46,7 +46,7 @@
 
             order_indexes: ['First', 'Second', 'Third', 'Fourth', 'Last'],
             months: [
-                'Januar', 'Februar', 'March', 'April', 'May', 'June',
+                'January', 'February', 'March', 'April', 'May', 'June',
                 'July', 'August', 'September', 'October', 'November', 'December'],
             weekdays: [
                 'Monday', 'Tuesday', 'Wednesday', 'Thursday',
@@ -93,8 +93,9 @@
 
             monthly_type_name: basename+'_monthly_type',
             monthly_day_of_month_value: 'DAY_OF_MONTH',
+            monthly_day_of_month_name: basename+'_monthly_day_of_month',
             monthly_day_of_month_interval_value: '1',
-            monthly_day_of_month_interval_name: '_monthly_day_of_month_interval',
+            monthly_day_of_month_interval_name: basename+'_monthly_day_of_month_interval',
             monthly_weekday_of_month_value: 'WEEKDAY_OF_MONTH',
             monthly_weekday_of_month_index_name: basename+'_monthly_weekday_of_month_index',
             monthly_weekday_of_month_name: basename+'_monthly_weekday_of_month',
@@ -102,15 +103,13 @@
             monthly_weekday_of_month_interval_value: '1',
 
             yearly_type_name: basename+'_yearly_type',
-            yearly_day_of_month_name: basename+'_yearly_day_of_month',
-            yearly_day_of_month_index_name: basename+'_yearly_day_of_month_index',
             yearly_day_of_month_value: 'DAY_OF_MONTH',
-            yearly_weekday_of_month_index_name: basename+'_yearly_weekday_of_month_index',
-            yearly_weekday_of_month_name: basename+'_yearly_weekday_of_month',
-            yearly_weekday_of_month_month_name: basename+'_yearly_weekday_of_month_month',
+            yearly_day_of_month_bymonth_name: basename+'_yearly_day_of_month_bymonth',
+            yearly_day_of_month_bymonthday_name: basename+'_yearly_day_of_month_bymonthday',
             yearly_weekday_of_month_value: 'WEEKDAY_OF_MONTH',
-            yearly_weekday_of_month_weekday_value: 'WEEKDAY',
-            yearly_weekday_of_month_weekend_day_value: 'WEEKEND_DAY',
+            yearly_weekday_of_month_index_name: basename+'_yearly_weekday_of_month_index',
+            yearly_weekday_of_month_day_name: basename+'_yearly_weekday_of_month_day',
+            yearly_weekday_of_month_month_name: basename+'_yearly_weekday_of_month_month',
 
             range_type_name: basename+'_range_type',
             range_by_end_date_year_name: basename+'_range_by_end_date_year',
@@ -120,10 +119,14 @@
             range_no_end: 'NO_END_DATE',
             range_by_ocurrences: 'BY_OCURRENCES',
             range_by_end_date: 'BY_END_DATE',
+            range_by_ocurrences_name: basename+'range_by_ocurrences',
             range_by_ocurrences_value: '10',
             range_by_end_date_year_value: today.getFullYear(),
             range_by_end_date_month_value: today.getMonth(),
             range_by_end_date_day_value: today.getDate(),
+            
+            cancel_button_name: 'Cancel',
+            save_button_name: 'Save'
         },
 
         // TEMPATE NAMES
@@ -166,7 +169,7 @@
      * Loading (populating) widget from RFC2554 string
      */
     function load_from_rfc2445(el, data, conf) {
-        var matches = /^FREQ=(DAILY|WEEKLY|MONTHLY|YEARLY)/.exec(data);
+        var matches = /FREQ=(DAILY|WEEKLY|MONTHLY|YEARLY)/.exec(data);
         var frequency = matches[1];
         var able_to_parse = false;
 
@@ -205,7 +208,7 @@
             case 'WEEKLY':
             case 'MONTHLY':
             case 'YEARLY':
-                $('input[name='+conf.classname_freq+']', el).val([frequency]);
+                $('input[name='+conf.field.freq_name+']', el).val([frequency]);
                 $('input[value='+frequency+']', el).change();
             break;
         }
@@ -213,82 +216,79 @@
         switch (frequency) {
             case 'DAILY':
                 if (interval) {
-                    $('input[name='+conf.classname_daily_type+']', el).val(['DAILY']);
-                    $('input[name='+conf.classname_daily_interval+']', el).val(interval);
+                    $('input[name='+conf.field.daily_interval_name+']', el).val(interval);
                     able_to_parse = true;
                 }
                 break;
             case 'WEEKLY':
                 if (interval) {
-                    $('input[name='+conf.classname_weekly_interval+']', el).val(interval);
+                    $('input[name='+conf.field.weekly_interval_name+']', el).val(interval);
                     able_to_parse = true;
-                }
-                else {
-                    $('input[name='+conf.classname_weekly_interval+']', el).val('1');
                 }
                 if (byday) { 
                     // TODO: if this is weekdays and interval=null, select DAILY#weekdays?
-                    $('input[name='+conf.classname_weekly_weekdays+']', el).val(byday.split(','));
+                    $('input[name='+conf.field.weekly_weekdays_name+']', el).val(byday.split(','));
                     able_to_parse = true;
                 }
                 break;
             case 'MONTHLY':
                 if (bymonthday && interval) { // Day X of the month, every Y months
-                    $('input[name='+conf.classname_monthly_type+']', el).val(['DAY_OF_MONTH']);
-                    $('select[name='+conf.classname_monthly_dayofmonth_day+']', el).val(bymonthday);
-                    $('input[name='+conf.classname_monthly_dayofmonth_interval+']', el).val(interval);
+                    $('input[name='+conf.field.monthly_type_name+']', el).val(['DAY_OF_MONTH']);
+                    $('select[name='+conf.field.monthly_day_of_month_name+']', el).val(bymonthday);
+                    $('input[name='+conf.field.monthly_day_of_month_interval_name+']', el).val(interval);
                     able_to_parse = true;
                 }
                 else if (byday && bysetpos && interval) {
-                    $('select[name='+conf.classname_monthly_weekdayofmonth_index+']', el).val(bysetpos);
-                    $('input[name='+conf.classname_monthly_weekdayofmonth_interval+']', el).val(interval);
+                    $('input[name='+conf.field.monthly_type_name+']', el).val(['WEEKDAY_OF_MONTH']);
+                    $('input[name='+conf.field.monthly_weekday_of_month_interval_name+']', el).val(interval);
+                    $('select[name='+conf.field.monthly_weekday_of_month_index_name+']', el).val(bysetpos);
                     if (byday === 'MO,TU,WE,TH,FR') {
-                        $('select[name='+conf.classname_monthly_weekdayofmonth+']', el).val('WEEKDAY');
+                        $('select[name='+conf.field.monthly_weekday_of_month_name+']', el).val('WEEKDAY');
                         able_to_parse = true;
                     }
                     else if (byday === 'SA,SU') {
-                        $('select[name='+conf.classname_monthly_weekdayofmonth+']', el).val('WEEKEND_DAY');
+                        $('select[name='+conf.field.monthly_weekday_of_month_name+']', el).val('WEEKEND_DAY');
                         able_to_parse = true;
                     }
                 }
                 else if (byday && interval) { // The Nth X of the month, every Y months
-                    $('input[name='+conf.classname_monthly_type+']', el).val(['WEEKDAY_OF_MONTH']);
-                    $('input[name='+conf.classname_monthly_weekdayofmonth_interval+']', el).val(interval);
-                    matches = /^(-?[0-9]+)([A-Z]{1,2}$)/.exec(byday); // we expect this to be -1TH
+                    $('input[name='+conf.field.monthly_type_name+']', el).val(['WEEKDAY_OF_MONTH']);
+                    $('input[name='+conf.field.monthly_weekday_of_month_interval_name+']', el).val(interval);
+                    matches = /^([+\-]?[0-9]+)([A-Z]{1,2}$)/.exec(byday); // we expect this to be -1TH
                     if (!matches || matches.length != 3) {
                         break; // don't understand the format
                     }
-                    $('select[name='+conf.classname_monthly_weekdayofmonth_index+']', el).val(matches[1]);
-                    $('select[name='+conf.classname_monthly_weekdayofmonth+']', el).val(matches[2]);
+                    $('select[name='+conf.field.monthly_weekday_of_month_index_name+']', el).val(matches[1]);
+                    $('select[name='+conf.field.monthly_weekday_of_month_name+']', el).val(matches[2]);
                     able_to_parse = true;
                 }
                 break;
             case 'YEARLY':
                 if (bymonth && bymonthday) { // Every [January] [1]
-                    $('input[name='+conf.classname_yearly_type+']', el).val(['DAY_OF_MONTH']);
-                    $('select[name='+conf.classname_yearly_dayofmonth_month+']', el).val(bymonth);
-                    $('select[name='+conf.classname_yearly_dayofmonth_day+']', el).val(bymonthday);
+                    $('input[name='+conf.field.yearly_type_name+']', el).val(['DAY_OF_MONTH']);
+                    $('select[name='+conf.field.yearly_day_of_month_bymonth_name+']', el).val(bymonth);
+                    $('select[name='+conf.field.yearly_day_of_month_bymonthday_name+']', el).val(bymonthday);
                     able_to_parse = true;
                 }
                 else if (byday && bysetpos && bymonth) {
-                    $('select[name='+conf.classname_yearly_weekdayofmonth_months+']', el).val(bymonth);
-                    $('select[name='+conf.classname_yearly_weekdayofmonth_index+']', el).val(bysetpos);
+                    $('select[name='+conf.field.yearly_weekday_of_month_month_name+']', el).val(bymonth);
+                    $('select[name='+conf.field.yearly_weekday_of_month_index_name+']', el).val(bysetpos);
                     if (byday === 'MO,TU,WE,TH,FR') {
-                        $('select[name='+conf.classname_yearly_weekdayofmonth_day+']', el).val('WEEKDAY');
+                        $('select[name='+conf.field.yearly_weekday_of_month_day_name+']', el).val('WEEKDAY');
                         able_to_parse = true;
                     }
                     else if (byday === 'SA,SU') {
-                        $('select[name='+conf.classname_yearly_weekdayofmonth_day+']', el).val('WEEKEND_DAY');
+                        $('select[name='+conf.field.yearly_weekday_of_month_day_name+']', el).val('WEEKEND_DAY');
                         able_to_parse = true;
                     }
                 }
                 else if (bymonth && byday) {
-                    $('input[name='+conf.classname_yearly_type+']', el).val(['WEEKDAY_OF_MONTH']);
-                    $('select[name='+conf.classname_yearly_weekdayofmonth_months+']', el).val(bymonth);
-                    matches = /^(-?[0-9]+)([A-Z]{1,2})$/.exec(byday); // we expect this to be -1TH
+                    $('input[name='+conf.field.yearly_type_name+']', el).val(['WEEKDAY_OF_MONTH']);
+                    $('select[name='+conf.field.yearly_weekday_of_month_month_name+']', el).val(bymonth);
+                    matches = /^([+\-]?[0-9]+)([A-Z]{1,2}$)/.exec(byday); // we expect this to be -1TH
                     if (matches && matches.length == 3) {
-                        $('select[name='+conf.classname_yearly_weekdayofmonth_index+']', el).val(matches[1]);
-                        $('select[name='+conf.classname_yearly_weekdayofmonth_day+']', el).val(matches[2]);
+                        $('select[name='+conf.field.yearly_weekday_of_month_index_name+']', el).val(matches[1]);
+                        $('select[name='+conf.field.yearly_weekday_of_month_day_name+']', el).val(matches[2]);
                         able_to_parse = true;
                     }
                 }
@@ -309,18 +309,18 @@
 
         // RANGE
         if (count) {
-            $('input[name='+conf.classname_range_type+']', el).val(['BY_OCURRENCES']);
-            $('input[name='+conf.classname_range_by_ocurrences+']', el).val(count);
+            $('input[name='+conf.field.range_type_name+']', el).val(['BY_OCURRENCES']);
+            $('input[name='+conf.field.range_by_ocurrences_name+']', el).val(count);
         }
         else if (until) {
-            $('input[name='+conf.classname_range_type+']', el).val(['BY_END_DATE']);
+            $('input[name='+conf.field.range_type_name+']', el).val(['BY_END_DATE']);
             until = new Date(until.slice(0,4), until.slice(4,6), until.slice(6,8));
-            $('input[name='+conf.classname_range+'_year]', el).val(until.getFullYear());
-            $('select[name='+conf.classname_range+'_month]', el).val(until.getMonth());
-            $('input[name='+conf.classname_range+'_day]', el).val(until.getDate());
+            $('input[name='+conf.field.range_by_end_date_year_name+']', el).val(until.getFullYear());
+            $('select[name='+conf.field.range_by_end_date_month_name+']', el).val(until.getMonth());
+            $('input[name='+conf.field.range_by_end_date_day_name+']', el).val(until.getDate());
         }
         else {
-            $('input[name='+conf.classname_range_type+']', el).val(['NO_END_DATE']);
+            $('input[name='+conf.field.range_type_name+']', el).val(['NO_END_DATE']);
         }
 
         if (!able_to_parse) {
@@ -333,18 +333,18 @@
      * Parsing RFC2554 from widget
      */
     function saverule_to_rfc2445(el, conf) {
-        var result = '';
-        var frequency = $('input[name='+conf.classname_freq+']:checked', el).val();
+        var result = 'RRULE:';
+        var frequency = $('input[name='+conf.field.freq_name+']:checked', el).val();
         switch (frequency) {
             case 'DAILY':
-                result = 'FREQ=DAILY';
-                result += ';INTERVAL=' + $('input[name='+conf.classname_daily_interval+']', el).val();;
+                result += 'FREQ=DAILY';
+                result += ';INTERVAL=' + $('input[name='+conf.field.daily_interval_name+']', el).val();
                 break;
             case 'WEEKLY':
-                result = 'FREQ=WEEKLY';
-                result += ';INTERVAL=' + $('input[name='+conf.classname_weekly_interval+']', el).val();
+                result += 'FREQ=WEEKLY';
+                result += ';INTERVAL=' + $('input[name='+conf.field.weekly_interval_name+']', el).val();
                 days = [];
-                $('input[name='+conf.classname_weekly_weekdays+']:checked', el).each(function() {
+                $('input[name='+conf.field.weekly_weekdays_name+']:checked', el).each(function() {
                     days[days.length] = $(this).val();
                 });
                 if (days.length) {
@@ -352,19 +352,20 @@
                 }
                 break;
             case 'MONTHLY':
-                result = 'FREQ=MONTHLY';
-                monthly_type = $('input[name='+conf.classname_monthly_type+']:checked', el).val();
+                result += 'FREQ=MONTHLY';
+                monthly_type = $('input[name='+conf.field.monthly_type_name+']:checked', el).val();
+                var day, month, year, interval, index;
                 switch (monthly_type) {
                     case 'DAY_OF_MONTH':
-                        day = $('select[name='+conf.classname_monthly_dayofmonth_day+']', el).val();
-                        interval = $('input[name='+conf.classname_monthly_dayofmonth_interval+']', el).val();
+                        day = $('select[name='+conf.field.monthly_day_of_month_name+']', el).val();
+                        interval = $('input[name='+conf.field.monthly_day_of_month_interval_name+']', el).val();
                         result += ';BYMONTHDAY=' + day;
                         result += ';INTERVAL=' + interval;
                         break;
                     case 'WEEKDAY_OF_MONTH':
-                        var index = $('select[name='+conf.classname_monthly_weekdayofmonth_index+']', el).val();
-                        var day = $('select[name='+conf.classname_monthly_weekdayofmonth+']', el).val();
-                        var interval = $('input[name='+conf.classname_monthly_weekdayofmonth_interval+']', el).val();
+                        index = $('select[name='+conf.field.monthly_weekday_of_month_index_name+']', el).val();
+                        day = $('select[name='+conf.field.monthly_weekday_of_month_name+']', el).val();
+                        interval = $('input[name='+conf.field.monthly_weekday_of_month_interval_name+']', el).val();
                         if ($.inArray(day, ['MO','TU','WE','TH','FR','SA','SU']) > -1) {
                             result += ';BYDAY=' + index + day;
                         }
@@ -382,19 +383,19 @@
                 }
                 break;
             case 'YEARLY':
-                result = 'FREQ=YEARLY';
-                yearly_type = $('input[name='+conf.classname_yearly_type+']:checked', el).val();
+                result += 'FREQ=YEARLY';
+                yearly_type = $('input[name='+conf.field.yearly_type_name+']:checked', el).val();
                 switch (yearly_type) {
                     case 'DAY_OF_MONTH':
-                        var month = $('select[name='+conf.classname_yearly_dayofmonth_month+']', el).val();
-                        var day = $('select[name='+conf.classname_yearly_dayofmonth_day+']', el).val();
+                        month = $('select[name='+conf.field.yearly_day_of_month_bymonth_name+']', el).val();
+                        day = $('select[name='+conf.field.yearly_day_of_month_bymonthday_name+']', el).val();
                         result += ';BYMONTH=' + month;
                         result += ';BYMONTHDAY=' + day;
                         break;
                     case 'WEEKDAY_OF_MONTH':
-                        var index = $('select[name='+conf.classname_yearly_weekdayofmonth_index+']', el).val();
-                        var day = $('select[name='+conf.classname_yearly_weekdayofmonth_day+']', el).val();
-                        var month = $('select[name='+conf.classname_yearly_weekdayofmonth_months+']', el).val();
+                        index = $('select[name='+conf.field.yearly_weekday_of_month_index_name+']', el).val();
+                        day = $('select[name='+conf.field.yearly_weekday_of_month_day_name+']', el).val();
+                        month = $('select[name='+conf.field.yearly_weekday_of_month_month_name+']', el).val();
                         result += ';BYMONTH=' + month;
                         if ($.inArray(day, ['MO','TU','WE','TH','FR','SA','SU']) > -1) {
                             result += ';BYDAY=' + index + day;
@@ -413,15 +414,15 @@
                 break;
         }
 
-        var range_type = $('input[name='+conf.classname_range_type+']:checked', el).val();
+        var range_type = $('input[name='+conf.field.range_type_name+']:checked', el).val();
         switch (range_type) {
             case 'BY_OCURRENCES':
-                result += ';COUNT=' + $('input[name='+conf.classname_range_by_ocurrences+']').val();
+                result += ';COUNT=' + $('input[name='+conf.field.range_by_ocurrences_name+']').val();
                 break;
             case 'BY_END_DATE':
-                var year = $('input[name='+conf.classname_range+'_year]').val();
-                var month = $('select[name='+conf.classname_range+'_month]').val();
-                var day = $('input[name='+conf.classname_range+'_day]').val();
+                year = $('input[name='+conf.field.range_by_end_date_year_name+']').val();
+                month = $('select[name='+conf.field.range_by_end_date_month_name+']').val();
+                day = $('input[name='+conf.field.range_by_end_date_day_name+']').val();
                 if (month < 10) {
                     month = '0' + month;
                 }
@@ -432,7 +433,7 @@
                 break;
         }
 
-        return result
+        return result;
     }
 
     /**
@@ -442,7 +443,7 @@
 
         var self = this;
         var display = $(conf.template.display).tmpl(conf);                      // display part of the widget
-        var form = $(conf.template.form).tmpl(conf);                            // recurrance form (will be displayed in overlay
+        var form = $(conf.template.form).tmpl(conf);                            // recurrence form (will be displayed in overlay
 
 
         function clickableLabel() {                                             //  and on click select radion button
@@ -458,7 +459,6 @@
             }
         });
         form.hide().overlay(overlay_conf);                                      // create ovelay from forcreate ovelay from form
-
 
         display.find('input[name='+conf.field.display_name+']')                 // show form overlay on change of display radio box 
             .change(function(e) {
@@ -488,31 +488,32 @@
                     el.find('input=[name='+conf.field.range_by_end_date_year_name+']').val(value[0]);                   // populate calendar fields
                     el.find('select=[name='+conf.field.range_by_end_date_month_name+']').val(value[1]);
                     el.find('input=[name='+conf.field.range_by_end_date_day_name+']').val(value[2]);
-                },
-                onShow: function () {
-                    var trigger_offset = $(this).next().offset();
-                    $(this).data('dateinput').getCalendar()                     // position calendar dateinput widget
-                        .offset({
-                            top: trigger_offset.top+33,
-                            left: trigger_offset.left
-                        });
-                },
+                }
+//                onShow: function () {
+//                    var trigger_offset = $(this).next().offset();
+//                    $(this).data('dateinput').getCalendar()                     // position calendar dateinput widget
+//                        .offset({
+//                            top: trigger_offset.top+33,
+//                            left: trigger_offset.left
+//                        });
+//                }
             }));
 
 
         /**
          * Saving data selected in form and returning RFC2554 string
          */
-        function save(data) {
+        function save() {
             form.overlay().close();                                             // close overlay
+            var RFC2554 = saverule_to_rfc2445(form, conf);
 
-            alert('saverule_to_rfc2445 should be moved here!');                 // FIXME:
+//            alert('saverule_to_rfc2445 should be moved here!');                 // FIXME:
 
                                                                                 // TODO: only do below when save button is pressed
-            display.find('input[name='+field.display_name+']')                  // mark radio butto as 
-                   .attr('checked', false);
+//            display.find('input[name='+field.display_name+']')                  // mark radio butto as 
+//                   .attr('checked', false);
 
-            return RFC2554
+            return RFC2554;
         }
 
 
@@ -522,9 +523,10 @@
          */
         function load(data) {
             if (data) {
-                alert('load_from_rfc2445 should be moved here!');               // FIXME:
+                load_from_rfc2445(form, data, conf);
+//                alert('load_from_rfc2445 should be moved here!');               // FIXME:
             } else {
-                alert('we should load default values. FREQ')
+                alert('we should load default values. FREQ');
             }
         }
 
@@ -548,7 +550,7 @@
      */
     $.fn.recurrenceinput = function(conf) {
         if (this.data('recurrenceinput')) { return this; }                      // plugin already installed
-        var conf = $.extend(default_conf, conf)                                 // "compile" configuration for widget
+        conf = $.extend(default_conf, conf);                                    // "compile" configuration for widget
         this.each(function() {                                                  // apply this for every textarea
             var textarea = $(this);
             if (textarea[0].type == 'textarea') {
@@ -557,8 +559,11 @@
                 recurrenceinput.load(textarea.val());                           // load data provided by textarea
                 //recurrenceinput.form.appendTo('body');                          // FIXME: is this actually needed? ... place widget at the bottom (its overlay anyway)
                 textarea.closest('form').submit(function(e) {                   //
-                    e.preventDefault();
-                    textarea.val(recurrenceinput.save());
+//                    e.preventDefault();
+                    data = recurrenceinput.save();
+                    alert(data);
+                    $('.ArchetypesRecurrenceWidget textarea').val(data);
+//                    textarea.val(data);
                 });
                 var widget = textarea.closest('.ArchetypesRecurrenceWidget');
                 widget.hide();

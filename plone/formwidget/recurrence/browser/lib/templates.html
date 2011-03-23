@@ -65,7 +65,7 @@
                         {{each i18n.weekdays}}
                             <li>
                                 <input type="checkbox"
-                                       name="${field.weekly_weekdays_name}_${weekdays[$index]}"
+                                       name="${field.weekly_weekdays_name}"
                                        value="${weekdays[$index]}" />
                                 <label>${$value}</label>
                             </li>
@@ -81,7 +81,7 @@
                                     value="${field.monthly_day_of_month_value}"
                                     name="${field.monthly_type_name}" />
                                 <span>${i18n.monthly_day_of_month}</span>
-                                <select name="${field.monthly_day_of_month_day_name}">
+                                <select name="${field.monthly_day_of_month_name}">
                                 {{each [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,
                                         18,19,20,21,22,23,24,25,26,27,28,29,30,31]}}
                                     <option value="${$value}">${$value}</option>
@@ -107,9 +107,9 @@
                                 {{each i18n.weekdays}}
                                     <option value="${weekdays[$index]}">${$value}</option>
                                 {{/each}}
-                                    <option value="${field.yearly_weekday_of_month_weekday_value}">
+                                    <option value="WEEKDAY">
                                         ${i18n.yearly_weekday_of_month_weekday}</option>
-                                    <option value="${field.yearly_weekday_of_month_weekend_day_value}">
+                                    <option value="WEEKEND_DAY">
                                         ${i18n.yearly_weekday_of_month_weekend_day}</option>
                                 </select>
                                 </select>
@@ -128,12 +128,12 @@
                                     value="${field.yearly_day_of_month_value}"
                                     name="${field.yearly_type_name}" />
                                 <span>${i18n.yearly_day_of_month}</span>
-                                <select name="${field.yearly_day_of_month_name}">
-                                {{each months}}
+                                <select name="${field.yearly_day_of_month_bymonth_name}">
+                                {{each i18n.months}}
                                     <option value="${$index+1}">${$value}</option>
                                 {{/each}}
                                 </select>
-                                <select name="${field.yearly_day_of_month_index_name}">
+                                <select name="${field.yearly_day_of_month_bymonthday_name}">
                                 {{each [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,
                                         18,19,20,21,22,23,24,25,26,27,28,29,30,31]}}
                                     <option value="${$value}">${$value}</option>
@@ -151,7 +151,7 @@
                                     <option value="${order_indexes[$index]}">${$value}</option>
                                 {{/each}}
                                 </select>
-                                <select name="${field.yearly_weekday_of_month_name}">
+                                <select name="${field.yearly_weekday_of_month_day_name}">
                                 {{each i18n.weekdays}}
                                     <option value="${weekdays[$index]}">${$value}</option>
                                 {{/each}}
@@ -161,7 +161,7 @@
                                         ${i18n.yearly_weekday_of_month_weekend_day}</option>
                                 </select>
                                 <select name="${field.yearly_weekday_of_month_month_name}">
-                                {{each months}}
+                                {{each i18n.months}}
                                     <option value="${$index+1}">${$value}</option>
                                 {{/each}}
                                 </select>
@@ -180,33 +180,33 @@
                             <input
                                 type="radio"
                                 value="${field.range_no_end}"
-                                name="${field.range_type}" />
+                                name="${field.range_type_name}" />
                             <div>${i18n.range_no_end_label}</div>
                         </li>
                         <li>
                             <input
                                 type="radio"
                                 value="${field.range_by_ocurrences}"
-                                name="${field.range_type}" />
+                                name="${field.range_type_name}" />
                             <div>
                                 <span>${i18n.range_by_occurences_label}</span>
                                 <input
                                     type="text" size="3"
                                     value="${field.range_by_ocurrences_value}"
-                                    name="{field.range_type" />
+                                    name="${field.range_by_ocurrences_name}" />
                             </div>
                         </li>
                         <li>
                             <input
                                 type="radio"
                                 value="${field.range_by_end_date}"
-                                name="${field.range_type}" />
+                                name="${field.range_type_name}" />
                             <div>
                                 <span>${i18n.range_by_end_date}</span>
                                 {{tmpl({day_name: field.range_by_end_date_day_name,
                                         day_value: field.range_by_end_date_day_value,
                                         month_name: field.range_by_end_date_month_name,
-                                        month_value: field.range_by_end_date_month_value,
+                                        month_value: field.range_by_end_date_month_value+1,
                                         year_name: field.range_by_end_date_year_name,
                                         year_value: field.range_by_end_date_year_value,
                                         calendar_name: field.range_by_end_date_calendar_name,
@@ -218,16 +218,18 @@
 
                 <div class="${klass.clear}"><!-- --></div>
 
-                <div class="${klass.buttons}">
+<!--                <div class="${klass.buttons}">
                     <input
-                        type="submit"
+                        type="button"
+                        name="${field.cancel_button_name}"
                         class="${klass.cancel_button}"
                         value="${i18n.cancel_button_label}" />
                     <input
                         type="submit"
+                        name="${field.save_button_name}"
                         class="${klass.save_button}"
                         value="${i18n.save_button_label}" />
-                </div>
+                      </div>-->
             </form>
         </div>
     </script>
