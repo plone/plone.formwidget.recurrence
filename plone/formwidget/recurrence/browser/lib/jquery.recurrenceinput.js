@@ -525,9 +525,9 @@
             if (data) {
                 load_from_rfc2445(form, data, conf);
 //                alert('load_from_rfc2445 should be moved here!');               // FIXME:
-            } else {
-                alert('we should load default values. FREQ');
-            }
+            }// else {
+//                alert('we should load default values. FREQ');
+//            }
         }
 
 
