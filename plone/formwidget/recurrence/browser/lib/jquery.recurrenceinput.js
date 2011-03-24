@@ -28,6 +28,7 @@
 
             weekly_interval: 'Every [INPUT1] week(s) on:',
 
+//            monthly_day_of_month: 'Day ${INPUT1} of the month, every ${INPUT2} month(s).',
             monthly_day_of_month: 'Day [INPUT1] of the month, every [INPUT2] month(s).',
             monthly_weekday_of_month: 'The [INPUT1] [INPUT2], every [INPUT3] month(s)',
 
@@ -164,6 +165,7 @@
             save_button: basename+'_save_button'
         }
     };
+//    $.template('monthly_day_of_month', default_conf.i18n.monthly_day_of_month);
 
     /**
      * Loading (populating) widget from RFC2554 string
