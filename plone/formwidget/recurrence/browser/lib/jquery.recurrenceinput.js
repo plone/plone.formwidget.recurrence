@@ -335,7 +335,7 @@
      * Parsing RFC2554 from widget
      */
     function saverule_to_rfc2445(el, conf) {
-        var result = 'RRULE:';
+        var result = '';
         var frequency = $('input[name='+conf.field.freq_name+']:checked', el).val();
         switch (frequency) {
             case 'DAILY':
@@ -435,7 +435,10 @@
                 break;
         }
 
-        return result;
+        if (result.length > 0) {
+            return 'RRULE:' + result;
+        }
+        return ''
     }
 
     /**
@@ -563,7 +566,7 @@
                 textarea.closest('form').submit(function(e) {                   //
 //                    e.preventDefault();
                     data = recurrenceinput.save();
-                    alert(data);
+//                    alert(data);
                     $('.ArchetypesRecurrenceWidget textarea').val(data);
 //                    textarea.val(data);
                 });
