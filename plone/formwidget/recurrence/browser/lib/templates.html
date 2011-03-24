@@ -50,17 +50,21 @@
                 <div class="${klass.freq_options}">
 
                     <div class="${klass.freq_daily}">
-                        <span>${i18n.daily_interval}<span>
+                      <!--<span>${i18n.daily_interval}<span>-->
+                        Every
                         <input type="text" size="2"
                             value="${field.daily_interval_value}"
                             name="${field.daily_interval_name}"/>
+                         days.
                     </div>
 
                     <div class="${klass.freq_weekly}">
-                        <span>${i18n.weekly_interval}<span>
+                      <!--<span>${i18n.weekly_interval}<span>-->
+                      Every
                         <input type="text" size="2"
                             value="${field.weekly_interval_value}"
                             name="${field.weekly_interval_name}" />
+                        week(s) on:
                         <ul>
                         {{each i18n.weekdays}}
                             <li>
@@ -80,24 +84,28 @@
                                     type="radio"
                                     value="${field.monthly_day_of_month_value}"
                                     name="${field.monthly_type_name}" />
-                                <span>${i18n.monthly_day_of_month}</span>
+                                    <!--<span>${i18n.monthly_day_of_month}</span>-->
+                                    Day
                                 <select name="${field.monthly_day_of_month_name}">
                                 {{each [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,
                                         18,19,20,21,22,23,24,25,26,27,28,29,30,31]}}
                                     <option value="${$value}">${$value}</option>
                                 {{/each}}
-                                </select>
+                              </select>
+                              of the month, every
                                 <input type="text" size="2"
                                     value="${field.monthly_day_of_month_interval_value}" 
                                     name="${field.monthly_day_of_month_interval_name}"/>
+                                    month(s)
                             </li>
                             <li>
                                 <input
                                     type="radio"
                                     value="${field.monthly_weekday_of_month_value}"
                                     name="${field.monthly_type_name}" />
-                                <span>${i18n.monthly_weekday_of_month}</span>
-                                <!-- TODO: could it be multiselect? -->
+                                    <!--<span>${i18n.monthly_weekday_of_month}</span>-->
+                                    <!-- TODO: could it be multiselect? -->
+                                    The
                                 <select name="${field.monthly_weekday_of_month_index_name}">
                                 {{each i18n.order_indexes}}
                                     <option value="${order_indexes[$index]}">${$value}</option>
@@ -111,11 +119,12 @@
                                         ${i18n.yearly_weekday_of_month_weekday}</option>
                                     <option value="WEEKEND_DAY">
                                         ${i18n.yearly_weekday_of_month_weekend_day}</option>
-                                </select>
+                                </select>, every
                                 </select>
                                 <input type="text" size="2"
                                     value="${field.monthly_weekday_of_month_interval_value}"
                                     name="${field.monthly_weekday_of_month_interval_name}" />
+                                    month(s)
                             </li>
                         </ul>
                     </div>
@@ -127,7 +136,8 @@
                                     type="radio"
                                     value="${field.yearly_day_of_month_value}"
                                     name="${field.yearly_type_name}" />
-                                <span>${i18n.yearly_day_of_month}</span>
+                                    <!--<span>${i18n.yearly_day_of_month}</span>-->
+                                    Every
                                 <select name="${field.yearly_day_of_month_bymonth_name}">
                                 {{each i18n.months}}
                                     <option value="${$index+1}">${$value}</option>
@@ -145,7 +155,8 @@
                                     type="radio"
                                     value="${field.yearly_weekday_of_month_value}"
                                     name="${field.yearly_type_name}" />
-                                <span>${i18n.yearly_weekday_of_month}</span>
+                                    <!--<span>${i18n.yearly_weekday_of_month}</span>-->
+                                    The
                                 <select name="${field.yearly_weekday_of_month_index_name}">
                                 {{each i18n.order_indexes}}
                                     <option value="${order_indexes[$index]}">${$value}</option>
@@ -159,7 +170,8 @@
                                         ${i18n.yearly_weekday_of_month_weekday}</option>
                                     <option value="${field.yearly_weekday_of_month_weekend_day_value}">
                                         ${i18n.yearly_weekday_of_month_weekend_day}</option>
-                                </select>
+                                      </select>
+                                      of
                                 <select name="${field.yearly_weekday_of_month_month_name}">
                                 {{each i18n.months}}
                                     <option value="${$index+1}">${$value}</option>
@@ -189,11 +201,13 @@
                                 value="${field.range_by_ocurrences}"
                                 name="${field.range_type_name}" />
                             <div>
-                                <span>${i18n.range_by_occurences_label}</span>
+                              <!--<span>${i18n.range_by_occurences_label}</span>-->
+                              End after
                                 <input
                                     type="text" size="3"
                                     value="${field.range_by_ocurrences_value}"
                                     name="${field.range_by_ocurrences_name}" />
+                              occurence(s)
                             </div>
                         </li>
                         <li>
