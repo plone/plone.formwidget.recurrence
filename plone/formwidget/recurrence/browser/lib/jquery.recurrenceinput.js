@@ -438,7 +438,7 @@
         if (result.length > 0) {
             return 'RRULE:' + result;
         }
-        return ''
+        return '';
     }
 
     /**
@@ -455,12 +455,20 @@
             $(this).parent().find('> input').click().change();
         }
         form.find('ul.'+conf.klass.freq+' label').click(clickableLabel);
-        display.find('label').click(clickableLabel);
+        
+        function clickOnLabel() {
+            var checkbox = $(this).parent().find('> input');
+            if (!checkbox.is(':checked')) {
+                checkbox.attr('checked', true);
+            }
+            form.overlay().load();
+        }
+        display.find('label').click(clickOnLabel);
 
 
         overlay_conf = $.extend(conf.form_overlay, {                            // on close of overlay we make sure display checbox is unchecked
             onClose: function(e) {
-                display.find('> input').attr('checked', false); 
+//                display.find('> input').attr('checked', false);
             }
         });
         form.hide().overlay(overlay_conf);                                      // create ovelay from forcreate ovelay from form
@@ -561,14 +569,22 @@
             if (textarea[0].type == 'textarea') {
                 var recurrenceinput = new RecurrenceInput(conf);                // our recurrenceinput widget instance
                 recurrenceinput.form.appendTo('body');                          // hide textarea and place display_widget after textarea
-                recurrenceinput.load(textarea.val());                           // load data provided by textarea
+                recurrenceinput.textarea = textarea;
+                var data = textarea.val();
+                recurrenceinput.load(data);                           // load data provided by textarea
+                if (data.length > 0) {
+                    recurrenceinput.display.find('> input').attr('checked', true);
+                }
                 //recurrenceinput.form.appendTo('body');                          // FIXME: is this actually needed? ... place widget at the bottom (its overlay anyway)
                 textarea.closest('form').submit(function(e) {                   //
-//                    e.preventDefault();
-                    data = recurrenceinput.save();
-//                    alert(data);
-                    $('.ArchetypesRecurrenceWidget textarea').val(data);
-//                    textarea.val(data);
+                    var checkbox = recurrenceinput.display.find('> input');
+                    if (!checkbox.is(':checked')) {
+                        recurrenceinput.textarea.val('');
+                    }else{
+//                        e.preventDefault();
+                        data = recurrenceinput.save();
+                        recurrenceinput.textarea.val(data);
+                    }
                 });
                 var widget = textarea.closest('.ArchetypesRecurrenceWidget');
                 widget.hide();
