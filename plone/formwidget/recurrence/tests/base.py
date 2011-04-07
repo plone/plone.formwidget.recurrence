@@ -3,13 +3,6 @@ from Products.Five import fiveconfigure
 from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import PloneSite
 
-# XXX move this to PloneTestCase
-# index has to be installed first and not deferred via @onsetup
-def setupIndex():
-    import Products.DateRecurringIndex
-    ptc.installProduct('DateRecurringIndex')
-setupIndex()
-
 # setup test content types
 from Products.GenericSetup import EXTENSION, profile_registry
 
