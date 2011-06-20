@@ -1,7 +1,7 @@
 from plone.formwidget.recurrence.tests.base import TestCase
 from Products.Archetypes.tests.utils import makeContent
 
-
+TESTVALUE = "a testvalue"
 class ATWidgetTestCase(TestCase):
 
     def afterSetUp(self):
@@ -20,7 +20,11 @@ class ATWidgetTestCase(TestCase):
 
     def test_widget_process(self):
         self.assertFalse(self.widget.process_form(self.obj, self.field, {}))
-
+        self.assertEqual(
+               self.widget.process_form(
+                   self.obj, self.field, {'rec': TESTVALUE})
+               (TESTVALUE, {})
+        )
 
 def test_suite():
     from unittest import defaultTestLoader
