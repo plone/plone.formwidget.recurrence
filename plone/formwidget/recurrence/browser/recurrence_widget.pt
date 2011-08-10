@@ -7,26 +7,33 @@
   <body>
 
     <!-- Lines Widgets -->
+    <metal:view_macro define-macro="view"
+      tal:define="visState python:widget.isVisible(here, mode);
+        getMethod python:(widget.populate and accessor) or None;
+        value python:getMethod and getMethod();">
+        <span tal:content="python:widget.get_formatted_value(value)">Value</span>
+    </metal:view_macro>
 
     <div metal:define-macro="edit">
-      <div tal:replace="structure context/@@recurrence_tmpl" />
-      <script type="text/javascript">
-        jQuery(document).ready(function() {
-            jQuery('.ArchetypesRecurrenceWidget textarea').recurrenceinput();
-        });
-      </script>
-      <div metal:use-macro="field_macro | context/widgets/field/macros/edit">
-          <div metal:fill-slot="widget_body">
-              <textarea tal:attributes="name string:$fieldName;
-                                        id fieldName;
-                                        cols widget/cols;
-                                        rows widget/rows;"
-                        tal:content="python:value or ''"></textarea>
-          </div>
-      </div>
+      <metal:use use-macro="field_macro | context/widgets/field/macros/edit">
+
+        <div metal:fill-slot="widget_body">
+    
+          <div tal:replace="structure context/@@recurrence_tmpl" />
+          <script type="text/javascript">
+            jQuery(document).ready(function() {
+                jQuery('.ArchetypesRecurrenceWidget textarea').recurrenceinput();
+            });
+          </script>
+          <textarea tal:attributes="name string:$fieldName;
+                                    id fieldName;
+                                    cols widget/cols;
+                                    rows widget/rows;"
+                    tal:content="python:value or ''"></textarea>
+        </div>
+      </metal:use>
     </div>
 
   </body>
 
 </html>
-

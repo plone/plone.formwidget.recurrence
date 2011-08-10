@@ -1,14 +1,16 @@
     <script id="jquery-recurrenceinput-display-tmpl" type="text/x-jquery-tmpl">
         <div class="${klass.display}">
-            <input type="checkbox" name="${field.display_name}" />
+          <p>
             {{if field.display_text}}
-            <label>${i18n.display_label_activate}</label>
+            <em>${i18n.display_label_activate}</em></br>
             {{else}}
             <span class="${klass.display_text}">
                 ${field.display_text}
             </span>
-            <label>${i18n.display_label_unactivate}</label>
+            <em>${i18n.display_label_unactivate}</em></br>
             {{/if}}
+            <input type="button" name="${field.display_name}" value="Edit..." />
+          </p>
         </div>
     </script>
 
@@ -232,7 +234,7 @@
 
                 <div class="${klass.clear}"><!-- --></div>
 
-<!--                <div class="${klass.buttons}">
+                <div class="${klass.buttons}">
                     <input
                         type="button"
                         name="${field.cancel_button_name}"
@@ -243,7 +245,7 @@
                         name="${field.save_button_name}"
                         class="${klass.save_button}"
                         value="${i18n.save_button_label}" />
-                      </div>-->
+                </div>
             </form>
         </div>
     </script>

@@ -16,8 +16,8 @@
     var default_conf = {
         // STRING TO BE TRANSLATED
         i18n: {
-            display_label_unactivate: 'Repeat...',
-            display_label_activate: 'Repeat: ',
+            display_label_unactivate: 'This event does not repeat.',
+            display_label_activate: 'This event repeats ',
 
             freq_daily: 'Daily',
             freq_weekly: 'Weekly',
@@ -126,8 +126,8 @@
             range_by_end_date_month_value: today.getMonth(),
             range_by_end_date_day_value: today.getDate(),
             
-            cancel_button_name: 'Cancel',
-            save_button_name: 'Save'
+            cancel_button_name: basename + '_cancel',
+            save_button_name: basename + '_save'
         },
 
         // TEMPATE NAMES
@@ -326,7 +326,7 @@
         }
 
         if (!able_to_parse) {
-            // TODO: Probably want to throw and exception here
+            // TODO: Probably want to throw an exception here
             //alert('Cannot parse! ' + data);
         }
     }
@@ -456,28 +456,16 @@
         }
         form.find('ul.'+conf.klass.freq+' label').click(clickableLabel);
         
-        function clickOnLabel() {
-            var checkbox = $(this).parent().find('> input');
-            if (!checkbox.is(':checked')) {
-                checkbox.attr('checked', true);
-            }
+        display.find('em').click(function() {
             form.overlay().load();
-        }
-        display.find('label').click(clickOnLabel);
-
-
-        overlay_conf = $.extend(conf.form_overlay, {                            // on close of overlay we make sure display checbox is unchecked
-            onClose: function(e) {
-//                display.find('> input').attr('checked', false);
-            }
         });
-        form.hide().overlay(overlay_conf);                                      // create ovelay from forcreate ovelay from form
 
+        overlay_conf = $.extend(conf.form_overlay, {});
+        form.hide().overlay(overlay_conf)
+        
         display.find('input[name='+conf.field.display_name+']')                 // show form overlay on change of display radio box 
-            .change(function(e) {
-                if ($(this).is(':checked')) {
-                    form.overlay().load();
-                }
+            .click(function() {
+            form.overlay().load();
         });
 
 
@@ -512,21 +500,20 @@
 //                }
             }));
 
+        form.find('input[name='+conf.field.save_button_name+']')
+            .click(function(e) {
+                e.preventDefault();
+                save();
+        });
 
+        
         /**
          * Saving data selected in form and returning RFC2554 string
          */
         function save() {
             form.overlay().close();                                             // close overlay
             var RFC2554 = saverule_to_rfc2445(form, conf);
-
-//            alert('saverule_to_rfc2445 should be moved here!');                 // FIXME:
-
-                                                                                // TODO: only do below when save button is pressed
-//            display.find('input[name='+field.display_name+']')                  // mark radio butto as 
-//                   .attr('checked', false);
-
-            return RFC2554;
+            form.textarea.val(RFC2554);
         }
 
 
@@ -570,24 +557,11 @@
                 var recurrenceinput = new RecurrenceInput(conf);                // our recurrenceinput widget instance
                 recurrenceinput.form.appendTo('body');                          // hide textarea and place display_widget after textarea
                 recurrenceinput.textarea = textarea;
+                recurrenceinput.form.textarea = textarea;
                 var data = textarea.val();
                 recurrenceinput.load(data);                           // load data provided by textarea
-                if (data.length > 0) {
-                    recurrenceinput.display.find('> input').attr('checked', true);
-                }
-                //recurrenceinput.form.appendTo('body');                          // FIXME: is this actually needed? ... place widget at the bottom (its overlay anyway)
-                textarea.closest('form').submit(function(e) {                   //
-                    var checkbox = recurrenceinput.display.find('> input');
-                    if (!checkbox.is(':checked')) {
-                        recurrenceinput.textarea.val('');
-                    }else{
-//                        e.preventDefault();
-                        data = recurrenceinput.save();
-                        recurrenceinput.textarea.val(data);
-                    }
-                });
                 var widget = textarea.closest('.ArchetypesRecurrenceWidget');
-                widget.hide();
+                textarea.hide();
                 widget.after(recurrenceinput.display);                 // hide textarea and place display_widget after textarea
             }
         });
