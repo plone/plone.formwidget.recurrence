@@ -42,12 +42,6 @@
         // Hide it
         form.hide().overlay(overlay_conf);
 
-        // Load the form.
-        loadData(textarea.val());
-        if (textarea.val()) {
-            recurrenceOn();
-        }
-
         /* 
           Do all the GUI stuff:
         */
@@ -69,7 +63,6 @@
                 form.overlay().load();
         });
 
-        
         // The recurrence type dropdown should show certain fields depending
         // on selection:
         
@@ -160,6 +153,14 @@
 
         form.find('.'+conf.klass.save_button).click(save);
         form.find('.'+conf.klass.cancel_button).click(cancel);
+        
+        // Load the form.
+        loadData(textarea.val());
+        if (textarea.val()) {
+            recurrenceOn();
+        }
+        
+        
     }
 
 
@@ -310,14 +311,14 @@ function widget_save_to_rfc2445(form, conf) {
                 var range_type = $('input[name='+conf.field.range_type_name+']:checked', form).val();
                 switch (range_type) {
                     case 'BY_OCURRENCES':
-                        occurrences = $('input[name='+conf.field.range_by_ocurrences_value_name+']').val();
+                        occurrences = form.find('input[name='+conf.field.range_by_ocurrences_value_name+']').val();
                         result += ';COUNT=' + occurrences;
                         human += ', ' + conf.i18n.range_by_occurences_label_1;
                         human += ' ' + occurrences;
                         human += ' ' + conf.i18n.range_by_occurences_label_2;
                         break;
                     case 'BY_END_DATE':
-                        field = $('input[name='+conf.field.range_by_end_date_calendar_name+']')
+                        field = form.find('input[name='+conf.field.range_by_end_date_calendar_name+']')
                         date = field.data('dateinput').getValue('yyyymmdd');
                         result += ';UNTIL='+date+'T000000';
                         human += ', ' + conf.i18n.range_by_end_date_label 
