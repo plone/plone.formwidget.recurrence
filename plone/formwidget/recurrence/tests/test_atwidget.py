@@ -13,7 +13,8 @@ class ATWidgetTestCase(TestCase):
     def test_widget_properties(self):
         self.assertEqual(self.widget.helper_js,
                 ('++resource++jquery.tmpl.js',
-                 '++resource++jquery.recurrenceinput.js', ))
+                 '++resource++jquery.recurrenceinput.config.js',
+                 '++resource++jquery.recurrenceinput.js',))
         self.assertEqual(self.widget.helper_css,
                 ('++resource++jquery.recurrenceinput.css',))
         self.assertEqual(self.widget.macro_edit, 'recurrence_widget')

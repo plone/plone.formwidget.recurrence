@@ -19,17 +19,19 @@
 
         <div metal:fill-slot="widget_body">
     
-          <div tal:replace="structure context/@@recurrence_tmpl" />
-          <script type="text/javascript">
-            jQuery(document).ready(function() {
-                jQuery('.ArchetypesRecurrenceWidget textarea').recurrenceinput();
-            });
-          </script>
+          <script id="jquery-recurrenceinput-display-tmpl" type="text/x-jquery-tmpl"
+            tal:attributes="src string:${context/@@plone_portal_state/portal_url}/++resource++jquery.recurrenceinput.display.js" ></script>
+          <script id="jquery-recurrenceinput-form-tmpl" type="text/x-jquery-tmpl"
+            tal:attributes="src string:${context/@@plone_portal_state/portal_url}/++resource++jquery.recurrenceinput.form.js" ></script>
           <textarea tal:attributes="name string:$fieldName;
                                     id fieldName;
                                     cols widget/cols;
                                     rows widget/rows;"
                     tal:content="python:value or ''"></textarea>
+          <!-- Make the text area a recurrenceinput -->
+          <script type="text/javascript">
+            jQuery('.ArchetypesRecurrenceWidget textarea').recurrenceinput();
+          </script>
         </div>
       </metal:use>
     </div>
