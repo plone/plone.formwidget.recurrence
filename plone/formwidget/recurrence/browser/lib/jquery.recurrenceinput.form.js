@@ -213,11 +213,11 @@
             <div class="${klass.buttons}">
                 <input
                     type="submit"
-                    class="${klass.cancel_button}"
+                    class="${klass.cancel_button} allowMultiSubmit"
                     value="${i18n.cancel_button_label}" />
                 <input
                     type="submit"
-                    class="${klass.save_button}"
+                    class="${klass.save_button} allowMultiSubmit"
                     value="${i18n.save_button_label}" />
             </div>
         </form>
