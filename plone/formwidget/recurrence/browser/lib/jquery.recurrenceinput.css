@@ -17,3 +17,16 @@ div.recurrenceinput_form label {
 div.recurrenceinput_form .date {
     font-size: 80%;
 }
+
+div.recurrenceinput_form input.recurrenceinput_cancel_button {
+    background-image: url(pb_close.png);
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    position: absolute;
+    left: -14px;
+    top: -14px;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+}

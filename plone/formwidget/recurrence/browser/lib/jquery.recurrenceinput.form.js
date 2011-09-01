@@ -3,6 +3,7 @@
         <form>
 
             <div id="${field.rtemplate_name}">
+                <label for="${field.rtemplate_name}">${i18n.reccurrence_type}</span></label>
                 <select name="${field.rtemplate_name}">
                     {{each rtemplate}}
                         <option value="${$index}">${$value.title}</value>
