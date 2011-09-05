@@ -1,10 +1,11 @@
 from plone.formwidget.recurrence.tests.base import TestCase
 from Products.Archetypes.tests.utils import makeContent
 
-TESTVALUE = "a testvalue"
+TESTVALUE = "FREQ=MONTHLY;BYDAY=+3TU;COUNT=5"
 class ATWidgetTestCase(TestCase):
 
     def afterSetUp(self):
+        self.portal.portal_quickinstaller.installProduct('plone.formwidget.recurrence')
         self.obj = makeContent(
                 self.folder, portal_type='RecurrenceType', id='testobj')
         self.field = self.obj.getField('rec')
@@ -23,7 +24,7 @@ class ATWidgetTestCase(TestCase):
         self.assertFalse(self.widget.process_form(self.obj, self.field, {}))
         self.assertEqual(
                self.widget.process_form(
-                   self.obj, self.field, {'rec': TESTVALUE})
+                   self.obj, self.field, {'rec': TESTVALUE}),
                (TESTVALUE, {})
         )
 

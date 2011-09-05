@@ -6,24 +6,20 @@ from Products.PloneTestCase.layer import PloneSite
 # setup test content types
 from Products.GenericSetup import EXTENSION, profile_registry
 
-
-profile_registry.registerProfile('Recurrence_sampletypes',
-    'Recurrence Sample Content Types',
-    'Extension profile including Archetypes sample content types',
-    'profiles/sample_types',
-    'plone.formwidget.recurrence',
-    EXTENSION)
-ptc.setupPloneSite(extension_profiles=[
-    'plone.formwidget.recurrence:Recurrence_sampletypes'])
-
-
 import plone.formwidget.recurrence
 
+ptc.setupPloneSite()
 
 class TestCase(ptc.PloneTestCase):
     class layer(PloneSite):
         @classmethod
         def setUp(cls):
+            profile_registry.registerProfile('sample_types',
+                'Recurrence Sample Content Types',
+                'Extension profile including Archetypes sample content types',
+                'profiles/sample_types',
+                'plone.formwidget.recurrence',
+                EXTENSION)
             fiveconfigure.debug_mode = True
             ptc.installPackage('plone.formwidget.recurrence', quiet=0)
             zcml.load_config('configure.zcml',
