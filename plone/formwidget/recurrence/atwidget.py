@@ -1,7 +1,11 @@
+from dateutil import rrule
+from zope.interface import implements
 from App.class_init import InitializeClass
 
 from Products.Archetypes.atapi import LinesWidget
 from Products.Archetypes.Registry import registerWidget
+from Products.validation.interfaces.IValidator import IValidator
+from Products.validation import validation
 
 
 class RecurrenceWidget(LinesWidget):
@@ -21,3 +25,22 @@ registerWidget(RecurrenceWidget,
                description=('Renders a recurrence widget to enter all the info '
                             'for recurring dates.'),
                used_for=('plone.app.event.recurrence.RecurrenceField',))
+
+
+class RecurrenceValidator(object):
+    # TODO: tests
+    implements(IValidator)
+
+    def __init__(self, name):
+        self.name = name
+
+    def __call__(self, value, *args, **kwargs):
+        try:
+            rrule.rrulestr(value) # TODO: rm dep. on rrule. check with regex
+            'FREQ' in value # TODO: check if freq before other recurrence parms
+        except ValueError:
+            return "Validation failed: Please enter valid recurrence data."
+
+        return True
+
+validation.register(RecurrenceValidator('isRecurrence'))
