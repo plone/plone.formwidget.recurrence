@@ -38,9 +38,8 @@ class RecurrenceValidator(object):
         try:
             rrule.rrulestr(value) # TODO: rm dep. on rrule. check with regex
             'FREQ' in value # TODO: check if freq before other recurrence parms
-        except ValueError:
+        except (ValueError, TypeError):
             return "Validation failed: Please enter valid recurrence data."
 
         return True
-
 validation.register(RecurrenceValidator('isRecurrence'))
