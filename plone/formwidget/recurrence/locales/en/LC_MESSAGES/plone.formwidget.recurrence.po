@@ -1,0 +1,126 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: plone.formwidget.recurrence\n"
+"POT-Creation-Date: 2011-02-24 16:56+0000\n"
+"PO-Revision-Date: 2006-01-29 23:00+0000\n"
+"Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: plone.formwidget.recurrence\n"
+
+msgid "display_label_unactivate"
+msgstr "Does not repeat"
+
+msgid "display_label_activate"
+msgstr "Repeats "
+
+msgid "reccurrence_type"
+msgstr "Recurrence type:"
+
+msgid "daily_interval_1"
+msgstr "Every"
+
+msgid "daily_interval_2"
+msgstr "days"
+
+msgid "weekly_interval_1"
+msgstr "Every"
+
+msgid "weekly_interval_2"
+msgstr "week(s)"
+
+msgid "weekly_weekdays"
+msgstr "On:"
+
+msgid "monthly_day_of_month_1"
+msgstr "Day"
+
+msgid "monthly_day_of_month_2"
+msgstr "of the month"
+
+msgid "monthly_day_of_month_3"
+msgstr ", every"
+
+msgid "monthly_day_of_month_4"
+msgstr "month(s)"
+
+msgid "monthly_weekday_of_month_1"
+msgstr "The"
+
+msgid "monthly_weekday_of_month_2"
+msgstr ""
+
+msgid "monthly_weekday_of_month_3"
+msgstr ", every"
+
+msgid "monthly_weekday_of_month_4"
+msgstr "month(s)"
+
+msgid "yearly_day_of_month_1"
+msgstr "Every"
+
+msgid "yearly_day_of_month_2"
+msgstr ""
+
+msgid "yearly_day_of_month_3"
+msgstr ""
+
+msgid "yearly_weekday_of_month_1"
+msgstr "The"
+
+msgid "yearly_weekday_of_month_2"
+msgstr ""
+
+msgid "yearly_weekday_of_month_3"
+msgstr "of"
+
+msgid "yearly_weekday_of_month_4"
+msgstr ""
+
+msgid "range_label"
+msgstr "End recurrance:"
+
+msgid "range_no_end_label"
+msgstr "No end"
+
+msgid "range_by_occurences_label_1"
+msgstr "Ending after"
+
+msgid "range_by_occurences_label_2"
+msgstr "occurence(s)"
+
+msgid "range_by_end_date_label"
+msgstr "Until "
+
+msgid "cancel_button_label"
+msgstr "Cancel"
+
+msgid "save_button_label"
+msgstr "Save"
+
+msgid "order_indexes_first"
+msgstr "First"
+
+msgid "order_indexes_second"
+msgstr "Second"
+
+msgid "order_indexes_third"
+msgstr "Third"
+
+msgid "order_indexes_fourth"
+msgstr "Fourth"
+
+msgid "order_indexes_last"
+msgstr "Last"
+
+msgid "no_template_match"
+msgstr ""
+"Warning: This event uses recurrence features not "
+"supported by this widget. Saving the recurrence "
+"may change the recurrence in unintended ways."

@@ -57,6 +57,7 @@ var default_conf = {
             'Friday', 'Saturday', 'Sunday'],
             
         long_date_format: 'mmmm dd, yyyy',
+        short_date_format: 'mm/dd/yyyy',
             
         no_template_match: 'Warning: This event uses recurrence features not ' +
                            'supported by this widget. Saving the recurrence ' +

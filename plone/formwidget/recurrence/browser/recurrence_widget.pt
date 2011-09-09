@@ -2,7 +2,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="plone">
+      i18n:domain="plone.formwidget.recurrence">
   <head><title></title></head>
   <body>
 
@@ -10,7 +10,8 @@
     <metal:view_macro define-macro="view"
       tal:define="visState python:widget.isVisible(here, mode);
         getMethod python:(widget.populate and accessor) or None;
-        value python:getMethod and getMethod();">
+        value python:getMethod and getMethod();
+        widget_view widget/@@recurrence_widget;">
         <span tal:content="python:widget.get_formatted_value(value)">Value</span>
     </metal:view_macro>
 
@@ -29,8 +30,8 @@
                                     rows widget/rows;"
                     tal:content="python:value or ''"></textarea>
           <!-- Make the text area a recurrenceinput -->
-          <script type="text/javascript">
-            jQuery('.ArchetypesRecurrenceWidget textarea').recurrenceinput();
+          <script type="text/javascript"
+                  tal:content="string: jQuery('.ArchetypesRecurrenceWidget textarea').recurrenceinput(${widget/@@recurrence_widget/render_parameters});">
           </script>
         </div>
       </metal:use>

@@ -3,6 +3,10 @@ from Products.Archetypes.atapi import process_types, listTypes
 from Products.CMFCore.permissions import AddPortalContent
 from plone.formwidget.recurrence.config import PROJECTNAME
 
+from zope.i18nmessageid import MessageFactory
+
+pfr_message = MessageFactory('plone.formwidget.recurrence')
+pl_message = MessageFactory('plonelocales')
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""
