@@ -26,7 +26,7 @@ setup(name='plone.formwidget.recurrence',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
-          'dateutil', # might get unused. then remove me.
+          'python-dateutil', # might get unused. then remove me.
           'Products.Archetypes',
           'Products.CMFCore',
           'Zope2',
