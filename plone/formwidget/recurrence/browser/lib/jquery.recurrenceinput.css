@@ -30,3 +30,7 @@ div.recurrenceinput_form input.recurrenceinput_cancel_button {
     height: 30px;
     width: 30px;
 }
+
+div#calroot {
+    z-index: 10000;
+}

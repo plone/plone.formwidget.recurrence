@@ -10,6 +10,7 @@ var basename = 'recurrenceinput';
 var default_conf = {
     // STRING TO BE TRANSLATED
     i18n: {
+    
         display_label_unactivate: 'Does not repeat',
         display_label_activate: 'Repeats ',
         
