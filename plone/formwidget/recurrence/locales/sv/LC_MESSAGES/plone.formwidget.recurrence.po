@@ -15,13 +15,16 @@ msgstr ""
 "Domain: plone.formwidget.recurrence\n"
 
 msgid "display_label_unactivate"
-msgstr "Återkommande inte"
+msgstr "Återkommer inte"
 
 msgid "display_label_activate"
 msgstr "Återkommer "
 
-msgid "reccurrence_type"
-msgstr "Typ av återkomst"
+msgid "edit"
+msgstr "Ändra..."
+
+msgid "recurrence_type"
+msgstr "Typ av återkomst:"
 
 msgid "daily_interval_1"
 msgstr "Varje"
@@ -89,14 +92,14 @@ msgstr "Återkomsten stoppar:"
 msgid "range_no_end_label"
 msgstr "Inte"
 
-msgid "range_by_occurences_label_1"
+msgid "range_by_occurrences_label_1"
 msgstr "Stoppar efter"
 
-msgid "range_by_occurences_label_2"
+msgid "range_by_occurrences_label_2"
 msgstr "återkomster"
 
 msgid "range_by_end_date_label"
-msgstr "Till och med "
+msgstr "Till och med"
 
 msgid "cancel_button_label"
 msgstr "Avbryt"
@@ -121,6 +124,24 @@ msgstr "Sista"
 
 msgid "no_template_match"
 msgstr ""
-"Varning: Denna händelse använder funktionalitet i"
+"Varning: Denna händelse använder funktionalitet "
 "som denna dialog inte stödjer. Om du sparar kan "
-"detta komma att ändra när händelsen återkommer."
+"detta ändra när händelsen återkommer."
+
+msgid "template_daily"
+msgstr "Dagligen"
+
+msgid "template_mondayfriday"
+msgstr "Måndagar och fredagar"
+
+msgid "template_weekdays"
+msgstr "Veckodagar"
+
+msgid "template_weekly"
+msgstr "Varje vecka"
+
+msgid "template_monthly"
+msgstr "Varje månad"
+
+msgid "template_yearly"
+msgstr "Varje år"

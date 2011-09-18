@@ -15,55 +15,58 @@ msgstr ""
 "Domain: plone.formwidget.recurrence\n"
 
 msgid "display_label_unactivate"
-msgstr "Does not repeat"
+msgstr ""
 
 msgid "display_label_activate"
-msgstr "Repeats "
+msgstr ""
 
-msgid "reccurrence_type"
-msgstr "Recurrence type:"
+msgid "edit"
+msgstr ""
+
+msgid "recurrence_type"
+msgstr ""
 
 msgid "daily_interval_1"
-msgstr "Every"
+msgstr ""
 
 msgid "daily_interval_2"
-msgstr "days"
+msgstr ""
 
 msgid "weekly_interval_1"
-msgstr "Every"
+msgstr ""
 
 msgid "weekly_interval_2"
-msgstr "week(s)"
+msgstr ""
 
 msgid "weekly_weekdays"
-msgstr "On:"
+msgstr ""
 
 msgid "monthly_day_of_month_1"
-msgstr "Day"
+msgstr ""
 
 msgid "monthly_day_of_month_2"
-msgstr "of the month"
+msgstr ""
 
 msgid "monthly_day_of_month_3"
-msgstr ", every"
+msgstr ""
 
 msgid "monthly_day_of_month_4"
-msgstr "month(s)"
+msgstr ""
 
 msgid "monthly_weekday_of_month_1"
-msgstr "The"
+msgstr ""
 
 msgid "monthly_weekday_of_month_2"
 msgstr ""
 
 msgid "monthly_weekday_of_month_3"
-msgstr ", every"
+msgstr ""
 
 msgid "monthly_weekday_of_month_4"
-msgstr "month(s)"
+msgstr ""
 
 msgid "yearly_day_of_month_1"
-msgstr "Every"
+msgstr ""
 
 msgid "yearly_day_of_month_2"
 msgstr ""
@@ -72,55 +75,70 @@ msgid "yearly_day_of_month_3"
 msgstr ""
 
 msgid "yearly_weekday_of_month_1"
-msgstr "The"
+msgstr ""
 
 msgid "yearly_weekday_of_month_2"
 msgstr ""
 
 msgid "yearly_weekday_of_month_3"
-msgstr "of"
+msgstr ""
 
 msgid "yearly_weekday_of_month_4"
 msgstr ""
 
 msgid "range_label"
-msgstr "End recurrance:"
+msgstr ""
 
 msgid "range_no_end_label"
-msgstr "No end"
+msgstr ""
 
-msgid "range_by_occurences_label_1"
-msgstr "Ending after"
+msgid "range_by_occurrences_label_1"
+msgstr ""
 
-msgid "range_by_occurences_label_2"
-msgstr "occurence(s)"
+msgid "range_by_occurrences_label_2"
+msgstr ""
 
 msgid "range_by_end_date_label"
-msgstr "Until "
+msgstr ""
 
 msgid "cancel_button_label"
-msgstr "Cancel"
+msgstr ""
 
 msgid "save_button_label"
-msgstr "Save"
+msgstr ""
 
 msgid "order_indexes_first"
-msgstr "First"
+msgstr ""
 
 msgid "order_indexes_second"
-msgstr "Second"
+msgstr ""
 
 msgid "order_indexes_third"
-msgstr "Third"
+msgstr ""
 
 msgid "order_indexes_fourth"
-msgstr "Fourth"
+msgstr ""
 
 msgid "order_indexes_last"
-msgstr "Last"
+msgstr ""
 
 msgid "no_template_match"
 msgstr ""
-"Warning: This event uses recurrence features not "
-"supported by this widget. Saving the recurrence "
-"may change the recurrence in unintended ways."
+
+msgid "template_daily"
+msgstr ""
+
+msgid "template_mondayfriday"
+msgstr ""
+
+msgid "template_weekdays"
+msgstr ""
+
+msgid "template_weekly"
+msgstr ""
+
+msgid "template_monthly"
+msgstr ""
+
+msgid "template_yearly"
+msgstr ""

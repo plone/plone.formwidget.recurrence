@@ -28,11 +28,11 @@ of the file:
             <div class="${klass.buttons}">
                 <input
                     type="submit"
-                    class="${klass.cancel_button}"
+                    class="recurrenceinput_save_button"
                     value="${i18n.cancel_button_label}" />
                 <input
                     type="submit"
-                    class="${klass.save_button}"
+                    class="recurrenceinput_save_button"
                     value="${i18n.save_button_label}" />
             </div>
 
@@ -44,11 +44,11 @@ to the buttons class, so it looks like this:
             <div class="${klass.buttons}">
                 <input
                     type="submit"
-                    class="${klass.cancel_button} allowMultiSubmit"
+                    class="recurrenceinput_save_button allowMultiSubmit"
                     value="${i18n.cancel_button_label}" />
                 <input
                     type="submit"
-                    class="${klass.save_button} allowMultiSubmit"
+                    class="$recurrenceinput_save_button allowMultiSubmit"
                     value="${i18n.save_button_label}" />
             </div>
 

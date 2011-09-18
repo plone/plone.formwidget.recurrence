@@ -7,10 +7,11 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from plone.formwidget.recurrence import pfr_message, pl_message
 
-PARAMETERS = u"""
-{{i18n: {{display_label_unactivate: '{display_label_unactivate}',
+PARAMETERS = u"""{{
+display_label_unactivate: '{display_label_unactivate}',
 display_label_activate: '{display_label_activate}',
-reccurrence_type: '{reccurrence_type}',
+edit: '{edit}',
+recurrence_type: '{recurrence_type}',
 daily_interval_1: '{daily_interval_1}',
 daily_interval_2: '{daily_interval_2}',
 weekly_interval_1: '{weekly_interval_1}',
@@ -33,8 +34,8 @@ yearly_weekday_of_month_3: '{yearly_weekday_of_month_3}',
 yearly_weekday_of_month_4: '{yearly_weekday_of_month_4}',
 range_label: '{range_label}',
 range_no_end_label: '{range_no_end_label}',
-range_by_occurences_label_1: '{range_by_occurences_label_1}',
-range_by_occurences_label_2: '{range_by_occurences_label_2}',
+range_by_occurrences_label_1: '{range_by_occurrences_label_1}',
+range_by_occurrences_label_2: '{range_by_occurrences_label_2}',
 range_by_end_date_label: '{range_by_end_date_label}',
 cancel_button_label: '{cancel_button_label}',
 save_button_label: '{save_button_label}',
@@ -50,9 +51,17 @@ weekdays: [
     '{day_friday}', '{day_saturday}', '{day_sunday}'],
 long_date_format: '{long_date_format}',
 short_date_format: '{short_date_format}',
-no_template_match: '{no_template_match}'
-}} }}"""
-
+no_template_match: '{no_template_match}',
+rtemplate: {{
+    daily: '{template_daily}',
+    mondayfriday: '{template_mondayfriday}',
+    weekdays: '{template_weekdays}',
+    weekly: '{template_weekly}',
+    monthly: '{template_monthly}',
+    yearly: '{template_yearly}',
+    }}
+}}"""
+            
 class RecurrenceWidget(BrowserView):
     """ """
     template = ViewPageTemplateFile('recurrence_widget.pt')
@@ -61,13 +70,14 @@ class RecurrenceWidget(BrowserView):
     def macros(self):
         return self.template.macros
     
-    def render_parameters(self):
+    def i18n_setup(self):
         t = lambda x: self.context.translate(pfr_message(x))
         
         return PARAMETERS.format(
             display_label_unactivate= t(u'display_label_unactivate'),
             display_label_activate= t(u'display_label_activate'),
-            reccurrence_type = t(u'reccurrence_type'),
+            edit= t(u'edit'),
+            recurrence_type = t(u'recurrence_type'),
             daily_interval_1 = t(u'daily_interval_1'),
             daily_interval_2 = t(u'daily_interval_2'),
             weekly_interval_1 = t(u'weekly_interval_1'),
@@ -90,8 +100,8 @@ class RecurrenceWidget(BrowserView):
             yearly_weekday_of_month_4 = t(u'yearly_weekday_of_month_4'),
             range_label = t(u'range_label'),
             range_no_end_label = t(u'range_no_end_label'),
-            range_by_occurences_label_1 = t(u'range_by_occurences_label_1'),
-            range_by_occurences_label_2 = t(u'range_by_occurences_label_2'),
+            range_by_occurrences_label_1 = t(u'range_by_occurrences_label_1'),
+            range_by_occurrences_label_2 = t(u'range_by_occurrences_label_2'),
             range_by_end_date_label = t(u'range_by_end_date_label'),
             cancel_button_label = t(u'cancel_button_label'),
             save_button_label = t(u'save_button_label'),
@@ -122,6 +132,12 @@ class RecurrenceWidget(BrowserView):
             long_date_format = self.context.translate(pl_message(u'date_format_long')),
             short_date_format = self.context.translate(pl_message(u'date_format_short')),
             no_template_match = t(u'no_template_match'),
+            template_daily = t(u'template_daily'),
+            template_mondayfriday = t(u'template_mondayfriday'),
+            template_weekdays = t(u'template_weekdays'),
+            template_weekly = t(u'template_weekly'),
+            template_monthly = t(u'template_monthly'),
+            template_yearly = t(u'template_yearly'),
         )
 
 

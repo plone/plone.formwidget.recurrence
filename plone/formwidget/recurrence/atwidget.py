@@ -13,7 +13,6 @@ class RecurrenceWidget(LinesWidget):
     _properties.update({
         'macro_edit': "recurrence_widget",
         'helper_js': ('++resource++jquery.tmpl.js',
-                      '++resource++jquery.recurrenceinput.config.js',
                       '++resource++jquery.recurrenceinput.js'),
         'helper_css': ('++resource++jquery.recurrenceinput.css',),
         })

@@ -20,7 +20,10 @@ msgstr "Does not repeat"
 msgid "display_label_activate"
 msgstr "Repeats "
 
-msgid "reccurrence_type"
+msgid "edit"
+msgstr "Edit..."
+
+msgid "recurrence_type"
 msgstr "Recurrence type:"
 
 msgid "daily_interval_1"
@@ -89,11 +92,11 @@ msgstr "End recurrance:"
 msgid "range_no_end_label"
 msgstr "No end"
 
-msgid "range_by_occurences_label_1"
+msgid "range_by_occurrences_label_1"
 msgstr "Ending after"
 
-msgid "range_by_occurences_label_2"
-msgstr "occurence(s)"
+msgid "range_by_occurrences_label_2"
+msgstr "occurrence(s)"
 
 msgid "range_by_end_date_label"
 msgstr "Until "
@@ -124,3 +127,21 @@ msgstr ""
 "Warning: This event uses recurrence features not "
 "supported by this widget. Saving the recurrence "
 "may change the recurrence in unintended ways."
+
+msgid "template_daily"
+msgstr "Daily"
+
+msgid "template_mondayfriday"
+msgstr "Måndays and Fridays"
+
+msgid "template_weekdays"
+msgstr "Weekdays"
+
+msgid "template_weekly"
+msgstr "Weekly"
+
+msgid "template_monthly"
+msgstr "Monthly"
+
+msgid "template_yearly"
+msgstr "Yearly"

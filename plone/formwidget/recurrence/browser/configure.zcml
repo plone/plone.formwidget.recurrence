@@ -17,12 +17,6 @@
         />
 
     <browser:resource
-        name="jquery.recurrenceinput.config.js"
-        file="lib/jquery.recurrenceinput.config.js"
-        permission="zope.Public"
-        />
-
-    <browser:resource
         name="jquery.recurrenceinput.display.js"
         file="lib/jquery.recurrenceinput.display.js"
         permission="zope.Public"
