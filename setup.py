@@ -28,8 +28,7 @@ setup(name='plone.formwidget.recurrence',
           # -*- Extra requirements: -*-
           'python-dateutil', # might get unused. then remove me.
           'Products.Archetypes',
-          'Products.CMFCore',
-          'Zope2',
+          'z3c.form',
       ],
       extras_require={'test': ['Products.PloneTestCase',
                                'Products.GenericSetup',]},
