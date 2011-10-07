@@ -591,20 +591,7 @@
                 form.find('select[name=recurrenceinput_yearly_weekday_of_month_day]').val(day);
                 form.find('select[name=recurrenceinput_yearly_weekday_of_month_month]').val(start_date.getMonth() + 1);
                 
-                // Now when we have a start date, we can also do an ajax call to calculate occurrences:
-                alert(start_date);
-                $.ajax({
-                    url: 'http://localhost:8000/',
-                    async: true, // This should be made async later
-                    type: 'post',
-                    data: {start: start_date.toDateString(), rrule: rfc5545},
-                    success: function (data) {
-                        alert(data);
-                    },
-                })
-                
             }
-            
             
             if (rfc5545) {
                 widget_load_from_rfc5545(form, conf, rfc5545);
