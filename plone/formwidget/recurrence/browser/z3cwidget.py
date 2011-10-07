@@ -18,10 +18,6 @@ class RecurrenceWidget(widget.HTMLTextAreaWidget, Widget):
     klass = u'recurrence-widget'
     value = u''
     
-    #def __init__(self, context, request):
-        #self.context = context
-        #self.request = request
-
     def update(self):
         super(RecurrenceWidget, self).update()
         widget.addFieldClass(self)

@@ -688,6 +688,7 @@
         });
 
         if (textarea.val()) {
+            widget_load_from_rfc5545(form, conf, textarea.val())
             recurrenceOn();
         }
 
