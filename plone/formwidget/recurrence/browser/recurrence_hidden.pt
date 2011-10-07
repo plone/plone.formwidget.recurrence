@@ -1,0 +1,13 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      tal:omit-tag="">
+<input type="hidden"
+   tal:attributes="id view/id;
+                   name view/name;
+                   class view/klass;
+                   style view/style;
+                   title view/title;
+                   lang view/lang;
+                   value view/value"/>
+</script>
+</html>

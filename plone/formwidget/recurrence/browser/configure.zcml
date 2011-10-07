@@ -65,12 +65,11 @@
         template="recurrence_input.pt"
         />
   
-    <!--z3c:widgetTemplate
+    <z3c:widgetTemplate
         mode="hidden"
         widget="plone.formwidget.recurrence.browser.z3cwidget.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="recurrence_hidden.pt"
-        /-->
+        />
         
-
 </configure>
