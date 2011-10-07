@@ -132,7 +132,7 @@ msgid "template_daily"
 msgstr "Daily"
 
 msgid "template_mondayfriday"
-msgstr "Måndays and Fridays"
+msgstr "Mondays and Fridays"
 
 msgid "template_weekdays"
 msgstr "Weekdays"
