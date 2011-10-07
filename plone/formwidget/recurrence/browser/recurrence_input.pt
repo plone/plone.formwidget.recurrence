@@ -45,6 +45,7 @@
    tal:content="view/value" />
 <script type="text/javascript"
         tal:content="string: $.tools.recurrenceinput.localize('${request/LANGUAGE}', ${view/translation});
-                             jQuery('#${view/id}').recurrenceinput({lang: '${request/LANGUAGE}'});">
+                             jQuery('#${view/id}').recurrenceinput({lang: '${request/LANGUAGE}', 
+                                                                    readOnly: ${view/read_only} });">
 </script>
 </html>

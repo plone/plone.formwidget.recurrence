@@ -55,7 +55,7 @@
         mode="display"
         widget="plone.formwidget.recurrence.browser.z3cwidget.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
-        template="recurrence_display.pt"
+        template="recurrence_input.pt"
         />
   
     <z3c:widgetTemplate

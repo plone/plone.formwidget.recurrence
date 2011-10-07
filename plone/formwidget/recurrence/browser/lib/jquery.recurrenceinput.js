@@ -12,6 +12,7 @@
         conf: {
         
             lang: 'en',
+            readOnly: false,
             
             // "REMOTE" FIELD
             startField: null,
@@ -576,8 +577,8 @@
                 start_date = new Date(start_date);
             }
             
-            // If the date is a real date, set the defaults in the form
             if (!isNaN(start_date)) {
+                // If the date is a real date, set the defaults in the form
                 form.find('select[name=recurrenceinput_monthly_day_of_month_day]').val(start_date.getDate());
                 dayindex = conf.order_indexes[Math.floor((start_date.getDate() - 1) / 7)];
                 day = conf.weekdays[start_date.getDay() - 1];
@@ -589,6 +590,19 @@
                 form.find('select[name=recurrenceinput_yearly_weekday_of_month_index]').val(dayindex);
                 form.find('select[name=recurrenceinput_yearly_weekday_of_month_day]').val(day);
                 form.find('select[name=recurrenceinput_yearly_weekday_of_month_month]').val(start_date.getMonth() + 1);
+                
+                // Now when we have a start date, we can also do an ajax call to calculate occurrences:
+                alert(start_date);
+                $.ajax({
+                    url: 'http://localhost:8000/',
+                    async: true, // This should be made async later
+                    type: 'post',
+                    data: {start: start_date.toDateString(), rrule: rfc5545},
+                    success: function (data) {
+                        alert(data);
+                    },
+                })
+                
             }
             
             

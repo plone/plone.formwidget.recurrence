@@ -28,6 +28,9 @@ class RecurrenceWidget(widget.HTMLTextAreaWidget, Widget):
 
     def translation(self):
         return translations(self.request)
+    
+    def read_only(self):
+        return self.mode == 'display' and 'true' or 'false'
 
 @zope.component.adapter(zope.schema.interfaces.IField, IFormLayer)
 @zope.interface.implementer(IFieldWidget)
