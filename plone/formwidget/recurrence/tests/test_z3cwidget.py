@@ -1,8 +1,9 @@
 import zope.interface
 import zope.schema
-from plone.formwidget.recurrence import browser, tests
+from plone.formwidget.recurrence import tests
+from plone.formwidget.recurrence.browser import z3cwidget
 from z3c.form.testing import TestRequest
-from z3c.form import form
+from z3c.form import form, field
 
 class ITestForm(zope.interface.Interface):
     id = zope.schema.TextLine(
@@ -17,7 +18,7 @@ class ITestForm(zope.interface.Interface):
 class TestEditForm(form.EditForm):
 
     fields = field.Fields(ITestForm)
-    fields['recurrence'].widgetFactory = browser.z3cwidget.RecurrenceFieldWidget
+    fields['recurrence'].widgetFactory = z3cwidget.RecurrenceFieldWidget
 
 TESTVALUE = "FREQ=MONTHLY;BYDAY=+3TU;COUNT=5"
 
@@ -28,26 +29,27 @@ class Z3cWidgetTestCase(tests.base.TestCase):
 
     def test_widget_inputmode(self):
         request = TestRequest()
-        widget = browser.z3cwidget.RecurrenceWidget(request)
+        request.LANGUAGE = 'en'
+        widget = z3cwidget.RecurrenceWidget(request)
         html = widget.render()
         
         self.assertTrue('++resource++jquery.tmpl.js' in html)
         self.assertTrue('++resource++jquery.recurrenceinput.js' in html)
         self.assertTrue('++resource++jquery.recurrenceinput.css' in html)
 
-    def test_widget_with_form(self):
-        import pdb;pdb.set_trace()
-        testEdit = TestEditForm(object(), TestRequest())
-        addTemplate(myEdit)
-        myEdit.update()
-        html = testing.render(myEdit, './/xmlns:input[@id="form-widgets-name"]')
+    #def test_widget_with_form(self):
+        #import pdb;pdb.set_trace()
+        #testEdit = TestEditForm(object(), TestRequest())
+        #addTemplate(myEdit)
+        #myEdit.update()
+        #html = testing.render(myEdit, './/xmlns:input[@id="form-widgets-name"]')
         
-        #self.assertFalse(self.widget.process_form(self.obj, self.field, {}))
-        #self.assertEqual(
-               #self.widget.process_form(
-                   #self.obj, self.field, {'rec': TESTVALUE}),
-               #(TESTVALUE, {})
-        #)
+        ##self.assertFalse(self.widget.process_form(self.obj, self.field, {}))
+        ##self.assertEqual(
+               ##self.widget.process_form(
+                   ##self.obj, self.field, {'rec': TESTVALUE}),
+               ##(TESTVALUE, {})
+        ##)
 
 def test_suite():
     from unittest import defaultTestLoader
