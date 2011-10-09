@@ -18,7 +18,7 @@ class ATWidgetTestCase(TestCase):
         self.assertEqual(self.widget.helper_css,
                 ('++resource++jquery.recurrenceinput.css',))
         self.assertEqual(self.widget.macro_edit, 'recurrence_widget')
-
+        
     def test_widget_process(self):
         self.assertFalse(self.widget.process_form(self.obj, self.field, {}))
         self.assertEqual(
@@ -26,6 +26,8 @@ class ATWidgetTestCase(TestCase):
                    self.obj, self.field, {'rec': TESTVALUE}),
                (TESTVALUE, {})
         )
+        
+    # TODO: A test that renders the widget
 
 def test_suite():
     from unittest import defaultTestLoader

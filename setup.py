@@ -31,7 +31,8 @@ setup(name='plone.formwidget.recurrence',
           'z3c.form',
       ],
       extras_require={'test': ['Products.PloneTestCase',
-                               'Products.GenericSetup',]},
+                               'Products.GenericSetup',
+                               'z3c.form[test]']},
       entry_points="""
       # -*- Entry points: -*-
 
