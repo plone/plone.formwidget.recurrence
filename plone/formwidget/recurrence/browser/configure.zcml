@@ -10,18 +10,6 @@
         file="lib/jquery.recurrenceinput.js"
         permission="zope.Public"
         />
-
-    <browser:resource
-        name="jquery.recurrenceinput.display.js"
-        file="lib/jquery.recurrenceinput.display.js"
-        permission="zope.Public"
-        />
-        
-    <browser:resource
-        name="jquery.recurrenceinput.form.js"
-        file="lib/jquery.recurrenceinput.form.js"
-        permission="zope.Public"
-        />
         
     <browser:resource
         name="jquery.recurrenceinput.css"

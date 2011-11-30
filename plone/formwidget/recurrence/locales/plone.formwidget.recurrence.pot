@@ -14,13 +14,16 @@ msgstr ""
 "Preferred-Encodings: utf-8\n"
 "Domain: plone.formwidget.recurrence\n"
 
-msgid "display_label_unactivate"
+msgid "display_unactivate"
 msgstr ""
 
-msgid "display_label_activate"
+msgid "display_activate"
 msgstr ""
 
 msgid "edit"
+msgstr ""
+
+msgid "add"
 msgstr ""
 
 msgid "recurrence_type"
@@ -86,25 +89,31 @@ msgstr ""
 msgid "yearly_weekday_of_month_4"
 msgstr ""
 
-msgid "range_label"
+msgid "range"
 msgstr ""
 
-msgid "range_no_end_label"
+msgid "range_no_end"
 msgstr ""
 
-msgid "range_by_occurrences_label_1"
+msgid "range_by_occurrences_1"
 msgstr ""
 
-msgid "range_by_occurrences_label_2"
+msgid "range_by_occurrences_2"
 msgstr ""
 
-msgid "range_by_end_date_label"
+msgid "range_by_end_date"
 msgstr ""
 
-msgid "cancel_button_label"
+msgid "including"
 msgstr ""
 
-msgid "save_button_label"
+msgid "except"
+msgstr ""
+
+msgid "cancel"
+msgstr ""
+
+msgid "save"
 msgstr ""
 
 msgid "order_indexes_first"
@@ -122,7 +131,19 @@ msgstr ""
 msgid "order_indexes_last"
 msgstr ""
 
+msgid "unsupported_features"
+msgstr ""
+
 msgid "no_template_match"
+msgstr ""
+
+msgid "multiple_day_of_month"
+msgstr ""
+
+msgid "bysetpos"
+msgstr ""
+
+msgid "no_rule"
 msgstr ""
 
 msgid "template_daily"

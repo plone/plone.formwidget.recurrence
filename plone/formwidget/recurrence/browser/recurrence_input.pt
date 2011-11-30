@@ -11,10 +11,6 @@
   tal:attributes="src string:${view/site_url}/++resource++plone.app.jquerytools.dateinput.js"></script>
 <script type="text/javascript" charset="iso-8859-1"
   tal:attributes="src string:${view/site_url}/++resource++jquery.recurrenceinput.js" ></script>
-<script id="jquery-recurrenceinput-display-tmpl" type="text/x-jquery-tmpl"
-  tal:attributes="src string:${view/site_url}/++resource++jquery.recurrenceinput.display.js" ></script>
-<script id="jquery-recurrenceinput-form-tmpl" type="text/x-jquery-tmpl"
-  tal:attributes="src string:${view/site_url}/++resource++jquery.recurrenceinput.form.js" ></script>
 <textarea
    tal:attributes="id view/id;
                    name view/name;

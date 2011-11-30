@@ -22,35 +22,35 @@ For developers: Updating the javascript
 The javascript files in plone/formwidget/recurrence/browser/lib comes from
 jquery.recurrenceinput.js. There is one modification needed:
 
-In jquery.recurrenceinput.form.js there are two submit buttons near the end
-of the file:
+In jquery.recurrenceinput.js there are two submit buttons near the end
+of the FORMTMPL definition:
 
-            <div class="${klass.buttons}">
-                <input
-                    type="submit"
-                    class="recurrenceinput_save_button"
-                    value="${i18n.cancel_button_label}" />
-                <input
-                    type="submit"
-                    class="recurrenceinput_save_button"
-                    value="${i18n.save_button_label}" />
-            </div>
+                '<div class="ributtons">',
+                    '<input',
+                        'type="submit"',
+                        'class="ricancelbutton"',
+                        'value="${i18n.cancel}" />',
+                    '<input',
+                        'type="submit"',
+                        'class="risavebutton"',
+                        'value="${i18n.save}" />',
+                '</div>',
 
 When the javascript files are updated from jquery.recurrenceinput.form.js, 
 these buttons need to have the "allowMultiSubmit" class, to prevent Plone's
 warnings against clicking the same submit button multiple times. Add those
 to the buttons class, so it looks like this:
 
-            <div class="${klass.buttons}">
-                <input
-                    type="submit"
-                    class="recurrenceinput_save_button allowMultiSubmit"
-                    value="${i18n.cancel_button_label}" />
-                <input
-                    type="submit"
-                    class="$recurrenceinput_save_button allowMultiSubmit"
-                    value="${i18n.save_button_label}" />
-            </div>
+                '<div class="ributtons">',
+                    '<input',
+                        'type="submit"',
+                        'class="ricancelbutton allowMultiSubmit"',
+                        'value="${i18n.cancel}" />',
+                    '<input',
+                        'type="submit"',
+                        'class="risavebutton allowMultiSubmit"',
+                        'value="${i18n.save}" />',
+                '</div>',
 
 That is all the changes necessary.
 

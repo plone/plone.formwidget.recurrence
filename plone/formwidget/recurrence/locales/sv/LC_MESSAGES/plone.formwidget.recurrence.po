@@ -14,17 +14,14 @@ msgstr ""
 "Preferred-Encodings: utf-8\n"
 "Domain: plone.formwidget.recurrence\n"
 
-msgid "display_label_unactivate"
-msgstr "Återkommer inte"
+msgid "add"
+msgstr "Lägg till"
 
-msgid "display_label_activate"
-msgstr "Återkommer "
+msgid "bysetpos"
+msgstr "BYSETPOS stöds inte"
 
-msgid "edit"
-msgstr "Ändra..."
-
-msgid "recurrence_type"
-msgstr "Typ av återkomst:"
+msgid "cancel"
+msgstr "Avbryt"
 
 msgid "daily_interval_1"
 msgstr "Varje"
@@ -32,14 +29,20 @@ msgstr "Varje"
 msgid "daily_interval_2"
 msgstr "dag(ar)"
 
-msgid "weekly_interval_1"
-msgstr "Varje"
+msgid "display_activate"
+msgstr "Återkommer "
 
-msgid "weekly_interval_2"
-msgstr "vecka/veckor"
+msgid "display_unactivate"
+msgstr "Återkommer inte"
 
-msgid "weekly_weekdays"
-msgstr "På:"
+msgid "edit"
+msgstr "Ändra..."
+
+msgid "except"
+msgstr ", förutom"
+
+msgid "including"
+msgstr ", och även"
 
 msgid "monthly_day_of_month_1"
 msgstr "Den"
@@ -65,6 +68,81 @@ msgstr ", varje"
 msgid "monthly_weekday_of_month_4"
 msgstr "månad"
 
+msgid "multiple_day_of_month"
+msgstr "Flera återkomster varje månad stöds inte i månatliga eller årliga återkomster"
+
+msgid "no_rule"
+msgstr "Ingen RRULE funnen"
+
+msgid "no_template_match"
+msgstr "Ingen passande template"
+
+msgid "order_indexes_first"
+msgstr "Första"
+
+msgid "order_indexes_fourth"
+msgstr "Fjärde"
+
+msgid "order_indexes_last"
+msgstr "Sista"
+
+msgid "order_indexes_second"
+msgstr "Andra"
+
+msgid "order_indexes_third"
+msgstr "Tredje"
+
+msgid "range"
+msgstr "Återkomsten stoppar:"
+
+msgid "range_by_end_date"
+msgstr "Till och med"
+
+msgid "range_by_occurrences_1"
+msgstr "Stoppar efter"
+
+msgid "range_by_occurrences_2"
+msgstr "återkomster"
+
+msgid "range_no_end"
+msgstr "Inte"
+
+msgid "recurrence_type"
+msgstr "Typ av återkomst:"
+
+msgid "save"
+msgstr "Spara"
+
+msgid "template_daily"
+msgstr "Dagligen"
+
+msgid "template_mondayfriday"
+msgstr "Måndagar och fredagar"
+
+msgid "template_monthly"
+msgstr "Varje månad"
+
+msgid "template_weekdays"
+msgstr "Veckodagar"
+
+msgid "template_weekly"
+msgstr "Varje vecka"
+
+msgid "template_yearly"
+msgstr "Varje år"
+
+msgid "unsupported_features"
+msgstr "Varning: Denna händelse använder funktionalitet som denna dialog inte stödjer. Om du sparar kan detta ändra när händelsen återkommer: "
+
+msgid "weekly_interval_1"
+msgstr "Varje"
+
+msgid "weekly_interval_2"
+msgstr "vecka/veckor"
+
+msgid "weekly_weekdays"
+msgstr "På:"
+
 msgid "yearly_day_of_month_1"
 msgstr "Varje"
 
@@ -86,62 +164,3 @@ msgstr " "
 msgid "yearly_weekday_of_month_4"
 msgstr " "
 
-msgid "range_label"
-msgstr "Återkomsten stoppar:"
-
-msgid "range_no_end_label"
-msgstr "Inte"
-
-msgid "range_by_occurrences_label_1"
-msgstr "Stoppar efter"
-
-msgid "range_by_occurrences_label_2"
-msgstr "återkomster"
-
-msgid "range_by_end_date_label"
-msgstr "Till och med"
-
-msgid "cancel_button_label"
-msgstr "Avbryt"
-
-msgid "save_button_label"
-msgstr "Spara"
-
-msgid "order_indexes_first"
-msgstr "Första"
-
-msgid "order_indexes_second"
-msgstr "Andra"
-
-msgid "order_indexes_third"
-msgstr "Tredje"
-
-msgid "order_indexes_fourth"
-msgstr "Fjärde"
-
-msgid "order_indexes_last"
-msgstr "Sista"
-
-msgid "no_template_match"
-msgstr ""
-"Varning: Denna händelse använder funktionalitet "
-"som denna dialog inte stödjer. Om du sparar kan "
-"detta ändra när händelsen återkommer."
-
-msgid "template_daily"
-msgstr "Dagligen"
-
-msgid "template_mondayfriday"
-msgstr "Måndagar och fredagar"
-
-msgid "template_weekdays"
-msgstr "Veckodagar"
-
-msgid "template_weekly"
-msgstr "Varje vecka"
-
-msgid "template_monthly"
-msgstr "Varje månad"
-
-msgid "template_yearly"
-msgstr "Varje år"

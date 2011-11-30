@@ -1,4 +1,4 @@
-div.recurrenceinput_form {
+div.riform {
     padding: 1em;
     background-color: white;
     box-shadow: 0 0 3em 0.5em #666;
@@ -6,19 +6,20 @@ div.recurrenceinput_form {
     -webkit-box-shadow: 0 0 3em #666;
 }
 
-div.recurrenceinput_form div {
+div.riform div {
     padding: 0.3em;
 }
 
-div.recurrenceinput_form label {
-    font-size: 80%;
+div.riform form {
+    margin-bottom: 0;
 }
 
-div.recurrenceinput_form .date {
-    font-size: 80%;
+div#riformfields {
+    min-height: 13em;
+    width: 25em;
 }
 
-div.recurrenceinput_form input.recurrenceinput_cancel_button {
+div.riform input.ricancelbutton {
     background-image: url(pb_close.png);
     background-color: transparent;
     color: transparent;
@@ -31,6 +32,50 @@ div.recurrenceinput_form input.recurrenceinput_cancel_button {
     width: 30px;
 }
 
-div#calroot {
-    z-index: 10000;
+div.rioccurrences {
+    border-top: 1px solid gray;
+}
+
+div.rioccurrences div.batching {
+    font-size: 70%;
+}
+
+div.rioccurrences span.current {
+    font-weight: bold;
+}
+
+div.riform span.action a {
+    height: 19px;
+    width: 19px;
+    overflow: hidden;
+    box-shadow: 1px 1px 4px black;
+    -webkit-box-shadow: 1px 1px 4px black;
+    float: right;
+}
+
+div.rioccurrences a.rrule {
+    background-image: url(delete.png);
+    color: transparent;
+}
+
+div.rioccurrences a.rdate {
+    background-image: url(delete.png);
+    color: transparent;
+}
+
+div.rioccurrences a.exdate {
+    background-image: url(undelete.png);
+    color: transparent;
+}
+
+div.rioccurrencesactions a.rirefreshbutton {
+    background-image: url(refresh.png);
+    color: transparent;
+}
+
+div#messagearea {
+    background-color: red;
+    font-weight: bold;
+    width: 24em;
+    padding: 1em;
 }

@@ -14,17 +14,14 @@ msgstr ""
 "Preferred-Encodings: utf-8\n"
 "Domain: plone.formwidget.recurrence\n"
 
-msgid "display_label_unactivate"
-msgstr "Does not repeat"
+msgid "add"
+msgstr "Add"
 
-msgid "display_label_activate"
-msgstr "Repeats "
+msgid "bysetpos"
+msgstr "BYSETPOS is not supported"
 
-msgid "edit"
-msgstr "Edit..."
-
-msgid "recurrence_type"
-msgstr "Recurrence type:"
+msgid "cancel"
+msgstr "Cancel"
 
 msgid "daily_interval_1"
 msgstr "Every"
@@ -32,14 +29,20 @@ msgstr "Every"
 msgid "daily_interval_2"
 msgstr "days"
 
-msgid "weekly_interval_1"
-msgstr "Every"
+msgid "display_activate"
+msgstr "Repeats "
 
-msgid "weekly_interval_2"
-msgstr "week(s)"
+msgid "display_unactivate"
+msgstr "Does not repeat"
 
-msgid "weekly_weekdays"
-msgstr "On:"
+msgid "edit"
+msgstr "Edit..."
+
+msgid "except"
+msgstr ", except for"
+
+msgid "including"
+msgstr ", and also "
 
 msgid "monthly_day_of_month_1"
 msgstr "Day"
@@ -57,7 +60,7 @@ msgid "monthly_weekday_of_month_1"
 msgstr "The"
 
 msgid "monthly_weekday_of_month_2"
-msgstr ""
+msgstr " "
 
 msgid "monthly_weekday_of_month_3"
 msgstr ", every"
@@ -65,56 +68,17 @@ msgstr ", every"
 msgid "monthly_weekday_of_month_4"
 msgstr "month(s)"
 
-msgid "yearly_day_of_month_1"
-msgstr "Every"
+msgid "multiple_day_of_month"
+msgstr "This widget does not support multiple days in monthly or yearly recurrence"
 
-msgid "yearly_day_of_month_2"
-msgstr ""
+msgid "no_rule"
+msgstr "No RRULE in RRULE data"
 
-msgid "yearly_day_of_month_3"
-msgstr ""
-
-msgid "yearly_weekday_of_month_1"
-msgstr "The"
-
-msgid "yearly_weekday_of_month_2"
-msgstr ""
-
-msgid "yearly_weekday_of_month_3"
-msgstr "of"
-
-msgid "yearly_weekday_of_month_4"
-msgstr ""
-
-msgid "range_label"
-msgstr "End recurrance:"
-
-msgid "range_no_end_label"
-msgstr "No end"
-
-msgid "range_by_occurrences_label_1"
-msgstr "Ending after"
-
-msgid "range_by_occurrences_label_2"
-msgstr "occurrence(s)"
-
-msgid "range_by_end_date_label"
-msgstr "Until "
-
-msgid "cancel_button_label"
-msgstr "Cancel"
-
-msgid "save_button_label"
-msgstr "Save"
+msgid "no_template_match"
+msgstr "No matching recurrence template"
 
 msgid "order_indexes_first"
 msgstr "First"
-
-msgid "order_indexes_second"
-msgstr "Second"
-
-msgid "order_indexes_third"
-msgstr "Third"
 
 msgid "order_indexes_fourth"
 msgstr "Fourth"
@@ -122,11 +86,32 @@ msgstr "Fourth"
 msgid "order_indexes_last"
 msgstr "Last"
 
-msgid "no_template_match"
-msgstr ""
-"Warning: This event uses recurrence features not "
-"supported by this widget. Saving the recurrence "
-"may change the recurrence in unintended ways."
+msgid "order_indexes_second"
+msgstr "Second"
+
+msgid "order_indexes_third"
+msgstr "Third"
+
+msgid "range"
+msgstr "End recurrance:"
+
+msgid "range_by_end_date"
+msgstr "Until "
+
+msgid "range_by_occurrences_1"
+msgstr "Ending after"
+
+msgid "range_by_occurrences_2"
+msgstr "occurrence(s)"
+
+msgid "range_no_end"
+msgstr "No end"
+
+msgid "recurrence_type"
+msgstr "Recurrence type:"
+
+msgid "save"
+msgstr "Save"
 
 msgid "template_daily"
 msgstr "Daily"
@@ -134,14 +119,48 @@ msgstr "Daily"
 msgid "template_mondayfriday"
 msgstr "Mondays and Fridays"
 
+msgid "template_monthly"
+msgstr "Monthly"
+
 msgid "template_weekdays"
 msgstr "Weekdays"
 
 msgid "template_weekly"
 msgstr "Weekly"
 
-msgid "template_monthly"
-msgstr "Monthly"
-
 msgid "template_yearly"
 msgstr "Yearly"
+
+msgid "unsupported_features"
+msgstr "Warning: This event uses recurrence features not supported by this widget. Saving the recurrence may change the recurrence in unintended ways: "
+
+msgid "weekly_interval_1"
+msgstr "Every"
+
+msgid "weekly_interval_2"
+msgstr "week(s)"
+
+msgid "weekly_weekdays"
+msgstr "On:"
+
+msgid "yearly_day_of_month_1"
+msgstr "Every"
+
+msgid "yearly_day_of_month_2"
+msgstr " "
+
+msgid "yearly_day_of_month_3"
+msgstr " "
+
+msgid "yearly_weekday_of_month_1"
+msgstr "The"
+
+msgid "yearly_weekday_of_month_2"
+msgstr " "
+
+msgid "yearly_weekday_of_month_3"
+msgstr "of"
+
+msgid "yearly_weekday_of_month_4"
+msgstr " "
+
