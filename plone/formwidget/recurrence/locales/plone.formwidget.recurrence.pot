@@ -131,6 +131,9 @@ msgstr ""
 msgid "order_indexes_last"
 msgstr ""
 
+msgid "long_date_format"
+msgstr ""
+
 msgid "unsupported_features"
 msgstr ""
 

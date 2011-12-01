@@ -42,6 +42,8 @@
 <script type="text/javascript"
         tal:content="string: $.tools.recurrenceinput.localize('${request/LANGUAGE}', ${view/translation});
                              jQuery('#${view/id}').recurrenceinput({lang: '${request/LANGUAGE}', 
-                                                                    readOnly: ${view/read_only} });">
+                                                                    readOnly: ${view/read_only},
+                                                                    startField: 'form-widgets-IEvent-start-calendar',
+                                                                    ajaxURL: document.URL + '/json_recurrence' });">
 </script>
 </html>

@@ -54,22 +54,22 @@ div.riform span.action a {
 }
 
 div.rioccurrences a.rrule {
-    background-image: url(delete.png);
+    background-image: url(++resource++jquery.recurrenceinput.delete.png);
     color: transparent;
 }
 
 div.rioccurrences a.rdate {
-    background-image: url(delete.png);
+    background-image: url(++resource++jquery.recurrenceinput.delete.png);
     color: transparent;
 }
 
 div.rioccurrences a.exdate {
-    background-image: url(undelete.png);
+    background-image: url(++resource++jquery.recurrenceinput.undelete.png);
     color: transparent;
 }
 
 div.rioccurrencesactions a.rirefreshbutton {
-    background-image: url(refresh.png);
+    background-image: url(++resource++jquery.recurrenceinput.refresh.png);
     color: transparent;
 }
 

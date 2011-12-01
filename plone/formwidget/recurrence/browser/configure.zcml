@@ -23,6 +23,32 @@
         permission="zope.Public"
         />
 
+    <browser:resource
+        name="jquery.recurrenceinput.delete.png"
+        file="lib/delete.png"
+        permission="zope.Public"
+        />
+
+    <browser:resource
+        name="jquery.recurrenceinput.undelete.png"
+        file="lib/undelete.png"
+        permission="zope.Public"
+        />
+        
+    <browser:resource
+        name="jquery.recurrenceinput.refresh.png"
+        file="lib/refresh.png"
+        permission="zope.Public"
+        />
+        
+    <!-- JSON recurrence view -->        
+    <browser:page
+        for="*"
+        name="json_recurrence"
+        class=".json_recurrence.RecurrenceView"
+        permission="zope2.View"
+        />
+    
     <!-- Archetypes widget view -->
     <browser:page
         for="*"

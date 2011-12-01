@@ -44,6 +44,9 @@ msgstr ", except for"
 msgid "including"
 msgstr ", and also "
 
+msgid "long_date_format"
+msgstr "dddd mmmm dd, yyyy"
+
 msgid "monthly_day_of_month_1"
 msgstr "Day"
 

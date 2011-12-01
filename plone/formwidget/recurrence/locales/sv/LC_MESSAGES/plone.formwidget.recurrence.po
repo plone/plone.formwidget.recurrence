@@ -44,6 +44,9 @@ msgstr ", förutom"
 msgid "including"
 msgstr ", och även"
 
+msgid "long_date_format"
+msgstr "dddd dd mmmm, yyyy"
+
 msgid "monthly_day_of_month_1"
 msgstr "Den"
 

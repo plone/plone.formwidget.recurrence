@@ -20,7 +20,7 @@ For developers: Updating the javascript
 ---------------------------------------
 
 The javascript files in plone/formwidget/recurrence/browser/lib comes from
-jquery.recurrenceinput.js. There is one modification needed:
+jquery.recurrenceinput.js. There is two modifications needed:
 
 In jquery.recurrenceinput.js there are two submit buttons near the end
 of the FORMTMPL definition:
@@ -51,6 +51,53 @@ to the buttons class, so it looks like this:
                         'class="risavebutton allowMultiSubmit"',
                         'value="${i18n.save}" />',
                 '</div>',
+
+If you also copy in the default css, you need to change a couple of paths in 
+jquery.recurrenceinput.css:
+
+    div.rioccurrences a.rrule {
+        background-image: url(delete.png);
+        color: transparent;
+    }
+    
+    div.rioccurrences a.rdate {
+        background-image: url(delete.png);
+        color: transparent;
+    }
+    
+    div.rioccurrences a.exdate {
+        background-image: url(undelete.png);
+        color: transparent;
+    }
+    
+    div.rioccurrencesactions a.rirefreshbutton {
+        background-image: url(refresh.png);
+        color: transparent;
+    }
+
+Should be:
+
+    div.rioccurrences a.rrule {
+        background-image: url(++resource++jquery.recurrenceinput.delete.png);
+        color: transparent;
+    }
+    
+    div.rioccurrences a.rdate {
+        background-image: url(++resource++jquery.recurrenceinput.delete.png);
+        color: transparent;
+    }
+    
+    div.rioccurrences a.exdate {
+        background-image: url(++resource++jquery.recurrenceinput.undelete.png);
+        color: transparent;
+    }
+    
+    div.rioccurrencesactions a.rirefreshbutton {
+        background-image: url(++resource++jquery.recurrenceinput.refresh.png);
+        color: transparent;
+    }
+
+
 
 That is all the changes necessary.
 
