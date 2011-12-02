@@ -36,8 +36,9 @@ class RecurrenceValidator(object):
     def __call__(self, value, *args, **kwargs):
         try:
             rrule.rrulestr(value) # TODO: rm dep. on rrule. check with regex
-            'FREQ' in value # TODO: check if freq before other recurrence parms
-        except (ValueError, TypeError):
+            assert('FREQ' in value) # TODO: check if freq before other
+                                    # recurrence parms
+        except (ValueError, TypeError, AssertionError):
             return "Validation failed: Please enter valid recurrence data."
 
         return True
