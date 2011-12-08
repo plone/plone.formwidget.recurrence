@@ -1,31 +1,56 @@
-from Products.Five import zcml
-from Products.Five import fiveconfigure
-from Products.PloneTestCase import PloneTestCase as ptc
-from Products.PloneTestCase.layer import PloneSite
+"""Base module for unittesting"""
+from Products.GenericSetup import EXTENSION
+from Products.GenericSetup import profile_registry
+from plone.app.testing import FunctionalTesting
+from plone.app.testing import IntegrationTesting
+from plone.app.testing import PLONE_FIXTURE
+from plone.app.testing import PloneSandboxLayer
+from plone.testing import z2
+import unittest2 as unittest
 
-# setup test content types
-from Products.GenericSetup import EXTENSION, profile_registry
 
-import plone.formwidget.recurrence
+class PloneFormwidgetRecurrenceLayer(PloneSandboxLayer):
 
-ptc.setupPloneSite()
+    defaultBases = (PLONE_FIXTURE,)
 
-class TestCase(ptc.PloneTestCase):
-    class layer(PloneSite):
-        @classmethod
-        def setUp(cls):
-            profile_registry.registerProfile('sample_types',
-                'Recurrence Sample Content Types',
-                'Extension profile including Archetypes sample content types',
-                'profiles/sample_types',
-                'plone.formwidget.recurrence',
-                EXTENSION)
-            fiveconfigure.debug_mode = True
-            ptc.installPackage('plone.formwidget.recurrence', quiet=0)
-            zcml.load_config('configure.zcml',
-                             plone.formwidget.recurrence)
-            fiveconfigure.debug_mode = False
+    def setUpZope(self, app, configurationContext):
+        """Set up Zope."""
+        # Load ZCML
+        import plone.formwidget.recurrence
+        self.loadZCML(package=plone.formwidget.recurrence)
+#        self.loadZCML(package=plone.formwidget.recurrence.tests)
+        z2.installProduct(app, 'plone.formwidget.recurrence')
 
-        @classmethod
-        def tearDown(cls):
-            pass
+    def setUpPloneSite(self, portal):
+        """Set up Plone."""
+        # Install into Plone site using portal_setup
+        profile_registry.registerProfile('sample_types',
+            'Recurrence Sample Content Types',
+            'Extension profile including Archetypes sample content types',
+            'profiles/sample_types',
+            'plone.formwidget.recurrence',
+            EXTENSION)
+        self.applyProfile(portal, 'plone.formwidget.recurrence:sample_types')
+
+    def tearDownZope(self, app):
+        """Tear down Zope."""
+        z2.uninstallProduct(app, 'plone.formwidget.recurrence')
+
+
+FIXTURE = PloneFormwidgetRecurrenceLayer()
+INTEGRATION_TESTING = IntegrationTesting(
+    bases=(FIXTURE,), name="PloneFormwidgetRecurrenceLayer:Integration")
+FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(FIXTURE,), name="PloneFormwidgetRecurrenceLayer:Functional")
+
+
+class IntegrationTestCase(unittest.TestCase):
+    """Base class for integration tests."""
+
+    layer = INTEGRATION_TESTING
+
+
+class FunctionalTestCase(unittest.TestCase):
+    """Base class for functional tests."""
+
+    layer = FUNCTIONAL_TESTING

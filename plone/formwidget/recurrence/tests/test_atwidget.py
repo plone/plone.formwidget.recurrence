@@ -1,11 +1,22 @@
-from plone.formwidget.recurrence.tests.base import TestCase
 from Products.Archetypes.tests.utils import makeContent
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import setRoles
+from plone.formwidget.recurrence.tests.base import IntegrationTestCase
 
 TESTVALUE = "FREQ=MONTHLY;BYDAY=+3TU;COUNT=5"
-class ATWidgetTestCase(TestCase):
 
-    def afterSetUp(self):
+
+class ATWidgetTestCase(IntegrationTestCase):
+
+    def setUp(self):
+        self.portal = self.layer['portal']
         self.portal.portal_quickinstaller.installProduct('plone.formwidget.recurrence')
+
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Folder', 'test-folder')
+        setRoles(self.portal, TEST_USER_ID, ['Member'])
+        self.folder = self.portal['test-folder']
+
         self.obj = makeContent(
                 self.folder, portal_type='RecurrenceType', id='testobj')
         self.field = self.obj.getField('rec')
@@ -18,7 +29,7 @@ class ATWidgetTestCase(TestCase):
         self.assertEqual(self.widget.helper_css,
                 ('++resource++jquery.recurrenceinput.css',))
         self.assertEqual(self.widget.macro_edit, 'recurrence_widget')
-        
+
     def test_widget_process(self):
         self.assertFalse(self.widget.process_form(self.obj, self.field, {}))
         self.assertEqual(
@@ -26,9 +37,5 @@ class ATWidgetTestCase(TestCase):
                    self.obj, self.field, {'rec': TESTVALUE}),
                (TESTVALUE, {})
         )
-        
-    # TODO: A test that renders the widget
 
-def test_suite():
-    from unittest import defaultTestLoader
-    return defaultTestLoader.loadTestsFromName(__name__)
+    # TODO: A test that renders the widget
