@@ -52,8 +52,8 @@ class RecurrenceView(BrowserView):
         for x in ('year', 'month', 'day', 'rrule', 'format'):
             assert x in data
         
+        # Translate from the js dateformat style to the i18n style
         date_format = dateformat_xlate(data['format'])
-        #date_format = data['format']
         start_date = datetime.datetime(int(data['year']),
                                        int(data['month']),
                                        int(data['day']))
@@ -160,22 +160,22 @@ class RecurrenceView(BrowserView):
 
     def date_format(self, time, formatstring):
         # This is a simplified version of Products.CMFPlone.i18nl10n.ulocalized_time
-        # That can take any format string.
+        # that can take any format string.
         
-        # %a        Locale's abbreviated weekday name.
-        # %A        Locale's full weekday name.
-        # %b        Locale's abbreviated month name.
-        # %B        Locale's full month name.
-        # %d        Day of the month as a decimal number [01,31].
-        # %H        Hour (24-hour clock) as a decimal number [00,23].
-        # %I        Hour (12-hour clock) as a decimal number [01,12].
-        # %m        Month as a decimal number [01,12].
-        # %M        Minute as a decimal number [00,59].
-        # %p        Locale's equivalent of either AM or PM.
-        # %S        Second as a decimal number [00,61].
-        # %y        Year without century as a decimal number [00,99].
-        # %Y        Year with century as a decimal number.
-        # %Z        Time zone name (no characters if no time zone exists).
+        # ${a}        Locale's abbreviated weekday name.
+        # ${A}        Locale's full weekday name.
+        # ${b}        Locale's abbreviated month name.
+        # ${B}        Locale's full month name.
+        # ${d}        Day of the month as a decimal number [01,31].
+        # ${H}        Hour (24-hour clock) as a decimal number [00,23].
+        # ${I}        Hour (12-hour clock) as a decimal number [01,12].
+        # ${m}        Month as a decimal number [01,12].
+        # ${M}        Minute as a decimal number [00,59].
+        # ${p}        Locale's equivalent of either AM or PM.
+        # ${S}        Second as a decimal number [00,61].
+        # ${y}        Year without century as a decimal number [00,99].
+        # ${Y}        Year with century as a decimal number.
+        # ${Z}        Time zone name (no characters if no time zone exists).
     
         # get the format elements used in the formatstring
         mapping = {}

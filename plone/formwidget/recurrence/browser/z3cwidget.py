@@ -17,6 +17,7 @@ class RecurrenceWidget(widget.HTMLTextAreaWidget, Widget):
 
     klass = u'recurrence-widget'
     value = u''
+    start_field = None
     
     def update(self):
         super(RecurrenceWidget, self).update()
@@ -31,9 +32,25 @@ class RecurrenceWidget(widget.HTMLTextAreaWidget, Widget):
     
     def read_only(self):
         return self.mode == 'display' and 'true' or 'false'
+             
 
 @zope.component.adapter(zope.schema.interfaces.IField, IFormLayer)
 @zope.interface.implementer(IFieldWidget)
 def RecurrenceFieldWidget(field, request):
     """IFieldWidget factory for RecurrenceWidget."""
     return FieldWidget(field, RecurrenceWidget(request))
+
+
+class ParameterizedFieldWidget(object):
+    zope.interface.implements(IFieldWidget)
+
+    def __new__(cls, field, request):
+        widget = FieldWidget(field, cls.widget(request))
+        for k, v in cls.kw.items():
+            setattr(widget, k, v)
+        return widget
+
+def ParameterizedWidgetFactory(widget, **kw):
+    return type('%sFactory' % widget.__name__,
+                (ParameterizedFieldWidget,),
+                {'widget': widget, 'kw': kw})
