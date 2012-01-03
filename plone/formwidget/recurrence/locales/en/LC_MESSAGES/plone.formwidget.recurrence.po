@@ -77,6 +77,9 @@ msgstr "Repeat every"
 msgid "monthly_interval_2"
 msgstr "month(s)"
 
+msgid "monthly_repeat_on"
+msgstr "Repeat on:"
+
 msgid "monthly_weekday_of_month_1"
 msgstr "The"
 

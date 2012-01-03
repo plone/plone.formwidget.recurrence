@@ -77,6 +77,9 @@ msgstr ""
 msgid "monthly_interval_2"
 msgstr ""
 
+msgid "monthly_repeat_on"
+msgstr ""
+
 msgid "monthly_weekday_of_month_1"
 msgstr " "
 
