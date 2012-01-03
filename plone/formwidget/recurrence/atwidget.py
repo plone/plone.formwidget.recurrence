@@ -15,6 +15,11 @@ class RecurrenceWidget(LinesWidget):
         'helper_js': ('++resource++jquery.tmpl.js',
                       '++resource++jquery.recurrenceinput.js'),
         'helper_css': ('++resource++jquery.recurrenceinput.css',),
+        'startField': '',
+        'startYear': '',
+        'startMonth': '',
+        'startDay': '',
+        'ajaxURL': '@@json_occurrences',
         })
 
 
