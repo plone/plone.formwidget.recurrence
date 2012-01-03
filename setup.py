@@ -25,7 +25,7 @@ setup(name='plone.formwidget.recurrence',
       zip_safe=False,
       install_requires=[
           'Products.Archetypes',
-          'python-dateutil',  # might get unused. then remove me.
+          'python-dateutil',
           'setuptools',
           'z3c.form',
       ],

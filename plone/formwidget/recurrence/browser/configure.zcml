@@ -10,7 +10,7 @@
         file="lib/jquery.recurrenceinput.js"
         permission="zope.Public"
         />
-        
+
     <browser:resource
         name="jquery.recurrenceinput.css"
         file="lib/jquery.recurrenceinput.css"
@@ -38,26 +38,34 @@
           interface="plone.formwidget.recurrence.browser.z3cwidget.IRecurrenceWidget"
           />
     </class>
-    
+
     <z3c:widgetTemplate
         mode="display"
         widget="plone.formwidget.recurrence.browser.z3cwidget.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="recurrence_input.pt"
         />
-  
+
     <z3c:widgetTemplate
         mode="input"
         widget="plone.formwidget.recurrence.browser.z3cwidget.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="recurrence_input.pt"
         />
-  
+
     <z3c:widgetTemplate
         mode="hidden"
         widget="plone.formwidget.recurrence.browser.z3cwidget.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="recurrence_hidden.pt"
         />
-        
+
+    <!-- occurrences json view -->
+    <browser:view
+        name="json_occurrences"
+        for="*"
+        class=".json_occurrences.JSONOccurrences"
+        permission="zope2.View"
+        />
+
 </configure>
