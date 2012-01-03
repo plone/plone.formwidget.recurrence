@@ -14,19 +14,19 @@ msgstr ""
 "Preferred-Encodings: utf-8\n"
 "Domain: plone.formwidget.recurrence\n"
 
-msgid "display_unactivate"
-msgstr ""
-
-msgid "display_activate"
-msgstr ""
-
-msgid "edit"
-msgstr ""
-
 msgid "add"
 msgstr ""
 
-msgid "recurrence_type"
+msgid "add_date" 
+msgstr ""
+
+msgid "additional_date" 
+msgstr ""
+
+msgid "bysetpos"
+msgstr ""
+
+msgid "cancel"
 msgstr ""
 
 msgid "daily_interval_1"
@@ -35,16 +35,31 @@ msgstr ""
 msgid "daily_interval_2"
 msgstr ""
 
-msgid "weekly_interval_1"
+msgid "display_activate"
 msgstr ""
 
-msgid "weekly_interval_2"
+msgid "display_unactivate"
 msgstr ""
 
-msgid "weekly_weekdays"
+msgid "edit"
+msgstr ""
+
+msgid "except"
+msgstr ""
+
+msgid "exclude" 
+msgstr ""
+
+msgid "include" 
+msgstr ""
+
+msgid "including"
 msgstr ""
 
 msgid "monthly_day_of_month_1"
+msgstr ""
+
+msgid "monthly_day_of_month_1_human" 
 msgstr ""
 
 msgid "monthly_day_of_month_2"
@@ -56,7 +71,16 @@ msgstr ""
 msgid "monthly_day_of_month_4"
 msgstr ""
 
+msgid "monthly_interval_1" 
+msgstr ""
+
+msgid "monthly_interval_2" 
+msgstr ""
+
 msgid "monthly_weekday_of_month_1"
+msgstr ""
+
+msgid "monthly_weekday_of_month_1_human" 
 msgstr ""
 
 msgid "monthly_weekday_of_month_2"
@@ -68,13 +92,139 @@ msgstr ""
 msgid "monthly_weekday_of_month_4"
 msgstr ""
 
+msgid "multiple_day_of_month"
+msgstr ""
+
+msgid "no_end_after_n_occurrences" 
+msgstr ""
+
+msgid "no_end_date" 
+msgstr ""
+
+msgid "no_repeat_every" 
+msgstr ""
+
+msgid "no_repeat_on" 
+msgstr ""
+
+msgid "no_rule"
+msgstr ""
+
+msgid "no_template_match"
+msgstr ""
+
+msgid "order_indexes_first"
+msgstr ""
+
+msgid "order_indexes_fourth"
+msgstr ""
+
+msgid "order_indexes_last"
+msgstr ""
+
+msgid "order_indexes_second"
+msgstr ""
+
+msgid "order_indexes_third"
+msgstr ""
+
+msgid "past_end_date" 
+msgstr ""
+
+msgid "preview" 
+msgstr ""
+
+msgid "range"
+msgstr ""
+
+msgid "range_by_end_date"
+msgstr ""
+
+msgid "range_by_end_date_human" 
+msgstr ""
+
+msgid "range_by_occurrences_1"
+msgstr ""
+
+msgid "range_by_occurrences_1_human" 
+msgstr ""
+
+msgid "range_by_occurrences_2"
+msgstr ""
+
+msgid "range_no_end"
+msgstr ""
+
+msgid "recurrence_start" 
+msgstr ""
+
+msgid "recurrence_type"
+msgstr ""
+
+msgid "refresh" 
+msgstr ""
+
+msgid "remove" 
+msgstr ""
+
+msgid "save"
+msgstr ""
+
+msgid "template_daily"
+msgstr ""
+
+msgid "template_mondayfriday"
+msgstr ""
+
+msgid "template_monthly"
+msgstr ""
+
+msgid "template_weekdays"
+msgstr ""
+
+msgid "template_weekly"
+msgstr ""
+
+msgid "template_yearly"
+msgstr ""
+
+msgid "title" 
+msgstr ""
+
+msgid "unsupported_features"
+msgstr ""
+
+msgid "weekly_interval_1"
+msgstr ""
+
+msgid "weekly_interval_2"
+msgstr ""
+
+msgid "weekly_weekdays"
+msgstr ""
+
+msgid "weekly_weekdays_human" 
+msgstr ""
+
 msgid "yearly_day_of_month_1"
+msgstr ""
+
+msgid "yearly_day_of_month_1_human" 
 msgstr ""
 
 msgid "yearly_day_of_month_2"
 msgstr ""
 
 msgid "yearly_day_of_month_3"
+msgstr ""
+
+msgid "yearly_interval_1" 
+msgstr ""
+
+msgid "yearly_interval_2" 
+msgstr ""
+
+msgid "yearly_repeat_on" 
 msgstr ""
 
 msgid "yearly_weekday_of_month_1"
@@ -89,77 +239,3 @@ msgstr ""
 msgid "yearly_weekday_of_month_4"
 msgstr ""
 
-msgid "range"
-msgstr ""
-
-msgid "range_no_end"
-msgstr ""
-
-msgid "range_by_occurrences_1"
-msgstr ""
-
-msgid "range_by_occurrences_2"
-msgstr ""
-
-msgid "range_by_end_date"
-msgstr ""
-
-msgid "including"
-msgstr ""
-
-msgid "except"
-msgstr ""
-
-msgid "cancel"
-msgstr ""
-
-msgid "save"
-msgstr ""
-
-msgid "order_indexes_first"
-msgstr ""
-
-msgid "order_indexes_second"
-msgstr ""
-
-msgid "order_indexes_third"
-msgstr ""
-
-msgid "order_indexes_fourth"
-msgstr ""
-
-msgid "order_indexes_last"
-msgstr ""
-
-msgid "unsupported_features"
-msgstr ""
-
-msgid "no_template_match"
-msgstr ""
-
-msgid "multiple_day_of_month"
-msgstr ""
-
-msgid "bysetpos"
-msgstr ""
-
-msgid "no_rule"
-msgstr ""
-
-msgid "template_daily"
-msgstr ""
-
-msgid "template_mondayfriday"
-msgstr ""
-
-msgid "template_weekdays"
-msgstr ""
-
-msgid "template_weekly"
-msgstr ""
-
-msgid "template_monthly"
-msgstr ""
-
-msgid "template_yearly"
-msgstr ""

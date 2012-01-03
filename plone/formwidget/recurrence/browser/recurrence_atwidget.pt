@@ -30,7 +30,7 @@
           <!-- Make the text area a recurrenceinput -->
           <script type="text/javascript"
             tal:content="string:
-              $.tools.recurrenceinput.localize('${request/LANGUAGE}', ${widget/@@recurrence_widget/translation});
+              jQuery.tools.recurrenceinput.localize('${request/LANGUAGE}', ${widget/@@recurrence_widget/translation});
               jQuery('.ArchetypesRecurrenceWidget textarea').recurrenceinput({
                       lang: '${request/LANGUAGE}',
                       startField: '${widget/startField}',

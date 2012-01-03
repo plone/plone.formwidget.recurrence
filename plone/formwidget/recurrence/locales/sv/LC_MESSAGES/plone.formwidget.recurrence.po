@@ -17,6 +17,12 @@ msgstr ""
 msgid "add"
 msgstr "Lägg till"
 
+msgid "add_date"
+msgstr ""
+
+msgid "additional_date"
+msgstr ""
+
 msgid "bysetpos"
 msgstr "BYSETPOS stöds inte"
 
@@ -41,11 +47,20 @@ msgstr "Ändra..."
 msgid "except"
 msgstr ", förutom"
 
+msgid "exclude"
+msgstr ""
+
+msgid "include"
+msgstr ""
+
 msgid "including"
 msgstr ", och även"
 
 msgid "monthly_day_of_month_1"
 msgstr "Den"
+
+msgid "monthly_day_of_month_1_human"
+msgstr ""
 
 msgid "monthly_day_of_month_2"
 msgstr "dagen i månaden"
@@ -56,8 +71,17 @@ msgstr ", var"
 msgid "monthly_day_of_month_4"
 msgstr "månad"
 
+msgid "monthly_interval_1"
+msgstr ""
+
+msgid "monthly_interval_2"
+msgstr ""
+
 msgid "monthly_weekday_of_month_1"
 msgstr " "
+
+msgid "monthly_weekday_of_month_1_human"
+msgstr ""
 
 msgid "monthly_weekday_of_month_2"
 msgstr " "
@@ -70,6 +94,18 @@ msgstr "månad"
 
 msgid "multiple_day_of_month"
 msgstr "Flera återkomster varje månad stöds inte i månatliga eller årliga återkomster"
+
+msgid "no_end_after_n_occurrences"
+msgstr ""
+
+msgid "no_end_date"
+msgstr ""
+
+msgid "no_repeat_every"
+msgstr ""
+
+msgid "no_repeat_on"
+msgstr ""
 
 msgid "no_rule"
 msgstr "Ingen RRULE funnen"
@@ -92,14 +128,26 @@ msgstr "Andra"
 msgid "order_indexes_third"
 msgstr "Tredje"
 
+msgid "past_end_date"
+msgstr ""
+
+msgid "preview"
+msgstr ""
+
 msgid "range"
 msgstr "Återkomsten stoppar:"
 
 msgid "range_by_end_date"
 msgstr "Till och med"
 
+msgid "range_by_end_date_human"
+msgstr ""
+
 msgid "range_by_occurrences_1"
 msgstr "Stoppar efter"
+
+msgid "range_by_occurrences_1_human"
+msgstr ""
 
 msgid "range_by_occurrences_2"
 msgstr "återkomster"
@@ -107,8 +155,17 @@ msgstr "återkomster"
 msgid "range_no_end"
 msgstr "Inte"
 
+msgid "recurrence_start"
+msgstr ""
+
 msgid "recurrence_type"
 msgstr "Typ av återkomst:"
+
+msgid "refresh"
+msgstr ""
+
+msgid "remove"
+msgstr ""
 
 msgid "save"
 msgstr "Spara"
@@ -131,6 +188,9 @@ msgstr "Varje vecka"
 msgid "template_yearly"
 msgstr "Varje år"
 
+msgid "title"
+msgstr ""
+
 msgid "unsupported_features"
 msgstr "Varning: Denna händelse använder funktionalitet som denna dialog inte stödjer. Om du sparar kan detta ändra när händelsen återkommer: "
 
@@ -143,14 +203,29 @@ msgstr "vecka/veckor"
 msgid "weekly_weekdays"
 msgstr "På:"
 
+msgid "weekly_weekdays_human"
+msgstr ""
+
 msgid "yearly_day_of_month_1"
 msgstr "Varje"
+
+msgid "yearly_day_of_month_1_human"
+msgstr ""
 
 msgid "yearly_day_of_month_2"
 msgstr " "
 
 msgid "yearly_day_of_month_3"
 msgstr " "
+
+msgid "yearly_interval_1"
+msgstr ""
+
+msgid "yearly_interval_2"
+msgstr ""
+
+msgid "yearly_repeat_on"
+msgstr ""
 
 msgid "yearly_weekday_of_month_1"
 msgstr " "
