@@ -1114,6 +1114,9 @@
 
         function occurrenceExclude(event) {
             event.preventDefault();
+            if (form.ical.EXDATE === undefined) {
+                form.ical.EXDATE = [];
+            }
             form.ical.EXDATE.push(this.attributes.date.value);
             $this = $(this);
             $this.attr('class', 'exdate');
@@ -1124,6 +1127,9 @@
 
         function occurrenceInclude(event) {
             event.preventDefault();
+            if (form.ical.EXDATE === undefined) {
+                form.ical.EXDATE = [];
+            }
             form.ical.EXDATE.splice($.inArray(this.attributes.date.value, form.ical.EXDATE), 1);
             $this = $(this);
             $this.attr('class', 'rrule');
