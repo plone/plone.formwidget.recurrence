@@ -17,6 +17,12 @@ msgstr ""
 msgid "add"
 msgstr "Add"
 
+msgid "add_date"
+msgstr "Add date"
+
+msgid "additional_date"
+msgstr "Additional date"
+
 msgid "bysetpos"
 msgstr "BYSETPOS is not supported"
 
@@ -41,6 +47,12 @@ msgstr "Edit..."
 msgid "except"
 msgstr ", except for"
 
+msgid "exclude"
+msgstr "Exclude"
+
+msgid "include"
+msgstr "Include"
+
 msgid "including"
 msgstr ", and also "
 
@@ -49,6 +61,9 @@ msgstr "dddd mmmm dd, yyyy"
 
 msgid "monthly_day_of_month_1"
 msgstr "Day"
+
+msgid "monthly_day_of_month_1_human"
+msgstr "on day"
 
 msgid "monthly_day_of_month_2"
 msgstr "of the month"
@@ -59,8 +74,20 @@ msgstr ", every"
 msgid "monthly_day_of_month_4"
 msgstr "month(s)"
 
+msgid "monthly_interval_1"
+msgstr "Repeat every:"
+
+msgid "monthly_interval_2"
+msgstr "month(s)"
+
+msgid "monthly_repeat_on"
+msgstr "Repeat on:"
+
 msgid "monthly_weekday_of_month_1"
 msgstr "The"
+
+msgid "monthly_weekday_of_month_1_human"
+msgstr "on the"
 
 msgid "monthly_weekday_of_month_2"
 msgstr " "
@@ -73,6 +100,18 @@ msgstr "month(s)"
 
 msgid "multiple_day_of_month"
 msgstr "This widget does not support multiple days in monthly or yearly recurrence"
+
+msgid "no_end_after_n_occurrences"
+msgstr "Error: After N occurrences field must be a positive integer value (max. 1000)"
+
+msgid "no_end_date"
+msgstr "Error: End date is not set. Please set a correct value"
+
+msgid "no_repeat_every"
+msgstr "Error: Repeat every field must be a positive integer value (max. 1000)"
+
+msgid "no_repeat_on"
+msgstr "Error: Repeat on value must be selected"
 
 msgid "no_rule"
 msgstr "No RRULE in RRULE data"
@@ -95,14 +134,26 @@ msgstr "Second"
 msgid "order_indexes_third"
 msgstr "Third"
 
+msgid "past_end_date"
+msgstr "Error: End date cannot be before start date"
+
+msgid "preview"
+msgstr "Selected dates"
+
 msgid "range"
 msgstr "End recurrance:"
 
 msgid "range_by_end_date"
 msgstr "Until "
 
+msgid "range_by_end_date_human"
+msgstr "ends on "
+
 msgid "range_by_occurrences_1"
 msgstr "Ending after"
+
+msgid "range_by_occurrences_1_human"
+msgstr "ends after"
 
 msgid "range_by_occurrences_2"
 msgstr "occurrence(s)"
@@ -110,8 +161,17 @@ msgstr "occurrence(s)"
 msgid "range_no_end"
 msgstr "No end"
 
+msgid "recurrence_start"
+msgstr "Start of the recurrence"
+
 msgid "recurrence_type"
 msgstr "Recurrence type:"
+
+msgid "refresh"
+msgstr "Refresh"
+
+msgid "remove"
+msgstr "Remove"
 
 msgid "save"
 msgstr "Save"
@@ -134,6 +194,9 @@ msgstr "Weekly"
 msgid "template_yearly"
 msgstr "Yearly"
 
+msgid "title"
+msgstr "Repeat"
+
 msgid "unsupported_features"
 msgstr "Warning: This event uses recurrence features not supported by this widget. Saving the recurrence may change the recurrence in unintended ways: "
 
@@ -146,8 +209,14 @@ msgstr "week(s)"
 msgid "weekly_weekdays"
 msgstr "On:"
 
+msgid "weekly_weekdays_human"
+msgstr "on: "
+
 msgid "yearly_day_of_month_1"
 msgstr "Every"
+
+msgid "yearly_day_of_month_1_human"
+msgstr "on"
 
 msgid "yearly_day_of_month_2"
 msgstr " "
@@ -155,8 +224,14 @@ msgstr " "
 msgid "yearly_day_of_month_3"
 msgstr " "
 
+msgid "yearly_repeat_on"
+msgstr "Repeat on:"
+
 msgid "yearly_weekday_of_month_1"
 msgstr "The"
+
+msgid "yearly_weekday_of_month_1_human"
+msgstr "on the"
 
 msgid "yearly_weekday_of_month_2"
 msgstr " "

@@ -15,6 +15,9 @@
             
             // "REMOTE" FIELD
             startField: null,
+            startFieldYear: null,
+            startFieldMonth: null,
+            startFieldDay: null,
             ajaxURL: null,
         
             // FORM OVERLAY
@@ -61,6 +64,7 @@
                 monthly: {
                     rrule: 'FREQ=MONTHLY',
                     fields: [
+                        'rimonthlyinterval',
                         'rimonthlyoptions',
                         'rirangeoptions'
                     ]
@@ -68,6 +72,7 @@
                 yearly: {
                     rrule: 'FREQ=YEARLY',
                     fields: [
+                        'riyearlyinterval',
                         'riyearlyoptions',
                         'rirangeoptions'
                     ]
@@ -97,41 +102,59 @@
     
     tool.localize("en", {
         displayUnactivate: 'Does not repeat',
-        displayActivate: 'Repeats ',
+        displayActivate: 'Repeats every',
         edit: 'Edit...',
         add:  'Add',
-        
-        recurrenceType: 'Recurrence type:',
+        refresh: 'Refresh',
 
-        dailyInterval1: 'Every',
+        title: 'Repeat',
+        preview: 'Selected dates',
+        addDate: 'Add date',
+        
+        recurrenceType: 'Repeats:',
+
+        dailyInterval1: 'Repeat every:',
         dailyInterval2: 'days',
 
-        weeklyInterval1: 'Every',
+        weeklyInterval1: 'Repeat every:',
         weeklyInterval2: 'week(s)',
-        weeklyWeekdays: 'On:',
+        weeklyWeekdays: 'Repeat on:',
+        weeklyWeekdaysHuman: 'on: ',
 
+        monthlyInterval1: 'Repeat every:',
+        monthlyInterval2: 'month(s)',
         monthlyDayOfMonth1: 'Day',
+        monthlyDayOfMonth1Human: 'on day',
         monthlyDayOfMonth2: 'of the month',
         monthlyDayOfMonth3: ', every',
         monthlyDayOfMonth4: 'month(s)',
         monthlyWeekdayOfMonth1: 'The',
+        monthlyWeekdayOfMonth1Human: 'on the',
         monthlyWeekdayOfMonth2: '',
         monthlyWeekdayOfMonth3: ', every',
         monthlyWeekdayOfMonth4: 'month(s)',
+        monthlyRepeatOn: 'Repeat on:',
 
+        yearlyInterval1: 'Repeat every:',
+        yearlyInterval2: 'year(s)',
         yearlyDayOfMonth1: 'Every',
+        yearlyDayOfMonth1Human: 'on',
         yearlyDayOfMonth2: '',
         yearlyDayOfMonth3: '',
         yearlyWeekdayOfMonth1: 'The',
+        yearlyWeekdayOfMonth1Human: 'on the',
         yearlyWeekdayOfMonth2: '',
         yearlyWeekdayOfMonth3: 'of',
         yearlyWeekdayOfMonth4: '',
+        yearlyRepeatOn: 'Repeat on:',
         
-        range: 'End recurrance:',
-        rangeNoEnd: 'No end',
-        rangeByOccurrences1: 'Ending after',
+        range: 'End recurrence:',
+        rangeNoEnd: 'Never',
+        rangeByOccurrences1: 'After',
+        rangeByOccurrences1Human: 'ends after',
         rangeByOccurrences2: 'occurrence(s)',
-        rangeByEndDate: 'Until ',
+        rangeByEndDate: 'On ',
+        rangeByEndDateHuman: 'ends on ',
         
         including: ', and also ',
         except: ', except for',
@@ -139,6 +162,12 @@
         cancel: 'Cancel',        
         save: 'Save',
 
+        recurrenceStart: 'Start of the recurrence',
+        additionalDate: 'Additional date',
+        include: 'Include',
+        exclude: 'Exclude',
+        remove: 'Remove',
+        
         orderIndexes: ['First', 'Second', 'Third', 'Fourth', 'Last'],
         months: [
             'January', 'February', 'March', 'April', 'May', 'June',
@@ -162,6 +191,11 @@
         multipleDayOfMonth: 'This widget does not support multiple days in monthly or yearly recurrence',
         bysetpos: 'BYSETPOS is not supported',
         noRule: 'No RRULE in RRULE data',
+        noRepeatEvery: 'Error: Repeat every field must be a positive integer value (max. 1000)',
+        noEndDate: 'Error: End date is not set. Please set a correct value',
+        pastEndDate: 'Error: End date cannot be before start date',
+        noEndAfterNOccurrences: 'Error: After N occurrences field must be a positive integer value (max. 1000)',
+        noRepeatOn: 'Error: Repeat on value must be selected',
         
         rtemplate: {
             daily: 'Daily',
@@ -176,28 +210,34 @@
 
     var OCCURRENCETMPL = ['<div class="rioccurrences">',
         '{{each occurrences}}',
-            '<div class="occurrence">',
-                '<span class="${occurrences[$index].type}">',
+            '<div class="occurrence ${occurrences[$index].type}">',
+                '<span>',
                     '${occurrences[$index].formattedDate}',
+                    '{{if occurrences[$index].type === "start"}}',
+                        '<span class="rlabel">${i18n.recurrenceStart}</span>',
+                    '{{/if}}',
+                    '{{if occurrences[$index].type === "rdate"}}',
+                        '<span class="rlabel">${i18n.additionalDate}</span>',
+                    '{{/if}}',
                 '</span>',
                 '{{if !readOnly}}',
                     '<span class="action">',
                         '{{if occurrences[$index].type === "rrule"}}',
                             '<a date="${occurrences[$index].date}" href="#"',
-                               'class="${occurrences[$index].type}" >',
-                                'Exclude',
+                               'class="${occurrences[$index].type}" title="${i18n.exclude}">',
+                                '${i18n.exclude}',
                             '</a>',
                         '{{/if}}',
                         '{{if occurrences[$index].type === "rdate"}}',
                             '<a date="${occurrences[$index].date}" href="#"',
-                               'class="${occurrences[$index].type}" >',
-                                'Remove',
+                               'class="${occurrences[$index].type}" title="${i18n.remove}" >',
+                                '${i18n.remove}',
                             '</a>',
                         '{{/if}}',
                         '{{if occurrences[$index].type === "exdate"}}',
                             '<a date="${occurrences[$index].date}" href="#"',
-                               'class="${occurrences[$index].type}" >',
-                                'Include',
+                               'class="${occurrences[$index].type}" title="${i18n.include}">',
+                                '${i18n.include}',
                             '</a>',
                         '{{/if}}',
                     '</span>',
@@ -230,60 +270,79 @@
     
     var FORMTMPL = ['<div class="riform">',
             '<form>',
+                '<h1>${i18n.title}</h1>',
                 '<div id="messagearea" style="display: none;">',
                 '</div>',
                 '<div id="rirtemplate">',
-                    '<label for="${name}rtemplate">',
+                    '<label for="${name}rtemplate" class="label">',
                         '${i18n.recurrenceType}',
-                        '<select name="rirtemplate">',
-                            '{{each rtemplate}}',
-                                '<option value="${$index}">${i18n.rtemplate[$index]}</value>',
-                            '{{/each}}',
-                        '</select>',
                     '</label>',
+                    '<select id="rirtemplate" name="rirtemplate" class="field">',
+                        '{{each rtemplate}}',
+                            '<option value="${$index}">${i18n.rtemplate[$index]}</value>',
+                        '{{/each}}',
+                    '</select>',
                 '<div>',
                 '<div id="riformfields">',
                     '<div id="ridailyinterval" class="rifield">',
-                        '<label for="${name}dailyinterval">',
+                        '<label for="${name}dailyinterval" class="label">',
                             '${i18n.dailyInterval1}',
+                        '</label>',
+                        '<div class="field">',
                             '<input type="text" size="2"',
                                 'value="1"',
                                 'name="ridailyinterval"',
                                 'id="${name}dailyinterval" />',
                             '${i18n.dailyInterval2}',
-                        '</label>',
+                        '</div>',                            
                     '</div>',
                     '<div id="riweeklyinterval" class="rifield">',
-                        '<label for="${name}weeklyinterval">',
+                        '<label for="${name}weeklyinterval" class="label">',
                             '${i18n.weeklyInterval1}',
+                        '</label>',
+                        '<div class="field">',
                             '<input type="text" size="2"',
                                 'value="1"',
                                 'name="riweeklyinterval"',
                                 'id="${name}weeklyinterval"/>',
                             '${i18n.weeklyInterval2}',
-                        '</label>',
+                        '</div>',
                     '</div>',
                     '<div id="riweeklyweekdays" class="rifield">',
-                        '<label for="${name}weeklyinterval">${i18n.weeklyWeekdays}</label>',
-                        '{{each i18n.weekdays}}',
-                            '<input type="checkbox"',
-                                'name="riweeklyweekdays${weekdays[$index]}"',
-                                'id="${name}weeklyWeekdays${weekdays[$index]}"',
-                                'value="${weekdays[$index]}" />',
-                            '<label for="${name}weeklyWeekdays${weekdays[$index]}">${$value}</label>',
-                            '{{if $index==3}}<br/>{{/if}}',
-                        '{{/each}}',
-                        '</ul>',
+                        '<label for="${name}weeklyinterval" class="label">${i18n.weeklyWeekdays}</label>',
+                        '<div class="field">',
+                            '{{each i18n.shortWeekdays}}',
+                                '<div class="riweeklyweekday">',
+                                    '<input type="checkbox"',
+                                        'name="riweeklyweekdays${weekdays[$index]}"',
+                                        'id="${name}weeklyWeekdays${weekdays[$index]}"',
+                                        'value="${weekdays[$index]}" />',
+                                    '<label for="${name}weeklyWeekdays${weekdays[$index]}">${$value}</label>',
+                                '</div>',
+                            '{{/each}}',
+                        '</div>',
+                    '</div>',
+                    '<div id="rimonthlyinterval" class="rifield">',
+                        '<label for="rimonthlyinterval" class="label">${i18n.monthlyInterval1}</label>',
+                        '<div class="field">',
+                            '<input type="text" size="2"',
+                                'value="1" ',
+                                'name="rimonthlyinterval"/>',
+                            '${i18n.monthlyDayOfMonth4}',
+                        '</div>',
                     '</div>',
                     '<div id="rimonthlyoptions" class="rifield">',
-                        '<div>',
-                            '<input',
-                                'type="radio"',
-                                'value="DAYOFMONTH"',
-                                'name="rimonthlytype"',
-                                'id="${name}monthlytype:DAYOFMONTH" />',
-                            '<label for="${name}monthlytype:DAYOFMONTH">',
-                                '${i18n.monthlyDayOfMonth1}',
+                        '<label for="rimonthlytype" class="label">${i18n.monthlyRepeatOn}</label>',
+                        '<div class="field">',
+                            '<div>',
+                                '<input',
+                                    'type="radio"',
+                                    'value="DAYOFMONTH"',
+                                    'name="rimonthlytype"',
+                                    'id="${name}monthlytype:DAYOFMONTH" />',
+                                '<label for="${name}monthlytype:DAYOFMONTH">',
+                                    '${i18n.monthlyDayOfMonth1}',
+                                '</label>',
                                 '<select name="rimonthlydayofmonthday"',
                                     'id="${name}monthlydayofmonthday">',
                                 '{{each [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,',
@@ -291,49 +350,52 @@
                                     '<option value="${$value}">${$value}</option>',
                                 '{{/each}}',
                                 '</select>',
-                                '${i18n.monthlyDayOfMonth2}${i18n.monthlyDayOfMonth3}',
-                                '<input type="text" size="2"',
-                                    'value="1" ',
-                                    'name="rimonthlydayofmonthinterval"/>',
-                                '${i18n.monthlyDayOfMonth4}',
-                            '</label>',
-                        '</div>',
-                        '<div>',
-                            '<input',
-                                'type="radio"',
-                                'value="WEEKDAYOFMONTH"',
-                                'name="rimonthlytype"',
-                                'id="${name}monthlytype:WEEKDAYOFMONTH" />',
-                            '<label for="${name}monthlytype:WEEKDAYOFMONTH">',
-                                '${i18n.monthlyWeekdayOfMonth1}',
+                                '${i18n.monthlyDayOfMonth2}',
+                            '</div>',
+                            '<div>',
+                                '<input',
+                                    'type="radio"',
+                                    'value="WEEKDAYOFMONTH"',
+                                    'name="rimonthlytype"',
+                                    'id="${name}monthlytype:WEEKDAYOFMONTH" />',
+                                '<label for="${name}monthlytype:WEEKDAYOFMONTH">',
+                                    '${i18n.monthlyWeekdayOfMonth1}',
+                                '</label>',
                                 '<select name="rimonthlyweekdayofmonthindex">',
-                                '{{each i18n.orderIndexes}}',
-                                    '<option value="${orderIndexes[$index]}">${$value}</option>',
-                                '{{/each}}',
+                                    '{{each i18n.orderIndexes}}',
+                                        '<option value="${orderIndexes[$index]}">${$value}</option>',
+                                    '{{/each}}',
                                 '</select>',
                                 '${i18n.monthlyWeekdayOfMonth2}',
                                 '<select name="rimonthlyweekdayofmonth">',
-                                '{{each i18n.weekdays}}',
-                                    '<option value="${weekdays[$index]}">${$value}</option>',
-                                '{{/each}}',
+                                    '{{each i18n.weekdays}}',
+                                        '<option value="${weekdays[$index]}">${$value}</option>',
+                                    '{{/each}}',
                                 '</select>',
-                                '${i18n.monthlyWeekdayOfMonth3}',
-                                '<input type="text" size="2"',
-                                    'value="1"',
-                                    'name="rimonthlyweekdayofmonthinterval" />',
-                                '${i18n.monthlyWeekdayOfMonth4}',
-                            '</label>',
+                            '</div>',
+                        '</div>',
+                    '</div>',
+                    '<div id="riyearlyinterval" class="rifield">',
+                        '<label for="riyearlyinterval" class="label">${i18n.yearlyInterval1}</label>',
+                        '<div class="field">',
+                            '<input type="text" size="2"',
+                                'value="1" ',
+                                'name="riyearlyinterval"/>',
+                            '${i18n.yearlyInterval2}',
                         '</div>',
                     '</div>',
                     '<div id="riyearlyoptions" class="rifield">',
-                        '<div>',
-                            '<input',
-                                'type="radio"',
-                                'value="DAYOFMONTH"',
-                                'name="riyearlyType"',
-                                'id="${name}yearlytype:DAYOFMONTH" />',
-                            '<label for="${name}yearlytype:DAYOFMONTH">',
-                                '${i18n.yearlyDayOfMonth1}',
+                        '<label for="riyearlyType" class="label">${i18n.yearlyRepeatOn}</label>',
+                        '<div class="field">',
+                            '<div>',
+                                '<input',
+                                    'type="radio"',
+                                    'value="DAYOFMONTH"',
+                                    'name="riyearlyType"',
+                                    'id="${name}yearlytype:DAYOFMONTH" />',
+                                '<label for="${name}yearlytype:DAYOFMONTH">',
+                                    '${i18n.yearlyDayOfMonth1}',
+                                '</label>',
                                 '<select name="riyearlydayofmonthmonth">',
                                 '{{each i18n.months}}',
                                     '<option value="${$index+1}">${$value}</option>',
@@ -347,24 +409,24 @@
                                 '{{/each}}',
                                 '</select>',
                                 '${i18n.yearlyDayOfMonth3}',
-                            '</label>',
-                        '</div>',
-                        '<div>',
-                            '<input',
-                                'type="radio"',
-                                'value="WEEKDAYOFMONTH"',
-                                'name="riyearlyType"',
-                                'id="${name}yearlytype:WEEKDAYOFMONTH"/>',
-                            '<label for="${name}yearlytype:WEEKDAYOFMONTH">',
-                                '${i18n.yearlyWeekdayOfMonth1}',
-                            '</label>',
-                            '<select name="riyearlyweekdayofmonthindex">',
-                            '{{each i18n.orderIndexes}}',
-                                '<option value="${orderIndexes[$index]}">${$value}</option>',
-                            '{{/each}}',
-                            '</select>',
-                            '<label for="${name}yearlytype:WEEKDAYOFMONTH">',
-                                '${i18n.yearlyWeekdayOfMonth2}',
+                            '</div>',
+                            '<div>',
+                                '<input',
+                                    'type="radio"',
+                                    'value="WEEKDAYOFMONTH"',
+                                    'name="riyearlyType"',
+                                    'id="${name}yearlytype:WEEKDAYOFMONTH"/>',
+                                '<label for="${name}yearlytype:WEEKDAYOFMONTH">',
+                                    '${i18n.yearlyWeekdayOfMonth1}',
+                                '</label>',
+                                '<select name="riyearlyweekdayofmonthindex">',
+                                '{{each i18n.orderIndexes}}',
+                                    '<option value="${orderIndexes[$index]}">${$value}</option>',
+                                '{{/each}}',
+                                '</select>',
+                                '<label for="${name}yearlytype:WEEKDAYOFMONTH">',
+                                    '${i18n.yearlyWeekdayOfMonth2}',
+                                '</label>',
                                 '<select name="riyearlyweekdayofmonthday">',
                                 '{{each i18n.weekdays}}',
                                     '<option value="${weekdays[$index]}">${$value}</option>',
@@ -377,66 +439,75 @@
                                 '{{/each}}',
                                 '</select>',
                                 '${i18n.yearlyWeekdayOfMonth4}',
-                            '</label>',
+                            '</div>',
                         '</div>',
                     '</div>',
                     '<div id="rirangeoptions" class="rifield">',
-                        '<label>${i18n.range}</label>',
-                        '<div>',
-                            '<input',
-                                'type="radio"',
-                                'value="NOENDDATE"',
-                                'name="rirangetype"',
-                                'id="${name}rangetype:NOENDDATE"/>',
-                            '<label for="${name}rangetype:NOENDDATE">',
-                                '${i18n.rangeNoEnd}',
-                            '</label>',
-                        '</div>',
-                        '<div>',
-                            '<input',
-                                'type="radio"',
-                                'value="BYOCCURRENCES"',
-                                'name="rirangetype"',
-                                'id="${name}rangetype:BYOCCURRENCES"/>',
-                            '<label for="${name}rangetype:BYOCCURRENCES">',
-                                '${i18n.rangeByOccurrences1}',
+                        '<label class="label">${i18n.range}</label>',
+                        '<div class="field">',
+                            '<div>',
+                                '<input',
+                                    'type="radio"',
+                                    'value="NOENDDATE"',
+                                    'name="rirangetype"',
+                                    'id="${name}rangetype:NOENDDATE"/>',
+                                '<label for="${name}rangetype:NOENDDATE">',
+                                    '${i18n.rangeNoEnd}',
+                                '</label>',
+                            '</div>',
+                            '<div>',
+                                '<input',
+                                    'type="radio"',
+                                    'value="BYOCCURRENCES"',
+                                    'name="rirangetype"',
+                                    'id="${name}rangetype:BYOCCURRENCES"/>',
+                                '<label for="${name}rangetype:BYOCCURRENCES">',
+                                    '${i18n.rangeByOccurrences1}',
+                                '</label>',
                                 '<input',
                                     'type="text" size="3"',
                                     'value="10"',
                                     'name="rirangebyoccurrencesvalue" />',
                                 '${i18n.rangeByOccurrences2}',
-                            '</label>',
-                        '</div>',
-                        '<div>',
-                            '<input',
-                                'type="radio"',
-                                'value="BYENDDATE"',
-                                'name="rirangetype"',
-                                'id="${name}rangetype:BYENDDATE"/>',
-                            '<label for="${name}rangetype:BYENDDATE">',
-                                '${i18n.rangeByEndDate}',
-                            '</label>',
-                            '<input',
-                                'type="date"',
-                                'name="rirangebyenddatecalendar" />',
+                            '</div>',
+                            '<div>',
+                                '<input',
+                                    'type="radio"',
+                                    'value="BYENDDATE"',
+                                    'name="rirangetype"',
+                                    'id="${name}rangetype:BYENDDATE"/>',
+                                '<label for="${name}rangetype:BYENDDATE">',
+                                    '${i18n.rangeByEndDate}',
+                                '</label>',
+                                '<input',
+                                    'type="date"',
+                                    'name="rirangebyenddatecalendar" />',
+                            '</div>',
                         '</div>',
                     '</div>',
                 '</div>',
                 '<div class="rioccurrencesactions">',
-                    '<div>',
-                        '<span class="riaddoccurrence">',
-                            '<input type="date" name="adddate" id="adddate" />',
-                            '<input type="button" name="addaction" id="addaction" value="${i18n.add}">',
-                        '</span>',
+                    '<div class="rioccurancesheader">',
+                        '<h2>${i18n.preview}</h2>',
                         '<span class="refreshbutton action">',
-                            '<a class="rirefreshbutton" href="#" >',
-                                'Refresh',
+                            '<a class="rirefreshbutton" href="#" title="${i18n.refresh}">',
+                                '${i18n.refresh}',
                             '</a>',
                         '</span>',
                     '</div>',
                 '</div>',
                 '<div class="rioccurrences">',
                 '</div>',
+                '<div class="rioccurrencesactions">',
+                    '<div class="rioccurancesheader">',
+                        '<h2>${i18n.addDate}</h2>',
+                    '</div>',
+                    '<div class="riaddoccurrence">',
+                        '<input type="date" name="adddate" id="adddate" />',
+                        '<input type="button" name="addaction" id="addaction" value="${i18n.add}">',
+                    '</div>',
+                '</div>',
+                
                 '<div class="ributtons">',
                     '<input',
                         'type="submit"',
@@ -506,15 +577,19 @@
             switch (field.attr('id')) {
             
             case 'ridailyinterval':
-                input = field.find('input[name=ridailyinterval]');
-                result += ';INTERVAL=' + input.val();
-                human = conf.i18n.dailyInterval1 + ' ' + input.val() + ' ' + conf.i18n.dailyInterval2;
+                interval = field.find('input[name=ridailyinterval]').val();
+                if (interval != '1') {
+                    result += ';INTERVAL=' + interval;
+                }
+                human = interval + ' ' + conf.i18n.dailyInterval2;
                 break;
                 
             case 'riweeklyinterval':
-                input = field.find('input[name=riweeklyinterval]');
-                result += ';INTERVAL=' + input.val();
-                human = conf.i18n.weeklyInterval1 + ' ' + input.val() + ' ' + conf.i18n.weeklyInterval2;
+                interval = field.find('input[name=riweeklyinterval]').val();
+                if (interval != '1') {
+                    result += ';INTERVAL=' + interval;
+                }
+                human = interval + ' ' + conf.i18n.weeklyInterval2;
                 break;
                 
             case 'riweeklyweekdays':
@@ -533,8 +608,16 @@
                 }
                 if (weekdays) {
                     result += ';BYDAY=' + weekdays;
-                    human += ' ' + conf.i18n.weeklyWeekdays + ' ' + i18nweekdays;
+                    human += ' ' + conf.i18n.weeklyWeekdaysHuman + ' ' + i18nweekdays;
                 }
+                break;
+                
+            case 'rimonthlyinterval':
+                interval = field.find('input[name=rimonthlyinterval]').val();
+                if (interval != '1') {
+                    result += ';INTERVAL=' + interval;
+                }
+                human = interval + ' ' + conf.i18n.monthlyDayOfMonth4;
                 break;
                 
             case 'rimonthlyoptions':
@@ -543,31 +626,30 @@
                 
                 case 'DAYOFMONTH':
                     day = $('select[name=rimonthlydayofmonthday]', form).val();
-                    interval = $('input[name=rimonthlydayofmonthinterval]', form).val();
                     result += ';BYMONTHDAY=' + day;
-                    result += ';INTERVAL=' + interval;                        
-                    human += ', ' + conf.i18n.monthlyDayOfMonth1 + ' ' + day + ' ' + conf.i18n.monthlyDayOfMonth2;
-                    if (interval !== 1) {
-                        human += conf.i18n.monthlyDayOfMonth3 + ' ' + interval + ' ' + conf.i18n.monthlyDayOfMonth4;
-                    }
+                    human += ', ' + conf.i18n.monthlyDayOfMonth1Human + ' ' + day + ' ' + conf.i18n.monthlyDayOfMonth2;
                     break;
                 case 'WEEKDAYOFMONTH':
                     index = $('select[name=rimonthlyweekdayofmonthindex]', form).val();
                     day = $('select[name=rimonthlyweekdayofmonth]', form).val();
-                    interval = $('input[name=rimonthlyweekdayofmonthinterval]', form).val();
                     if ($.inArray(day, ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU']) > -1) {
                         result += ';BYDAY=' + index + day;
-                        human += ', ' + conf.i18n.monthlyWeekdayOfMonth1 + ' ';
-                        human += ' ' + conf.i18n.orderIndexes[conf.orderIndexes.indexOf(index)];
+                        human += ', ' + conf.i18n.monthlyWeekdayOfMonth1Human + ' ';
+                        human += ' ' + conf.i18n.orderIndexes[$.inArray(index, conf.orderIndexes)];
                         human += ' ' + conf.i18n.monthlyWeekdayOfMonth2;
-                        human += ' ' + conf.i18n.weekdays[conf.weekdays.indexOf(day)];
-                    }
-                    result += ';INTERVAL=' + interval;
-                    if (interval !== 1) {
-                        human += ' ' + conf.i18n.monthlyWeekdayOfMonth3 + ' ' + interval + ' ' + conf.i18n.monthlyWeekdayOfMonth4;
+                        human += ' ' + conf.i18n.weekdays[$.inArray(day, conf.weekdays)];
+                        human += ' ' + conf.i18n.monthlyDayOfMonth2;
                     }
                     break;
                 }
+                break;
+                
+            case 'riyearlyinterval':
+                interval = field.find('input[name=riyearlyinterval]').val();
+                if (interval != '1') {
+                    result += ';INTERVAL=' + interval;
+                }
+                human = interval + ' ' + conf.i18n.yearlyInterval2;
                 break;
                 
             case 'riyearlyoptions':
@@ -579,7 +661,7 @@
                     day = $('select[name=riyearlydayofmonthday]', form).val();
                     result += ';BYMONTH=' + month;
                     result += ';BYMONTHDAY=' + day;
-                    human += ', ' + conf.i18n.months[month - 1] + ' ' + day;
+                    human += ', ' + conf.i18n.yearlyDayOfMonth1Human + ' ' + conf.i18n.months[month - 1] + ' ' + day;
                     break;
                 case 'WEEKDAYOFMONTH':
                     index = $('select[name=riyearlyweekdayofmonthindex]', form).val();
@@ -588,10 +670,10 @@
                     result += ';BYMONTH=' + month;
                     if ($.inArray(day, ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU']) > -1) {
                         result += ';BYDAY=' + index + day;
-                        human += ', ' + conf.i18n.yearlyWeekdayOfMonth1;
-                        human += ' ' + conf.i18n.orderIndexes[conf.orderIndexes.indexOf(index)];
+                        human += ', ' + conf.i18n.yearlyWeekdayOfMonth1Human;
+                        human += ' ' + conf.i18n.orderIndexes[$.inArray(index, conf.orderIndexes)];
                         human += ' ' + conf.i18n.yearlyWeekdayOfMonth2;
-                        human += ' ' + conf.i18n.weekdays[conf.weekdays.indexOf(day)];
+                        human += ' ' + conf.i18n.weekdays[$.inArray(day, conf.weekdays)];
                         human += ' ' + conf.i18n.yearlyWeekdayOfMonth3;
                         human += ' ' + conf.i18n.months[month - 1];
                         human += ' ' + conf.i18n.yearlyWeekdayOfMonth4;
@@ -607,7 +689,7 @@
                 case 'BYOCCURRENCES':
                     occurrences = form.find('input[name=rirangebyoccurrencesvalue]').val();
                     result += ';COUNT=' + occurrences;
-                    human += ', ' + conf.i18n.rangeByOccurrences1;
+                    human += ', ' + conf.i18n.rangeByOccurrences1Human;
                     human += ' ' + occurrences;
                     human += ' ' + conf.i18n.rangeByOccurrences2;
                     break;
@@ -619,7 +701,7 @@
                         // Make it UTC:
                         result += 'Z';
                     }
-                    human += ', ' + conf.i18n.rangeByEndDate;
+                    human += ', ' + conf.i18n.rangeByEndDateHuman;
                     human += ' ' + field.data('dateinput').getValue(conf.i18n.longDateFormat);
                     break;
                 }
@@ -662,7 +744,7 @@
         if (form.ical.EXDATE !== undefined && form.ical.EXDATE.join() !== "") {
             if (tz === true) {
                 // Make it UTC:
-                tmp = form.ical.EXDATE.map(function (x) {
+                tmp = $.map(form.ical.EXDATE, function (x) {
                     if (x.length === 8) { // DATE format. Make it DATE-TIME
                         x += 'T000000';
                     }
@@ -676,7 +758,7 @@
         if (form.ical.RDATE !== undefined && form.ical.RDATE.join() !== "") {
             if (tz === true) {
                 // Make it UTC:
-                tmp = form.ical.RDATE.map(function (x) {
+                tmp = $.map(form.ical.RDATE, function (x) {
                     if (x.length === 8) { // DATE format. Make it DATE-TIME
                         x += 'T000000';
                     }
@@ -692,12 +774,12 @@
 
     function parseLine(icalline) {
         var result = {};
-        var pos = icalline.indexOf(':');
+        var pos = $.inArray(':', icalline);
         var property = icalline.substring(0, pos);
         result.value = icalline.substring(pos + 1);
         
-        if (property.indexOf(';') !== -1) {
-            pos = property.indexOf(';');
+        if ($.inArray(';', property) !== -1) {
+            pos = $.inArray(';', property);
             result.parameters = property.substring(pos + 1);
             result.property = property.substring(0, pos);
         } else {
@@ -716,7 +798,7 @@
         
         for (date in splitDates) {
             if (splitDates.hasOwnProperty(date)) {
-                if (splitDates[date].indexOf('Z') !== -1) {
+                if ($.inArray('Z', splitDates[date]) !== -1) {
                     result.push(splitDates[date].substring(0, 15));
                 } else {
                     result.push(splitDates[date]);
@@ -872,11 +954,16 @@
                     break;
                     
                 case 'riweeklyweekdays':
+                    byday = byday.split(",");
                     for (d = 0; d < conf.weekdays.length; d++) {
                         day = conf.weekdays[d];
                         input = field.find('input[name=riweeklyweekdays' + day + ']');
-                        input.attr('checked', byday.indexOf(day) !== -1);
+                        input.attr('checked', $.inArray(day, byday) !== -1);
                     }
+                    break;
+
+                case 'rimonthlyinterval':
+                    field.find('input[name=rimonthlyinterval]').val(interval);
                     break;
                     
                 case 'rimonthlyoptions':
@@ -891,13 +978,12 @@
                             bymonthday = bymonthday[0];
                         }
                         field.find('select[name=rimonthlydayofmonthday]').val(bymonthday);
-                        field.find('input[name=rimonthlydayofmonthinterval]').val(interval);
                     }
         
                     if (byday) {
                         monthlyType = 'WEEKDAYOFMONTH';
                         
-                        if (byday.indexOf(',') !== -1) {
+                        if (form.ical.RRULE.indexOf(rtemplate.rrule) === 0) {
                             // No support for multiple days in one month
                             unsupportedFeatures.push(conf.i18n.multipleDayOfMonth);
                             byday = byday.split(",")[0];
@@ -906,7 +992,6 @@
                         weekday = byday.slice(-2);
                         field.find('select[name=rimonthlyweekdayofmonthindex]').val(index);
                         field.find('select[name=rimonthlyweekdayofmonth]').val(weekday);
-                        field.find('input[name=rimonthlyweekdayofmonthinterval]').val(interval);
                     }
                     
                     selectors = field.find('input[name=rimonthlytype]');
@@ -916,6 +1001,10 @@
                     }
                     break;
         
+                case 'riyearlyinterval':
+                    field.find('input[name=riyearlyinterval]').val(interval);
+                    break;
+                    
                 case 'riyearlyoptions':
                     var yearlyType = 'DAYOFMONTH'; // Default to using BYMONTHDAY
                     
@@ -933,7 +1022,7 @@
                     if (byday) {
                         yearlyType = 'WEEKDAYOFMONTH';
                         
-                        if (byday.indexOf(',') !== -1) {
+                        if ($.inArray(',', byday) !== -1) {
                             // No support for multiple days in one month
                             unsupportedFeatures.push(conf.i18n.multipleDayOfMonth);
                             byday = byday.split(",")[0];
@@ -1026,22 +1115,26 @@
         function occurrenceExclude(event) {
             event.preventDefault();
             form.ical.EXDATE.push(this.attributes.date.value);
-            this.attributes['class'].value = 'exdate';
-            $(this).unbind(event);
-            $(this).click(occurrenceInclude);
+            $this = $(this);
+            $this.attr('class', 'exdate');
+            $this.parent().parent().addClass('exdate');
+            $this.unbind(event);
+            $this.click(occurrenceInclude);
         }
 
         function occurrenceInclude(event) {
             event.preventDefault();
-            form.ical.EXDATE.splice(form.ical.EXDATE.indexOf(this.attributes.date.value), 1);
-            this.attributes['class'].value = 'rrule';
-            $(this).unbind(event);
-            $(this).click(occurrenceExclude);
+            form.ical.EXDATE.splice($.inArray(this.attributes.date.value, form.ical.EXDATE), 1);
+            $this = $(this);
+            $this.attr('class', 'rrule');
+            $this.parent().parent().removeClass('exdate');
+            $this.unbind(event);
+            $this.click(occurrenceExclude);
         }
         
         function occurrenceDelete(event) {
             event.preventDefault();
-            form.ical.RDATE.splice(form.ical.RDATE.indexOf(this.attributes.date.value), 1);
+            form.ical.RDATE.splice($.inArray(this.attributes.date.value, form.ical.RDATE), 1);
             $(this).parent().parent().hide('slow', function () {
                 $(this).remove();
             });
@@ -1050,11 +1143,11 @@
         function occurrenceAdd(event) {
             event.preventDefault();
             var dateinput = form
-                .find('span.riaddoccurrence input#adddate')
+                .find('div.riaddoccurrence input#adddate')
                 .data('dateinput');
             var datevalue = dateinput.getValue('yyyymmddT000000');
             form.ical.RDATE.push(datevalue);
-            var html = ['<div class="occurrence" style="display: none;">',
+            var html = ['<div class="occurrence rdate" style="display: none;">',
                     '<span class="rdate">',
                         dateinput.getValue(conf.i18n.longDateFormat),
                     '</span>',
@@ -1104,6 +1197,8 @@
                         element = display;
                     }
                     data.readOnly = readonly;
+                    data.i18n = conf.i18n;
+                    
                     result = $.tmpl('occurrenceTmpl', data);
                     occurrenceDiv = element.find('.rioccurrences');
                     occurrenceDiv.replaceWith(result);
@@ -1130,18 +1225,29 @@
                 }
             });
         }
-        
+
+        function pad(number, length) {
+            // http://www.electrictoolbox.com/pad-number-zeroes-javascript/  
+            var str = '' + number;
+            while (str.length < length) {
+                str = '0' + str;
+            }
+            return str;
+        }
+        function getField(field) {
+            // See if it is a field already
+            realField = $(field);
+            if (!realField.length) {
+                // Otherwise, we assume it's an id:
+                realField = $('#' + field);
+            }
+            return realField;
+        }
         function findStartDate() {
-            var startField, startdate;
+            var startdate = null;
             // Find the default byday and bymonthday from the start date, if any:
             if (conf.startField) {
-                // Se if it is a field already
-                startField = $(conf.startField);
-                if (!startField.length) {
-                    // Otherwise, we assume it's an id:
-                    startField = $('input[id=' + conf.startField + ']');
-                }
-                
+                startField = getField(conf.startField);
                 // Now we have a field, see if it is a dateinput field:
                 startdate = startField.data('dateinput');
                 if (startdate === undefined || startdate === null) {
@@ -1151,19 +1257,62 @@
                     // Yes it was, get the date:
                     startdate = startdate.getValue();
                 }
-                startdate = new Date(startdate);
-                
-                if (isNaN(startdate)) {
-                    return null;
-                }
-                return startdate;
+            } else if (conf.startFieldYear &&
+                       conf.startFieldMonth &&
+                       conf.startFieldDay) {
+                startFieldYear = getField(conf.startFieldYear);
+                startFieldMonth = getField(conf.startFieldMonth);
+                startFieldDay = getField(conf.startFieldDay);
+                startdate = startFieldYear.val() + '-' +
+                            pad(startFieldMonth.val(), 2) + '-' +
+                            pad(startFieldDay.val(), 2);
             }
-            return null;
+            startdate = new Date(startdate);
+            if (isNaN(startdate)) {
+                return null;
+            }
+            return startdate;
         }
+        function findEndDate(form) {
+            var endField, enddate;
+            
+            endField = form.find('input[name=rirangebyenddatecalendar]');
+            
+            // Now we have a field, see if it is a dateinput field:
+            enddate = endField.data('dateinput');
+            if (enddate === undefined || enddate === null) {
+                //No, it wasn't, just try to interpret it with Date()
+                enddate = endField.val();
+            } else {
+                // Yes it was, get the date:
+                enddate = enddate.getValue();
+            }
+            enddate = new Date(enddate);
+            
+            // if the end date is incorrect or the field is left empty
+            if (isNaN(enddate) || endField.val() === "") {
+                return null;
+            }
+            return enddate;
+        }
+        function findIntField(fieldName, form) {
+            var field, num, isInt;
+            
+            field = form.find('input[name=' + fieldName + ']');
+            
+            num = field.val();
+
+            // if it's not a number or the field is left empty
+            if (isNaN(num) || (num.toString().indexOf('.')!=-1) || field.val() === "") {
+                return null;
+            }
+            return num;
+        }
+        
         // Loading (populating) display and form widget with
         // passed RFC5545 string (data)
         function loadData(rfc5545) {
-            var selector, format, startField, startdate, dayindex, day;
+            var selector, format, startdate, dayindex, day;
 
             if (rfc5545) {
                 widgetLoadFromRfc5545(form, conf, rfc5545, true);
@@ -1233,18 +1382,129 @@
 
         function save(event) {
             event.preventDefault();
-            // close overlay
-            form.overlay().close();
-            // check checkbox
-            display.find('input[name=richeckbox]')
-                .attr('checked', true);
-            recurrenceOn();
+            // if no field errors, process the request
+            if(checkFields(form)) {
+                // close overlay
+                form.overlay().close();
+                // check checkbox
+                display.find('input[name=richeckbox]')
+                    .attr('checked', true);
+                recurrenceOn();
+            }
         }
 
         function cancel(event) {
             event.preventDefault();
             // close overlay
             form.overlay().close();
+        }
+        
+        function checkFields(form) {
+            var startDate, endDate, num, messagearea;
+            startDate = findStartDate();
+            
+            // Hide any error message from before
+            messagearea = form.find('#messagearea');
+            messagearea.text('');
+            messagearea.hide();
+            
+            // Repeats Dialy
+            if(form.find('#ridailyinterval').css('display') == 'block') {
+                // Check repeat every field
+                num = findIntField('ridailyinterval', form);
+                if(!num || num < 0 || num > 1000) {
+                    messagearea.text(conf.i18n.noRepeatEvery).show();
+                    return false;
+                }
+            }
+            
+            // Repeats Weekly
+            if(form.find('#riweeklyinterval').css('display') == 'block') {
+                // Check repeat every field
+                num = findIntField('riweeklyinterval', form);
+                if(!num || num < 0 || num > 1000) {
+                    messagearea.text(conf.i18n.noRepeatEvery).show();
+                    return false;
+                }
+                
+                // Check repeat on
+                if(form.find('.riweeklyweekday input:checked').length == 0) {
+                    messagearea.text(conf.i18n.noRepeatOn).show();
+                    return false;
+                }
+            }
+            
+            // Repeats Monthly
+            if(form.find('#rimonthlyinterval').css('display') == 'block') {
+                // Check repeat every field
+                num = findIntField('rimonthlyinterval', form);
+                if(!num || num < 0 || num > 1000) {
+                    messagearea.text(conf.i18n.noRepeatEvery).show();
+                    return false;
+                }
+                
+                // Check repeat on
+                if(form.find('#rimonthlyoptions input:checked').length == 0) {
+                    messagearea.text(conf.i18n.noRepeatOn).show();
+                    return false;
+                }
+            }
+            
+            // Repeats Yearly
+            if(form.find('#riyearlyinterval').css('display') == 'block') {
+                // Check repeat every field
+                num = findIntField('riyearlyinterval', form);
+                if(!num || num < 0 || num > 1000) {
+                    messagearea.text(conf.i18n.noRepeatEvery).show();
+                    return false;
+                }
+                
+                // Check repeat on
+                if(form.find('#riyearlyoptions input:checked').length == 0) {
+                    messagearea.text(conf.i18n.noRepeatOn).show();
+                    return false;
+                }
+            }
+            
+            // End recurrence fields
+            
+            // If after N occurences is selected, check its value
+            if(form.find('input[value="BYOCCURRENCES"]:visible:checked').length > 0) {
+                num = findIntField('rirangebyoccurrencesvalue', form);
+                if(!num || num < 0 || num > 1000) {
+                    messagearea.text(conf.i18n.noEndAfterNOccurrences).show();
+                    return false;
+                }
+            }
+            
+            // If end date is selected, check its value
+            if(form.find('input[value="BYENDDATE"]:visible:checked').length > 0) {
+                endDate = findEndDate(form);
+                if (!endDate) {
+                    // if end date is null that means the field is empty
+                    messagearea.text(conf.i18n.noEndDate).show();
+                    return false;
+                } else if (endDate < startDate) {
+                    // the end date cannot be before start date
+                    messagearea.text(conf.i18n.pastEndDate).show();
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+        
+        function updateOccurances() {
+            var startDate;
+            startDate = findStartDate();
+            
+            // if no field errors, process the request
+            if(checkFields(form)) {
+                loadOccurrences(startDate,
+                    widgetSaveToRfc5545(form, conf, false).result,
+                    0,
+                    false);
+            }
         }
 
         /* 
@@ -1256,7 +1516,7 @@
 
         // Make an overlay and hide it
         form.overlay(conf.formOverlay).hide();
-        form.ical = {};
+        form.ical = {RDATE: [], EXDATE: []};
         
         // Make the date input into a calendar dateinput()
         form.find('input[name=rirangebyenddatecalendar]').dateinput({
@@ -1293,7 +1553,7 @@
         );
 
         // Pop up the little add form when clicking "Add..."
-        form.find('span.riaddoccurrence input#adddate').dateinput({
+        form.find('div.riaddoccurrence input#adddate').dateinput({
             selectors: true,
             format: conf.i18n.shortDateFormat,
             yearRange: [-5, 10]
@@ -1304,10 +1564,7 @@
         form.find('a.rirefreshbutton').click(
             function (event) {
                 event.preventDefault();
-                loadOccurrences(findStartDate(),
-                    widgetSaveToRfc5545(form, conf, false).result,
-                    0,
-                    false);
+                updateOccurances();
             }
         );
         
@@ -1324,7 +1581,26 @@
                 $(this).parent().find('> input').click().change();
             }
         );
-        
+        form.find('input[name=rirangebyoccurrencesvalue]').change(
+            function (e) {
+                $(this).parent().find('input[name=rirangetype]').click().change();
+            }
+        );
+        form.find('input[name=rirangebyenddatecalendar]').change(
+            function (e) {
+                $(this).parent().find('input[name=rirangetype]').click().change();
+            }
+        );
+        // Also update the selected dates section
+        form.find('input:radio, #connectedweeklyinterval, .riweeklyweekday > input, input[name=rimonthlyinterval], input[name=riyearlyinterval]').change(
+            function (e) {
+                // Update only if the occurances are shown
+                if(form.find('.rioccurrencesactions:visible').length != 0) {
+                    updateOccurances();
+                }
+            }
+        );
+                
         /*
           Save and cancel methods:
         */

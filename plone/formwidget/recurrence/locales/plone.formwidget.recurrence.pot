@@ -26,6 +26,18 @@ msgstr ""
 msgid "add"
 msgstr ""
 
+msgid "refresh"
+msgstr ""
+
+msgid "title"
+msgstr ""
+
+msgid "preview"
+msgstr ""
+
+msgid "add_date"
+msgstr ""
+
 msgid "recurrence_type"
 msgstr ""
 
@@ -44,7 +56,19 @@ msgstr ""
 msgid "weekly_weekdays"
 msgstr ""
 
+msgid "weekly_weekdays_human"
+msgstr ""
+
+msgid "monthly_interval_1"
+msgstr ""
+
+msgid "monthly_interval_2"
+msgstr ""
+
 msgid "monthly_day_of_month_1"
+msgstr ""
+
+msgid "monthly_day_of_month_1_human"
 msgstr ""
 
 msgid "monthly_day_of_month_2"
@@ -59,6 +83,9 @@ msgstr ""
 msgid "monthly_weekday_of_month_1"
 msgstr ""
 
+msgid "monthly_weekday_of_month_1_human"
+msgstr ""
+
 msgid "monthly_weekday_of_month_2"
 msgstr ""
 
@@ -68,7 +95,13 @@ msgstr ""
 msgid "monthly_weekday_of_month_4"
 msgstr ""
 
+msgid "monthly_repeat_on"
+msgstr ""
+
 msgid "yearly_day_of_month_1"
+msgstr ""
+
+msgid "yearly_day_of_month_1_human"
 msgstr ""
 
 msgid "yearly_day_of_month_2"
@@ -80,6 +113,9 @@ msgstr ""
 msgid "yearly_weekday_of_month_1"
 msgstr ""
 
+msgid "yearly_weekday_of_month_1_human"
+msgstr ""
+
 msgid "yearly_weekday_of_month_2"
 msgstr ""
 
@@ -87,6 +123,9 @@ msgid "yearly_weekday_of_month_3"
 msgstr ""
 
 msgid "yearly_weekday_of_month_4"
+msgstr ""
+
+msgid "yearly_repeat_on"
 msgstr ""
 
 msgid "range"
@@ -98,10 +137,16 @@ msgstr ""
 msgid "range_by_occurrences_1"
 msgstr ""
 
+msgid "range_by_occurrences_1_human"
+msgstr ""
+
 msgid "range_by_occurrences_2"
 msgstr ""
 
 msgid "range_by_end_date"
+msgstr ""
+
+msgid "range_by_end_date_human"
 msgstr ""
 
 msgid "including"
@@ -114,6 +159,21 @@ msgid "cancel"
 msgstr ""
 
 msgid "save"
+msgstr ""
+
+msgid "recurrence_start"
+msgstr ""
+
+msgid "additional_date"
+msgstr ""
+
+msgid "include"
+msgstr ""
+
+msgid "exclude"
+msgstr ""
+
+msgid "remove"
 msgstr ""
 
 msgid "order_indexes_first"
@@ -147,6 +207,21 @@ msgid "bysetpos"
 msgstr ""
 
 msgid "no_rule"
+msgstr ""
+
+msgid "no_repeat_every"
+msgstr ""
+
+msgid "no_end_date"
+msgstr ""
+
+msgid "past_end_date"
+msgstr ""
+
+msgid "no_end_after_n_occurrences"
+msgstr ""
+
+msgid "no_repeat_on"
 msgstr ""
 
 msgid "template_daily"

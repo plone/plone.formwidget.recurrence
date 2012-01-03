@@ -73,6 +73,9 @@ jquery.recurrenceinput.css:
     div.rioccurrencesactions a.rirefreshbutton {
         background-image: url(refresh.png);
         color: transparent;
+        margin-top: 4px;
+        margin-right: 5px;
+        
     }
 
 Should be:
@@ -95,11 +98,25 @@ Should be:
     div.rioccurrencesactions a.rirefreshbutton {
         background-image: url(++resource++jquery.recurrenceinput.refresh.png);
         color: transparent;
+        margin-top: 4px;
+        margin-right: 5px;
     }
 
+And the div.riform should have an additional font-size:
 
+div.riform {
+    padding: 1em;
+    background-color: white;
+    box-shadow: 0 0 3em 0.5em #666;
+    line-height: 2;
+    -moz-box-shadow: 0 0 3em 0.5em #666;
+    -webkit-box-shadow: 0 0 3em #666;
+    font-size: 80%;  // <- This one is Plone specific.
+}
 
-That is all the changes necessary.
+That is all the changes necessary, unless there are changes to the labels, in which
+case you need to update plone/formwidget/recurrance/browser/i18n.py and the translations
+to support the new labels.
 
 
 Contributors
