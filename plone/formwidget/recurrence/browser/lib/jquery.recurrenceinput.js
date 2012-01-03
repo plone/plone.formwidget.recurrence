@@ -121,7 +121,8 @@
         weeklyWeekdays: 'Repeat on:',
         weeklyWeekdaysHuman: 'on: ',
 
-        monthlyInterval: 'Repeat every:',
+        monthlyInterval1: 'Repeat every:',
+        monthlyInterval2: 'month(s)',
         monthlyDayOfMonth1: 'Day',
         monthlyDayOfMonth1Human: 'on day',
         monthlyDayOfMonth2: 'of the month',
@@ -209,14 +210,14 @@
 
     var OCCURRENCETMPL = ['<div class="rioccurrences">',
         '{{each occurrences}}',
-            '<div class="occurrence {{if occurrences[$index].type === "exdate"}}dimm{{/if}} {{if occurrences[$index].type === "rdate"}}exc{{/if}}">',
-                '<span class="${occurrences[$index].type}">',
+            '<div class="occurrence ${occurrences[$index].type}">',
+                '<span>',
                     '${occurrences[$index].formattedDate}',
                     '{{if occurrences[$index].type === "start"}}',
-                        '<span>${i18n.recurrenceStart}</span>',
+                        '<span class="rlabel">${i18n.recurrenceStart}</span>',
                     '{{/if}}',
                     '{{if occurrences[$index].type === "rdate"}}',
-                        '<span>${i18n.additionalDate}</span>',
+                        '<span class="rlabel">${i18n.additionalDate}</span>',
                     '{{/if}}',
                 '</span>',
                 '{{if !readOnly}}',
@@ -322,7 +323,7 @@
                         '</div>',
                     '</div>',
                     '<div id="rimonthlyinterval" class="rifield">',
-                        '<label for="rimonthlyinterval" class="label">${i18n.monthlyInterval}</label>',
+                        '<label for="rimonthlyinterval" class="label">${i18n.monthlyInterval1}</label>',
                         '<div class="field">',
                             '<input type="text" size="2"',
                                 'value="1" ',
@@ -953,10 +954,11 @@
                     break;
                     
                 case 'riweeklyweekdays':
+                    byday = byday.split(",");
                     for (d = 0; d < conf.weekdays.length; d++) {
                         day = conf.weekdays[d];
                         input = field.find('input[name=riweeklyweekdays' + day + ']');
-                        input.attr('checked', $.inArray(day, byday) !== -1);
+                        input.attr('checked', byday.indexOf(day) !== -1);
                     }
                     break;
 
@@ -1112,10 +1114,13 @@
 
         function occurrenceExclude(event) {
             event.preventDefault();
+            if (form.ical.EXDATE === undefined) {
+                form.ical.EXDATE = [];
+            }
             form.ical.EXDATE.push(this.attributes.date.value);
             $this = $(this);
             $this.attr('class', 'exdate');
-            $this.parent().parent().addClass('dimm');
+            $this.parent().parent().addClass('exdate');
             $this.unbind(event);
             $this.click(occurrenceInclude);
         }
@@ -1125,7 +1130,7 @@
             form.ical.EXDATE.splice($.inArray(this.attributes.date.value, form.ical.EXDATE), 1);
             $this = $(this);
             $this.attr('class', 'rrule');
-            $this.parent().parent().removeClass('dimm');
+            $this.parent().parent().removeClass('exdate');
             $this.unbind(event);
             $this.click(occurrenceExclude);
         }
@@ -1144,8 +1149,11 @@
                 .find('div.riaddoccurrence input#adddate')
                 .data('dateinput');
             var datevalue = dateinput.getValue('yyyymmddT000000');
+            if (form.ical.RDATE === undefined) {
+                form.ical.RDATE = [];
+            }
             form.ical.RDATE.push(datevalue);
-            var html = ['<div class="occurrence exc" style="display: none;">',
+            var html = ['<div class="occurrence rdate" style="display: none;">',
                     '<span class="rdate">',
                         dateinput.getValue(conf.i18n.longDateFormat),
                     '</span>',
