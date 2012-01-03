@@ -13,8 +13,8 @@ class RecurrenceWidget(LinesWidget):
     _properties.update({
         'macro_edit': "recurrence_widget",
         'helper_js': ('++resource++jquery.tmpl.js',
-                      '++resource++jquery.recurrenceinput.js'),
-        'helper_css': ('++resource++jquery.recurrenceinput.css',),
+                      '++resource++plone.formwidget.recurrence/jquery.recurrenceinput.js'),
+        'helper_css': ('++resource++plone.formwidget.recurrence/jquery.recurrenceinput.css',),
         'startField': '',
         'startYear': '',
         'startMonth': '',

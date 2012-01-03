@@ -35,5 +35,5 @@ class Z3cWidgetTestCase(tests.base.IntegrationTestCase):
         html = widget.render()
 
         self.assertTrue('++resource++jquery.tmpl.js' in html)
-        self.assertTrue('++resource++jquery.recurrenceinput.js' in html)
-        self.assertTrue('++resource++jquery.recurrenceinput.css' in html)
+        self.assertTrue('++resource++plone.formwidget.recurrence/jquery.recurrenceinput.js' in html)
+        self.assertTrue('++resource++plone.formwidget.recurrence/jquery.recurrenceinput.css' in html)

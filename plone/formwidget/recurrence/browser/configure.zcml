@@ -5,18 +5,11 @@
     i18n_domain="plone.formwidget.recurrence">
 
     <!-- Resources -->
-    <browser:resource
-        name="jquery.recurrenceinput.js"
-        file="lib/jquery.recurrenceinput.js"
+    <browser:resourceDirectory
+        name="plone.formwidget.recurrence"
+        directory="lib"
         permission="zope.Public"
         />
-
-    <browser:resource
-        name="jquery.recurrenceinput.css"
-        file="lib/jquery.recurrenceinput.css"
-        permission="zope.Public"
-        />
-
     <browser:resource
         name="jquery.tmpl.js"
         file="lib/jquery.tmpl-beta1.js"
