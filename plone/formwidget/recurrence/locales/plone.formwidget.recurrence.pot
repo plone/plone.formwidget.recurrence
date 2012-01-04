@@ -50,6 +50,12 @@ msgstr ""
 msgid "exclude" 
 msgstr ""
 
+msgid "format_date_long"
+msgstr "mmmm dd, yyyy"
+
+msgid "format_date_short"
+msgstr "mm/dd/yyyy"
+
 msgid "include" 
 msgstr ""
 
