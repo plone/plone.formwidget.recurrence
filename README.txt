@@ -58,6 +58,10 @@ to the buttons class, so it looks like this:
 That is all the changes necessary.
 
 
+TODO
+----
+* sensible defaults when opening an empty recurrence widget.
+
 Contributors
 ------------
 
