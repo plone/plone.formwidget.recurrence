@@ -18,13 +18,13 @@ msgid "add"
 msgstr "Lägg till"
 
 msgid "add_date"
-msgstr ""
+msgstr "Lägg till"
 
 msgid "additional_date"
-msgstr ""
+msgstr "Tillagt datum"
 
 msgid "bysetpos"
-msgstr "BYSETPOS stöds inte"
+msgstr "BYSETPOS stöds ej"
 
 msgid "cancel"
 msgstr "Avbryt"
@@ -36,7 +36,7 @@ msgid "daily_interval_2"
 msgstr "dag(ar)"
 
 msgid "display_activate"
-msgstr "Återkommer "
+msgstr "Återkommer var"
 
 msgid "display_unactivate"
 msgstr "Återkommer inte"
@@ -45,16 +45,16 @@ msgid "edit"
 msgstr "Ändra..."
 
 msgid "except"
-msgstr ", förutom"
+msgstr ", förutom den"
 
 msgid "exclude"
-msgstr ""
+msgstr "Exkludera"
 
 msgid "include"
-msgstr ""
+msgstr "Inkludera"
 
 msgid "including"
-msgstr ", och även"
+msgstr ", samt den"
 
 msgid "long_date_format"
 msgstr "dddd dd mmmm, yyyy"
@@ -63,82 +63,73 @@ msgid "monthly_day_of_month_1"
 msgstr "Den"
 
 msgid "monthly_day_of_month_1_human"
-msgstr ""
+msgstr "den"
 
 msgid "monthly_day_of_month_2"
 msgstr "dagen i månaden"
 
 msgid "monthly_day_of_month_3"
-msgstr ", var"
-
-msgid "monthly_day_of_month_4"
 msgstr "månad"
 
 msgid "monthly_interval_1"
-msgstr ""
+msgstr "Återkom varje:"
 
 msgid "monthly_interval_2"
-msgstr ""
+msgstr "månad(er)"
 
 msgid "monthly_repeat_on"
-msgstr ""
+msgstr "Återkom på:"
 
 msgid "monthly_weekday_of_month_1"
 msgstr " "
 
 msgid "monthly_weekday_of_month_1_human"
-msgstr ""
+msgstr "på"
 
 msgid "monthly_weekday_of_month_2"
 msgstr " "
 
 msgid "monthly_weekday_of_month_3"
-msgstr ", varje"
-
-msgid "monthly_weekday_of_month_4"
-msgstr "månad"
+msgstr "i månaden"
 
 msgid "multiple_day_of_month"
-msgstr "Flera återkomster varje månad stöds inte i månatliga eller årliga återkomster"
+msgstr "Återkomster med flera dagar stöds inte i månatliga eller årliga återkomster"
 
 msgid "no_end_after_n_occurrences"
-msgstr ""
+msgstr "Fel: \"Efter N Återkomster\"-fältet måste vara mellan 1 och 1000"
 
 msgid "no_end_date"
-msgstr ""
+msgstr "Fel: Slutdatum är inte satt"
 
 msgid "no_repeat_every"
-msgstr ""
-
-msgid "no_repeat_on"
-msgstr ""
+msgstr "Fel: \"Återkom var\"-fältet måste vara mellan 1 och 1000"
 
 msgid "no_rule"
 msgstr "Ingen RRULE funnen"
 
 msgid "no_template_match"
-msgstr "Ingen passande template"
+msgstr "Hittar ingen återkomstmall som passar"
 
 msgid "order_indexes_first"
-msgstr "Första"
+msgstr "första"
 
 msgid "order_indexes_fourth"
-msgstr "Fjärde"
+msgstr "fjärde"
 
 msgid "order_indexes_last"
-msgstr "Sista"
+msgstr "sista"
 
 msgid "order_indexes_second"
-msgstr "Andra"
+msgstr "andra"
 
 msgid "order_indexes_third"
-msgstr "Tredje"
+msgstr "tredje"
 
 msgid "past_end_date"
-msgstr ""
+msgstr "Fel: Slutdatum kan inte vara före startdatum"
 
 msgid "preview"
-msgstr ""
+msgstr "Valda datum"
 
 msgid "range"
 msgstr "Återkomsten stoppar:"
@@ -147,46 +138,46 @@ msgid "range_by_end_date"
 msgstr "Till och med"
 
 msgid "range_by_end_date_human"
-msgstr ""
+msgstr "till och med"
 
 msgid "range_by_occurrences_1"
 msgstr "Stoppar efter"
 
 msgid "range_by_occurrences_1_human"
-msgstr ""
+msgstr "stoppar efter"
 
 msgid "range_by_occurrences_2"
 msgstr "återkomster"
 
 msgid "range_no_end"
-msgstr "Inte"
+msgstr "Aldrig"
 
 msgid "recurrence_start"
-msgstr ""
+msgstr "Första gången"
 
 msgid "recurrence_type"
-msgstr "Typ av återkomst:"
+msgstr "Återkommer:"
 
 msgid "refresh"
-msgstr ""
+msgstr "Ladda om"
 
 msgid "remove"
-msgstr ""
+msgstr "Ta bort"
 
 msgid "save"
 msgstr "Spara"
 
 msgid "template_daily"
-msgstr "Dagligen"
+msgstr "Varje dag"
 
 msgid "template_mondayfriday"
-msgstr "Måndagar och fredagar"
+msgstr "Måndag och fredag"
 
 msgid "template_monthly"
 msgstr "Varje månad"
 
 msgid "template_weekdays"
-msgstr "Veckodagar"
+msgstr "Veckodag"
 
 msgid "template_weekly"
 msgstr "Varje vecka"
@@ -195,7 +186,7 @@ msgid "template_yearly"
 msgstr "Varje år"
 
 msgid "title"
-msgstr ""
+msgstr "Återkomster"
 
 msgid "unsupported_features"
 msgstr "Varning: Denna händelse använder funktionalitet som denna dialog inte stödjer. Om du sparar kan detta ändra när händelsen återkommer: "
@@ -210,13 +201,13 @@ msgid "weekly_weekdays"
 msgstr "På:"
 
 msgid "weekly_weekdays_human"
-msgstr ""
+msgstr "på:"
 
 msgid "yearly_day_of_month_1"
 msgstr "Varje"
 
 msgid "yearly_day_of_month_1_human"
-msgstr ""
+msgstr "på"
 
 msgid "yearly_day_of_month_2"
 msgstr " "
@@ -224,21 +215,26 @@ msgstr " "
 msgid "yearly_day_of_month_3"
 msgstr " "
 
+msgid "yearly_interval_1"
+msgstr "Återkom varje:"
+
+msgid "yearly_interval_2"
+msgstr "år"
+
 msgid "yearly_repeat_on"
-msgstr ""
+msgstr "Återkom på:"
 
 msgid "yearly_weekday_of_month_1"
 msgstr " "
 
 msgid "yearly_weekday_of_month_1_human"
-msgstr ""
+msgstr "på"
 
 msgid "yearly_weekday_of_month_2"
 msgstr " "
 
 msgid "yearly_weekday_of_month_3"
-msgstr " "
+msgstr "i"
 
 msgid "yearly_weekday_of_month_4"
 msgstr " "
-
