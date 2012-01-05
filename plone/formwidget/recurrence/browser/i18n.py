@@ -66,14 +66,14 @@ months: [
     '{month_september}', '{month_october}', '{month_november}', '{month_december}'],
 shortMonths: [
     '{month_january_short}', '{month_february_short}', '{month_march_short}',
-    '{month_april_short}', '{month_may_short}', '{month_june_short}', 
-    '{month_july_short}', '{month_august_short}', '{month_september_short}', 
+    '{month_april_short}', '{month_may_short}', '{month_june_short}',
+    '{month_july_short}', '{month_august_short}', '{month_september_short}',
     '{month_october_short}', '{month_november_short}', '{month_december_short}'],
 weekdays: [
     '{day_monday}', '{day_tuesday}', '{day_wednesday}', '{day_thirsday}',
     '{day_friday}', '{day_saturday}', '{day_sunday}'],
 shortWeekdays: [
-    '{day_monday_short}', '{day_tuesday_short}', '{day_wednesday_short}', 
+    '{day_monday_short}', '{day_tuesday_short}', '{day_wednesday_short}',
     '{day_thirsday_short}', '{day_friday_short}', '{day_saturday_short}',
     '{day_sunday_short}'],
 longDateFormat: '{long_date_format}',
@@ -87,7 +87,6 @@ noRepeatEvery: '{no_repeat_every}',
 noEndDate: '{no_end_date}',
 pastEndDate: '{past_end_date}',
 noEndAfterNOccurrences: '{no_end_after_n_occurrences}',
-
 rtemplate: {{
     daily: '{template_daily}',
     mondayfriday: '{template_mondayfriday}',
@@ -131,7 +130,7 @@ messages = {
     'yearly_interval_1': pfr_message(u'yearly_interval_1'),
     'yearly_interval_2': pfr_message(u'yearly_interval_2'),
     'yearly_day_of_month_1': pfr_message(u'yearly_day_of_month_1'),
-    'yearly_day_of_month_1_human': pfr_message(u'yearly_day_of_month_1_human'),    
+    'yearly_day_of_month_1_human': pfr_message(u'yearly_day_of_month_1_human'),
     'yearly_day_of_month_2': pfr_message(u'yearly_day_of_month_2'),
     'yearly_day_of_month_3': pfr_message(u'yearly_day_of_month_3'),
     'yearly_weekday_of_month_1': pfr_message(u'yearly_weekday_of_month_1'),
@@ -216,7 +215,7 @@ messages = {
     'template_weekly': pfr_message(u'template_weekly'),
     'template_monthly': pfr_message(u'template_monthly'),
     'template_yearly': pfr_message(u'template_yearly'),
-} 
+}
 
 # = translate(messages['display_unactivate'], context=request),
 def translations(request):

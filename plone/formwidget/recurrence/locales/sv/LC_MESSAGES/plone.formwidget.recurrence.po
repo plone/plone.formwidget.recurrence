@@ -53,6 +53,18 @@ msgstr "Exkludera"
 msgid "include"
 msgstr "Inkludera"
 
+msgid "exclude"
+msgstr ""
+
+msgid "format_date_long"
+msgstr "mmmm dd, yyyy"
+
+msgid "format_date_short"
+msgstr "mm/dd/yyyy"
+
+msgid "include"
+msgstr ""
+
 msgid "including"
 msgstr ", samt den"
 
@@ -104,6 +116,18 @@ msgstr "Fel: Slutdatum är inte satt"
 msgid "no_repeat_every"
 msgstr "Fel: \"Återkom var\"-fältet måste vara mellan 1 och 1000"
 
+msgid "no_end_after_n_occurrences"
+msgstr ""
+
+msgid "no_end_date"
+msgstr ""
+
+msgid "no_repeat_every"
+msgstr ""
+
+msgid "no_repeat_on"
+msgstr ""
+
 msgid "no_rule"
 msgstr "Ingen RRULE funnen"
 
@@ -131,6 +155,12 @@ msgstr "Fel: Slutdatum kan inte vara före startdatum"
 msgid "preview"
 msgstr "Valda datum"
 
+msgid "past_end_date"
+msgstr ""
+
+msgid "preview"
+msgstr ""
+
 msgid "range"
 msgstr "Återkomsten stoppar:"
 
@@ -155,6 +185,9 @@ msgstr "Aldrig"
 msgid "recurrence_start"
 msgstr "Första gången"
 
+msgid "recurrence_start"
+msgstr ""
+
 msgid "recurrence_type"
 msgstr "Återkommer:"
 
@@ -163,6 +196,12 @@ msgstr "Ladda om"
 
 msgid "remove"
 msgstr "Ta bort"
+
+msgid "refresh"
+msgstr ""
+
+msgid "remove"
+msgstr ""
 
 msgid "save"
 msgstr "Spara"

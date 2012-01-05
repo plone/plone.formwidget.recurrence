@@ -12,7 +12,7 @@ class RecurrenceWidget(BrowserView):
     @property
     def macros(self):
         return self.template.macros
-    
+
     def translation(self):
         return translations(request=self.request)
 

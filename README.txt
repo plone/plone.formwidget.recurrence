@@ -1,14 +1,17 @@
 Introduction
 ============
 
-The plone.formwidget.recurrence widget provides an Archetype widget for
-recurrance. The main GUI work is done with the jquery.recurrenceinput.js widget
-from http://github.com/collective/jquery.recurrenceinput.js .
+The plone.formwidget.recurrence widget provides an Archetype and a z3cform
+widget for recurrance.
+
+The main GUI work is done with the jquery.recurrenceinput.js widget from
+http://github.com/collective/jquery.recurrenceinput.js .
 
 This widget also provides a simple textarea where a RFC 5545
 compliant recurrence rule can be entered, if javascript is not available.
 
-The resulting value of the widget is a dateutil.rrule object.
+The resulting value of the widget is a RFC5445 compliant recurrence rule
+string, ready to be used with python-dateutil's rrulestr.
 
 Usage
 -----

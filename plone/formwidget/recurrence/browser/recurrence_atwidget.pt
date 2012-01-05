@@ -11,7 +11,9 @@
       tal:define="visState python:widget.isVisible(here, mode);
         getMethod python:(widget.populate and accessor) or None;
         value python:getMethod and getMethod();
-        widget_view widget/@@recurrence_widget;">
+        widget_view widget/@@recurrence_widget;
+        portal_url context/@@plone_portal_state/portal_url;">
+
         <span tal:content="python:widget.get_formatted_value(value)">Value</span>
     </metal:view_macro>
 
@@ -27,8 +29,17 @@
                     tal:content="python:value or ''"></textarea>
           <!-- Make the text area a recurrenceinput -->
           <script type="text/javascript"
-                  tal:content="string: $.tools.recurrenceinput.localize('${request/LANGUAGE}', ${widget/@@recurrence_widget/translation});
-                                       jQuery('.ArchetypesRecurrenceWidget textarea').recurrenceinput({lang: '${request/LANGUAGE}'});">
+            tal:content="string:
+              jQuery.tools.recurrenceinput.localize('${request/LANGUAGE}', ${widget/@@recurrence_widget/translation});
+              jQuery('.ArchetypesRecurrenceWidget textarea').recurrenceinput({
+                      lang: '${request/LANGUAGE}',
+                      startField: '${widget/startField}',
+                      startFieldDay: '${widget/startFieldDay}',
+                      startFieldMonth: '${widget/startFieldMonth}',
+                      startFieldYear: '${widget/startFieldYear}',
+                      ajaxURL: '${portal_url}/${widget/ajaxURL}'
+                    });
+          ">
           </script>
         </div>
       </metal:use>

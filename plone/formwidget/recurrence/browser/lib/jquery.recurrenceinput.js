@@ -509,11 +509,11 @@
                 '<div class="ributtons">',
                     '<input',
                         'type="submit"',
-                        'class="ricancelbutton allowMultiSubmit"',
+                        'class="ricancelbutton"',
                         'value="${i18n.cancel}" />',
                     '<input',
                         'type="submit"',
-                        'class="risavebutton allowMultiSubmit"',
+                        'class="risavebutton"',
                         'value="${i18n.save}" />',
                 '</div>',
             '</form></div>'].join('\n');
