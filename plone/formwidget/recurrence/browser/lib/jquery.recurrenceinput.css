@@ -5,7 +5,6 @@ div.riform {
     line-height: 2;
     -moz-box-shadow: 0 0 3em 0.5em #666;
     -webkit-box-shadow: 0 0 3em #666;
-    font-size: 80%;
 }
 
 div.riform h1 {
@@ -100,6 +99,7 @@ div.rioccurrencesactions .rioccurancesheader h2 {
     margin: 0px 0px 5px 5px;
 }
 
+
 div.rioccurrences div.batching {
     font-size: 70%;
     text-align: center;
@@ -164,22 +164,19 @@ div.rioccurrences a.exdate {
 
 
 div.rioccurrences a.rrule {
-    background-image: url(++resource++jquery.recurrenceinput.delete.png);
-    color: transparent;
+    background-image: url(delete.png);
 }
 
 div.rioccurrences a.rdate {
-    background-image: url(++resource++jquery.recurrenceinput.delete.png);
-    color: transparent;
+    background-image: url(delete.png);
 }
 
 div.rioccurrences a.exdate {
-    background-image: url(++resource++jquery.recurrenceinput.undelete.png);
-    color: transparent;
+    background-image: url(undelete.png);
 }
 
 div.rioccurrencesactions a.rirefreshbutton {
-    background-image: url(++resource++jquery.recurrenceinput.refresh.png);
+    background-image: url(refresh.png);
     color: transparent;
     margin-top: 4px;
     margin-right: 5px;

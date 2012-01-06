@@ -23,7 +23,7 @@ For developers: Updating the javascript
 ---------------------------------------
 
 The javascript files in plone/formwidget/recurrence/browser/lib comes from
-jquery.recurrenceinput.js. There is two modifications needed:
+jquery.recurrenceinput.js. There are some modifications needed:
 
 In jquery.recurrenceinput.js there are two submit buttons near the end
 of the FORMTMPL definition:
@@ -55,65 +55,10 @@ to the buttons class, so it looks like this:
                         'value="${i18n.save}" />',
                 '</div>',
 
-If you also copy in the default css, you need to change a couple of paths in 
+If you also copy in the default css, you might want to have a different fontsize for div.riform in
 jquery.recurrenceinput.css:
 
-    div.rioccurrences a.rrule {
-        background-image: url(delete.png);
-        color: transparent;
-    }
-    
-    div.rioccurrences a.rdate {
-        background-image: url(delete.png);
-        color: transparent;
-    }
-    
-    div.rioccurrences a.exdate {
-        background-image: url(undelete.png);
-        color: transparent;
-    }
-    
-    div.rioccurrencesactions a.rirefreshbutton {
-        background-image: url(refresh.png);
-        color: transparent;
-        margin-top: 4px;
-        margin-right: 5px;
-        
-    }
-
-Should be:
-
-    div.rioccurrences a.rrule {
-        background-image: url(++resource++jquery.recurrenceinput.delete.png);
-        color: transparent;
-    }
-    
-    div.rioccurrences a.rdate {
-        background-image: url(++resource++jquery.recurrenceinput.delete.png);
-        color: transparent;
-    }
-    
-    div.rioccurrences a.exdate {
-        background-image: url(++resource++jquery.recurrenceinput.undelete.png);
-        color: transparent;
-    }
-    
-    div.rioccurrencesactions a.rirefreshbutton {
-        background-image: url(++resource++jquery.recurrenceinput.refresh.png);
-        color: transparent;
-        margin-top: 4px;
-        margin-right: 5px;
-    }
-
-And the div.riform should have an additional font-size:
-
 div.riform {
-    padding: 1em;
-    background-color: white;
-    box-shadow: 0 0 3em 0.5em #666;
-    line-height: 2;
-    -moz-box-shadow: 0 0 3em 0.5em #666;
-    -webkit-box-shadow: 0 0 3em #666;
     font-size: 80%;  // <- This one is Plone specific.
 }
 

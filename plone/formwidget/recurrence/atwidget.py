@@ -19,7 +19,6 @@ class RecurrenceWidget(LinesWidget):
         'startYear': '',
         'startMonth': '',
         'startDay': '',
-        'ajaxURL': '@@json_occurrences',
         })
 
 

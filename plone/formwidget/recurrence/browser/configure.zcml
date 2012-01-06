@@ -15,24 +15,6 @@
         file="lib/jquery.tmpl-beta1.js"
         permission="zope.Public"
         />
-
-    <browser:resource
-        name="jquery.recurrenceinput.delete.png"
-        file="lib/delete.png"
-        permission="zope.Public"
-        />
-
-    <browser:resource
-        name="jquery.recurrenceinput.undelete.png"
-        file="lib/undelete.png"
-        permission="zope.Public"
-        />
-        
-    <browser:resource
-        name="jquery.recurrenceinput.refresh.png"
-        file="lib/refresh.png"
-        permission="zope.Public"
-        />
         
     <!-- JSON recurrence view -->        
     <browser:page
@@ -41,7 +23,7 @@
         class=".json_recurrence.RecurrenceView"
         permission="zope2.View"
         />
-    
+
     <!-- Archetypes widget view -->
     <browser:page
         for="*"
@@ -77,14 +59,6 @@
         widget="plone.formwidget.recurrence.browser.z3cwidget.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="recurrence_hidden.pt"
-        />
-
-    <!-- occurrences json view -->
-    <browser:view
-        name="json_occurrences"
-        for="*"
-        class=".json_occurrences.JSONOccurrences"
-        permission="zope2.View"
         />
 
 </configure>

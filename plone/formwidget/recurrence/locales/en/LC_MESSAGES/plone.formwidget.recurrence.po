@@ -50,12 +50,6 @@ msgstr ", except for"
 msgid "exclude"
 msgstr "Exclude"
 
-msgid "format_date_long"
-msgstr "mmmm dd, yyyy"
-
-msgid "format_date_short"
-msgstr "mm/dd/yyyy"
-
 msgid "include"
 msgstr "Include"
 
@@ -137,12 +131,6 @@ msgstr "Error: End date cannot be before start date"
 msgid "preview"
 msgstr "Selected dates"
 
-msgid "past_end_date"
-msgstr "Error: End date cannot be before start date"
-
-msgid "preview"
-msgstr "Selected dates"
-
 msgid "range"
 msgstr "End recurrance:"
 
@@ -167,17 +155,8 @@ msgstr "Never"
 msgid "recurrence_start"
 msgstr "Start of the recurrence"
 
-msgid "recurrence_start"
-msgstr "Start of the recurrence"
-
 msgid "recurrence_type"
 msgstr "Repeats:"
-
-msgid "refresh"
-msgstr "Refresh"
-
-msgid "remove"
-msgstr "Remove"
 
 msgid "refresh"
 msgstr "Refresh"
@@ -224,9 +203,6 @@ msgstr "Repeat on:"
 msgid "weekly_weekdays_human"
 msgstr "on: "
 
-msgid "weekly_weekdays_human"
-msgstr "on: "
-
 msgid "yearly_day_of_month_1"
 msgstr "Every"
 
@@ -262,4 +238,3 @@ msgstr "of"
 
 msgid "yearly_weekday_of_month_4"
 msgstr " "
-

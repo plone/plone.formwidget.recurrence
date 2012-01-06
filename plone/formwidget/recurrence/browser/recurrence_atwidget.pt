@@ -29,17 +29,15 @@
                     tal:content="python:value or ''"></textarea>
           <!-- Make the text area a recurrenceinput -->
           <script type="text/javascript"
-            tal:content="string:
-              jQuery.tools.recurrenceinput.localize('${request/LANGUAGE}', ${widget/@@recurrence_widget/translation});
-              jQuery('.ArchetypesRecurrenceWidget textarea').recurrenceinput({
+              tal:content="string:
+                  jQuery.tools.recurrenceinput.localize('${request/LANGUAGE}', ${widget/@@recurrence_widget/translation});
+                  jQuery('.ArchetypesRecurrenceWidget textarea').recurrenceinput({
                       lang: '${request/LANGUAGE}',
                       startField: '${widget/startField}',
                       startFieldDay: '${widget/startFieldDay}',
                       startFieldMonth: '${widget/startFieldMonth}',
                       startFieldYear: '${widget/startFieldYear}',
-                      ajaxURL: '${portal_url}/${widget/ajaxURL}'
-                    });
-          ">
+                      ajaxURL: '${portal_url}/@@json_recurrence'});">
           </script>
         </div>
       </metal:use>
