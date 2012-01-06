@@ -2,7 +2,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       tal:omit-tag="">
 <style type="text/css" media="screen" 
-  tal:content="string:@import url(${view/site_url}/++resource++plone.formwidget.recurrence/jquery.recurrenceinput.css);"></style>
+  tal:content="string:@import url(${view/site_url}/++resource++plone.formwidget.recurrence/integration.css);"></style>
 <style type="text/css" media="screen" 
   tal:content="string:@import url(${view/site_url}/++resource++plone.app.jquerytools.dateinput.css);"></style>
 <script type="text/javascript" charset="iso-8859-1"

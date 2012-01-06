@@ -23,7 +23,7 @@ For developers: Updating the javascript
 ---------------------------------------
 
 The javascript files in plone/formwidget/recurrence/browser/lib comes from
-jquery.recurrenceinput.js. There are some modifications needed:
+jquery.recurrenceinput.js. There is one modification needed:
 
 In jquery.recurrenceinput.js there are two submit buttons near the end
 of the FORMTMPL definition:
@@ -55,12 +55,6 @@ to the buttons class, so it looks like this:
                         'value="${i18n.save}" />',
                 '</div>',
 
-If you also copy in the default css, you might want to have a different fontsize for div.riform in
-jquery.recurrenceinput.css:
-
-div.riform {
-    font-size: 80%;  // <- This one is Plone specific.
-}
 
 That is all the changes necessary, unless there are changes to the labels, in which
 case you need to update plone/formwidget/recurrance/browser/i18n.py and the translations

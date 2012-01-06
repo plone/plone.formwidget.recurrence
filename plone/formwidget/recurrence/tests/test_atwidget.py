@@ -27,7 +27,7 @@ class ATWidgetTestCase(IntegrationTestCase):
                 ('++resource++jquery.tmpl.js',
                  '++resource++plone.formwidget.recurrence/jquery.recurrenceinput.js',))
         self.assertEqual(self.widget.helper_css,
-                ('++resource++plone.formwidget.recurrence/jquery.recurrenceinput.css',))
+                ('++resource++plone.formwidget.recurrence/integration.css',))
         self.assertEqual(self.widget.macro_edit, 'recurrence_widget')
 
     def test_widget_process(self):

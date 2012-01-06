@@ -14,7 +14,7 @@ class RecurrenceWidget(LinesWidget):
         'macro_edit': "recurrence_widget",
         'helper_js': ('++resource++jquery.tmpl.js',
                       '++resource++plone.formwidget.recurrence/jquery.recurrenceinput.js'),
-        'helper_css': ('++resource++plone.formwidget.recurrence/jquery.recurrenceinput.css',),
+        'helper_css': ('++resource++plone.formwidget.recurrence/integration.css',),
         'startField': '',
         'startYear': '',
         'startMonth': '',
