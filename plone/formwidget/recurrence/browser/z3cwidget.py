@@ -36,7 +36,6 @@ class RecurrenceWidget(widget.HTMLTextAreaWidget, Widget):
     def get_start_field(self):
         if self.mode == 'display':
             return self.id + '-start'
-        import pdb;pdb.set_trace()
         return self.form.widgets[self.start_field].js_field
     
     def get_start_date(self):
