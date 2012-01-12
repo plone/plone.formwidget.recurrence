@@ -39,13 +39,16 @@
                    accesskey view/accesskey;
                    onselect view/onselect"
    tal:content="view/value" />
+<tal:block condition="python:view.read_only() == 'true'">
+  <span style="display:none;" tal:attributes="id string:${view/id}-start;name string:${view/name}-start" tal:content="view/get_start_date"/>
+</tal:block>
 <script type="text/javascript"
         tal:define="portal_url context/@@plone_portal_state/portal_url;"
         tal:content="string: jQuery.tools.recurrenceinput.localize('${request/LANGUAGE}', ${view/translation});
                              jQuery('#${view/id}').recurrenceinput({ 
                                  lang: '${request/LANGUAGE}', 
                                  readOnly: ${view/read_only},
-                                 startField: '${view/start_field}',
+                                 startField: '${view/get_start_field}',
                                  ajaxURL: '${portal_url}/@@json_recurrence'});">
 </script>
 </html>

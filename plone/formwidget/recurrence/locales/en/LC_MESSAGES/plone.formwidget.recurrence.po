@@ -104,6 +104,9 @@ msgstr "Error: End date is not set. Please set a correct value"
 msgid "no_repeat_every"
 msgstr "Error: The \"Repeat every\"-field must be between 1 and 1000"
 
+msgid "no_repeat_on"
+msgstr "Error: \"Repeat on\"-value must be selected"
+
 msgid "no_rule"
 msgstr "No RRULE in RRULE data"
 
@@ -238,3 +241,4 @@ msgstr "of"
 
 msgid "yearly_weekday_of_month_4"
 msgstr " "
+

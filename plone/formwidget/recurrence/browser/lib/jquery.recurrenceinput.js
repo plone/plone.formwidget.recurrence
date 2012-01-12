@@ -510,11 +510,11 @@
                 '<div class="ributtons">',
                     '<input',
                         'type="submit"',
-                        'class="ricancelbutton"',
+                        'class="ricancelbutton allowMultiSubmit"',
                         'value="${i18n.cancel}" />',
                     '<input',
                         'type="submit"',
-                        'class="risavebutton"',
+                        'class="risavebutton allowMultiSubmit"',
                         'value="${i18n.save}" />',
                 '</div>',
             '</form></div>'].join('\n');
@@ -1257,9 +1257,13 @@
                 startField = getField(conf.startField);
                 // Now we have a field, see if it is a dateinput field:
                 startdate = startField.data('dateinput');
-                if (startdate === undefined || startdate === null) {
+                if (!startdate) {
                     //No, it wasn't, just try to interpret it with Date()
                     startdate = startField.val();
+                    if (!startdate) {
+                        // Probably not an input at all. Try to see if it contains a date
+                        startdate = startField.text();
+                    }
                 } else {
                     // Yes it was, get the date:
                     startdate = startdate.getValue();
@@ -1274,6 +1278,10 @@
                     pad(startFieldMonth.val(), 2) + '-' +
                     pad(startFieldDay.val(), 2);
             }
+            if (startdate === null) {
+               return null
+            }
+            // We have some sort of startdate:
             startdate = new Date(startdate);
             if (isNaN(startdate)) {
                 return null;

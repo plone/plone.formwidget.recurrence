@@ -104,6 +104,9 @@ msgstr "Fel: Slutdatum är inte satt"
 msgid "no_repeat_every"
 msgstr "Fel: \"Återkom var\"-fältet måste vara mellan 1 och 1000"
 
+msgid "no_repeat_on"
+msgstr "Fel: Du måste välja typ av återkomst (under \"Återkom på:\")"
+
 msgid "no_rule"
 msgstr "Ingen RRULE funnen"
 
@@ -155,7 +158,6 @@ msgstr "Aldrig"
 msgid "recurrence_start"
 msgstr "Första gången"
 
-
 msgid "recurrence_type"
 msgstr "Återkommer:"
 
@@ -193,13 +195,13 @@ msgid "unsupported_features"
 msgstr "Varning: Denna händelse använder funktionalitet som denna dialog inte stödjer. Om du sparar kan detta ändra när händelsen återkommer: "
 
 msgid "weekly_interval_1"
-msgstr "Varje"
+msgstr "Återkom varje"
 
 msgid "weekly_interval_2"
 msgstr "vecka/veckor"
 
 msgid "weekly_weekdays"
-msgstr "På:"
+msgstr "Återkom på:"
 
 msgid "weekly_weekdays_human"
 msgstr "på:"
@@ -239,3 +241,4 @@ msgstr "i"
 
 msgid "yearly_weekday_of_month_4"
 msgstr " "
+

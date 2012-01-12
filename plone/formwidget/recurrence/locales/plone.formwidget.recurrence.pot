@@ -104,6 +104,9 @@ msgstr ""
 msgid "no_repeat_every"
 msgstr ""
 
+msgid "no_repeat_on"
+msgstr ""
+
 msgid "no_rule"
 msgstr ""
 

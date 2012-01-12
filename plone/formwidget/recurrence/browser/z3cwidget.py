@@ -32,7 +32,16 @@ class RecurrenceWidget(widget.HTMLTextAreaWidget, Widget):
     
     def read_only(self):
         return self.mode == 'display' and 'true' or 'false'
-             
+    
+    def get_start_field(self):
+        if self.mode == 'display':
+            return self.id + '-start'
+        import pdb;pdb.set_trace()
+        return self.form.widgets[self.start_field].js_field
+    
+    def get_start_date(self):
+        start = self.form.fields[self.start_field].field.get(self.context)
+        return start.strftime('%Y-%m-%d %H:%M')
 
 @zope.component.adapter(zope.schema.interfaces.IField, IFormLayer)
 @zope.interface.implementer(IFieldWidget)
