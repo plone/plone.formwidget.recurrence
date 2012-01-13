@@ -18,7 +18,6 @@ class PloneFormwidgetRecurrenceLayer(PloneSandboxLayer):
         # Load ZCML
         import plone.formwidget.recurrence
         self.loadZCML(package=plone.formwidget.recurrence)
-#        self.loadZCML(package=plone.formwidget.recurrence.tests)
         z2.installProduct(app, 'plone.formwidget.recurrence')
 
     def setUpPloneSite(self, portal):
