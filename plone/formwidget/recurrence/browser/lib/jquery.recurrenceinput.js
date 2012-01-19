@@ -1369,7 +1369,7 @@
         }
         
         function recurrenceOn() {
-            var RFC5545 = widgetSaveToRfc5545(form, conf, true);
+            var RFC5545 = widgetSaveToRfc5545(form, conf, false);
             var label = display.find('label[class=ridisplay]');
             label.text(conf.i18n.displayActivate + ' ' + RFC5545.description);
             textarea.val(RFC5545.result);
