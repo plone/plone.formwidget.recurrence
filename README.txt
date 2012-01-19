@@ -2,7 +2,7 @@ Introduction
 ============
 
 The plone.formwidget.recurrence widget provides an Archetype and a z3cform
-widget for recurrance.
+widget for recurrence.
 
 The main GUI work is done with the jquery.recurrenceinput.js widget from
 http://github.com/collective/jquery.recurrenceinput.js .
@@ -57,7 +57,7 @@ to the buttons class, so it looks like this:
 
 
 That is all the changes necessary, unless there are changes to the labels, in which
-case you need to update plone/formwidget/recurrance/browser/i18n.py and the translations
+case you need to update plone/formwidget/recurrence/browser/i18n.py and the translations
 to support the new labels.
 
 

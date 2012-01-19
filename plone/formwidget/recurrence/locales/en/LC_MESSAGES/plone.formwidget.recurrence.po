@@ -135,7 +135,7 @@ msgid "preview"
 msgstr "Selected dates"
 
 msgid "range"
-msgstr "End recurrance:"
+msgstr "End recurrence:"
 
 msgid "range_by_end_date"
 msgstr "Until "

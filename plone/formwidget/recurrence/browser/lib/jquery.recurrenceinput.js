@@ -1459,7 +1459,7 @@
             
             // End recurrence fields
             
-            // If after N occurences is selected, check its value
+            // If after N occurrences is selected, check its value
             if (form.find('input[value="BYOCCURRENCES"]:visible:checked').length > 0) {
                 num = findIntField('rirangebyoccurrencesvalue', form);
                 if (!num || num < 0 || num > 1000) {
