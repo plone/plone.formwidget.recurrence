@@ -23,6 +23,9 @@ msgstr "Add date"
 msgid "additional_date"
 msgstr "Additional date"
 
+msgid "already_added"
+msgstr "This date was already added"
+
 msgid "bysetpos"
 msgstr "BYSETPOS is not supported"
 
