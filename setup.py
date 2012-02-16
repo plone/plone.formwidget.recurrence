@@ -24,15 +24,22 @@ setup(name='plone.formwidget.recurrence',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'Products.Archetypes',
           'python-dateutil',
           'setuptools',
-          'z3c.form',
       ],
-      extras_require={'test': ['Products.GenericSetup',
-                               'z3c.form[test]',
-                               'plone.app.testing',
-                               'unittest2']},
+      extras_require=dict(
+          z3cform=[
+              'z3c.form',
+          ],
+          archetypes=[
+              'Products.Archetypes',
+          ],
+          test=[
+              'Products.GenericSetup',
+              'z3c.form[test]',
+              'plone.app.testing',
+              'unittest2'
+          ]),
       entry_points="""
       # -*- Entry points: -*-
 

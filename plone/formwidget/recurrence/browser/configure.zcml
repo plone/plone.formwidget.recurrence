@@ -24,41 +24,4 @@
         permission="zope2.View"
         />
 
-    <!-- Archetypes widget view -->
-    <browser:page
-        for="*"
-        name="recurrence_widget"
-        class=".atwidget.RecurrenceWidget"
-        permission="zope2.View"
-        />
-
-    <!-- z3c widget views -->
-    <class class="plone.formwidget.recurrence.browser.z3cwidget.RecurrenceWidget">
-      <require
-          permission="zope.Public"
-          interface="plone.formwidget.recurrence.browser.z3cwidget.IRecurrenceWidget"
-          />
-    </class>
-
-    <z3c:widgetTemplate
-        mode="display"
-        widget="plone.formwidget.recurrence.browser.z3cwidget.IRecurrenceWidget"
-        layer="z3c.form.interfaces.IFormLayer"
-        template="recurrence_input.pt"
-        />
-
-    <z3c:widgetTemplate
-        mode="input"
-        widget="plone.formwidget.recurrence.browser.z3cwidget.IRecurrenceWidget"
-        layer="z3c.form.interfaces.IFormLayer"
-        template="recurrence_input.pt"
-        />
-
-    <z3c:widgetTemplate
-        mode="hidden"
-        widget="plone.formwidget.recurrence.browser.z3cwidget.IRecurrenceWidget"
-        layer="z3c.form.interfaces.IFormLayer"
-        template="recurrence_hidden.pt"
-        />
-
 </configure>

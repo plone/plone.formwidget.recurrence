@@ -1,5 +1,5 @@
 from plone.formwidget.recurrence import tests
-from plone.formwidget.recurrence.browser import z3cwidget
+from plone.formwidget.recurrence.z3cform import z3cwidget
 from z3c.form import form, field
 from z3c.form.interfaces import IFormLayer
 from zope.publisher.browser import TestRequest

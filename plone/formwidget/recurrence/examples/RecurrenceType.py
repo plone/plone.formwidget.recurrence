@@ -4,7 +4,7 @@ from Products.Archetypes.atapi import LinesField
 from Products.Archetypes.atapi import registerType
 from Products.Archetypes.examples.SimpleType import SimpleType
 
-from plone.formwidget.recurrence.atwidget import RecurrenceWidget
+from plone.formwidget.recurrence.at.atwidget import RecurrenceWidget
 
 
 schema = BaseSchema.copy() + Schema((

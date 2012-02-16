@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="plone.formwidget.recurrence">
+
+    <!-- Archetypes widget view -->
+    <browser:page
+        for="*"
+        name="recurrence_widget"
+        class=".browser.RecurrenceWidget"
+        permission="zope2.View"
+        />
+
+</configure>
