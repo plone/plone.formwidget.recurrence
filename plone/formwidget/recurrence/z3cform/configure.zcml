@@ -5,30 +5,30 @@
     i18n_domain="plone.formwidget.recurrence">
         
     <!-- z3c widget views -->
-    <class class="plone.formwidget.recurrence.z3cform.z3cwidget.RecurrenceWidget">
+    <class class="plone.formwidget.recurrence.z3cform.widget.RecurrenceWidget">
       <require
           permission="zope.Public"
-          interface="plone.formwidget.recurrence.z3cform.z3cwidget.IRecurrenceWidget"
+          interface="plone.formwidget.recurrence.z3cform.widget.IRecurrenceWidget"
           />
     </class>
 
     <z3c:widgetTemplate
         mode="display"
-        widget="plone.formwidget.recurrence.z3cform.z3cwidget.IRecurrenceWidget"
+        widget="plone.formwidget.recurrence.z3cform.widget.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="recurrence_input.pt"
         />
 
     <z3c:widgetTemplate
         mode="input"
-        widget="plone.formwidget.recurrence.z3cform.z3cwidget.IRecurrenceWidget"
+        widget="plone.formwidget.recurrence.z3cform.widget.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="recurrence_input.pt"
         />
 
     <z3c:widgetTemplate
         mode="hidden"
-        widget="plone.formwidget.recurrence.z3cform.z3cwidget.IRecurrenceWidget"
+        widget="plone.formwidget.recurrence.z3cform.widget.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="recurrence_hidden.pt"
         />
