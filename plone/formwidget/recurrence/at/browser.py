@@ -7,7 +7,7 @@ from plone.formwidget.recurrence.browser.i18n import translations
 
 class RecurrenceWidget(BrowserView):
     """ """
-    template = ViewPageTemplateFile('recurrence_atwidget.pt')
+    template = ViewPageTemplateFile('widget.pt')
 
     @property
     def macros(self):
