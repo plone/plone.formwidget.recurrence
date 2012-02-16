@@ -1,12 +1,13 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="plone.formwidget.recurrence">
 
   <five:registerPackage package="." initialize=".initialize" />
-  <!--<include zcml:provides="installed Products.Archetypes" package=".at" />-->
-  <!--<include zcml:provides="installed z3c.form" package=".z3cform" />-->
+  <include zcml:provides="installed Products.Archetypes" package=".at" />
+  <include zcml:provides="installed z3c.form" package=".z3cform" />
 
   <include package=".browser" />
 
