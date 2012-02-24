@@ -1,7 +1,7 @@
 Introduction
 ============
 
-The plone.formwidget.recurrence widget provides an Archetype and a z3cform
+The plone.formwidget.recurrence package provides an Archetype and a z3cform
 widget for recurrence.
 
 The main GUI work is done with the jquery.recurrenceinput.js widget from

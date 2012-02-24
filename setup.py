@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0b1'
+version = '1.0b2'
 
 setup(name='plone.formwidget.recurrence',
       version=version,
@@ -17,7 +17,7 @@ setup(name='plone.formwidget.recurrence',
       keywords='Plone Event Recurrence Date Time Widget Archetypes z3c.form',
       author='Plone Foundation',
       author_email='plone-developers@lists.sourceforge.net',
-      url='http://svn.plone.org/svn/collective/',
+      url='https://github.com/collective/plone.formwidget.recurrence',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['plone', 'plone.formwidget'],
