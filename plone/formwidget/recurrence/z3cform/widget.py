@@ -1,6 +1,6 @@
-import zope.component
-import zope.interface
-import zope.schema.interfaces
+from zope.component import adapter
+from zope.interface import implementsOnly, implementer
+from zope.schema.interfaces import IField
 from zope.site import hooks
 from zope.traversing.browser import absoluteURL
 from z3c.form.widget import Widget, FieldWidget
@@ -13,7 +13,7 @@ class IRecurrenceWidget(IWidget):
 
 class RecurrenceWidget(widget.HTMLTextAreaWidget, Widget):
     """Recurrence widget implementation."""
-    zope.interface.implementsOnly(IRecurrenceWidget)
+    implementsOnly(IRecurrenceWidget)
 
     klass = u'recurrence-widget'
     value = u''
@@ -41,8 +41,8 @@ class RecurrenceWidget(widget.HTMLTextAreaWidget, Widget):
         start = self.form.fields[self.start_field].field.get(self.context)
         return start.strftime('%Y-%m-%d %H:%M')
 
-@zope.component.adapter(zope.schema.interfaces.IField, IFormLayer)
-@zope.interface.implementer(IFieldWidget)
+@adapter(IField, IFormLayer)
+@implementer(IFieldWidget)
 def RecurrenceFieldWidget(field, request):
     """IFieldWidget factory for RecurrenceWidget."""
     return FieldWidget(field, RecurrenceWidget(request))
