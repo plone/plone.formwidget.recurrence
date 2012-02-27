@@ -3,8 +3,9 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:z3c="http://namespaces.zope.org/z3c"
     i18n_domain="plone.formwidget.recurrence">
-        
-    <!-- z3c widget views -->
+
+    <include package="z3c.form" />
+
     <class class=".widget.RecurrenceWidget">
       <require
           permission="zope.Public"
