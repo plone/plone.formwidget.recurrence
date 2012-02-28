@@ -1,5 +1,5 @@
 from zope.component import adapter
-from zope.interface import implementsOnly, implementer
+from zope.interface import implementsOnly, implementer, implements
 from zope.schema.interfaces import IField
 from zope.site import hooks
 from zope.traversing.browser import absoluteURL
@@ -46,3 +46,19 @@ class RecurrenceWidget(widget.HTMLTextAreaWidget, Widget):
 def RecurrenceFieldWidget(field, request):
     """IFieldWidget factory for RecurrenceWidget."""
     return FieldWidget(field, RecurrenceWidget(request))
+
+
+# Use the parameterized widget factory to add widgets with specific parameters.
+class ParameterizedFieldWidget(object):
+    implements(IFieldWidget)
+
+    def __new__(cls, field, request):
+        widget = FieldWidget(field, cls.widget(request))
+        for k, v in cls.kw.items():
+            setattr(widget, k, v)
+        return widget
+
+def ParameterizedWidgetFactory(widget, **kw):
+    return type('%sFactory' % widget.__name__,
+                (ParameterizedFieldWidget,),
+                {'widget': widget, 'kw': kw})
