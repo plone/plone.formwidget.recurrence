@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b2 (unreleased)
+1.0b2 (2012-02-28)
 ------------------
 
 - Reorganization to make it possible to install only the Archetypes or
