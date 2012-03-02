@@ -6,8 +6,8 @@
     i18n_domain="plone.formwidget.recurrence">
 
   <five:registerPackage package="." initialize=".initialize" />
-  <include zcml:provides="installed Products.Archetypes" package=".at" />
-  <include zcml:provides="installed z3c.form" package=".z3cform" />
+  <include zcml:condition="installed Products.Archetypes" package=".at" />
+  <include zcml:condition="installed z3c.form" package=".z3cform" />
 
   <include package=".browser" />
 
