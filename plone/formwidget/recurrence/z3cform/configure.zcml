@@ -3,6 +3,7 @@
     xmlns:z3c="http://namespaces.zope.org/z3c"
     i18n_domain="plone.formwidget.recurrence">
 
+    <include package="z3c.form" file="meta.zcml"/>
     <include package="z3c.form" />
 
     <class class=".widget.RecurrenceWidget">
