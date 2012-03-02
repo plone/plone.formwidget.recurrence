@@ -1,6 +1,16 @@
 Changelog
 =========
 
+1.0b3 (unreleased)
+------------------
+
+- Include z3c.form's meta.zcml, so widgetsTemplate directive is registered.
+  [thet]
+
+- For conditional zcml incudes, use zcml:condition instead of zcml:provides.
+  [thet]
+
+
 1.0b2 (2012-02-28)
 ------------------
 
