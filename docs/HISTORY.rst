@@ -1,8 +1,13 @@
 Changelog
 =========
 
-1.0b3 (unreleased)
+1.0b3 (2012-03-12)
 ------------------
+
+- By default, preselect the BYOCCURRENCES "End recurrence" field, so that
+  recurrence rules with unlimited occurences are not selected by accident but
+  intentionally (from jquery.recurrenceinput.js).
+  [thet]
 
 - Include z3c.form's meta.zcml, so widgetsTemplate directive is registered.
   [thet]
