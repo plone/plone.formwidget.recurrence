@@ -80,10 +80,3 @@ to the buttons class, so it looks like this:
 That is all the changes necessary, unless there are changes to the labels, in which
 case you need to update plone/formwidget/recurrence/browser/i18n.py and the translations
 to support the new labels.
-
-
-Contributors
-------------
-
-This package is originally created by Tom Gross (tomgross).
-Other contributors include Johannes Raggam (thet) and Lennart Regebro (regebro).
