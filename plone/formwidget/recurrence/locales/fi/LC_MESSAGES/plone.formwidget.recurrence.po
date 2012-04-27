@@ -15,76 +15,76 @@ msgstr ""
 "Domain: plone.formwidget.recurrence\n"
 
 msgid "add"
-msgstr "Add"
+msgstr "Lisää"
 
 msgid "add_date"
-msgstr "Add date"
+msgstr "Lisää poikkeus"
 
 msgid "additional_date"
-msgstr "Additional date"
+msgstr "Lisäpäivä"
 
 msgid "already_added"
-msgstr "This date was already added"
+msgstr "Tämä päivä on jo lisätty"
 
 msgid "bysetpos"
-msgstr "BYSETPOS is not supported"
+msgstr "BYSETPOS ei ole tuettu"
 
 msgid "cancel"
-msgstr "Cancel"
+msgstr "Peru"
 
 msgid "daily_interval_1"
-msgstr "Repeat every:"
+msgstr "joka:"
 
 msgid "daily_interval_2"
-msgstr "days"
+msgstr "päivä"
 
 msgid "display_activate"
-msgstr "Repeats every "
+msgstr "Toistuu joka "
 
 msgid "display_unactivate"
-msgstr "Ei toista"
+msgstr "Ei toistu"
 
 msgid "edit"
 msgstr "Muokkaa..."
 
 msgid "except"
-msgstr ", except for"
+msgstr ", paitsi"
 
 msgid "exclude"
-msgstr "Exclude"
+msgstr "Jätä pois"
 
 msgid "include"
-msgstr "Include"
+msgstr "Ota mukaan"
 
 msgid "including"
-msgstr ", and also "
+msgstr ", lisäksi "
 
 msgid "long_date_format"
 msgstr "dddd mmmm dd, yyyy"
 
 msgid "monthly_day_of_month_1"
-msgstr "Day"
+msgstr "Kuukauden"
 
 msgid "monthly_day_of_month_1_human"
 msgstr "on day"
 
 msgid "monthly_day_of_month_2"
-msgstr "of the month"
+msgstr "päivänä"
 
 msgid "monthly_day_of_month_3"
-msgstr "month(s)"
+msgstr "kuukausi"
 
 msgid "monthly_interval_1"
-msgstr "Repeat every:"
+msgstr "joka:"
 
 msgid "monthly_interval_2"
-msgstr "month(s)"
+msgstr "kuukausi"
 
 msgid "monthly_repeat_on"
-msgstr "Repeat on:"
+msgstr "toistuen:"
 
 msgid "monthly_weekday_of_month_1"
-msgstr "The"
+msgstr " "
 
 msgid "monthly_weekday_of_month_1_human"
 msgstr "on the"
@@ -93,124 +93,124 @@ msgid "monthly_weekday_of_month_2"
 msgstr " "
 
 msgid "monthly_weekday_of_month_3"
-msgstr "of the month"
+msgstr "kuukaudessa"
 
 msgid "multiple_day_of_month"
-msgstr "This widget does not support multiple days in monthly or yearly recurrence"
+msgstr "Useampi kuin yksi päivä ei ole mahdollista kuukauden tai vuoden perusteella toistuvassa tapahtumassa."
 
 msgid "no_end_after_n_occurrences"
-msgstr "Error: The \"After N occurrences\"-field must be between 1 and 1000"
+msgstr "Virhe: \"N:n toiston jälkeen\"-kentän arvo tulee olla välillä 1-1000."
 
 msgid "no_end_date"
-msgstr "Error: End date is not set. Please set a correct value"
+msgstr "Virhe: Loppumispäivää ei ole asetettu. Ole hyvä ja aseta päivä."
 
 msgid "no_repeat_every"
-msgstr "Error: The \"Repeat every\"-field must be between 1 and 1000"
+msgstr "Virhe: \"Toista joka\"-kentän arvon tulee olla välillä 1-1000."
 
 msgid "no_repeat_on"
-msgstr "Error: \"Repeat on\"-value must be selected"
+msgstr "Virhe: \"Toistuvuus\"-kentän arvo on pakollinen."
 
 msgid "no_rule"
-msgstr "No RRULE in RRULE data"
+msgstr "RRULE-tietue on puutteellinen"
 
 msgid "no_template_match"
-msgstr "No matching recurrence template"
+msgstr "Toistuvuus templatea ei löytynyt"
 
 msgid "order_indexes_first"
-msgstr "first"
+msgstr "ensimmäinen"
 
 msgid "order_indexes_fourth"
-msgstr "fourth"
+msgstr "neljäs"
 
 msgid "order_indexes_last"
-msgstr "last"
+msgstr "viimeinen"
 
 msgid "order_indexes_second"
-msgstr "second"
+msgstr "toinen"
 
 msgid "order_indexes_third"
-msgstr "third"
+msgstr "kolmas"
 
 msgid "past_end_date"
-msgstr "Error: End date cannot be before start date"
+msgstr "Virhe: Loppumispäivä ei voi tulla ennen alkamispäivää."
 
 msgid "preview"
-msgstr "Selected dates"
+msgstr "Toistumispäivät"
 
 msgid "range"
-msgstr "End recurrence:"
+msgstr "päättyen:"
 
 msgid "range_by_end_date"
-msgstr "Until "
+msgstr "viimeistään "
 
 msgid "range_by_end_date_human"
-msgstr "ends on "
+msgstr "loppuen "
 
 msgid "range_by_occurrences_1"
-msgstr "Ending after"
+msgstr " "
 
 msgid "range_by_occurrences_1_human"
-msgstr "ends after"
+msgstr "päättyen"
 
 msgid "range_by_occurrences_2"
-msgstr "occurrence(s)"
+msgstr "toiston jälkeen"
 
 msgid "range_no_end"
-msgstr "Never"
+msgstr "Ei koskaan"
 
 msgid "recurrence_start"
-msgstr "Start of the recurrence"
+msgstr "Toistumisjakson alku"
 
 msgid "recurrence_type"
-msgstr "Repeats:"
+msgstr "Toistuu:"
 
 msgid "refresh"
-msgstr "Refresh"
+msgstr "Päivitä"
 
 msgid "remove"
-msgstr "Remove"
+msgstr "Poista"
 
 msgid "save"
-msgstr "Save"
+msgstr "Tallenna"
 
 msgid "template_daily"
-msgstr "Daily"
+msgstr "Päivittäin"
 
 msgid "template_mondayfriday"
-msgstr "Monday and Friday"
+msgstr "Maanantaisin ja perjantaisin"
 
 msgid "template_monthly"
-msgstr "Monthly"
+msgstr "Kuukausittain"
 
 msgid "template_weekdays"
-msgstr "Weekday"
+msgstr "Arkipäivisin"
 
 msgid "template_weekly"
-msgstr "Weekly"
+msgstr "Viikottain"
 
 msgid "template_yearly"
-msgstr "Yearly"
+msgstr "Vuosittain"
 
 msgid "title"
-msgstr "Repeat"
+msgstr "Toistuva tapahtuma"
 
 msgid "unsupported_features"
-msgstr "Warning: This event uses recurrence features not supported by this widget. Saving the recurrence may change the recurrence in unintended ways: "
+msgstr "Varoitus: Tapahtuma käyttää toisto-ominaisuuksia, joita ei tueta. Tapahtuman tallentaminen voi hävittää nämä tiedot."
 
 msgid "weekly_interval_1"
-msgstr "Repeat every:"
+msgstr "joka:"
 
 msgid "weekly_interval_2"
-msgstr "week(s)"
+msgstr "viikko"
 
 msgid "weekly_weekdays"
-msgstr "Repeat on:"
+msgstr "päivinä:"
 
 msgid "weekly_weekdays_human"
 msgstr "on: "
 
 msgid "yearly_day_of_month_1"
-msgstr "Every"
+msgstr " "
 
 msgid "yearly_day_of_month_1_human"
 msgstr "on"
@@ -222,16 +222,16 @@ msgid "yearly_day_of_month_3"
 msgstr " "
 
 msgid "yearly_interval_1"
-msgstr "Repeat every:"
+msgstr "joka:"
 
 msgid "yearly_interval_2"
-msgstr "year(s)"
+msgstr "vuosi"
 
 msgid "yearly_repeat_on"
-msgstr "Repeat on:"
+msgstr "toistuen:"
 
 msgid "yearly_weekday_of_month_1"
-msgstr "The"
+msgstr " "
 
 msgid "yearly_weekday_of_month_1_human"
 msgstr "on the"
@@ -240,7 +240,7 @@ msgid "yearly_weekday_of_month_2"
 msgstr " "
 
 msgid "yearly_weekday_of_month_3"
-msgstr "of"
+msgstr " "
 
 msgid "yearly_weekday_of_month_4"
 msgstr " "
