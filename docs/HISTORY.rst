@@ -4,6 +4,8 @@ Changelog
 1.0b4 (xxxx-xx-xx)
 ------------------
 
+- jQueryTools DateInput localization fixed. [vsomogyi]
+
 - Updated to latest jquery.recurrenceinput.js (8db74cee2bd53794726591c5ac8c8b3814778cbc)
   to fix a problem with IE8 and older.
   [dokai]
