@@ -41,6 +41,11 @@ class RecurrenceWidget(widget.HTMLTextAreaWidget, Widget):
         start = self.form.fields[self.start_field].field.get(self.context)
         return start.strftime('%Y-%m-%d %H:%M')
 
+    def first_day(self):
+        calendar = self.request.locale.dates.calendars[u'gregorian']
+        return calendar.week.get('firstDay', 0)
+
+
 @adapter(IField, IFormLayer)
 @implementer(IFieldWidget)
 def RecurrenceFieldWidget(field, request):
