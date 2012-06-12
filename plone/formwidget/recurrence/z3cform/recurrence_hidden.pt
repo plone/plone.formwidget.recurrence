@@ -9,5 +9,4 @@
                    title view/title;
                    lang view/lang;
                    value view/value"/>
-</script>
 </html>
