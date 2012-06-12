@@ -9,16 +9,15 @@ pfr_message = MessageFactory('plone.formwidget.recurrence')
 pl_message = MessageFactory('plonelocales')
 
 def initialize(context):
-    """Initializer called when used as a Zope 2 product."""
-    from plone.formwidget.recurrence.examples import RecurrenceType
-    RecurrenceType  # pyflakes
+    # Example content type initialization
+    import plone.formwidget.recurrence.examples
     content_types, constructors, ftis = process_types(
-        listTypes(PROJECTNAME),
-        PROJECTNAME)
+        listTypes(PROJECTNAME), PROJECTNAME, )
 
     ContentInit(
-        PROJECTNAME + ' Content',
-        content_types      = content_types,
-        permission         = AddPortalContent,
-        extra_constructors = constructors,
+        '%s Content' % PROJECTNAME,
+        content_types=content_types,
+        permission=AddPortalContent,
+        extra_constructors=constructors,
+        fti=ftis,
         ).initialize(context)
