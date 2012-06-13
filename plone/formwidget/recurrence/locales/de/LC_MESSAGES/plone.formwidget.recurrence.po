@@ -18,10 +18,10 @@ msgid "add"
 msgstr "Hinzufügen"
 
 msgid "add_date"
-msgstr "Datum hinzufügen"
+msgstr "Termin hinzufügen"
 
 msgid "additional_date"
-msgstr "Weiteres Datum"
+msgstr "Weitere Termine"
 
 msgid "already_added"
 msgstr "Das Datum wurde bereits hinzugefügt"
@@ -33,13 +33,13 @@ msgid "cancel"
 msgstr "Abbrechen"
 
 msgid "daily_interval_1"
-msgstr "Wiederholung jeden:"
+msgstr "Wiederholung :"
 
 msgid "daily_interval_2"
 msgstr "Tage"
 
 msgid "display_activate"
-msgstr "Wiederholt sich jeden "
+msgstr "Wiederholt sich alle "
 
 msgid "display_unactivate"
 msgstr "Keine Wiederholungen"
@@ -75,7 +75,7 @@ msgid "monthly_day_of_month_3"
 msgstr "Monat(e)"
 
 msgid "monthly_interval_1"
-msgstr "Wiederholt sich jeden:"
+msgstr "Wiederholt sich alle:"
 
 msgid "monthly_interval_2"
 msgstr "Monat(e)"
@@ -96,7 +96,7 @@ msgid "monthly_weekday_of_month_3"
 msgstr "im Monat"
 
 msgid "multiple_day_of_month"
-msgstr "Dieses Widget unterstützt nicht mehrfach angelegte Tage in monatlicher oder jährlicher Wiederholung"
+msgstr "Dieses Widget unterstützt keine mehrfach angelegten Tage in monatlicher oder jährlicher Wiederholung"
 
 msgid "no_end_after_n_occurrences"
 msgstr "Error: The \"After N occurrences\"-field must be between 1 and 1000"
@@ -111,109 +111,109 @@ msgid "no_repeat_on"
 msgstr "Error: \"Repeat on\"-value must be selected"
 
 msgid "no_rule"
-msgstr "No RRULE in RRULE data"
+msgstr "Keine RRULE in RRULE Daten"
 
 msgid "no_template_match"
 msgstr "No matching recurrence template"
 
 msgid "order_indexes_first"
-msgstr "first"
+msgstr "ersten"
 
 msgid "order_indexes_fourth"
-msgstr "fourth"
+msgstr "vierten"
 
 msgid "order_indexes_last"
-msgstr "last"
+msgstr "letzten"
 
 msgid "order_indexes_second"
-msgstr "second"
+msgstr "zweiten"
 
 msgid "order_indexes_third"
-msgstr "third"
+msgstr "dritten"
 
 msgid "past_end_date"
-msgstr "Error: End date cannot be before start date"
+msgstr "Fehler: Das Terminende kann nicht vor dem Terminanfang sein."
 
 msgid "preview"
-msgstr "Selected dates"
+msgstr "Aufgewählte Termine"
 
 msgid "range"
-msgstr "End recurrence:"
+msgstr "Ende der Wiederholung:"
 
 msgid "range_by_end_date"
-msgstr "Until "
+msgstr "Bis "
 
 msgid "range_by_end_date_human"
-msgstr "ends on "
+msgstr "endet am "
 
 msgid "range_by_occurrences_1"
-msgstr "Ending after"
+msgstr "Endet nach"
 
 msgid "range_by_occurrences_1_human"
-msgstr "ends after"
+msgstr "endet nach"
 
 msgid "range_by_occurrences_2"
-msgstr "occurrence(s)"
+msgstr "Ereigniss(en)"
 
 msgid "range_no_end"
-msgstr "Never"
+msgstr "Niemals"
 
 msgid "recurrence_start"
-msgstr "Start of the recurrence"
+msgstr "Beginn der Wiederholung"
 
 msgid "recurrence_type"
-msgstr "Repeats:"
+msgstr "Wiederholt sich:"
 
 msgid "refresh"
-msgstr "Refresh"
+msgstr "Aktualisieren"
 
 msgid "remove"
-msgstr "Remove"
+msgstr "Entfernen"
 
 msgid "save"
-msgstr "Save"
+msgstr "Speichern"
 
 msgid "template_daily"
-msgstr "Daily"
+msgstr "Täglich"
 
 msgid "template_mondayfriday"
-msgstr "Monday and Friday"
+msgstr "Montags und Freitags"
 
 msgid "template_monthly"
-msgstr "Monthly"
+msgstr "Monatlich"
 
 msgid "template_weekdays"
-msgstr "Weekday"
+msgstr "Wochentags"
 
 msgid "template_weekly"
-msgstr "Weekly"
+msgstr "Wöchentlich"
 
 msgid "template_yearly"
-msgstr "Yearly"
+msgstr "Jährlich"
 
 msgid "title"
-msgstr "Repeat"
+msgstr "Wiederholung"
 
 msgid "unsupported_features"
 msgstr "Warning: This event uses recurrence features not supported by this widget. Saving the recurrence may change the recurrence in unintended ways: "
 
 msgid "weekly_interval_1"
-msgstr "Repeat every:"
+msgstr "Wiederholt sich alle:"
 
 msgid "weekly_interval_2"
-msgstr "week(s)"
+msgstr "Woche(n)"
 
 msgid "weekly_weekdays"
-msgstr "Repeat on:"
+msgstr "Wiederholt sich alle:"
 
 msgid "weekly_weekdays_human"
-msgstr "on: "
+msgstr "am: "
 
 msgid "yearly_day_of_month_1"
-msgstr "Every"
+msgstr "Jeden"
 
 msgid "yearly_day_of_month_1_human"
-msgstr "on"
+msgstr "am"
 
 msgid "yearly_day_of_month_2"
 msgstr " "
@@ -222,25 +222,25 @@ msgid "yearly_day_of_month_3"
 msgstr " "
 
 msgid "yearly_interval_1"
-msgstr "Repeat every:"
+msgstr "Wiederholt sich alle:"
 
 msgid "yearly_interval_2"
-msgstr "year(s)"
+msgstr "Jahr(e)"
 
 msgid "yearly_repeat_on"
-msgstr "Repeat on:"
+msgstr "Wiederholt sich:"
 
 msgid "yearly_weekday_of_month_1"
-msgstr "The"
+msgstr "Den"
 
 msgid "yearly_weekday_of_month_1_human"
-msgstr "on the"
+msgstr "am"
 
 msgid "yearly_weekday_of_month_2"
 msgstr " "
 
 msgid "yearly_weekday_of_month_3"
-msgstr "of"
+msgstr "von"
 
 msgid "yearly_weekday_of_month_4"
 msgstr " "
