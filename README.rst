@@ -13,26 +13,28 @@ compliant recurrence rule can be entered, if javascript is not available.
 The resulting value of the widget is a RFC5445 compliant recurrence rule
 string, ready to be used with python-dateutil's rrulestr.
 
+
 Installation
 ------------
 
 You need to add plone.formwidget.recurrence to either your buildout, or 
 your product requirements. In this addition you should specify if you
-want the Archetypes or the z3c.form widget, or both. For example:
+want the Archetypes or the z3c.form widget, or both. For example::
 
-    [buildout]
-    eggs += plone.formwidget.recurrence[archetypes]
+  [buildout]
+  eggs += plone.formwidget.recurrence[archetypes]
     
-or 
+or:: 
 
-    [buildout]
-    eggs += plone.formwidget.recurrence[z3cform]
+  [buildout]
+  eggs += plone.formwidget.recurrence[z3cform]
     
-or
+or::
 
-    install_requires=[
-       'plone.formwidget.recurrence[z3cform,archetypes]',
-    ]
+  install_requires=[
+     'plone.formwidget.recurrence[z3cform,archetypes]',
+  ]
+
 
 Usage
 -----
@@ -47,7 +49,7 @@ The javascript files in plone/formwidget/recurrence/browser/lib comes from
 jquery.recurrenceinput.js. There is one modification needed:
 
 In jquery.recurrenceinput.js there are two submit buttons near the end
-of the FORMTMPL definition:
+of the FORMTMPL definition::
 
                 '<div class="ributtons">',
                     '<input',
@@ -63,7 +65,7 @@ of the FORMTMPL definition:
 When the javascript files are updated from jquery.recurrenceinput.form.js, 
 these buttons need to have the "allowMultiSubmit" class, to prevent Plone's
 warnings against clicking the same submit button multiple times. Add those
-to the buttons class, so it looks like this:
+to the buttons class, so it looks like this::
 
                 '<div class="ributtons">',
                     '<input',
