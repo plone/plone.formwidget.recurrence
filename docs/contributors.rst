@@ -9,5 +9,12 @@ have signed the Plone Contributors Agreement [1][2]. Thanks!
 - Johannes Raggam, thet
 - Kai Lautaportti, dokai
 
+To be confirmed:
+- Roland Fasching <roland.fasching@gmail.com>
+- Solgema <martronic@martronic.ch>
+- Taito Horiuchi <taito.horiuchi@hexagonit.fi>
+- Vilmos Somogyi <vsomogyi@gmail.com>
+- Vincent Fretin <vincent.fretin@gmail.com>
+
 [1] http://plone.org/foundation/contributors-agreement/contributors-agreement-explained
 [2] http://plone.org/foundation/contributors-agreement/agreement.pdf/view
