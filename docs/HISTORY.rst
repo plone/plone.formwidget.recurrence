@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.0dev (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
 1.0b4 (2012-10-12)
 ------------------
 
@@ -14,6 +20,7 @@ Changelog
 
 - Added Finnish translation.
   [dokai]
+
 
 1.0b3 (2012-03-12)
 ------------------
