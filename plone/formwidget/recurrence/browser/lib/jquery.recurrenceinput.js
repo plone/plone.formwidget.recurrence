@@ -175,10 +175,10 @@
             'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
             'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         weekdays: [
-            'Monday', 'Tuesday', 'Wednesday', 'Thursday',
-            'Friday', 'Saturday', 'Sunday'],
+            'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday',
+            'Friday', 'Saturday'],
         shortWeekdays: [
-            'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
 
         longDateFormat: 'mmmm dd, yyyy',
         shortDateFormat: 'mm/dd/yyyy',
@@ -311,13 +311,13 @@
                     '<div id="riweeklyweekdays" class="rifield">',
                         '<label for="${name}weeklyinterval" class="label">${i18n.weeklyWeekdays}</label>',
                         '<div class="field">',
-                            '{{each i18n.shortWeekdays}}',
+                            '{{each orderedWeekdays}}',
                                 '<div class="riweeklyweekday">',
                                     '<input type="checkbox"',
-                                        'name="riweeklyweekdays${weekdays[$index]}"',
-                                        'id="${name}weeklyWeekdays${weekdays[$index]}"',
-                                        'value="${weekdays[$index]}" />',
-                                    '<label for="${name}weeklyWeekdays${weekdays[$index]}">${$value}</label>',
+                                        'name="riweeklyweekdays${weekdays[$value]}"',
+                                        'id="${name}weeklyWeekdays${weekdays[$value]}"',
+                                        'value="${weekdays[$value]}" />',
+                                    '<label for="${name}weeklyWeekdays${weekdays[$value]}">${i18n.shortWeekdays[$value]}</label>',
                                 '</div>',
                             '{{/each}}',
                         '</div>',
@@ -368,8 +368,8 @@
                                 '</select>',
                                 '${i18n.monthlyWeekdayOfMonth2}',
                                 '<select name="rimonthlyweekdayofmonth">',
-                                    '{{each i18n.weekdays}}',
-                                        '<option value="${weekdays[$index]}">${$value}</option>',
+                                    '{{each orderedWeekdays}}',
+                                        '<option value="${weekdays[$value]}">${i18n.weekdays[$value]}</option>',
                                     '{{/each}}',
                                 '</select>',
                                 '${i18n.monthlyWeekdayOfMonth3}',
@@ -429,8 +429,8 @@
                                     '${i18n.yearlyWeekdayOfMonth2}',
                                 '</label>',
                                 '<select name="riyearlyweekdayofmonthday">',
-                                '{{each i18n.weekdays}}',
-                                    '<option value="${weekdays[$index]}">${$value}</option>',
+                                '{{each orderedWeekdays}}',
+                                    '<option value="${weekdays[$value]}">${i18n.weekdays[$value]}</option>',
                                 '{{/each}}',
                                 '</select>',
                                 '${i18n.yearlyWeekdayOfMonth3}',
@@ -514,11 +514,11 @@
                 '<div class="ributtons">',
                     '<input',
                         'type="submit"',
-                        'class="ricancelbutton"',
+                        'class="ricancelbutton allowMultiSubmit"',
                         'value="${i18n.cancel}" />',
                     '<input',
                         'type="submit"',
-                        'class="risavebutton"',
+                        'class="risavebutton allowMultiSubmit"',
                         'value="${i18n.save}" />',
                 '</div>',
             '</form></div>'].join('\n');
@@ -775,12 +775,12 @@
 
     function parseLine(icalline) {
         var result = {};
-        var pos = $.inArray(':', icalline);
+        var pos = icalline.indexOf(':');
         var property = icalline.substring(0, pos);
         result.value = icalline.substring(pos + 1);
 
-        if ($.inArray(';', property) !== -1) {
-            pos = $.inArray(';', property);
+        if (property.indexOf(';') !== -1) {
+            pos = property.indexOf(';');
             result.parameters = property.substring(pos + 1);
             result.property = property.substring(0, pos);
         } else {
@@ -799,7 +799,7 @@
 
         for (date in splitDates) {
             if (splitDates.hasOwnProperty(date)) {
-                if ($.inArray('Z', splitDates[date]) !== -1) {
+                if (splitDates[date].indexOf('Z') !== -1) {
                     result.push(splitDates[date].substring(0, 15));
                 } else {
                     result.push(splitDates[date]);
@@ -984,7 +984,7 @@
                     if (byday) {
                         monthlyType = 'WEEKDAYOFMONTH';
 
-                        if ($.inArray(',', byday) !== -1) {
+                        if (byday.indexOf(',') !== -1) {
                             // No support for multiple days in one month
                             unsupportedFeatures.push(conf.i18n.multipleDayOfMonth);
                             byday = byday.split(",")[0];
@@ -1023,7 +1023,7 @@
                     if (byday) {
                         yearlyType = 'WEEKDAYOFMONTH';
 
-                        if ($.inArray(',', byday) !== -1) {
+                        if (byday.indexOf(',') !== -1) {
                             // No support for multiple days in one month
                             unsupportedFeatures.push(conf.i18n.multipleDayOfMonth);
                             byday = byday.split(",")[0];
@@ -1092,9 +1092,20 @@
         var form, display;
 
         // Extend conf with non-configurable data used by templates.
+        var orderedWeekdays = [];
+        var index, i;
+        for (i = 0; i < 7; i++) {
+            index = i + conf.firstDay;
+            if (index > 6) {
+                index = index - 7;
+            }
+            orderedWeekdays.push(index);
+        }
+        
         $.extend(conf, {
             orderIndexes: ['+1', '+2', '+3', '+4', '-1'],
-            weekdays: ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU']
+            weekdays: ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'],
+            orderedWeekdays: orderedWeekdays
         });
 
         // The recurrence type dropdown should show certain fields depending
@@ -1158,7 +1169,7 @@
             errorarea.hide();
 
             // Add date only if it is not already in RDATE
-            if($.inArray(datevalue, form.ical.RDATE) === -1) {
+            if ($.inArray(datevalue, form.ical.RDATE) === -1) {
                 form.ical.RDATE.push(datevalue);
                 var html = ['<div class="occurrence rdate" style="display: none;">',
                         '<span class="rdate">',
@@ -1193,18 +1204,26 @@
             occurrenceDiv = element.find('.rioccurrences');
             occurrenceDiv.hide();
 
+            var year, month, day;
+            year = startdate.getFullYear();
+            month = startdate.getMonth() + 1;
+            day = startdate.getDate();
+            
+            var data = {year: year,
+                       month: month, // Sending January as 0? I think not.
+                       day: day,
+                       rrule: rfc5545,
+                       format: conf.i18n.longDateFormat,
+                       start: start};
 
-            $.ajax({
+            var dict = {
                 url: conf.ajaxURL,
                 async: false, // Can't be tested if it's asynchronous, annoyingly.
                 type: 'post',
                 dataType: 'json',
-                data: {year: startdate.getFullYear(),
-                       month: startdate.getMonth() + 1, // Sending January as 0? I think not.
-                       day: startdate.getDate(),
-                       rrule: rfc5545,
-                       format: conf.i18n.longDateFormat,
-                       start: start},
+                contentType: 'application/json; charset=utf8',
+                cache: false,
+                data: data,
                 success: function (data, status, jqXHR) {
                     var result, element;
 
@@ -1215,6 +1234,19 @@
                     }
                     data.readOnly = readonly;
                     data.i18n = conf.i18n;
+                    
+                    // Format dates:
+                    var occurrence, date, y, m, d, each;
+                    for (each in data.occurrences) {
+                        if (data.occurrences.hasOwnProperty(each)) {
+                            occurrence = data.occurrences[each];
+                            date = occurrence.date;
+                            y = parseInt(date.substring(0, 4), 10);
+                            m = parseInt(date.substring(4, 6), 10) - 1;
+                            d = parseInt(date.substring(6, 8), 10);
+                            occurrence.formattedDate = format(new Date(y, m, d), conf.i18n.longDateFormat, conf);
+                        }
+                    }
 
                     result = $.tmpl('occurrenceTmpl', data);
                     occurrenceDiv = element.find('.rioccurrences');
@@ -1240,17 +1272,11 @@
                 error: function (jqXHR, textStatus, errorThrown) {
                     alert(textStatus);
                 }
-            });
+            };
+            
+            $.ajax(dict);
         }
 
-        function pad(number, length) {
-            // http://www.electrictoolbox.com/pad-number-zeroes-javascript/
-            var str = '' + number; // Confuses jslint.
-            while (str.length < length) {
-                str = '0' + str;
-            }
-            return str;
-        }
         function getField(field) {
             // See if it is a field already
             var realField = $(field);
@@ -1287,11 +1313,11 @@
                 startFieldMonth = getField(conf.startFieldMonth);
                 startFieldDay = getField(conf.startFieldDay);
                 startdate = startFieldYear.val() + '-' +
-                    pad(startFieldMonth.val(), 2) + '-' +
-                    pad(startFieldDay.val(), 2);
+                    zeropad(startFieldMonth.val(), 2) + '-' +
+                    zeropad(startFieldDay.val(), 2);
             }
             if (startdate === null) {
-               return null;
+                return null;
             }
             // We have some sort of startdate:
             startdate = new Date(startdate);
@@ -1354,7 +1380,7 @@
                 // If the date is a real date, set the defaults in the form
                 form.find('select[name=rimonthlydayofmonthday]').val(startdate.getDate());
                 dayindex = conf.orderIndexes[Math.floor((startdate.getDate() - 1) / 7)];
-                day = conf.weekdays[startdate.getDay() - 1];
+                day = conf.weekdays[startdate.getDay()];
                 form.find('select[name=rimonthlyweekdayofmonthindex]').val(dayindex);
                 form.find('select[name=rimonthlyweekdayofmonth]').val(day);
 
@@ -1423,7 +1449,7 @@
             if (form.find('#ridailyinterval').css('display') === 'block') {
                 // Check repeat every field
                 num = findIntField('ridailyinterval', form);
-                if(!num || num < 1 || num > 1000) {
+                if (!num || num < 1 || num > 1000) {
                     messagearea.text(conf.i18n.noRepeatEvery).show();
                     return false;
                 }
@@ -1433,7 +1459,7 @@
             if (form.find('#riweeklyinterval').css('display') === 'block') {
                 // Check repeat every field
                 num = findIntField('riweeklyinterval', form);
-                if(!num || num < 1 || num > 1000) {
+                if (!num || num < 1 || num > 1000) {
                     messagearea.text(conf.i18n.noRepeatEvery).show();
                     return false;
                 }
@@ -1443,13 +1469,13 @@
             if (form.find('#rimonthlyinterval').css('display') === 'block') {
                 // Check repeat every field
                 num = findIntField('rimonthlyinterval', form);
-                if(!num || num < 1 || num > 1000) {
+                if (!num || num < 1 || num > 1000) {
                     messagearea.text(conf.i18n.noRepeatEvery).show();
                     return false;
                 }
 
                 // Check repeat on
-                if(form.find('#rimonthlyoptions input:checked').length == 0) {
+                if (form.find('#rimonthlyoptions input:checked').length === 0) {
                     messagearea.text(conf.i18n.noRepeatOn).show();
                     return false;
                 }
@@ -1459,13 +1485,13 @@
             if (form.find('#riyearlyinterval').css('display') === 'block') {
                 // Check repeat every field
                 num = findIntField('riyearlyinterval', form);
-                if(!num || num < 1 || num > 1000) {
+                if (!num || num < 1 || num > 1000) {
                     messagearea.text(conf.i18n.noRepeatEvery).show();
                     return false;
                 }
 
                 // Check repeat on
-                if(form.find('#riyearlyoptions input:checked').length == 0) {
+                if (form.find('#riyearlyoptions input:checked').length === 0) {
                     messagearea.text(conf.i18n.noRepeatOn).show();
                     return false;
                 }
@@ -1476,7 +1502,7 @@
             // If after N occurences is selected, check its value
             if (form.find('input[value="BYOCCURRENCES"]:visible:checked').length > 0) {
                 num = findIntField('rirangebyoccurrencesvalue', form);
-                if(!num || num < 1 || num > 1000) {
+                if (!num || num < 1 || num > 1000) {
                     messagearea.text(conf.i18n.noEndAfterNOccurrences).show();
                     return false;
                 }
@@ -1548,7 +1574,7 @@
             days:        LABELS[conf.lang].weekdays.join(),
             shortDays:   LABELS[conf.lang].shortWeekdays.join()
         });
-        
+
         // Make the date input into a calendar dateinput()
         form.find('input[name=rirangebyenddatecalendar]').dateinput({
             selectors: true,
@@ -1621,7 +1647,7 @@
                 $(this).parent().find('input[name=rirangetype]').click().change();
             }
         );
-        form.find('input[name=rirangebyenddatecalendar]').change(function() {
+        form.find('input[name=rirangebyenddatecalendar]').change(function () {
             // Update only if the occurances are shown
             $(this).parent().find('input[name=rirangetype]').click();
             if (form.find('.rioccurrencesactions:visible').length !== 0) {

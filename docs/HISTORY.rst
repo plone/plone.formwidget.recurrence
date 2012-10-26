@@ -4,7 +4,8 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Include new release of jquery.recurrenceinput.js 1.0rc1.
+  [thet]
 
 
 1.0b4 (2012-10-12)
