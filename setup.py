@@ -1,13 +1,12 @@
 from setuptools import setup, find_packages
-import os
 
-version = '1.0dev'
+version = '1.0b5'
 
 setup(name='plone.formwidget.recurrence',
       version=version,
       description="Recurrence widgets for Plone",
       long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.rst")).read(),
+                       open("CHANGES.rst").read(),
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
