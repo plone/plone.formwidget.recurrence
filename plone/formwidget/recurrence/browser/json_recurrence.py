@@ -116,7 +116,6 @@ class RecurrenceView(BrowserView):
                 occurrence_type = 'start'
             else:
                 occurrence_type = 'rrule'
-
             occurrences.append({'date': date.strftime('%Y%m%dT%H%M%S'),
                                 'formattedDate': self.date_format(date, date_format),
                                 'type': occurrence_type,})
