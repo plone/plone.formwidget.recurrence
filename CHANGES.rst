@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b6 (unreleased)
+1.0b6 (2012-10-31)
 -------------------
 
 - Fix ajax call to get recurrence occurrences and corresponding error message.
