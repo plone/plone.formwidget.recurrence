@@ -46,6 +46,7 @@
                                  readOnly: ${view/read_only},
                                  startField: '${view/get_start_field}',
                                  firstDay: ${view/first_day},
-                                 ajaxURL: '${portal_url}/@@json_recurrence'});">
+                                 ajaxURL: '${portal_url}/@@json_recurrence',
+                                 ajaxContentType: 'application/x-www-form-urlencoded; charset=UTF-8'});">
 </script>
 </html>

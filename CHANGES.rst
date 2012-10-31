@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.0dev (unreleased)
+1.0b6 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix ajax call to get recurrence occurrences and corresponding error message.
+  [thet]
 
 
 1.0b5 (2012-10-29)
