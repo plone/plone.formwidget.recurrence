@@ -27,7 +27,7 @@ class Z3CWidgetTestCase(tests.base.IntegrationTestCase):
         self.portal.portal_quickinstaller.installProduct('plone.formwidget.recurrence')
 
     # This test doesn't work any longer. We need to set up some real, useful tests.
-    
+
     def test_widget(self):
         pass
         ## It doens't test very much, since it's all in Javascript...

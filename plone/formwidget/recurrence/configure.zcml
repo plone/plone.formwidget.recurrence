@@ -6,21 +6,10 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="plone.formwidget.recurrence">
 
-  <five:registerPackage package="." initialize=".initialize" />
   <include zcml:condition="installed Products.Archetypes" package=".at" />
   <include zcml:condition="installed z3c.form" package=".z3cform" />
 
   <include package=".browser" />
-
-  <genericsetup:registerProfile
-      name="sample_types"
-      title="Example content type for Recurrence Widget"
-      directory="profiles/sample_types"
-      description='Extension profile for the plone.formwidget.recurrence package.'
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      for=".interfaces.DemoProfile"
-      i18n:attributes="title"
-      />  
 
   <i18n:registerTranslations directory="locales"/>
 

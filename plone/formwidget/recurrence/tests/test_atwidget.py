@@ -10,7 +10,6 @@ class ATWidgetTestCase(IntegrationTestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
-        self.portal.portal_quickinstaller.installProduct('plone.formwidget.recurrence')
 
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         self.portal.invokeFactory('Folder', 'test-folder')

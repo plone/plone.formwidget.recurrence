@@ -20,4 +20,4 @@ class RecurrenceType(SimpleType):
     portal_type = 'RecurrenceType'
 
 
-registerType(RecurrenceType, 'plone.formwidget.recurrence')
+registerType(RecurrenceType, 'plone.formwidget.recurrence.tests')

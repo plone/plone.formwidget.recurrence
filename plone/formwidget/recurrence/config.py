@@ -1,1 +1,0 @@
-PROJECTNAME = 'plone.formwidget.recurrence'

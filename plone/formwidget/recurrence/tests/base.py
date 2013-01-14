@@ -1,12 +1,15 @@
 """Base module for unittesting"""
-from Products.GenericSetup import EXTENSION
-from Products.GenericSetup import profile_registry
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from plone.testing import z2
+from zope.interface import Interface
 import unittest2 as unittest
+
+
+class DemoProfile(Interface):
+    """Marker interface for our demo GS profile."""
 
 
 class PloneFormwidgetRecurrenceLayer(PloneSandboxLayer):
@@ -18,22 +21,19 @@ class PloneFormwidgetRecurrenceLayer(PloneSandboxLayer):
         # Load ZCML
         import plone.formwidget.recurrence
         self.loadZCML(package=plone.formwidget.recurrence)
-        z2.installProduct(app, 'plone.formwidget.recurrence')
+
+        import plone.formwidget.recurrence.tests # install AT example types
+        self.loadZCML(package=plone.formwidget.recurrence.tests)
+        z2.installProduct(app, 'plone.formwidget.recurrence.tests')
 
     def setUpPloneSite(self, portal):
         """Set up Plone."""
-        # Install into Plone site using portal_setup
-        profile_registry.registerProfile('sample_types',
-            'Recurrence Sample Content Types',
-            'Extension profile including Archetypes sample content types',
-            'profiles/sample_types',
-            'plone.formwidget.recurrence',
-            EXTENSION)
-        self.applyProfile(portal, 'plone.formwidget.recurrence:sample_types')
+        # install at example types
+        self.applyProfile(portal, 'plone.formwidget.recurrence.tests:sample_types')
 
     def tearDownZope(self, app):
         """Tear down Zope."""
-        z2.uninstallProduct(app, 'plone.formwidget.recurrence')
+        z2.uninstallProduct(app, 'plone.formwidget.recurrence.tests')
 
 
 FIXTURE = PloneFormwidgetRecurrenceLayer()
@@ -45,11 +45,9 @@ FUNCTIONAL_TESTING = FunctionalTesting(
 
 class IntegrationTestCase(unittest.TestCase):
     """Base class for integration tests."""
-
     layer = INTEGRATION_TESTING
 
 
 class FunctionalTestCase(unittest.TestCase):
     """Base class for functional tests."""
-
     layer = FUNCTIONAL_TESTING
