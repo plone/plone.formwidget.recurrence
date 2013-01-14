@@ -4,7 +4,8 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
-- No changes yet.
+- Move test related sample types to test directory and clean up package.
+  [thet]
 
 
 1.0b6 (2012-10-31)
