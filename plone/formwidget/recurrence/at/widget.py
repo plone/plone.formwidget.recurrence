@@ -19,6 +19,7 @@ class RecurrenceWidget(LinesWidget):
         'startYear': '',
         'startMonth': '',
         'startDay': '',
+        'first_day': '',
         })
 
 

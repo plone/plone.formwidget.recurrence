@@ -42,6 +42,9 @@ class RecurrenceWidget(widget.HTMLTextAreaWidget, Widget):
         return start.strftime('%Y-%m-%d %H:%M')
 
     def first_day(self):
+        """ First day of the Week. 0..Sunday, 6..Saturday.
+        You can overwrite this default value via widget configuration.
+        """
         calendar = self.request.locale.dates.calendars[u'gregorian']
         return calendar.week.get('firstDay', 0)
 

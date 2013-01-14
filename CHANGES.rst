@@ -4,6 +4,9 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
+- Make first_day parameter also configurable for AT and z3cform widgets.
+  [thet]
+
 - Move test related sample types to test directory and clean up package.
   [thet]
 
