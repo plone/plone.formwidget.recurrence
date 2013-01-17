@@ -8,6 +8,7 @@ from z3c.form.browser import widget
 from z3c.form.interfaces import IWidget, IFieldWidget, IFormLayer
 from plone.formwidget.recurrence.browser.i18n import translations
 
+
 class IRecurrenceWidget(IWidget):
     """Recurrence widget."""
 
@@ -55,6 +56,9 @@ def RecurrenceFieldWidget(field, request):
     """IFieldWidget factory for RecurrenceWidget."""
     return FieldWidget(field, RecurrenceWidget(request))
 
+
+# TODO: let's remove this, once an alternative is provided by plone.autoform or
+# any other package.
 
 # Use the parameterized widget factory to add widgets with specific parameters.
 class ParameterizedFieldWidget(object):
