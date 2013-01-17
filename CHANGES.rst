@@ -4,6 +4,12 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
+- Configure ributtonExtraClass with 'allowMultiSubmit'. This prevent Plone's
+  warnings against clicking the same submit button multiple times. There is no
+  need to customize the FORMTMPL anymore when updating the javascript from
+  jquery.recurrenceinput.js.
+  [thet]
+  
 - Make first_day parameter also configurable for AT and z3cform widgets.
   [thet]
 
