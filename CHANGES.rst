@@ -4,6 +4,10 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
+- Let occurrences preview show the correct daynames and not by one day off.
+  Fixes https://github.com/plone/plone.app.event/issues/69
+  [thet]
+
 - Configure ributtonExtraClass with 'allowMultiSubmit'. This prevent Plone's
   warnings against clicking the same submit button multiple times. There is no
   need to customize the FORMTMPL anymore when updating the javascript from

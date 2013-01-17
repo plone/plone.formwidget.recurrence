@@ -70,12 +70,12 @@ shortMonths: [
     '{month_july_short}', '{month_august_short}', '{month_september_short}',
     '{month_october_short}', '{month_november_short}', '{month_december_short}'],
 weekdays: [
-    '{day_monday}', '{day_tuesday}', '{day_wednesday}', '{day_thirsday}',
-    '{day_friday}', '{day_saturday}', '{day_sunday}'],
+    '{day_sunday}', '{day_monday}', '{day_tuesday}', '{day_wednesday}',
+    '{day_thirsday}', '{day_friday}'],
 shortWeekdays: [
-    '{day_monday_short}', '{day_tuesday_short}', '{day_wednesday_short}',
-    '{day_thirsday_short}', '{day_friday_short}', '{day_saturday_short}',
-    '{day_sunday_short}'],
+    '{day_sunday_short}', '{day_monday_short}', '{day_tuesday_short}',
+    '{day_wednesday_short}', '{day_thirsday_short}', '{day_friday_short}',
+    '{day_saturday_short}'],
 longDateFormat: '{long_date_format}',
 shortDateFormat: '{short_date_format}',
 unsupportedFeatures: '{unsupported_features}',
