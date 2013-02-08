@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0dev (unreleased)
--------------------
+1.0b7 (2013-02-08)
+------------------
 
 - Let occurrences preview show the correct daynames and not by one day off.
   Fixes https://github.com/plone/plone.app.event/issues/69
@@ -13,7 +13,7 @@ Changelog
   need to customize the FORMTMPL anymore when updating the javascript from
   jquery.recurrenceinput.js.
   [thet]
-  
+
 - Make first_day parameter also configurable for AT and z3cform widgets.
   [thet]
 
