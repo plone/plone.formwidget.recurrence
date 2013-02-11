@@ -71,7 +71,7 @@ shortMonths: [
     '{month_october_short}', '{month_november_short}', '{month_december_short}'],
 weekdays: [
     '{day_sunday}', '{day_monday}', '{day_tuesday}', '{day_wednesday}',
-    '{day_thirsday}', '{day_friday}'],
+    '{day_thirsday}', '{day_friday}', '{day_saturday}'],
 shortWeekdays: [
     '{day_sunday_short}', '{day_monday_short}', '{day_tuesday_short}',
     '{day_wednesday_short}', '{day_thirsday_short}', '{day_friday_short}',
