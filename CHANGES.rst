@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.0dev (unreleased)
+-------------------
+
+- Fix widget showing 'undefined' for saturdays.
+  [href]
+
+
 1.0b7 (2013-02-08)
 ------------------
 
