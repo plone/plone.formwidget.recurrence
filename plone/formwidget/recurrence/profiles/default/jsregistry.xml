@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+
+  <javascript
+      bundle="default"
+      id="++resource++plone.formwidget.recurrence/jquery.tmpl-beta1.js"
+      cacheable="True"
+      compression="safe"
+      cookable="True"
+      inline="False"
+      enabled="True"
+      />
+
+  <javascript
+      bundle="default"
+      id="++resource++plone.formwidget.recurrence/jquery.recurrenceinput.js"
+      insert-after="++resource++plone.formwidget.recurrence/jquery.tmpl-beta1.js"
+      cacheable="True"
+      compression="safe"
+      cookable="True"
+      inline="False"
+      enabled="True"
+      />
+
+</object>

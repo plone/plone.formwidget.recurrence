@@ -4,6 +4,10 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
+- Register CSS and JS resources in it's registries instead of including them in
+  the template. Add a GS profile for that.
+  [thet]
+
 - Fix "TypeError: 'use strict' is not a function". Fixes #3.
   [pbauer]
 

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<object name="portal_css">
+
+  <stylesheet
+      bundle="default"
+      id="++resource++plone.formwidget.recurrence/jquery.recurrenceinput.css"
+      applyPrefix="True"
+      authenticated="False"
+      cacheable="True"
+      compression="safe"
+      cookable="True"
+      enabled="True"
+      media="all"
+      rel="stylesheet"
+      rendering="link"
+      />
+
+  <stylesheet
+      bundle="default"
+      id="++resource++plone.formwidget.recurrence/integration.css"
+      insert-after="++resource++plone.formwidget.recurrence/jquery.recurrenceinput.css"
+      applyPrefix="True"
+      authenticated="False"
+      cacheable="True"
+      compression="safe"
+      cookable="True"
+      enabled="True"
+      media="all"
+      rel="stylesheet"
+      rendering="link"
+      />
+
+</object>
