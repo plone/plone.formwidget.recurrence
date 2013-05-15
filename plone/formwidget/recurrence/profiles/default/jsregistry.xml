@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
 
+  <javascript id="++resource++plone.app.jquerytools.dateinput.js"
+      enabled="True"/>
+
   <javascript
       bundle="default"
       id="++resource++plone.formwidget.recurrence/jquery.tmpl-beta1.js"

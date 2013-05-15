@@ -2,6 +2,10 @@
 <object name="portal_css">
 
   <stylesheet
+      id="++resource++plone.app.jquerytools.dateinput.css"
+      enabled="True"/>
+
+  <stylesheet
       bundle="default"
       id="++resource++plone.formwidget.recurrence/jquery.recurrenceinput.css"
       applyPrefix="True"
