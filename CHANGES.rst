@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.0dev (unreleased)
+-------------------
+
+- Fix "TypeError: 'use strict' is not a function". Fixes #3.
+  [pbauer]
+
+
 1.0b8 (2013-02-14)
 ------------------
 
