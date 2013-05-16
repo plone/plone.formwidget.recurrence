@@ -4,10 +4,6 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
-- Add compiled .mo gettext translation files, so that they don't need to be
-  compiled on startup.
-  [thet]
-
 - Register CSS and JS resources in it's registries instead of including them in
   the template. Add a GS profile for that.
   [thet]
