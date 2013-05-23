@@ -4,6 +4,9 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
+- Remove one unnecessary div around AT's edit macro.
+  [thet]
+
 - Register CSS and JS resources in it's registries instead of including them in
   the template. Add a GS profile for that.
   [thet]

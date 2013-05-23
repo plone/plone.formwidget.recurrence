@@ -13,15 +13,12 @@
         value python:getMethod and getMethod();
         widget_view widget/@@recurrence_widget;
         portal_url context/@@plone_portal_state/portal_url;">
-
         <span tal:content="python:widget.get_formatted_value(value)">Value</span>
     </metal:view_macro>
 
-    <div metal:define-macro="edit">
+    <metal:edit_macro define-macro="edit">
       <metal:use use-macro="field_macro | context/widgets/field/macros/edit">
-
         <div metal:fill-slot="widget_body">
-    
           <textarea tal:attributes="name string:$fieldName;
                                     id fieldName;
                                     cols widget/cols;
@@ -44,8 +41,7 @@
           </script>
         </div>
       </metal:use>
-    </div>
+    </metal:edit_macro>
 
   </body>
-
 </html>
