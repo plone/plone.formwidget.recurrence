@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0dev (unreleased)
--------------------
+1.0b9 (2013-05-27)
+------------------
 
 - Remove one unnecessary div around AT's edit macro.
   [thet]
