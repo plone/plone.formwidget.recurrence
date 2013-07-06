@@ -9,27 +9,34 @@
     <class class=".widget.RecurrenceWidget">
       <require
           permission="zope.Public"
-          interface=".widget.IRecurrenceWidget"
+          interface=".interfaces.IRecurrenceWidget"
           />
     </class>
+    <class class="plone.formwidget.recurrence.z3cform.field.RecurrenceField">
+      <implements interface=".interfaces.IRecurrenceField"/>
+    </class>
+    <adapter
+        factory=".widget.RecurrenceFieldWidget"
+        for=".interfaces.IRecurrenceField
+             z3c.form.interfaces.IFormLayer" />
 
     <z3c:widgetTemplate
         mode="display"
-        widget=".widget.IRecurrenceWidget"
+        widget=".interfaces.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="recurrence_input.pt"
         />
 
     <z3c:widgetTemplate
         mode="input"
-        widget=".widget.IRecurrenceWidget"
+        widget=".interfaces.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="recurrence_input.pt"
         />
 
     <z3c:widgetTemplate
         mode="hidden"
-        widget=".widget.IRecurrenceWidget"
+        widget=".interfaces.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="recurrence_hidden.pt"
         />

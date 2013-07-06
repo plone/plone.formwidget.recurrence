@@ -7,10 +7,8 @@ from z3c.form.widget import Widget, FieldWidget
 from z3c.form.browser import widget
 from z3c.form.interfaces import IWidget, IFieldWidget, IFormLayer
 from plone.formwidget.recurrence.browser.i18n import translations
+from plone.formwidget.recurrence.z3cform.interfaces import IRecurrenceWidget
 
-
-class IRecurrenceWidget(IWidget):
-    """Recurrence widget."""
 
 class RecurrenceWidget(widget.HTMLTextAreaWidget, Widget):
     """Recurrence widget implementation."""
