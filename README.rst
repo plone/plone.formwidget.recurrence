@@ -36,7 +36,8 @@ or::
   ]
 
 
-Usage
------
+TODO
+----
 
-See plone/formwidget/recurrence/example .
+- Usage docs for AT and DX. Show z3c.form widget parameters via
+  plone.autoform > 1.4

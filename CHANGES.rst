@@ -4,6 +4,10 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
+- Remove the ParameterizedWidgetFactory in favor of form schema hints for
+  widget parameters which is available since plone.autoform 1.4.
+  [thet]
+
 - For the z3cform widget, remove widget adaptee registration from ZCML code and
   keep it in Python code. More appropriate z3c.form class hierarchy for the
   widget. Cleanup.
