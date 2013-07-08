@@ -6,7 +6,7 @@ from z3c.form.interfaces import IFieldWidget
 from z3c.form.interfaces import IFormLayer
 from z3c.form.widget import FieldWidget
 from zope.component import adapter
-from zope.interface import implementsOnly, implementer
+from zope.interface import implementsOnly, implementer, implements
 from zope.site import hooks
 from zope.traversing.browser import absoluteURL
 
