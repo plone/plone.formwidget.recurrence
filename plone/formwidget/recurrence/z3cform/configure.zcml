@@ -6,30 +6,31 @@
     <include package="z3c.form" file="meta.zcml"/>
     <include package="z3c.form" />
 
+    <adapter factory=".widget.RecurrenceFieldWidget"/>
     <class class=".widget.RecurrenceWidget">
       <require
           permission="zope.Public"
-          interface=".widget.IRecurrenceWidget"
+          interface=".interfaces.IRecurrenceWidget"
           />
     </class>
 
     <z3c:widgetTemplate
         mode="display"
-        widget=".widget.IRecurrenceWidget"
+        widget=".interfaces.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="recurrence_input.pt"
         />
 
     <z3c:widgetTemplate
         mode="input"
-        widget=".widget.IRecurrenceWidget"
+        widget=".interfaces.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="recurrence_input.pt"
         />
 
     <z3c:widgetTemplate
         mode="hidden"
-        widget=".widget.IRecurrenceWidget"
+        widget=".interfaces.IRecurrenceWidget"
         layer="z3c.form.interfaces.IFormLayer"
         template="recurrence_hidden.pt"
         />

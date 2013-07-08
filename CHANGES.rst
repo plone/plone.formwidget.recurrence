@@ -4,6 +4,24 @@ Changelog
 1.0b9 (2013-05-27)
 ------------------
 
+- Remove the ParameterizedWidgetFactory in favor of form schema hints for
+  widget parameters which is available since plone.autoform 1.4.
+  [thet]
+
+- For the z3cform widget, remove widget adaptee registration from ZCML code and
+  keep it in Python code. More appropriate z3c.form class hierarchy for the
+  widget. Cleanup.
+  [thet]
+
+- Provide a RecurrenceField schema field which can be used instead of
+  zope.schema.Text. This ensures that the recurrence widget is used even
+  without form schema hints in bare z3c.form forms.
+  [thet]
+
+
+1.0b9 (2013-05-27)
+------------------
+
 - Remove one unnecessary div around AT's edit macro.
   [thet]
 
