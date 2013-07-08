@@ -1,26 +1,23 @@
+from plone.formwidget.recurrence.browser.i18n import translations
+from plone.formwidget.recurrence.z3cform.interfaces import IRecurrenceField
+from plone.formwidget.recurrence.z3cform.interfaces import IRecurrenceWidget
+from z3c.form.browser.textarea import TextAreaWidget
+from z3c.form.interfaces import IFieldWidget
+from z3c.form.interfaces import IFormLayer
+from z3c.form.widget import FieldWidget
 from zope.component import adapter
-from zope.interface import implementsOnly, implementer, implements
-from zope.schema.interfaces import IField
+from zope.interface import implementsOnly, implementer
 from zope.site import hooks
 from zope.traversing.browser import absoluteURL
-from z3c.form.widget import Widget, FieldWidget
-from z3c.form.browser import widget
-from z3c.form.interfaces import IWidget, IFieldWidget, IFormLayer
-from plone.formwidget.recurrence.browser.i18n import translations
-from plone.formwidget.recurrence.z3cform.interfaces import IRecurrenceWidget
 
 
-class RecurrenceWidget(widget.HTMLTextAreaWidget, Widget):
+class RecurrenceWidget(TextAreaWidget):
     """Recurrence widget implementation."""
     implementsOnly(IRecurrenceWidget)
 
     klass = u'recurrence-widget'
     value = u''
     start_field = None
-
-    def update(self):
-        super(RecurrenceWidget, self).update()
-        widget.addFieldClass(self)
 
     def site_url(self):
         return absoluteURL(hooks.getSite(), self.request)
@@ -48,8 +45,8 @@ class RecurrenceWidget(widget.HTMLTextAreaWidget, Widget):
         return calendar.week.get('firstDay', 0)
 
 
-@adapter(IField, IFormLayer)
 @implementer(IFieldWidget)
+@adapter(IRecurrenceField, IFormLayer)
 def RecurrenceFieldWidget(field, request):
     """IFieldWidget factory for RecurrenceWidget."""
     return FieldWidget(field, RecurrenceWidget(request))

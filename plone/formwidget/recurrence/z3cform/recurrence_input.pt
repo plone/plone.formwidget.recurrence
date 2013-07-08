@@ -10,8 +10,8 @@
                    data-test view/klass;
                    data-lang request/LANGUAGE;
                    data-readOnly view/read_only;
-                   data-startField view/startField;
-                   data-firstDay view/firstDay;"
+                   data-startField view/get_start_field;
+                   data-firstDay view/first_day;"
    tal:content="view/value" />
 <tal:block condition="python:view.read_only() == 'true'">
   <span style="display:none;" tal:attributes="id string:${view/id}-start;name string:${view/name}-start" tal:content="view/get_start_date"/>
