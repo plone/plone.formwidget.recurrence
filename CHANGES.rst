@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0b9 (2013-05-27)
-------------------
+1.0dev (unreleased)
+-------------------
 
 - Remove the ParameterizedWidgetFactory in favor of form schema hints for
   widget parameters which is available since plone.autoform 1.4.
