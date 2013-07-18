@@ -18,6 +18,10 @@ Changelog
   without form schema hints in bare z3c.form forms.
   [thet]
 
+- Fix javascript error in IE7/IE8 on Windows XP -> "Unable to modify the parent
+  container element before the child element is closed"
+  [href]
+
 
 1.0b9 (2013-05-27)
 ------------------
