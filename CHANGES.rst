@@ -4,6 +4,9 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
+- Return a 400 Bad Request to bots calling @@json_recurrence. Fixes #4.
+  [href]
+
 1.0b10 (2013-07-21)
 -------------------
 

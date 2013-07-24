@@ -49,7 +49,9 @@ class RecurrenceView(BrowserView):
         data = self.request.form
         # Check for required parameters:
         for x in ('year', 'month', 'day', 'rrule', 'format'):
-            assert x in data
+            if x not in data:
+                self.request.response.setStatus(400) # bad request
+                return {}
 
         # Translate from the js dateformat style to the i18n style
         date_format = dateformat_xlate(data['format'])
