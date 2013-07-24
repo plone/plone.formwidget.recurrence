@@ -8,6 +8,7 @@ have signed the Plone Contributors Agreement [1][2]. Thanks!
 - Tom Gross, tomgross (Original Author)
 - Johannes Raggam, thet
 - Kai Lautaportti, dokai
+- Denis Krienbühl, href
 
 To be confirmed:
 - Roland Fasching <roland.fasching@gmail.com>
