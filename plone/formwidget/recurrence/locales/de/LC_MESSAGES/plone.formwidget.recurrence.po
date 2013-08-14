@@ -141,7 +141,7 @@ msgid "past_end_date"
 msgstr "Fehler: Das Terminende kann nicht vor dem Terminanfang sein."
 
 msgid "preview"
-msgstr "Aufgewählte Termine"
+msgstr "Ausgewählte Termine"
 
 msgid "range"
 msgstr "Ende der Wiederholung:"
