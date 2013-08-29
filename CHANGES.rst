@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.0dev (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
 1.0b11 (2013-08-23)
 -------------------
 

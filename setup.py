@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 
-version = '1.0b11'
+version = '1.0dev'
 
 setup(name='plone.formwidget.recurrence',
       version=version,
@@ -35,6 +35,7 @@ setup(name='plone.formwidget.recurrence',
               'Products.Archetypes',
           ],
           test=[
+              'Products.ATContentTypes',
               'Products.GenericSetup',
               'z3c.form[test]',
               'plone.app.testing',
