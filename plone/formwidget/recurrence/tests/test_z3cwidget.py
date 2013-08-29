@@ -34,10 +34,10 @@ class Z3CWidgetTestCase(tests.base.IntegrationTestCase):
         #request = TestRequest(skin=IFormLayer)
         #request.LANGUAGE = 'en'
         #form = TestEditForm(self.portal, request)
-        #widget = widget.RecurrenceFieldWidget(form.fields['recurrence'].field, request)
-        #widget.context = form
-        #widget.update()
-        #html = widget.render()
+        #widget_ = widget.RecurrenceFieldWidget(form.fields['recurrence'].field, request)
+        #widget_.context = form
+        #widget_.update()
+        #html = widget_.render()
 
         #self.assertTrue('++resource++jquery.tmpl.js' in html)
         #self.assertTrue('++resource++plone.formwidget.recurrence/jquery.recurrenceinput.js' in html)

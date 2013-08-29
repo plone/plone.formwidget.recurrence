@@ -23,13 +23,7 @@ class ATWidgetTestCase(IntegrationTestCase):
 
     def test_widget_properties(self):
         widget = self.widget
-        self.assertEqual(widget.helper_js,
-                ('++resource++jquery.tmpl.js',
-                 '++resource++plone.formwidget.recurrence/jquery.recurrenceinput.js',))
-        self.assertEqual(widget.helper_css,
-                ('++resource++plone.formwidget.recurrence/integration.css',))
         self.assertEqual(widget.macro_edit, 'recurrence_widget')
-
         self.assertTrue(widget.startField == 'test_start_field')
         self.assertTrue(widget.startYear == 'test_start_year')
         self.assertTrue(widget.startMonth == 'test_start_month')

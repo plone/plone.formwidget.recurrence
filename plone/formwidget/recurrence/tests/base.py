@@ -8,6 +8,13 @@ from zope.interface import Interface
 import unittest2 as unittest
 
 
+try:
+    from plone.app.upgrade import v50
+    PLONE5 = 1
+except ImportError:
+    PLONE5 = 0
+
+
 class DemoProfile(Interface):
     """Marker interface for our demo GS profile."""
 
@@ -22,12 +29,18 @@ class PloneFormwidgetRecurrenceLayer(PloneSandboxLayer):
         import plone.formwidget.recurrence
         self.loadZCML(package=plone.formwidget.recurrence)
 
-        import plone.formwidget.recurrence.tests # install AT example types
+        import plone.formwidget.recurrence.tests  # install AT example types
         self.loadZCML(package=plone.formwidget.recurrence.tests)
         z2.installProduct(app, 'plone.formwidget.recurrence.tests')
 
+        z2.installProduct(app, 'Products.ATContentTypes')
+
     def setUpPloneSite(self, portal):
         """Set up Plone."""
+        if PLONE5:
+            # Install Products.ATContentTypes profile only for versions, where
+            # it's available
+            self.applyProfile(portal, 'Products.ATContentTypes:default')
         # install at example types
         self.applyProfile(portal, 'plone.formwidget.recurrence.tests:sample_types')
 
