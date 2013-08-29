@@ -39,5 +39,7 @@ or::
 TODO
 ----
 
-- Usage docs for AT and DX. Show z3c.form widget parameters via
+- Better test coverage.
+
+? - Usage docs for AT and DX. Show z3c.form widget parameters via
   plone.autoform > 1.4
