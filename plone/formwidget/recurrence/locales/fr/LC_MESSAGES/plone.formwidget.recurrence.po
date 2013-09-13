@@ -1,0 +1,250 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-02-24 16:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Preferred-Encodings: utf-8 latin1\n"
+
+msgid "add"
+msgstr "Ajouter"
+
+msgid "add_date"
+msgstr "Ajouter une date"
+
+msgid "add_rules"
+msgstr "Ajouter"
+
+msgid "additional_date"
+msgstr "Dates supplémentaires"
+
+msgid "already_added"
+msgstr "Cette date a déjà été ajoutée"
+
+msgid "bysetpos"
+msgstr "BYSETPOS n'est pas soutenu"
+
+msgid "cancel"
+msgstr "Annuler"
+
+msgid "daily_interval_1"
+msgstr "Répétition :"
+
+msgid "daily_interval_2"
+msgstr "Jours"
+
+msgid "delete_rules"
+msgstr "Supprimer"
+
+msgid "display_activate"
+msgstr "Se répète tous les"
+
+msgid "display_unactivate"
+msgstr "Pas de répétitions"
+
+msgid "edit_rules"
+msgstr "Modifier"
+
+msgid "except"
+msgstr ", sauf que"
+
+msgid "exclude"
+msgstr "Exclu"
+
+msgid "include"
+msgstr "Inclue"
+
+msgid "including"
+msgstr ", et aussi"
+
+msgid "long_date_format"
+msgstr "dddd mmmm dd, yyyy"
+
+msgid "monthly_day_of_month_1"
+msgstr "Jour"
+
+msgid "monthly_day_of_month_1_human"
+msgstr "le jour"
+
+msgid "monthly_day_of_month_2"
+msgstr "du mois"
+
+msgid "monthly_day_of_month_3"
+msgstr "Mois"
+
+msgid "monthly_interval_1"
+msgstr "Se répète tous les:"
+
+msgid "monthly_interval_2"
+msgstr "Mois"
+
+msgid "monthly_repeat_on"
+msgstr "Se répète:"
+
+msgid "monthly_weekday_of_month_1"
+msgstr "Le"
+
+msgid "monthly_weekday_of_month_1_human"
+msgstr "le"
+
+msgid "monthly_weekday_of_month_2"
+msgstr " "
+
+msgid "monthly_weekday_of_month_3"
+msgstr "le mois"
+
+msgid "multiple_day_of_month"
+msgstr "Cet outil ne soutient pas de répétitions mensuelles ou annuelles"
+
+msgid "no_end_after_n_occurrences"
+msgstr ""
+
+msgid "no_end_date"
+msgstr "Faute: La fin de la date n'a pas été saisie, veuillez saisir une date correcte."
+
+msgid "no_repeat_every"
+msgstr ""
+
+msgid "no_repeat_on"
+msgstr ""
+
+msgid "no_rule"
+msgstr "Pas de dates RRULE dans RRULE"
+
+msgid "no_template_match"
+msgstr ""
+
+msgid "order_indexes_first"
+msgstr "premier"
+
+msgid "order_indexes_fourth"
+msgstr "quatrième"
+
+msgid "order_indexes_last"
+msgstr "dernier"
+
+msgid "order_indexes_second"
+msgstr "deuxième"
+
+msgid "order_indexes_third"
+msgstr "troisième"
+
+msgid "past_end_date"
+msgstr "Faute: La fin ne peut pas être avant le démarrage de la date."
+
+msgid "preview"
+msgstr "Dates choisies"
+
+msgid "range"
+msgstr "Fin de la répétition:"
+
+msgid "range_by_end_date"
+msgstr "Jusqu'à"
+
+msgid "range_by_end_date_human"
+msgstr "finit le"
+
+msgid "range_by_occurrences_1"
+msgstr "Finit après"
+
+msgid "range_by_occurrences_1_human"
+msgstr "finit après"
+
+msgid "range_by_occurrences_2"
+msgstr "évènement(s)"
+
+msgid "range_no_end"
+msgstr "Jamais"
+
+msgid "recurrence_start"
+msgstr "Début de la répétition"
+
+msgid "recurrence_type"
+msgstr "Se répète:"
+
+msgid "refresh"
+msgstr "Actualiser"
+
+msgid "remove"
+msgstr "Eliminer"
+
+msgid "save"
+msgstr "Enregistrer"
+
+msgid "template_daily"
+msgstr "Quotidiennement"
+
+msgid "template_mondayfriday"
+msgstr "Lundi et vendredi"
+
+msgid "template_monthly"
+msgstr "Mensuel"
+
+msgid "template_weekdays"
+msgstr "Lundi à vendredi"
+
+msgid "template_weekly"
+msgstr "Hebdomadaire"
+
+msgid "template_yearly"
+msgstr "Annuelle"
+
+msgid "title"
+msgstr "Répétition"
+
+msgid "unsupported_features"
+msgstr ""
+
+msgid "weekly_interval_1"
+msgstr "Se répète tous les:"
+
+msgid "weekly_interval_2"
+msgstr "Semaine(s)"
+
+msgid "weekly_weekdays"
+msgstr "Se répète tous les:"
+
+msgid "weekly_weekdays_human"
+msgstr "le:"
+
+msgid "yearly_day_of_month_1"
+msgstr "Tous les"
+
+msgid "yearly_day_of_month_1_human"
+msgstr "le"
+
+msgid "yearly_day_of_month_2"
+msgstr " "
+
+msgid "yearly_day_of_month_3"
+msgstr " "
+
+msgid "yearly_interval_1"
+msgstr "Se répète tous les:"
+
+msgid "yearly_interval_2"
+msgstr "An(s)"
+
+msgid "yearly_repeat_on"
+msgstr "Se répète tous les:"
+
+msgid "yearly_weekday_of_month_1"
+msgstr "Le"
+
+msgid "yearly_weekday_of_month_1_human"
+msgstr "le"
+
+msgid "yearly_weekday_of_month_2"
+msgstr " "
+
+msgid "yearly_weekday_of_month_3"
+msgstr "de"
+
+msgid "yearly_weekday_of_month_4"
+msgstr " "
+
