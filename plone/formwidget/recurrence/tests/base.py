@@ -1,4 +1,5 @@
 """Base module for unittesting"""
+from Products.CMFPlone.utils import getFSVersionTuple
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
@@ -8,11 +9,7 @@ from zope.interface import Interface
 import unittest2 as unittest
 
 
-try:
-    from plone.app.upgrade import v50
-    PLONE5 = 1
-except ImportError:
-    PLONE5 = 0
+PLONE5 = getFSVersionTuple()[0] >= 5
 
 
 class DemoProfile(Interface):
