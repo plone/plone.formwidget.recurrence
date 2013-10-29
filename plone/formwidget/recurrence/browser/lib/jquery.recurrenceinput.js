@@ -24,6 +24,9 @@
             ajaxContentType: 'application/json; charset=utf8',
             ributtonExtraClass: '',
 
+            // INPUT CONFIGURATION
+            hasRepeatForeverButton: true,
+
             // FORM OVERLAY
             formOverlay: {
                 speed: 'fast',
@@ -449,6 +452,7 @@
                     '<div id="rirangeoptions" class="rifield">',
                         '<label class="label">${i18n.range}</label>',
                         '<div class="field">',
+                          '{{if hasRepeatForeverButton}}',
                             '<div>',
                                 '<input',
                                     'type="radio"',
@@ -459,6 +463,7 @@
                                     '${i18n.rangeNoEnd}',
                                 '</label>',
                             '</div>',
+                          '{{/if}}',
                             '<div>',
                                 '<input',
                                     'type="radio"',
@@ -993,6 +998,9 @@
                             byday = byday.split(",")[0];
                         }
                         index = byday.slice(0, -2);
+                        if (index.charAt(0) !== '+' && index.charAt(0) !== '-') {
+                            index = '+' + index;
+                        }
                         weekday = byday.slice(-2);
                         field.find('select[name=rimonthlyweekdayofmonthindex]').val(index);
                         field.find('select[name=rimonthlyweekdayofmonth]').val(weekday);
@@ -1032,6 +1040,9 @@
                             byday = byday.split(",")[0];
                         }
                         index = byday.slice(0, -2);
+                        if (index.charAt(0) !== '+' && index.charAt(0) !== '-') {
+                            index = '+' + index;
+                        }
                         weekday = byday.slice(-2);
                         field.find('select[name=riyearlyweekdayofmonthindex]').val(index);
                         field.find('select[name=riyearlyweekdayofmonthday]').val(weekday);
@@ -1104,7 +1115,7 @@
             }
             orderedWeekdays.push(index);
         }
-        
+
         $.extend(conf, {
             orderIndexes: ['+1', '+2', '+3', '+4', '-1'],
             weekdays: ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'],
@@ -1211,7 +1222,7 @@
             year = startdate.getFullYear();
             month = startdate.getMonth() + 1;
             day = startdate.getDate();
-            
+
             var data = {year: year,
                        month: month, // Sending January as 0? I think not.
                        day: day,
@@ -1237,7 +1248,7 @@
                     }
                     data.readOnly = readonly;
                     data.i18n = conf.i18n;
-                    
+
                     // Format dates:
                     var occurrence, date, y, m, d, each;
                     for (each in data.occurrences) {
@@ -1276,7 +1287,7 @@
                     alert(textStatus);
                 }
             };
-            
+
             $.ajax(dict);
         }
 
@@ -1309,21 +1320,21 @@
                     // Yes it was, get the date:
                     startdate = startdate.getValue();
                 }
+                startdate = new Date(startdate);
             } else if (conf.startFieldYear &&
                        conf.startFieldMonth &&
                        conf.startFieldDay) {
                 startFieldYear = getField(conf.startFieldYear);
                 startFieldMonth = getField(conf.startFieldMonth);
                 startFieldDay = getField(conf.startFieldDay);
-                startdate = startFieldYear.val() + '-' +
-                    zeropad(startFieldMonth.val(), 2) + '-' +
-                    zeropad(startFieldDay.val(), 2);
+                startdate = new Date(startFieldYear.val(),
+                                     startFieldMonth.val() - 1,
+                                     startFieldDay.val());
             }
             if (startdate === null) {
                 return null;
             }
             // We have some sort of startdate:
-            startdate = new Date(startdate);
             if (isNaN(startdate)) {
                 return null;
             }
@@ -1374,7 +1385,7 @@
                 widgetLoadFromRfc5545(form, conf, rfc5545, true);
                 // check checkbox
                 display.find('input[name=richeckbox]')
-                    .attr('checked', true);
+                    .attr('checked', true).change();
             }
 
             startdate = findStartDate();
@@ -1536,7 +1547,7 @@
                 form.overlay().close();
                 // check checkbox
                 display.find('input[name=richeckbox]')
-                    .attr('checked', true);
+                    .attr('checked', true).change();
                 recurrenceOn();
             }
         }
@@ -1710,7 +1721,7 @@
         if (this.val()) {
             recurrenceinput.display.find(
                 'input[name=richeckbox]'
-            ).attr('checked', true);
+            ).attr('checked', true).change();
         }
 
         // hide the textarea
