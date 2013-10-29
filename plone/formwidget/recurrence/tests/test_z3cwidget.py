@@ -1,44 +1,52 @@
-from plone.formwidget.recurrence import tests
-from plone.formwidget.recurrence.z3cform import widget
+from OFS.SimpleItem import SimpleItem
+from plone.formwidget.datetime.z3cform.widget import DateFieldWidget
+from plone.formwidget.recurrence.tests.base import IntegrationTestCase
+from plone.formwidget.recurrence.z3cform.widget import RecurrenceFieldWidget
 from z3c.form import form, field
-from z3c.form.interfaces import IFormLayer
-from zope.publisher.browser import TestRequest
+from z3c.form.testing import TestRequest
+from zope.schema.fieldproperty import FieldProperty
 import zope.interface
 import zope.schema
 
 
 class ITestForm(zope.interface.Interface):
-
-    recurrence = zope.schema.Text(
-        title=u'Recurrence',
-        required=True)
+    recurrence = zope.schema.Text(title=u'Recurrence', required=True)
+    day = zope.schema.Date(title=u'Day', required=True)
 
 
-class TestEditForm(form.EditForm):
+class TestForm(SimpleItem):
+    zope.interface.implements(ITestForm)
+    recurrence = FieldProperty(ITestForm['recurrence'])
+    day = FieldProperty(ITestForm['day'])
 
+    def __init__(self, recurrence, day):
+        super(TestForm, self).__init__(id)
+        self.recurrence = recurrence
+        self.day = day
+
+
+class TestAddForm(form.AddForm):
     fields = field.Fields(ITestForm)
-    fields['recurrence'].widgetFactory = widget.RecurrenceFieldWidget
+    fields['recurrence'].widgetFactory = RecurrenceFieldWidget
+    fields['day'].widgetFactory = DateFieldWidget
 
 
-class Z3CWidgetTestCase(tests.base.IntegrationTestCase):
+class Z3CWidgetTestCase(IntegrationTestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
-        self.portal.portal_quickinstaller.installProduct('plone.formwidget.recurrence')
 
-    # This test doesn't work any longer. We need to set up some real, useful tests.
+    def test_widget_rendering(self):
+        request = TestRequest()
+        request.LANGUAGE = 'en'
+        form = TestAddForm(self.portal, request)
+        form.update()
 
-    def test_widget(self):
-        pass
-        ## It doens't test very much, since it's all in Javascript...
-        #request = TestRequest(skin=IFormLayer)
-        #request.LANGUAGE = 'en'
-        #form = TestEditForm(self.portal, request)
-        #widget_ = widget.RecurrenceFieldWidget(form.fields['recurrence'].field, request)
-        #widget_.context = form
-        #widget_.update()
-        #html = widget_.render()
+        widget = RecurrenceFieldWidget(form.fields['recurrence'].field,
+                                       request)
+        widget.form = form
+        widget.start_field = 'day'
+        widget.update()
 
-        #self.assertTrue('++resource++jquery.tmpl.js' in html)
-        #self.assertTrue('++resource++plone.formwidget.recurrence/jquery.recurrenceinput.js' in html)
-        #self.assertTrue('++resource++plone.formwidget.recurrence/integration.css' in html)
+        html = widget.render()
+        self.assertIn('recurrence', html)

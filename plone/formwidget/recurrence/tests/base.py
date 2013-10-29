@@ -41,6 +41,8 @@ class PloneFormwidgetRecurrenceLayer(PloneSandboxLayer):
         # install at example types
         self.applyProfile(portal, 'plone.formwidget.recurrence.tests:sample_types')
 
+        self.applyProfile(portal, 'plone.formwidget.recurrence:default')
+
     def tearDownZope(self, app):
         """Tear down Zope."""
         z2.uninstallProduct(app, 'plone.formwidget.recurrence.tests')
