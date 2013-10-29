@@ -4,7 +4,9 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Update jquery.recurrenceinput.js (Fix ie8 startdate and fire events when
+  changing checkbox values, Make "repeat forever" button optional by deiferni).
+  [thet]
 
 
 1.0b11 (2013-08-23)
