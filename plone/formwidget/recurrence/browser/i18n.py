@@ -105,8 +105,10 @@ rtemplate: {{
 # need to be done per request:
 messages = {
     'display_unactivate': pfr_message(u'display_unactivate'),
-    'display_activate': pfr_message(u'display_activate') ,
-    'edit': pfr_message(u'edit'),
+    'display_activate': pfr_message(u'display_activate'),
+    'add_rules': pfr_message(u'add_rules'),
+    'edit_rules': pfr_message(u'edit_rules'),
+    'delete_rules': pfr_message(u'delete_rules'),
     'add': pfr_message(u'add'),
     'refresh': pfr_message(u'refresh'),
     'title': pfr_message(u'title'),
