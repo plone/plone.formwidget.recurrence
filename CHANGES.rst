@@ -15,6 +15,8 @@ Changelog
     to double negation (unchecked checkbox said "no recurrence rule") and add
     instead a "Delete" button. [thet]
 
+- Add a widget parameter to optionally disable the repeat forever option
+  [deiferni]
 
 1.0b11 (2013-08-23)
 -------------------

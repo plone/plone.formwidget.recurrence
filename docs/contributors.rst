@@ -9,6 +9,7 @@ have signed the Plone Contributors Agreement [1][2]. Thanks!
 - Johannes Raggam, thet
 - Kai Lautaportti, dokai
 - Denis Krienbühl, href
+- David Erni, deiferni
 
 To be confirmed:
 - Roland Fasching <roland.fasching@gmail.com>
