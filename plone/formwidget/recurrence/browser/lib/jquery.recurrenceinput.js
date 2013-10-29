@@ -10,7 +10,6 @@
 
     tool = $.tools.recurrenceinput = {
         conf: {
-
             lang: 'en',
             readOnly: false,
             firstDay: 0,
@@ -110,7 +109,9 @@
     tool.localize("en", {
         displayUnactivate: 'Does not repeat',
         displayActivate: 'Repeats every',
-        edit: 'Edit...',
+        add_rules: 'Add',
+        edit_rules: 'Edit',
+        delete_rules: 'Delete',
         add:  'Add',
         refresh: 'Refresh',
 
@@ -263,12 +264,10 @@
     var DISPLAYTMPL = ['<div class="ridisplay">',
         '<div class="rimain">',
             '{{if !readOnly}}',
-                '<input type="checkbox" name="richeckbox" />',
+                '<a href="#" name="riedit">${i18n.add_rules}</a>',
+                '<a href="#" name="ridelete" style="display:none">${i18n.delete_rules}</a>',
             '{{/if}}',
             '<label class="ridisplay">${i18n.displayUnactivate}</label>',
-            '{{if !readOnly}}',
-                '<a href="#" name="riedit">${i18n.edit}</a>',
-            '{{/if}}',
         '</div>',
         '<div class="rioccurrences" style="display:none" /></div>'].join('\n');
 
@@ -544,7 +543,6 @@
     }
 
     function format(date, fmt, conf) {
-
         var d = date.getDate(),
             D = date.getDay(),
             m = date.getMonth(),
@@ -1383,9 +1381,6 @@
 
             if (rfc5545) {
                 widgetLoadFromRfc5545(form, conf, rfc5545, true);
-                // check checkbox
-                display.find('input[name=richeckbox]')
-                    .attr('checked', true).change();
             }
 
             startdate = findStartDate();
@@ -1429,22 +1424,17 @@
             if (startdate !== null) {
                 loadOccurrences(startdate, widgetSaveToRfc5545(form, conf, false).result, 0, true);
             }
+            display.find('a[name="riedit"]').text(conf.i18n.edit_rules);
+            display.find('a[name="ridelete"]').show();
         }
 
         function recurrenceOff() {
             var label = display.find('label[class=ridisplay]');
             label.text(conf.i18n.displayUnactivate);
-            textarea.val('');
+            textarea.val('');  // Clear the textarea.
             display.find('.rioccurrences').hide();
-        }
-
-        function toggleRecurrence(e) {
-            var checkbox = display.find('input[name=richeckbox]');
-            if (checkbox.is(':checked')) {
-                recurrenceOn();
-            } else {
-                recurrenceOff();
-            }
+            display.find('a[name="riedit"]').text(conf.i18n.add_rules);
+            display.find('a[name="ridelete"]').hide();
         }
 
         function checkFields(form) {
@@ -1545,9 +1535,6 @@
             if (checkFields(form)) {
                 // close overlay
                 form.overlay().close();
-                // check checkbox
-                display.find('input[name=richeckbox]')
-                    .attr('checked', true).change();
                 recurrenceOn();
             }
         }
@@ -1612,8 +1599,8 @@
           Do all the GUI stuff:
         */
 
-        // When you click on the checkbox, recurrence should toggle on/off.
-        display.find('input[name=richeckbox]').click(toggleRecurrence);
+        // When you click "Delete...", the recurrence rules should be cleared.
+        display.find('a[name=ridelete]').click(recurrenceOff);
 
         // Show form overlay when you click on the "Edit..." link
         display.find('a[name=riedit]').click(
@@ -1625,7 +1612,7 @@
             }
         );
 
-        // Pop up the little add form when clicking "Add..."
+        // Pop up the little add form when clicking "Add"
         form.find('div.riaddoccurrence input#adddate').dateinput({
             selectors: true,
             lang: conf.lang,
@@ -1717,12 +1704,6 @@
         // hide textarea and place display widget after textarea
         recurrenceinput.form.appendTo('body');
         this.after(recurrenceinput.display);
-
-        if (this.val()) {
-            recurrenceinput.display.find(
-                'input[name=richeckbox]'
-            ).attr('checked', true).change();
-        }
 
         // hide the textarea
         this.hide();

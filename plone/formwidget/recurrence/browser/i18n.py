@@ -4,7 +4,9 @@ from plone.formwidget.recurrence import pfr_message, pl_message
 PARAMETERS = u"""{{
 displayUnactivate: '{display_unactivate}',
 displayActivate: '{display_activate}',
-edit: '{edit}',
+add_rules: '{add_rules}',
+edit_rules: '{edit_rules}',
+delete_rules: '{delete_rules}',
 add: '{add}',
 refresh: '{refresh}',
 title: '{title}',

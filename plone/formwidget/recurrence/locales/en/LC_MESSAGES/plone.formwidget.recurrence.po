@@ -14,6 +14,15 @@ msgstr ""
 "Preferred-Encodings: utf-8\n"
 "Domain: plone.formwidget.recurrence\n"
 
+msgid "add_rules"
+msgstr "Add"
+
+msgid "edit_rules"
+msgstr "Edit"
+
+msgid "delete_rules"
+msgstr "Delete"
+
 msgid "add"
 msgstr "Add"
 
@@ -43,9 +52,6 @@ msgstr "Repeats every "
 
 msgid "display_unactivate"
 msgstr "Does not repeat"
-
-msgid "edit"
-msgstr "Edit..."
 
 msgid "except"
 msgstr ", except for"

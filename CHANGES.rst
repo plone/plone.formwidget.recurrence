@@ -4,8 +4,14 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
-- Update jquery.recurrenceinput.js (Fix ie8 startdate and fire events when
-  changing checkbox values, Make "repeat forever" button optional by deiferni).
+- Update jquery.recurrenceinput.js:
+  - Fix ie8 startdate and fire events when changing checkbox values [deiferni],
+  - Make "repeat forever" button optional [deiferni],
+  - When there is no recurrence rule, the edit button should show "Add...", not
+    "Edit..." [thet],
+  - Remove ambiguous recurrence rule checkbox, which lead to UX confusion due
+    to double negation (unchecked checkbox said "no recurrence rule") and add
+    instead a "Delete" button. [thet]
   [thet]
 
 
