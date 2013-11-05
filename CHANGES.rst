@@ -7,6 +7,7 @@ Changelog
 - Update jquery.recurrenceinput.js:
   [thet]
   
+  - Fire change events when rrule value is updated. [deiferni]
   - Default to one week of daily occurrences, instead of 10. Fixes #5. [gyst]
   - Fix ie8 startdate and fire events when changing checkbox values [deiferni]
   - Make "repeat forever" button optional [deiferni]
