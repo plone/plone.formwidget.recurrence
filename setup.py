@@ -39,6 +39,7 @@ setup(name='plone.formwidget.recurrence',
               'Products.GenericSetup',
               'z3c.form[test]',
               'plone.app.testing',
+              'plone.formwidget.datetime',
               'unittest2'
           ]),
       entry_points="""
