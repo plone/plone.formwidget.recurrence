@@ -18,9 +18,9 @@ class RecurrenceWidget(LinesWidget):
         'helper_js': (),
         'helper_css': (),
         'startField': '',
-        'startYear': '',
-        'startMonth': '',
-        'startDay': '',
+        'startFieldYear': '',
+        'startFieldMonth': '',
+        'startFieldDay': '',
         'first_day': '',
         'show_repeat_forever': True,
         })
@@ -31,11 +31,11 @@ class RecurrenceWidget(LinesWidget):
         request = portal.REQUEST
         params = dict(
             lang=request.LANGUAGE,
-            startFieldDay=self.startDay,
-            startFieldMonth=self.startMonth,
-            startFieldYear=self.startYear,
+            startFieldDay=self.startFieldDay,
+            startFieldMonth=self.startFieldMonth,
+            startFieldYear=self.startFieldYear,
             startField=self.startField,
-            firstDay=self.first_day,
+            firstDay=self.first_day(),
             ajaxURL=ajax_url,
             ajaxContentType='application/x-www-form-urlencoded; charset=UTF-8',
             ributtonExtraClass='allowMultiSubmit',
