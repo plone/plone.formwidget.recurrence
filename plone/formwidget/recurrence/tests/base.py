@@ -6,6 +6,7 @@ from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from plone.testing import z2
 from zope.interface import Interface
+
 import unittest2 as unittest
 
 
@@ -39,7 +40,10 @@ class PloneFormwidgetRecurrenceLayer(PloneSandboxLayer):
             # it's available
             self.applyProfile(portal, 'Products.ATContentTypes:default')
         # install at example types
-        self.applyProfile(portal, 'plone.formwidget.recurrence.tests:sample_types')
+        self.applyProfile(
+            portal,
+            'plone.formwidget.recurrence.tests:sample_types'
+        )
 
         self.applyProfile(portal, 'plone.formwidget.recurrence:default')
 

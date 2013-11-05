@@ -1,9 +1,10 @@
 from Products.Archetypes.tests.utils import makeContent
 from plone.app.testing import TEST_USER_ID, TEST_USER_NAME, TEST_USER_PASSWORD
-from plone.app.testing import setRoles
 from plone.app.testing import login
+from plone.app.testing import setRoles
 from plone.formwidget.recurrence.tests.base import IntegrationTestCase
 from plone.testing.z2 import Browser
+
 import transaction
 
 
@@ -21,7 +22,8 @@ class ATWidgetTestCase(IntegrationTestCase):
         self.folder = self.portal['test-folder']
 
         self.obj = makeContent(
-                self.folder, portal_type='RecurrenceType', id='testobj')
+            self.folder, portal_type='RecurrenceType', id='testobj'
+        )
         self.field = self.obj.getField('rec')
         self.widget = self.field.widget
 
@@ -47,13 +49,14 @@ class ATWidgetTestCase(IntegrationTestCase):
     def test_widget_process(self):
         self.assertFalse(self.widget.process_form(self.obj, self.field, {}))
         self.assertEqual(
-               self.widget.process_form(
-                   self.obj, self.field, {'rec': TESTVALUE}),
-               (TESTVALUE, {})
+            self.widget.process_form(self.obj, self.field, {'rec': TESTVALUE}),
+            (TESTVALUE, {})
         )
 
     def test_widget_rendering(self):
-        self.browser.addHeader('Authorization', 'Basic %s:%s' % (
-                TEST_USER_NAME, TEST_USER_PASSWORD, ))
+        self.browser.addHeader(
+            'Authorization', 'Basic %s:%s' %
+            (TEST_USER_NAME, TEST_USER_PASSWORD,)
+        )
         self.browser.open(self.obj.absolute_url() + '/edit')
         self.assertIn('Recurrence', self.browser.contents)

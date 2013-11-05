@@ -5,6 +5,7 @@ from plone.formwidget.recurrence.z3cform.widget import RecurrenceFieldWidget
 from z3c.form import form, field
 from z3c.form.testing import TestRequest
 from zope.schema.fieldproperty import FieldProperty
+
 import zope.interface
 import zope.schema
 

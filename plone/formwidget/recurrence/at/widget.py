@@ -1,15 +1,15 @@
+from App.class_init import InitializeClass
+from Products.Archetypes.Registry import registerWidget
+from Products.Archetypes.atapi import LinesWidget
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import safe_callable
+from Products.validation import validation
+from Products.validation.interfaces.IValidator import IValidator
 from dateutil import rrule
-import json
-
 from zope.component.hooks import getSite
 from zope.interface import implements
-from App.class_init import InitializeClass
-from Products.Archetypes.atapi import LinesWidget
-from Products.Archetypes.Registry import registerWidget
-from Products.CMFCore.utils import getToolByName
-from Products.validation.interfaces.IValidator import IValidator
-from Products.validation import validation
-from Products.CMFPlone.utils import safe_callable
+
+import json
 
 
 class RecurrenceWidget(LinesWidget):

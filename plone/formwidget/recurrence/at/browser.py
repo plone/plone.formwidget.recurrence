@@ -1,9 +1,8 @@
-from pkg_resources import resource_string
-
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-
+from pkg_resources import resource_string
 from plone.formwidget.recurrence.browser.i18n import translations
+
 
 class RecurrenceWidget(BrowserView):
     """ """
@@ -20,5 +19,7 @@ class RecurrenceWidget(BrowserView):
 class Templates(BrowserView):
 
     def __call__(self):
-        return resource_string('plone.formwidget.recurrence.browser',
-                'lib/templates.html')
+        return resource_string(
+            'plone.formwidget.recurrence.browser',
+            'lib/templates.html'
+        )

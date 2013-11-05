@@ -226,9 +226,11 @@ messages = {
     'template_yearly': pfr_message(u'template_yearly'),
 }
 
+
 # = translate(messages['display_unactivate'], context=request),
 def translations(request):
-    xlated = dict([(msg, translate(messages[msg], context=request).replace("'", "\\'"))
-                   for msg in messages])
+    xlated = dict([
+        (msg, translate(messages[msg], context=request).replace("'", "\\'"))
+        for msg in messages
+    ])
     return PARAMETERS.format(**xlated)
-
