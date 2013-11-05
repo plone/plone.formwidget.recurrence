@@ -9,6 +9,7 @@ from Products.Archetypes.Registry import registerWidget
 from Products.CMFCore.utils import getToolByName
 from Products.validation.interfaces.IValidator import IValidator
 from Products.validation import validation
+from Products.CMFPlone.utils import safe_callable
 
 
 class RecurrenceWidget(LinesWidget):
@@ -29,13 +30,16 @@ class RecurrenceWidget(LinesWidget):
         portal = getToolByName(getSite(), 'portal_url').getPortalObject()
         ajax_url = portal.absolute_url() + '/@@json_recurrence'
         request = portal.REQUEST
+        first_day = self.first_day
+        first_day = safe_callable(first_day) and first_day() or first_day,
+
         params = dict(
             lang=request.LANGUAGE,
             startFieldDay=self.startFieldDay,
             startFieldMonth=self.startFieldMonth,
             startFieldYear=self.startFieldYear,
             startField=self.startField,
-            firstDay=self.first_day(),
+            firstDay=first_day,
             ajaxURL=ajax_url,
             ajaxContentType='application/x-www-form-urlencoded; charset=UTF-8',
             ributtonExtraClass='allowMultiSubmit',
