@@ -1,7 +1,11 @@
 from Products.Archetypes.tests.utils import makeContent
-from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_ID, TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.app.testing import setRoles
+from plone.app.testing import login
 from plone.formwidget.recurrence.tests.base import IntegrationTestCase
+from plone.testing.z2 import Browser
+import transaction
+
 
 TESTVALUE = "FREQ=MONTHLY;BYDAY=+3TU;COUNT=5"
 
@@ -21,6 +25,16 @@ class ATWidgetTestCase(IntegrationTestCase):
         self.field = self.obj.getField('rec')
         self.widget = self.field.widget
 
+        login(self.portal, TEST_USER_NAME)
+        self.browser = Browser(self.layer['app'])
+        self.browser.handleErrors = False
+        transaction.commit()
+
+    def tearDown(self):
+        super(ATWidgetTestCase, self).tearDown()
+        self.portal.manage_delObjects(['test-folder'])
+        transaction.commit()
+
     def test_widget_properties(self):
         widget = self.widget
         self.assertEqual(widget.macro_edit, 'recurrence_widget')
@@ -38,4 +52,8 @@ class ATWidgetTestCase(IntegrationTestCase):
                (TESTVALUE, {})
         )
 
-    # TODO: A test that renders the widget
+    def test_widget_rendering(self):
+        self.browser.addHeader('Authorization', 'Basic %s:%s' % (
+                TEST_USER_NAME, TEST_USER_PASSWORD, ))
+        self.browser.open(self.obj.absolute_url() + '/edit')
+        self.assertIn('Recurrence', self.browser.contents)

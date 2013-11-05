@@ -5,7 +5,6 @@
       enabled="True"/>
 
   <javascript
-      bundle="default"
       id="++resource++plone.formwidget.recurrence/jquery.tmpl-beta1.js"
       cacheable="True"
       compression="safe"
@@ -15,7 +14,6 @@
       />
 
   <javascript
-      bundle="default"
       id="++resource++plone.formwidget.recurrence/jquery.recurrenceinput.js"
       insert-after="++resource++plone.formwidget.recurrence/jquery.tmpl-beta1.js"
       cacheable="True"
