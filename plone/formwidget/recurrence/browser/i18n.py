@@ -1,5 +1,6 @@
-from zope.i18n import translate
 from plone.formwidget.recurrence import pfr_message, pl_message
+from zope.i18n import translate
+
 
 PARAMETERS = u"""{{
 displayUnactivate: '{display_unactivate}',
@@ -227,6 +228,7 @@ messages = {
 
 # = translate(messages['display_unactivate'], context=request),
 def translations(request):
-    xlated = dict([(msg, translate(messages[msg], context=request)) for msg in messages])
+    xlated = dict([(msg, translate(messages[msg], context=request).replace("'", "\\'"))
+                   for msg in messages])
     return PARAMETERS.format(**xlated)
 
