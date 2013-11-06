@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0dev (unreleased)
--------------------
+1.0 (2013-11-06)
+----------------
 
 - Update jquery.recurrenceinput.js:
   [thet]
