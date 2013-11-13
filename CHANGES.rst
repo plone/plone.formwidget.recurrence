@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.1 (unreleased)
+----------------
+
+- plone.app.widgets compatibility
+  [garbas]
+
+
 1.0 (2013-11-06)
 ----------------
 

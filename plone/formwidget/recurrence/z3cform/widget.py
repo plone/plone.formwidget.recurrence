@@ -35,7 +35,9 @@ class RecurrenceWidget(TextAreaWidget):
     def get_start_field(self):
         if self.mode == 'display':
             return self.id + '-start'
-        return self.form.widgets[self.start_field].js_field
+        if hasattr(self.form.widgets[self.start_field], 'js_field'):
+            return self.form.widgets[self.start_field].js_field
+        return self.form.widgets[self.start_field].id
 
     def get_start_date(self):
         start = self.form.fields[self.start_field].field.get(self.context)
