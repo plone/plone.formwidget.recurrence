@@ -1,11 +1,14 @@
 Changelog
 =========
 
-1.1 (unreleased)
+1.1 (2013-11-14)
 ----------------
 
 - plone.app.widgets compatibility
   [garbas]
+
+- Add Dutch translation
+  [khink]
 
 - Show [1-N] in current batch instead of always [1-10]
   https://github.com/plone/plone.app.event/issues/77
