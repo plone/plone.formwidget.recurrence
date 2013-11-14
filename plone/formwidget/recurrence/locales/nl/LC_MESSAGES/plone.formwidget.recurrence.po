@@ -1,0 +1,253 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: plone.formwidget.recurrence\n"
+"POT-Creation-Date: 2011-02-24 16:56+0000\n"
+"PO-Revision-Date: 2013-11-14 23:00+0000\n"
+"Last-Translator: Kees Hink <kees@fourdigits.nl>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: nl\n"
+"Language-Name: Nederlands\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: plone.formwidget.recurrence\n"
+
+msgid "add_rules"
+msgstr "Toevoegen"
+
+msgid "edit_rules"
+msgstr "Bewerken"
+
+msgid "delete_rules"
+msgstr "Wissen"
+
+msgid "add"
+msgstr "Toevoegen"
+
+msgid "add_date"
+msgstr "Datum toevoegen"
+
+msgid "additional_date"
+msgstr "Extra datum"
+
+msgid "already_added"
+msgstr "Deze datum is al toegevoegd"
+
+msgid "bysetpos"
+msgstr "BYSETPOS wordt niet ondersteund"
+
+msgid "cancel"
+msgstr "Afbreken"
+
+msgid "daily_interval_1"
+msgstr "Herhaal alle:"
+
+msgid "daily_interval_2"
+msgstr "dagen"
+
+msgid "display_activate"
+msgstr "Herhaalt alle "
+
+msgid "display_unactivate"
+msgstr "Wordt niet herhaald"
+
+msgid "except"
+msgstr ", behalve"
+
+msgid "exclude"
+msgstr "Uitsluiten"
+
+msgid "include"
+msgstr "Meenemen"
+
+msgid "including"
+msgstr ", en ook "
+
+msgid "long_date_format"
+msgstr "dddd mmmm dd, yyyy"
+
+msgid "monthly_day_of_month_1"
+msgstr "Dag"
+
+msgid "monthly_day_of_month_1_human"
+msgstr "op dag"
+
+msgid "monthly_day_of_month_2"
+msgstr "van de maand"
+
+msgid "monthly_day_of_month_3"
+msgstr "maand(en)"
+
+msgid "monthly_interval_1"
+msgstr "Herhaal alle:"
+
+msgid "monthly_interval_2"
+msgstr "maand(en)"
+
+msgid "monthly_repeat_on"
+msgstr "Herhaal op:"
+
+msgid "monthly_weekday_of_month_1"
+msgstr "De"
+
+msgid "monthly_weekday_of_month_1_human"
+msgstr "op de"
+
+msgid "monthly_weekday_of_month_2"
+msgstr " "
+
+msgid "monthly_weekday_of_month_3"
+msgstr "van de maand"
+
+msgid "multiple_day_of_month"
+msgstr "Dit widget ondersteunt geen meerdere dagen in maandelijkse of jaarlijkse herhalingen"
+
+msgid "no_end_after_n_occurrences"
+msgstr "Fout: Het \"Na N herhalingen\"-veld moet tussen 1 en 1000 liggen"
+
+msgid "no_end_date"
+msgstr "Fout: Geen einddatum ingesteld. Stel een correcte waarde in."
+
+msgid "no_repeat_every"
+msgstr "Fout: Het \"Herhaal elke\"-veld moet tussen 1 en 1000 liggen"
+
+msgid "no_repeat_on"
+msgstr "Fout: \"Herhaal op\"-waarde moet geselecteerd zijn"
+
+msgid "no_rule"
+msgstr "Geen RRULE in RRULE-data"
+
+msgid "no_template_match"
+msgstr "Geen passende herhalings-template"
+
+msgid "order_indexes_first"
+msgstr "eerste"
+
+msgid "order_indexes_fourth"
+msgstr "vierde"
+
+msgid "order_indexes_last"
+msgstr "laatste"
+
+msgid "order_indexes_second"
+msgstr "tweede"
+
+msgid "order_indexes_third"
+msgstr "derde"
+
+msgid "past_end_date"
+msgstr "Fout: Einddatum kan niet voor startdatum liggen"
+
+msgid "preview"
+msgstr "Geselecteerde datums"
+
+msgid "range"
+msgstr "Einde herhaling:"
+
+msgid "range_by_end_date"
+msgstr "Tot "
+
+msgid "range_by_end_date_human"
+msgstr "eindigt op "
+
+msgid "range_by_occurrences_1"
+msgstr "Eindigt na "
+
+msgid "range_by_occurrences_1_human"
+msgstr "eindigt na"
+
+msgid "range_by_occurrences_2"
+msgstr "herhaling(en)"
+
+msgid "range_no_end"
+msgstr "Nooit"
+
+msgid "recurrence_start"
+msgstr "Start van de herhaling"
+
+msgid "recurrence_type"
+msgstr "Herhaalt zich:"
+
+msgid "refresh"
+msgstr "Verversen"
+
+msgid "remove"
+msgstr "Verwijderen"
+
+msgid "save"
+msgstr "Opslaan"
+
+msgid "template_daily"
+msgstr "Dagelijks"
+
+msgid "template_mondayfriday"
+msgstr "Maandag en vrijdag"
+
+msgid "template_monthly"
+msgstr "Maandelijks"
+
+msgid "template_weekdays"
+msgstr "Dag van de week"
+
+msgid "template_weekly"
+msgstr "Wekelijks"
+
+msgid "template_yearly"
+msgstr "Jaarlijks"
+
+msgid "title"
+msgstr "Herhalen"
+
+msgid "unsupported_features"
+msgstr "Waarschuwing: Dit Agenda-item gebruikt herhalings-functies die dit widget niet ondersteunt. De herhaling opslaan kan onbedoeld de herhaling veranderen."
+
+msgid "weekly_interval_1"
+msgstr "Herhaal alle:"
+
+msgid "weekly_interval_2"
+msgstr "we(e)k(en)"
+
+msgid "weekly_weekdays"
+msgstr "Herhaal op:"
+
+msgid "weekly_weekdays_human"
+msgstr "op: "
+
+msgid "yearly_day_of_month_1"
+msgstr "Iedere"
+
+msgid "yearly_day_of_month_1_human"
+msgstr "op"
+
+msgid "yearly_day_of_month_2"
+msgstr " "
+
+msgid "yearly_day_of_month_3"
+msgstr " "
+
+msgid "yearly_interval_1"
+msgstr "Herhaal alle:"
+
+msgid "yearly_interval_2"
+msgstr "ja(a)r(en)"
+
+msgid "yearly_repeat_on"
+msgstr "Herhaal op:"
+
+msgid "yearly_weekday_of_month_1"
+msgstr "De"
+
+msgid "yearly_weekday_of_month_1_human"
+msgstr "op de"
+
+msgid "yearly_weekday_of_month_2"
+msgstr " "
+
+msgid "yearly_weekday_of_month_3"
+msgstr "van"
+
+msgid "yearly_weekday_of_month_4"
+msgstr " "
+
