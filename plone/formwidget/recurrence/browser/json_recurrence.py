@@ -162,7 +162,7 @@ class RecurrenceView(BrowserView):
         # Total number of occurrences:
         num_occurrences += batch_size + start
 
-        max_batch = (num_occurrences - 1)//batch_size
+        max_batch = (num_occurrences - 1) // batch_size
         if last_batch > max_batch:
             last_batch = max_batch
             first_batch = max(0, max_batch - (BATCH_DELTA * 2))
