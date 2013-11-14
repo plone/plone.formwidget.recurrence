@@ -7,13 +7,17 @@ Changelog
 - plone.app.widgets compatibility
   [garbas]
 
+- Show [1-N] in current batch instead of always [1-10]
+  https://github.com/plone/plone.app.event/issues/77
+  [khink]
+
 
 1.0 (2013-11-06)
 ----------------
 
 - Update jquery.recurrenceinput.js:
   [thet]
-  
+
   - Fire change events when rrule value is updated. [deiferni]
   - Default to one week of daily occurrences, instead of 10. Fixes #5. [gyst]
   - Fix ie8 startdate and fire events when changing checkbox values [deiferni]
