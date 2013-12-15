@@ -36,12 +36,13 @@ setup(
             'Products.Archetypes',
         ],
         test=[
+            'plone.formwidget.recurrence[archetypes, z3cform]',
             'Products.ATContentTypes',
             'Products.GenericSetup',
-            'z3c.form[test]',
             'plone.app.testing',
             'plone.formwidget.datetime',
-            'unittest2'
+            'unittest2',
+            'z3c.form[test]',
         ]
     ),
     entry_points="""

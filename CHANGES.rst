@@ -4,7 +4,9 @@ Changelog
 1.2 (unreleased)
 ----------------
 
--
+- Depend on own extra requirements in test extra in setup.py.
+  [thet]
+
 
 1.1 (2013-11-14)
 ----------------
