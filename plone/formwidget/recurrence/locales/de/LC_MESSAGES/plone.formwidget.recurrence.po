@@ -111,10 +111,10 @@ msgid "no_end_date"
 msgstr "Fehler: Das Terminende ist nicht gesetzt. Bitte geben Sie einen korrekten Wert ein."
 
 msgid "no_repeat_every"
-msgstr "Error: The \"Repeat every\"-field must be between 1 and 1000"
+msgstr "Fehler: Der Wert von \"Wiederholt sich alle:\" muss zwischen 1 und 1000 liegen"
 
 msgid "no_repeat_on"
-msgstr "Error: \"Repeat on\"-value must be selected"
+msgstr "Fehler: \"Wiederholt sich:\" muss selektiert sein"
 
 msgid "no_rule"
 msgstr "Keine RRULE in RRULE Daten"
