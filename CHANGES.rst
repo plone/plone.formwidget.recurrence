@@ -1,8 +1,11 @@
 Changelog
 =========
 
-1.2 (unreleased)
-----------------
+1.2.dev (unreleased)
+--------------------
+
+- Add some missing german translations.
+  [msom]
 
 - Depend on own extra requirements in test extra in setup.py.
   [thet]
