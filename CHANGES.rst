@@ -4,6 +4,9 @@ Changelog
 1.2.dev (unreleased)
 --------------------
 
+- Added basque translation
+  [erral]
+
 - Add some missing german translations.
   [msom]
 
