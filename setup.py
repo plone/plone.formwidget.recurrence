@@ -40,7 +40,7 @@ setup(
             'Products.ATContentTypes',
             'Products.GenericSetup',
             'plone.app.testing',
-            'plone.formwidget.datetime',
+            'plone.app.z3cform',
             'unittest2',
             'z3c.form[test]',
         ]
