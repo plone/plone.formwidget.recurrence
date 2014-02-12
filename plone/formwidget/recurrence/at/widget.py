@@ -24,7 +24,7 @@ class RecurrenceWidget(LinesWidget):
         'startFieldDay': '',
         'first_day': '',
         'show_repeat_forever': True,
-        })
+    })
 
     def get_recurrenceinput_params(self):
         portal = getToolByName(getSite(), 'portal_url').getPortalObject()
@@ -34,16 +34,16 @@ class RecurrenceWidget(LinesWidget):
         first_day = safe_callable(first_day) and first_day() or first_day,
 
         params = dict(
+            ajaxContentType='application/x-www-form-urlencoded; charset=UTF-8',
+            ajaxURL=ajax_url,
+            firstDay=first_day,
+            hasRepeatForeverButton=self.show_repeat_forever,
             lang=request.LANGUAGE,
+            ributtonExtraClass='allowMultiSubmit',
+            startField=self.startField,
             startFieldDay=self.startFieldDay,
             startFieldMonth=self.startFieldMonth,
             startFieldYear=self.startFieldYear,
-            startField=self.startField,
-            firstDay=first_day,
-            ajaxURL=ajax_url,
-            ajaxContentType='application/x-www-form-urlencoded; charset=UTF-8',
-            ributtonExtraClass='allowMultiSubmit',
-            hasRepeatForeverButton=self.show_repeat_forever
         )
         return params
 
