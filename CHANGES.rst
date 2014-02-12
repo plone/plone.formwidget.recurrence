@@ -4,6 +4,9 @@ Changelog
 1.2.dev (unreleased)
 --------------------
 
+- Replace test dependency on plone.formwidget.datetime with plone.app.z3cform.
+  [amleczko]
+
 - Added basque translation
   [erral]
 
