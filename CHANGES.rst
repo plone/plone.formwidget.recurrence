@@ -4,10 +4,14 @@ Changelog
 1.2.dev (unreleased)
 --------------------
 
+- Fix Problem in AT based widget with a wrong first_day offset, where it didn't
+  display weekdays properly. Fixes #10.
+  [thet]
+
 - Replace test dependency on plone.formwidget.datetime with plone.app.z3cform.
   [amleczko]
 
-- Added basque translation
+- Added basque translation.
   [erral]
 
 - Add some missing german translations.

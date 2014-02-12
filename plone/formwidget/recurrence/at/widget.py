@@ -31,7 +31,7 @@ class RecurrenceWidget(LinesWidget):
         ajax_url = portal.absolute_url() + '/@@json_recurrence'
         request = portal.REQUEST
         first_day = self.first_day
-        first_day = safe_callable(first_day) and first_day() or first_day,
+        first_day = safe_callable(first_day) and first_day() or first_day
 
         params = dict(
             ajaxContentType='application/x-www-form-urlencoded; charset=UTF-8',
