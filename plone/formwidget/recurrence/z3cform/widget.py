@@ -45,7 +45,9 @@ class RecurrenceWidget(TextAreaWidget):
 
     def first_day(self):
         """ First day of the Week. 0..Sunday, 6..Saturday.
-        You can overwrite this default value via widget configuration.
+
+        .. Note::
+            This value is likely to be overwritten by the widget configuration.
         """
         calendar = self.request.locale.dates.calendars[u'gregorian']
         return calendar.week.get('firstDay', 0)
