@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.2.dev (unreleased)
---------------------
+1.2 (2014-02-12)
+----------------
 
 - Fix Problem in AT based widget with a wrong first_day offset, where it didn't
   display weekdays properly. Fixes #10.
