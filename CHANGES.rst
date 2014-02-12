@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.3.dev (unreleased)
+--------------------
+
+- Nothing changed yet.
+
+
 1.2 (2014-02-12)
 ----------------
 
