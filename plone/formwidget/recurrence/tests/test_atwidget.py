@@ -58,5 +58,6 @@ class ATWidgetTestCase(IntegrationTestCase):
             'Authorization', 'Basic %s:%s' %
             (TEST_USER_NAME, TEST_USER_PASSWORD,)
         )
-        self.browser.open(self.obj.absolute_url() + '/edit')
+        self.browser.open(self.obj.absolute_url())
+        self.browser.getLink('Edit').click()
         self.assertIn('Recurrence', self.browser.contents)
