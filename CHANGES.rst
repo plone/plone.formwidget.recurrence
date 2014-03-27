@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.2.1dev (unreleased)
----------------------
+1.2.1 (2014-03-27)
+------------------
 
 - Change boolean expressions to conditional expressions, which to avoid wrong
   evaluation if the "and" path test evaluates to False. Really fixes #10.
