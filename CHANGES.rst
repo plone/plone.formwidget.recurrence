@@ -1,10 +1,12 @@
 Changelog
 =========
 
-1.3.dev (unreleased)
---------------------
+1.2.1dev (unreleased)
+---------------------
 
-- Nothing changed yet.
+- Change boolean expressions to conditional expressions, which to avoid wrong
+  evaluation if the "and" path test evaluates to False. Really fixes #10.
+  [thet]
 
 
 1.2 (2014-02-12)

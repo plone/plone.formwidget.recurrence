@@ -9,7 +9,7 @@
     <!-- Lines Widgets -->
     <metal:view_macro define-macro="view"
       tal:define="visState python:widget.isVisible(here, mode);
-        getMethod python:(widget.populate and accessor) or None;
+        getMethod python:accessor if widget.populate else None;
         value python:getMethod and getMethod();
         widget_view widget/@@recurrence_widget;
         portal_url context/@@plone_portal_state/portal_url;">
