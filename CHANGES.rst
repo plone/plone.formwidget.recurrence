@@ -1,10 +1,13 @@
 Changelog
 =========
 
-1.3dev (unreleased)
--------------------
+1.2.2 (unreleased)
+------------------
 
-- Nothing changed yet.
+- Register plone.app.jquerytools dateinput JavaScript for the 'default' bundle.
+  plone.app.widgets registers it for 'deprecated', but we need it here and it
+  can peacefully coexist with the new pickadate.
+  [thet]
 
 
 1.2.1 (2014-03-27)

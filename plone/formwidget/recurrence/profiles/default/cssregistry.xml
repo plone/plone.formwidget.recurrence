@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <object name="portal_css" meta_type="Stylesheets Registry">
 
+  <!-- plone.app.widgets sets the bundle to 'deprecated'. We set it back to
+       default, it can peacefully coexist with p.a.widgets' -->
   <stylesheet
       id="++resource++plone.app.jquerytools.dateinput.css"
+      bundle="default"
       enabled="True"/>
 
   <stylesheet

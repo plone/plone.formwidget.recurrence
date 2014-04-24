@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
 
+  <!-- plone.app.widgets sets the bundle to 'deprecated'. We set it back to
+       default, it can peacefully coexist with p.a.widgets' -->
   <javascript id="++resource++plone.app.jquerytools.dateinput.js"
+      bundle="default"
       enabled="True"/>
 
   <javascript
