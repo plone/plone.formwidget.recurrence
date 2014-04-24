@@ -37,6 +37,9 @@ class RecurrenceWidget(TextAreaWidget):
             return self.id + '-start'
         if hasattr(self.form.widgets[self.start_field], 'js_field'):
             return self.form.widgets[self.start_field].js_field
+        if hasattr(self.form.widgets[self.start_field], 'name'):
+            # plone.app.widgets passes name instead of id to input
+            return self.form.widgets[self.start_field].name
         return self.form.widgets[self.start_field].id
 
     def get_start_date(self):

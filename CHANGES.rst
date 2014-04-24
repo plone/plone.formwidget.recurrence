@@ -4,6 +4,14 @@ Changelog
 1.2.2 (unreleased)
 ------------------
 
+- plone.app.widgets support: Let the z3c.form widget's get_start_field method
+  prefer 'name' attribute over the 'id' attribute. Looks like, with 
+  plone.app.widgets the rendered input field doesn't have an 'id' attribute any
+  more. Also, integrate lates changes from jquery.recurrenceinput.js, which
+  also handles 'name' attributes when trying to get the start field from the
+  surrounding form.
+  [thet]
+
 - Register plone.app.jquerytools dateinput JavaScript for the 'default' bundle.
   plone.app.widgets registers it for 'deprecated', but we need it here and it
   can peacefully coexist with the new pickadate.
