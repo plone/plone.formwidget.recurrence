@@ -1,11 +1,17 @@
 Changelog
 =========
 
+1.2.3 (unreleased)
+------------------
+
+- Nothing changed yet.
+
+
 1.2.2 (2014-04-24)
 ------------------
 
 - plone.app.widgets support: Let the z3c.form widget's get_start_field method
-  prefer 'name' attribute over the 'id' attribute. Looks like, with 
+  prefer 'name' attribute over the 'id' attribute. Looks like, with
   plone.app.widgets the rendered input field doesn't have an 'id' attribute any
   more. Also, integrate lates changes from jquery.recurrenceinput.js, which
   also handles 'name' attributes when trying to get the start field from the
