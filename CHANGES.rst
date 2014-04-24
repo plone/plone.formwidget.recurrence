@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2.2 (unreleased)
+1.2.2 (2014-04-24)
 ------------------
 
 - plone.app.widgets support: Let the z3c.form widget's get_start_field method
