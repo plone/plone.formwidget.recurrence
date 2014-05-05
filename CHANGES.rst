@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2.3 (unreleased)
+1.2.3 (2014-05-06)
 ------------------
 
 - Integrate latest changes from plone.formwidget.recurrence, which fixes an
@@ -9,6 +9,7 @@ Changelog
   opened with plone.formwidget.datetime based start fields on Dexterity
   objects.
   [thet]
+
 
 1.2.2 (2014-04-24)
 ------------------
