@@ -4,8 +4,11 @@ Changelog
 1.2.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Integrate latest changes from plone.formwidget.recurrence, which fixes an
+  issue introduced with last version, where the recurrence overlay couldn't be
+  opened with plone.formwidget.datetime based start fields on Dexterity
+  objects.
+  [thet]
 
 1.2.2 (2014-04-24)
 ------------------
