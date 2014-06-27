@@ -4,7 +4,13 @@ Changelog
 1.2.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Backport from jquery.recurrenceinput.js:
+  Fix a condition, where the ``startdate`` string literal was checked, if it's
+  an instance of ``String``, which returned False. This led to the case, where
+  the list of occurrences wasn't shown. String literals should be checked
+  with``typeof`` instead of ``instanceof``.
+  See: http://stackoverflow.com/a/203757/3036508
+  [thet]
 
 
 1.2.3 (2014-05-06)
