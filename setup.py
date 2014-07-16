@@ -25,24 +25,32 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'python-dateutil',
         'setuptools',
+        'Products.CMFCore',
+        'Products.CMFPlone',
+        'python-dateutil',
+        'zope.component',
+        'zope.i18n',
+        'zope.i18nmessageid',
+        'zope.interface',
     ],
     extras_require=dict(
         z3cform=[
             'z3c.form',
+            'zope.schema',
+            'zope.traversing',
         ],
         archetypes=[
             'Products.Archetypes',
+            'Products.validation',
         ],
         test=[
-            'plone.formwidget.recurrence[archetypes, z3cform]',
             'Products.ATContentTypes',
             'Products.GenericSetup',
             'plone.app.testing',
             'plone.app.z3cform',
+            'plone.formwidget.recurrence[archetypes, z3cform]',
             'unittest2',
-            'z3c.form[test]',
         ]
     ),
     entry_points="""
