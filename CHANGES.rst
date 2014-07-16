@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2.4 (unreleased)
+1.2.4 (2014-07-17)
 ------------------
 
 - Backport from jquery.recurrenceinput.js:

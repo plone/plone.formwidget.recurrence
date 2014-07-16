@@ -1,16 +1,14 @@
 from setuptools import setup, find_packages
 
 
-version = '1.2.4.dev0'
+version = '1.2.4'
 
 setup(
     name='plone.formwidget.recurrence',
     version=version,
-    description="Recurrence widgets for Plone",
+    description="Recurrence widget for Plone",
     long_description="%s\n%s" % (open("README.rst").read(),
                                  open("CHANGES.rst").read()),
-    # Get more strings from
-    # http://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",
