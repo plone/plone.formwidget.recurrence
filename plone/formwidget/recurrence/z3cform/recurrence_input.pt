@@ -11,12 +11,14 @@
 <tal:block condition="python:view.read_only() == 'true'">
   <span style="display:none;" tal:attributes="id string:${view/id}-start;name string:${view/name}-start" tal:content="view/get_start_date"/>
 </tal:block>
-<script type="text/javascript" defer
-    tal:content="string: jQuery(document).ready(function() {
-                             jQuery.tools.recurrenceinput.localize('${request/LANGUAGE}', ${view/translation});
-                             jQuery('#${view/id}').recurrenceinput(
-                                 ${view/js_recurrenceinput_params}
-                             );
-                         });">
+<script type="text/javascript"
+    tal:content="string: if (typeof(jQuery) !== 'undefined') {
+                           jQuery(document).ready(function() {
+                               jQuery.tools.recurrenceinput.localize('${request/LANGUAGE}', ${view/translation});
+                               jQuery('#${view/id}').recurrenceinput(
+                                   ${view/js_recurrenceinput_params}
+                               );
+                           });
+                         };">
 </script>
 </html>
