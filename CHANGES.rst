@@ -4,7 +4,8 @@ Changelog
 1.2.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix error on ie9 when rendering the recurrence widget inside an overlay.
+  [deiferni]
 
 
 1.2.4 (2014-07-17)
