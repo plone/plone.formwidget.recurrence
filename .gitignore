@@ -2,5 +2,6 @@
 *.mo
 *.py?
 .*
+*~
 dist/
 !.gitignore
