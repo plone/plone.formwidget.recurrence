@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2.5 (unreleased)
+1.2.5 (2014-07-22)
 ------------------
 
 - Fix error on ie9 when rendering the recurrence widget inside an overlay.
