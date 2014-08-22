@@ -17,18 +17,18 @@ string, ready to be used with python-dateutil's rrulestr.
 Installation
 ------------
 
-You need to add plone.formwidget.recurrence to either your buildout, or 
+You need to add plone.formwidget.recurrence to either your buildout, or
 your product requirements. In this addition you should specify if you
 want the Archetypes or the z3c.form widget, or both. For example::
 
   [buildout]
   eggs += plone.formwidget.recurrence[archetypes]
-    
-or:: 
+
+or::
 
   [buildout]
   eggs += plone.formwidget.recurrence[z3cform]
-    
+
 or::
 
   install_requires=[
