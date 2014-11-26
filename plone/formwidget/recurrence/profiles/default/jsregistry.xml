@@ -3,7 +3,7 @@
 
   <!-- plone.app.widgets sets the bundle to 'deprecated'. We set it back to
        default, it can peacefully coexist with p.a.widgets' -->
-  <javascript id="++resource++plone.app.jquerytools.dateinput.js"
+  <!--javascript id="++resource++plone.app.jquerytools.dateinput.js"
       bundle="default"
       enabled="True"/>
 
@@ -24,6 +24,6 @@
       cookable="True"
       inline="False"
       enabled="True"
-      />
+      /-->
 
 </object>
