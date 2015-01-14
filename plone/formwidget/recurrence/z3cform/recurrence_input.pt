@@ -11,6 +11,7 @@
 <tal:block condition="python:view.read_only() == 'true'">
   <span style="display:none;" tal:attributes="id string:${view/id}-start;name string:${view/name}-start" tal:content="view/get_start_date"/>
 </tal:block>
+<tal:plone5quickfix condition="nothing">
 <script type="text/javascript"
     tal:content="string: if (typeof jQuery !== 'undefined') {
                            jQuery(document).ready(function() {
@@ -21,4 +22,5 @@
                            });
                          }">
 </script>
+</tal:plone5quickfix>
 </html>
