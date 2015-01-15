@@ -4,7 +4,8 @@ Changelog
 1.2.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix typo in the template of the AT widget, which prevented it from loading.
+  [mitakas]
 
 
 1.2.5 (2014-07-22)
