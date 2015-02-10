@@ -48,8 +48,8 @@ class RecurrenceWidget(LinesWidget):
             startFieldYear=self.startFieldYear,
         )
         return json.dumps({
-            "locationization": translations(self.request),
-            "language": self.request.LANGUAGE,
+            "locationization": translations(request),
+            "language": request.LANGUAGE,
             "configuration": params
         })
 
