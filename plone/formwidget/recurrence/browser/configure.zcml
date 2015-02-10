@@ -4,18 +4,6 @@
     xmlns:z3c="http://namespaces.zope.org/z3c"
     i18n_domain="plone.formwidget.recurrence">
 
-  <!-- Resources -->
-  <browser:resourceDirectory
-      name="plone.formwidget.recurrence"
-      directory="lib"
-      permission="zope.Public"
-      />
-  <browser:resource
-      name="jquery.tmpl.js"
-      file="lib/jquery.tmpl-beta1.js"
-      permission="zope.Public"
-      />
-
   <!-- JSON recurrence view -->
   <browser:page
       for="*"

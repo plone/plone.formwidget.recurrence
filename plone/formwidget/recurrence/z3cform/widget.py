@@ -26,9 +26,6 @@ class RecurrenceWidget(TextAreaWidget):
     def site_url(self):
         return absoluteURL(getSite(), self.request)
 
-    def translation(self):
-        return translations(self.request)
-
     def read_only(self):
         return self.mode == 'display'
 
@@ -55,10 +52,10 @@ class RecurrenceWidget(TextAreaWidget):
         calendar = self.request.locale.dates.calendars[u'gregorian']
         return calendar.week.get('firstDay', 0)
 
-    def get_recurrenceinput_params(self):
+    def get_pattern_options(self):
         portal = getToolByName(getSite(), 'portal_url').getPortalObject()
         ajax_url = portal.absolute_url() + '/@@json_recurrence'
-        params = dict(
+        conf = dict(
             ajaxContentType='application/x-www-form-urlencoded; charset=UTF-8',
             ajaxURL=ajax_url,
             firstDay=self.first_day(),
@@ -68,10 +65,11 @@ class RecurrenceWidget(TextAreaWidget):
             ributtonExtraClass='allowMultiSubmit',
             startField=self.get_start_field(),
         )
-        return params
-
-    def js_recurrenceinput_params(self):
-        return json.dumps(self.get_recurrenceinput_params())
+        return json.dumps({
+            "locationization": translations(self.request),
+            "language": self.request.LANGUAGE,
+            "configuration": conf
+        })
 
 
 @implementer(IFieldWidget)

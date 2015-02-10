@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.2.6 (unreleased)
+2.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Make widget work with Plone 5 recurrence pattern
+  [vangheem]
 
 
 1.2.5 (2014-07-22)

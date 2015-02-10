@@ -8,6 +8,7 @@ from Products.validation.interfaces.IValidator import IValidator
 from dateutil import rrule
 from zope.component.hooks import getSite
 from zope.interface import implements
+from plone.formwidget.recurrence.browser.i18n import translations
 
 import json
 
@@ -26,7 +27,7 @@ class RecurrenceWidget(LinesWidget):
         'show_repeat_forever': True,
     })
 
-    def get_recurrenceinput_params(self):
+    def get_pattern_options(self):
         portal = getToolByName(getSite(), 'portal_url').getPortalObject()
         ajax_url = portal.absolute_url() + '/@@json_recurrence'
         request = portal.REQUEST
@@ -46,10 +47,11 @@ class RecurrenceWidget(LinesWidget):
             startFieldMonth=self.startFieldMonth,
             startFieldYear=self.startFieldYear,
         )
-        return params
-
-    def js_recurrenceinput_params(self):
-        return json.dumps(self.get_recurrenceinput_params())
+        return json.dumps({
+            "locationization": translations(self.request),
+            "language": self.request.LANGUAGE,
+            "configuration": params
+        })
 
 
 InitializeClass(RecurrenceWidget)
@@ -69,9 +71,9 @@ class RecurrenceValidator(object):
 
     def __call__(self, value, *args, **kwargs):
         try:
-            rrule.rrulestr(value)  # TODO: rm dep. on rrule. check with regex
-            assert('FREQ' in value)  # TODO: check if freq before other
-                                     # recurrence parms
+            rrule.rrulestr(value)   # TODO: rm dep. on rrule. check with regex
+            assert('FREQ' in value) # TODO: check if freq before other
+                                    # recurrence parms
         except (ValueError, TypeError, AssertionError):
             return "Validation failed: Please enter valid recurrence data."
 

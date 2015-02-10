@@ -19,23 +19,13 @@
     <metal:edit_macro define-macro="edit">
       <metal:use use-macro="field_macro | context/widgets/field/macros/edit">
         <div metal:fill-slot="widget_body">
-          <textarea tal:attributes="name string:$fieldName;
-                                    id fieldName;
-                                    cols widget/cols;
-                                    rows widget/rows;"
-                    tal:content="python:value or ''"></textarea>
-          <!-- Make the text area a recurrenceinput -->
-          <script type="text/javascript"
-              tal:content="string:
-              string: if (typeof jQuery !== 'undefined') {
-                jQuery(document).ready(function() {
-                  jQuery.tools.recurrenceinput.localize('${request/LANGUAGE}', ${widget/@@recurrence_widget/translation});
-                  jQuery('.ArchetypesRecurrenceWidget textarea').recurrenceinput(
-                    ${widget/js_recurrenceinput_params}
-                  );
-                });
-              }">
-          </script>
+          <textarea class="pat-recurrence"
+            tal:attributes="name string:$fieldName;
+                            id fieldName;
+                            cols widget/cols;
+                            rows widget/rows;
+                            data-pat-recurrence python: widget.get_pattern_options()"
+            tal:content="python:value or ''"></textarea>
         </div>
       </metal:use>
     </metal:edit_macro>

@@ -2,25 +2,15 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       tal:omit-tag="">
 <textarea test=""
+   class="pat-recurrence"
    tal:attributes="id view/id;
                    name view/name;
-                   class view/klass;
                    style view/style;
-                   title view/title"
-   tal:content="view/value" />
+                   title view/title;
+                   data-pat-recurrence python: view.get_pattern_options()"
+   tal:content="view/value"
+   condition="python:view.read_only() != 'true'"/>
 <tal:block condition="python:view.read_only() == 'true'">
   <span style="display:none;" tal:attributes="id string:${view/id}-start;name string:${view/name}-start" tal:content="view/get_start_date"/>
 </tal:block>
-<tal:plone5quickfix condition="nothing">
-<script type="text/javascript"
-    tal:content="string: if (typeof jQuery !== 'undefined') {
-                           jQuery(document).ready(function() {
-                               jQuery.tools.recurrenceinput.localize('${request/LANGUAGE}', ${view/translation});
-                               jQuery('#${view/id}').recurrenceinput(
-                                   ${view/js_recurrenceinput_params}
-                               );
-                           });
-                         }">
-</script>
-</tal:plone5quickfix>
 </html>
