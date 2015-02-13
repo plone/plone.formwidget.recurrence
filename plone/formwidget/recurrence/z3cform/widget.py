@@ -66,7 +66,7 @@ class RecurrenceWidget(TextAreaWidget):
             startField=self.get_start_field(),
         )
         return json.dumps({
-            "locationization": translations(self.request),
+            "localization": translations(self.request),
             "language": self.request.LANGUAGE,
             "configuration": conf
         })
