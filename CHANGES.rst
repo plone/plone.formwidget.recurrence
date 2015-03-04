@@ -1,8 +1,8 @@
 Changelog
 =========
 
-2.0.0 (unreleased)
-------------------
+2.0 (2015-03-04)
+----------------
 
 - Make widget work with Plone 5 recurrence pattern
   [vangheem]
