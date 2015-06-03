@@ -2,9 +2,8 @@ from plone.formwidget.recurrence import pfr_message, pl_message
 from zope.i18n import translate
 
 
-# = translate(messages['display_unactivate'], context=request),
 def translations(request):
-    return dict(
+    translation_table = dict(
         displayUnactivate=translate(pfr_message(u'display_unactivate'), context=request),
         displayActivate=translate(pfr_message(u'display_activate'), context=request),
         add_rules=translate(pfr_message(u'add_rules'), context=request),
@@ -97,25 +96,25 @@ def translations(request):
             translate(pl_message(u'month_dec_abbr'), context=request)
         ],
         weekdays=[
-            translate(pl_message(u'day_sun'), context=request),
-            translate(pl_message(u'day_mon'), context=request),
-            translate(pl_message(u'day_tue'), context=request),
-            translate(pl_message(u'day_wed'), context=request),
-            translate(pl_message(u'day_thu'), context=request),
-            translate(pl_message(u'day_fri'), context=request),
-            translate(pl_message(u'day_sat'), context=request)
+            translate(pl_message(u'weekday_sun'), context=request),
+            translate(pl_message(u'weekday_mon'), context=request),
+            translate(pl_message(u'weekday_tue'), context=request),
+            translate(pl_message(u'weekday_wed'), context=request),
+            translate(pl_message(u'weekday_thu'), context=request),
+            translate(pl_message(u'weekday_fri'), context=request),
+            translate(pl_message(u'weekday_sat'), context=request)
         ],
         shortWeekdays=[
-            translate(pl_message(u'day_sun_abbr'), context=request),
-            translate(pl_message(u'day_mon_abbe'), context=request),
-            translate(pl_message(u'day_tue_abbr'), context=request),
-            translate(pl_message(u'day_wed_abbr'), context=request),
-            translate(pl_message(u'day_thu_abbr'), context=request),
-            translate(pl_message(u'day_fri_abbr'), context=request),
-            translate(pl_message(u'day_sat_abbr'), context=request)
+            translate(pl_message(u'weekday_sun_abbr'), context=request),
+            translate(pl_message(u'weekday_mon_abbr'), context=request),
+            translate(pl_message(u'weekday_tue_abbr'), context=request),
+            translate(pl_message(u'weekday_wed_abbr'), context=request),
+            translate(pl_message(u'weekday_thu_abbr'), context=request),
+            translate(pl_message(u'weekday_fri_abbr'), context=request),
+            translate(pl_message(u'weekday_sat_abbr'), context=request)
         ],
         longDateFormat=translate(pfr_message(u'long_date_format'), context=request),
-        shortDateFormat=translate(pfr_message(u'date_format_short_datepicker'), context=request),
+        shortDateFormat=translate(pl_message(u'date_format_short_datepicker'), context=request),
         unsupportedFeatures=translate(pfr_message(u'unsupported_features'), context=request),
         noTemplateMatch=translate(pfr_message(u'no_template_match'), context=request),
         multipleDayOfMonth=translate(pfr_message(u'multiple_day_of_month'), context=request),
@@ -138,3 +137,4 @@ def translations(request):
         # a bit wonky here, except is a reserved word
         **{"except": translate(pfr_message(u'except'), context=request)}
     )
+    return translation_table

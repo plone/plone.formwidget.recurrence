@@ -4,7 +4,8 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix translations.
+  [thet]
 
 
 2.0 (2015-03-04)
