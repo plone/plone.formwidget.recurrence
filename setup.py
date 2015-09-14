@@ -48,7 +48,6 @@ setup(
             'plone.app.testing',
             'plone.app.z3cform',
             'plone.formwidget.recurrence[archetypes, z3cform]',
-            'unittest2',
         ]
     ),
     entry_points="""
