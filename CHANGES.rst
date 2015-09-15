@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2.6 (unreleased)
+1.2.6 (2015-09-15)
 ------------------
 
 - Fix typo in the template of the AT widget, which prevented it from loading.
