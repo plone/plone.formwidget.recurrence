@@ -4,7 +4,9 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
-- Remove unittest2 dependency.
+Fixes:
+
+- Removed unittest2 dependency.
   [gforcada]
 
 
