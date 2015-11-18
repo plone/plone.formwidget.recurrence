@@ -8,6 +8,8 @@ Fixes:
 
 - Removed unittest2 dependency.
   [gforcada]
+- Fix list index out of range at pagination.
+  [julianhandl]
 
 
 2.0.1 (2015-06-05)
