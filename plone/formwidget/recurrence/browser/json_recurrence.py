@@ -171,6 +171,10 @@ class RecurrenceView(BrowserView):
             ((x * batch_size) + 1, (x + 1) * batch_size)
             for x in range(first_batch, last_batch + 1)
         ]
+        # cur_batch must be set relative to first_batch as the batches array
+        # is cut down, but the cur_batch variable is not. With this we prevent
+        # a list index out of range error
+        cur_batch = cur_batch - first_batch
         # correct number of occurrences in current batch
         (cur_batch_start, cur_batch_end) = batches[cur_batch]
         if cur_batch_end > len(occurrences):
