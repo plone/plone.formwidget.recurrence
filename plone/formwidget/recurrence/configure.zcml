@@ -6,8 +6,6 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="plone">
 
-  <i18n:registerTranslations directory="locales"/>
-
   <include zcml:condition="installed Products.Archetypes" package=".at" />
   <include zcml:condition="installed z3c.form" package=".z3cform" />
   <include package=".browser" />
