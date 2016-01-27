@@ -1,4 +1,4 @@
 from zope.i18nmessageid import MessageFactory
 
-pfr_message = MessageFactory('plone.formwidget.recurrence')
+_ = MessageFactory('plone')
 pl_message = MessageFactory('plonelocales')

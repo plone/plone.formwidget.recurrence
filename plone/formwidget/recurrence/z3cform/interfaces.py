@@ -1,7 +1,7 @@
 from z3c.form.interfaces import IWidget
 from zope.schema import ValidationError
 from zope.schema.interfaces import IText
-from plone.formwidget.recurrence import pfr_message as _
+from plone.formwidget.recurrence import _
 
 
 # Fields
