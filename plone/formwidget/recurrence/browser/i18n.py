@@ -1,4 +1,5 @@
 from plone.formwidget.recurrence import _
+from plone.formwidget.recurrence import pl_message
 from zope.i18n import translate
 
 
@@ -68,53 +69,53 @@ def translations(request):
             translate(_(u'order_indexes_last'), context=request)
         ],
         months=[
-            translate(_(u'month_jan'), context=request),
-            translate(_(u'month_feb'), context=request),
-            translate(_(u'month_mar'), context=request),
-            translate(_(u'month_apr'), context=request),
-            translate(_(u'month_may'), context=request),
-            translate(_(u'month_jun'), context=request),
-            translate(_(u'month_jul'), context=request),
-            translate(_(u'month_aug'), context=request),
-            translate(_(u'month_sep'), context=request),
-            translate(_(u'month_oct'), context=request),
-            translate(_(u'month_nov'), context=request),
-            translate(_(u'month_dec'), context=request)
+            translate(pl_message(u'month_jan'), context=request),
+            translate(pl_message(u'month_feb'), context=request),
+            translate(pl_message(u'month_mar'), context=request),
+            translate(pl_message(u'month_apr'), context=request),
+            translate(pl_message(u'month_may'), context=request),
+            translate(pl_message(u'month_jun'), context=request),
+            translate(pl_message(u'month_jul'), context=request),
+            translate(pl_message(u'month_aug'), context=request),
+            translate(pl_message(u'month_sep'), context=request),
+            translate(pl_message(u'month_oct'), context=request),
+            translate(pl_message(u'month_nov'), context=request),
+            translate(pl_message(u'month_dec'), context=request)
         ],
         shortMonths=[
-            translate(_(u'month_jan_abbr'), context=request),
-            translate(_(u'month_feb_abbr'), context=request),
-            translate(_(u'month_mar_abbr'), context=request),
-            translate(_(u'month_apr_abbr'), context=request),
-            translate(_(u'month_may_abbr'), context=request),
-            translate(_(u'month_jun_abbr'), context=request),
-            translate(_(u'month_jul_abbr'), context=request),
-            translate(_(u'month_aug_abbr'), context=request),
-            translate(_(u'month_sep_abbr'), context=request),
-            translate(_(u'month_oct_abbr'), context=request),
-            translate(_(u'month_nov_abbr'), context=request),
-            translate(_(u'month_dec_abbr'), context=request)
+            translate(pl_message(u'month_jan_abbr'), context=request),
+            translate(pl_message(u'month_feb_abbr'), context=request),
+            translate(pl_message(u'month_mar_abbr'), context=request),
+            translate(pl_message(u'month_apr_abbr'), context=request),
+            translate(pl_message(u'month_may_abbr'), context=request),
+            translate(pl_message(u'month_jun_abbr'), context=request),
+            translate(pl_message(u'month_jul_abbr'), context=request),
+            translate(pl_message(u'month_aug_abbr'), context=request),
+            translate(pl_message(u'month_sep_abbr'), context=request),
+            translate(pl_message(u'month_oct_abbr'), context=request),
+            translate(pl_message(u'month_nov_abbr'), context=request),
+            translate(pl_message(u'month_dec_abbr'), context=request)
         ],
         weekdays=[
-            translate(_(u'weekday_sun'), context=request),
-            translate(_(u'weekday_mon'), context=request),
-            translate(_(u'weekday_tue'), context=request),
-            translate(_(u'weekday_wed'), context=request),
-            translate(_(u'weekday_thu'), context=request),
-            translate(_(u'weekday_fri'), context=request),
-            translate(_(u'weekday_sat'), context=request)
+            translate(pl_message(u'weekday_sun'), context=request),
+            translate(pl_message(u'weekday_mon'), context=request),
+            translate(pl_message(u'weekday_tue'), context=request),
+            translate(pl_message(u'weekday_wed'), context=request),
+            translate(pl_message(u'weekday_thu'), context=request),
+            translate(pl_message(u'weekday_fri'), context=request),
+            translate(pl_message(u'weekday_sat'), context=request)
         ],
         shortWeekdays=[
-            translate(_(u'weekday_sun_abbr'), context=request),
-            translate(_(u'weekday_mon_abbr'), context=request),
-            translate(_(u'weekday_tue_abbr'), context=request),
-            translate(_(u'weekday_wed_abbr'), context=request),
-            translate(_(u'weekday_thu_abbr'), context=request),
-            translate(_(u'weekday_fri_abbr'), context=request),
-            translate(_(u'weekday_sat_abbr'), context=request)
+            translate(pl_message(u'weekday_sun_abbr'), context=request),
+            translate(pl_message(u'weekday_mon_abbr'), context=request),
+            translate(pl_message(u'weekday_tue_abbr'), context=request),
+            translate(pl_message(u'weekday_wed_abbr'), context=request),
+            translate(pl_message(u'weekday_thu_abbr'), context=request),
+            translate(pl_message(u'weekday_fri_abbr'), context=request),
+            translate(pl_message(u'weekday_sat_abbr'), context=request)
         ],
         longDateFormat=translate(_(u'long_date_format'), context=request),
-        shortDateFormat=translate(_(u'date_format_short_datepicker'), context=request),
+        shortDateFormat=translate(pl_message(u'date_format_short_datepicker'), context=request),
         unsupportedFeatures=translate(_(u'unsupported_features'), context=request),
         noTemplateMatch=translate(_(u'no_template_match'), context=request),
         multipleDayOfMonth=translate(_(u'multiple_day_of_month'), context=request),
