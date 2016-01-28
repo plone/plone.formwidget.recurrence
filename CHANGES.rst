@@ -10,7 +10,8 @@ New:
 
 Fixes:
 
-- *add item here*
+- Restructure tests: Move example type into own submodule.
+  [thet]
 
 
 2.0.2 (2015-12-03)

@@ -5,16 +5,10 @@ from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from plone.testing import z2
-from zope.interface import Interface
-
 import unittest
 
 
 PLONE5 = getFSVersionTuple()[0] >= 5
-
-
-class DemoProfile(Interface):
-    """Marker interface for our demo GS profile."""
 
 
 class PloneFormwidgetRecurrenceLayer(PloneSandboxLayer):
@@ -27,9 +21,9 @@ class PloneFormwidgetRecurrenceLayer(PloneSandboxLayer):
         import plone.formwidget.recurrence
         self.loadZCML(package=plone.formwidget.recurrence)
 
-        import plone.formwidget.recurrence.tests  # install AT example types
-        self.loadZCML(package=plone.formwidget.recurrence.tests)
-        z2.installProduct(app, 'plone.formwidget.recurrence.tests')
+        import plone.formwidget.recurrence.tests.at_example  # install AT example types  # noqa
+        self.loadZCML(package=plone.formwidget.recurrence.tests.at_example)
+        z2.installProduct(app, 'plone.formwidget.recurrence.tests.at_example')
 
         z2.installProduct(app, 'Products.ATContentTypes')
 
@@ -42,14 +36,14 @@ class PloneFormwidgetRecurrenceLayer(PloneSandboxLayer):
         # install at example types
         self.applyProfile(
             portal,
-            'plone.formwidget.recurrence.tests:sample_types'
+            'plone.formwidget.recurrence.tests.at_example:sample_types'
         )
 
         self.applyProfile(portal, 'plone.formwidget.recurrence:default')
 
     def tearDownZope(self, app):
         """Tear down Zope."""
-        z2.uninstallProduct(app, 'plone.formwidget.recurrence.tests')
+        z2.uninstallProduct(app, 'plone.formwidget.recurrence.tests.at_example')  # noqa
 
 
 FIXTURE = PloneFormwidgetRecurrenceLayer()
