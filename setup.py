@@ -11,7 +11,9 @@ setup(
                                  open("CHANGES.rst").read()),
     classifiers=[
         "Framework :: Plone",
+        "Framework :: Plone : 5.0",
         "Programming Language :: Python",
+        "Programming Language :: Python :: 2.7",
     ],
     keywords='Plone Event Recurrence Date Time Widget Archetypes z3c.form',
     author='Plone Foundation',
