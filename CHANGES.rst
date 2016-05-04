@@ -6,7 +6,7 @@ Changelog
 
 New:
 
-- *add item here*
+- Use plone i18n domain.  [klinger]
 
 Fixes:
 
