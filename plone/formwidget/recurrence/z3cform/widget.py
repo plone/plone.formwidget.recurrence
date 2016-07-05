@@ -8,15 +8,15 @@ from z3c.form.interfaces import IFormLayer
 from z3c.form.widget import FieldWidget
 from zope.component import adapter
 from zope.component.hooks import getSite
-from zope.interface import implementsOnly, implementer
+from zope.interface import implementer_only, implementer
 from zope.traversing.browser import absoluteURL
 
 import json
 
 
+@implementer_only(IRecurrenceWidget)
 class RecurrenceWidget(TextAreaWidget):
     """Recurrence widget implementation."""
-    implementsOnly(IRecurrenceWidget)
 
     klass = u'recurrence-widget'
     value = u''
