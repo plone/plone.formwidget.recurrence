@@ -7,7 +7,7 @@ from Products.validation import validation
 from Products.validation.interfaces.IValidator import IValidator
 from dateutil import rrule
 from zope.component.hooks import getSite
-from zope.interface import implements
+from zope.interface import implementer
 from plone.formwidget.recurrence.browser.i18n import translations
 
 import json
@@ -62,9 +62,8 @@ registerWidget(RecurrenceWidget,
                used_for=('plone.app.event.recurrence.RecurrenceField',))
 
 
+@implementer(IValidator)
 class RecurrenceValidator(object):
-    # TODO: tests
-    implements(IValidator)
 
     def __init__(self, name):
         self.name = name

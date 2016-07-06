@@ -15,8 +15,8 @@ class ITestForm(zope.interface.Interface):
     day = zope.schema.Date(title=u'Day', required=True)
 
 
+@zope.interface.implementer(ITestForm)
 class TestForm(SimpleItem):
-    zope.interface.implements(ITestForm)
     recurrence = FieldProperty(ITestForm['recurrence'])
     day = FieldProperty(ITestForm['day'])
 
