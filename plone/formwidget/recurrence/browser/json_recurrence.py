@@ -90,7 +90,7 @@ class RecurrenceView(BrowserView):
         while True:
             try:
                 # Get a date
-                date = iterator.next()
+                date = next(iterator)
             except StopIteration:
                 # No more dates
                 break
@@ -152,7 +152,7 @@ class RecurrenceView(BrowserView):
         num_occurrences = 0
         while True:
             try:
-                iterator.next()
+                next(iterator)
                 num_occurrences += 1
             except StopIteration:
                 break

@@ -27,6 +27,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'setuptools',
+        'six',
         'Products.CMFCore',
         'Products.CMFPlone',
         'python-dateutil',
