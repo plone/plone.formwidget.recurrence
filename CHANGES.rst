@@ -14,7 +14,8 @@ New features:
 
 Bug fixes:
 
-- *add item here*
+- Fix test-isolation issue in AT tests
+  [pbauer]
 
 
 2.1.2 (2018-02-02)

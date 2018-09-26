@@ -2,7 +2,7 @@ from Products.Archetypes.tests.utils import makeContent
 from plone.app.testing import TEST_USER_ID, TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.app.testing import login
 from plone.app.testing import setRoles
-from plone.formwidget.recurrence.tests.base import IntegrationTestCase
+from plone.formwidget.recurrence.tests.base import FunctionalTestCase
 from plone.testing.z2 import Browser
 
 import transaction
@@ -11,7 +11,7 @@ import transaction
 TESTVALUE = "FREQ=MONTHLY;BYDAY=+3TU;COUNT=5"
 
 
-class ATWidgetTestCase(IntegrationTestCase):
+class ATWidgetTestCase(FunctionalTestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
