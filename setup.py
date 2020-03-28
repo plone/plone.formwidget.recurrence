@@ -20,6 +20,7 @@ setup(
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
     ],
     keywords='Plone Event Recurrence Date Time Widget Archetypes z3c.form',
     author='Plone Foundation',
