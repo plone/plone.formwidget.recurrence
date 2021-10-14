@@ -177,14 +177,14 @@ class RecurrenceView(BrowserView):
         cur_batch = cur_batch - first_batch
         # correct number of occurrences in current batch
         (cur_batch_start, cur_batch_end) = batches[cur_batch]
-        if cur_batch_end > len(occurrences):
-            batches[cur_batch] = (cur_batch_start, len(occurrences))
+        if cur_batch_end > num_occurrences:
+            batches[cur_batch] = (cur_batch_start, num_occurrences)
 
         batch_data = {'start': start,
                       'end': num_occurrences,
                       'batch_size': batch_size,
                       'batches': batches,
-                      'currentBatch': cur_batch - first_batch,
+                      'currentBatch': cur_batch,
                       }
 
         result = {'occurrences': occurrences, 'batch': batch_data}
