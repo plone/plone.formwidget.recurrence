@@ -8,6 +8,16 @@ Changelog
 
 .. towncrier release notes start
 
+2.1.5 (2021-10-16)
+------------------
+
+Bug fixes:
+
+
+- Fix batch numbers computation
+  [frapell] (#25)
+
+
 2.1.4 (2020-04-20)
 ------------------
 
