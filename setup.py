@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 
-version = '2.1.5'
+version = '2.1.6.dev0'
 
 setup(
     name='plone.formwidget.recurrence',
