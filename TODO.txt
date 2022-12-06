@@ -1,0 +1,5 @@
+TODO
+----
+
+- Better test coverage.
+- Show z3c.form widget parameters via plone.autoform > 1.4
