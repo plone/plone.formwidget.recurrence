@@ -1,3 +1,4 @@
+from dateutil import rrule
 from Products.CMFPlone.i18nl10n import _interp_regex
 from Products.CMFPlone.i18nl10n import datetime_formatvariables
 from Products.CMFPlone.i18nl10n import monthname_msgid
@@ -6,12 +7,13 @@ from Products.CMFPlone.i18nl10n import name_formatvariables
 from Products.CMFPlone.i18nl10n import weekdayname_msgid
 from Products.CMFPlone.i18nl10n import weekdayname_msgid_abbr
 from Products.Five import BrowserView
-from dateutil import rrule
-from zope.i18n import translate, interpolate
+from zope.i18n import interpolate
+from zope.i18n import translate
 
 import datetime
 import json
 import re
+
 
 BATCH_DELTA = 3  # How many batches to show before + after current batch
 BATCH_SIZE = 10  # How many items per batch
@@ -19,17 +21,18 @@ BATCH_SIZE = 10  # How many items per batch
 # Translations from dateinput formatting to Plone translation strings
 # See http://flowplayer.org/tools/dateinput/index.html
 DATEFORMAT_XLATE = [
-    (re.compile(pattern), replacement) for (pattern, replacement) in (
-        ('dddd', '${A}'),
-        ('ddd', '${a}'),
-        ('dd', '${d}'),
-        ('!%d', '${e}'),  # Will include a leading space for 1-9
-        ('mmmm', '${B}'),
-        ('mmm', '${b}'),
-        ('mm', '${m}'),
-        ('!%m', '${m}'),  # Will include leading zero
-        ('yyyy', '${Y}'),
-        ('yy', '${y}'),
+    (re.compile(pattern), replacement)
+    for (pattern, replacement) in (
+        ("dddd", "${A}"),
+        ("ddd", "${a}"),
+        ("dd", "${d}"),
+        ("!%d", "${e}"),  # Will include a leading space for 1-9
+        ("mmmm", "${B}"),
+        ("mmm", "${b}"),
+        ("mm", "${m}"),
+        ("!%m", "${m}"),  # Will include leading zero
+        ("yyyy", "${Y}"),
+        ("yy", "${y}"),
     )
 ]
 
@@ -41,7 +44,6 @@ def dateformat_xlate(dateformat):
 
 
 class RecurrenceView(BrowserView):
-
     def __call__(self):
         req = self.request
         req.response.setHeader("Content-type", "application/json")
@@ -53,33 +55,33 @@ class RecurrenceView(BrowserView):
         occurrences = []
         data = self.request.form
         # Check for required parameters:
-        for x in ('year', 'month', 'day', 'rrule', 'format'):
+        for x in ("year", "month", "day", "rrule", "format"):
             if x not in data:
                 self.request.response.setStatus(400)  # bad request
                 return {}
 
         # Translate from the js dateformat style to the i18n style
-        date_format = dateformat_xlate(data['format'])
-        start_date = datetime.datetime(int(data['year']),
-                                       int(data['month']),
-                                       int(data['day']))
-        rule = rrule.rrulestr(data['rrule'], dtstart=start_date)
+        date_format = dateformat_xlate(data["format"])
+        start_date = datetime.datetime(
+            int(data["year"]), int(data["month"]), int(data["day"])
+        )
+        rule = rrule.rrulestr(data["rrule"], dtstart=start_date)
         iterator = iter(rule)
 
-        if 'batch_size' in data:
-            batch_size = int(data['batch_size'])
+        if "batch_size" in data:
+            batch_size = int(data["batch_size"])
         else:
             batch_size = BATCH_SIZE
 
-        if 'start' in data:
-            start = int(data['start'])
+        if "start" in data:
+            start = int(data["start"])
         else:
             start = 0
 
         cur_batch = start // batch_size
         start = cur_batch * batch_size  # Avoid stupid start-values
 
-        if hasattr(rule, '_exdate'):
+        if hasattr(rule, "_exdate"):
             exdates = sorted(rule._exdate)
         else:
             exdates = []
@@ -103,11 +105,13 @@ class RecurrenceView(BrowserView):
                 else:
                     # include them
                     exdate = exdates.pop(0)
-                    occurrences.append({
-                        'date': exdate.strftime('%Y%m%dT%H%M%S'),
-                        'formattedDate': self.date_format(exdate, date_format),
-                        'type': 'exdate'
-                    })
+                    occurrences.append(
+                        {
+                            "date": exdate.strftime("%Y%m%dT%H%M%S"),
+                            "formattedDate": self.date_format(exdate, date_format),
+                            "type": "exdate",
+                        }
+                    )
                     i += 1
 
             if i >= batch_size + start:
@@ -119,28 +123,32 @@ class RecurrenceView(BrowserView):
                 continue
 
             # Add it to the results
-            if date in getattr(rule, '_rdate', []):
-                occurrence_type = 'rdate'
+            if date in getattr(rule, "_rdate", []):
+                occurrence_type = "rdate"
             elif date == start_date:
-                occurrence_type = 'start'
+                occurrence_type = "start"
             else:
-                occurrence_type = 'rrule'
-            occurrences.append({
-                'date': date.strftime('%Y%m%dT%H%M%S'),
-                'formattedDate': self.date_format(date, date_format),
-                'type': occurrence_type
-            })
+                occurrence_type = "rrule"
+            occurrences.append(
+                {
+                    "date": date.strftime("%Y%m%dT%H%M%S"),
+                    "formattedDate": self.date_format(date, date_format),
+                    "type": occurrence_type,
+                }
+            )
 
         while exdates:
             # There are exdates that are after the end of the recurrence.
             # Excluding the last dates make no sense, as you can change the
             # range instead, but we need to support it anyway.
             exdate = exdates.pop(0)
-            occurrences.append({
-                'date': exdate.strftime('%Y%m%dT%H%M%S'),
-                'formattedDate': exdate.strftime(date_format),
-                'type': 'exdate'
-            })
+            occurrences.append(
+                {
+                    "date": exdate.strftime("%Y%m%dT%H%M%S"),
+                    "formattedDate": exdate.strftime(date_format),
+                    "type": "exdate",
+                }
+            )
 
         # Calculate no of occurrences, but only to a max of three times
         # the batch size. This will support infinite recurrence in a
@@ -180,14 +188,15 @@ class RecurrenceView(BrowserView):
         if cur_batch_end > num_occurrences:
             batches[cur_batch] = (cur_batch_start, num_occurrences)
 
-        batch_data = {'start': start,
-                      'end': num_occurrences,
-                      'batch_size': batch_size,
-                      'batches': batches,
-                      'currentBatch': cur_batch,
-                      }
+        batch_data = {
+            "start": start,
+            "end": num_occurrences,
+            "batch_size": batch_size,
+            "batches": batches,
+            "currentBatch": cur_batch,
+        }
 
-        result = {'occurrences': occurrences, 'batch': batch_data}
+        result = {"occurrences": occurrences, "batch": batch_data}
         return result
 
     def date_format(self, time, formatstring):
@@ -223,36 +232,32 @@ class RecurrenceView(BrowserView):
         week_included = True
         month_included = True
 
-        name_elements = [
-            e for e in formatelements if e in name_formatvariables
-        ]
-        if not ('a' in name_elements or 'A' in name_elements):
+        name_elements = [e for e in formatelements if e in name_formatvariables]
+        if not ("a" in name_elements or "A" in name_elements):
             week_included = False
-        if not ('b' in name_elements or 'B' in name_elements):
+        if not ("b" in name_elements or "B" in name_elements):
             month_included = False
 
         for key in elements:
-            mapping[key] = time.strftime('%' + key)
+            mapping[key] = time.strftime("%" + key)
 
         if week_included:
-            weekday = int(time.strftime('%w'))  # weekday, sunday = 0
-            if 'a' in name_elements:
-                mapping['a'] = weekdayname_msgid_abbr(weekday)
-            if 'A' in name_elements:
-                mapping['A'] = weekdayname_msgid(weekday)
+            weekday = int(time.strftime("%w"))  # weekday, sunday = 0
+            if "a" in name_elements:
+                mapping["a"] = weekdayname_msgid_abbr(weekday)
+            if "A" in name_elements:
+                mapping["A"] = weekdayname_msgid(weekday)
         if month_included:
-            monthday = int(time.strftime('%m'))  # month, january = 1
-            if 'b' in name_elements:
-                mapping['b'] = monthname_msgid_abbr(monthday)
-            if 'B' in name_elements:
-                mapping['B'] = monthname_msgid(monthday)
+            monthday = int(time.strftime("%m"))  # month, january = 1
+            if "b" in name_elements:
+                mapping["b"] = monthname_msgid_abbr(monthday)
+            if "B" in name_elements:
+                mapping["B"] = monthname_msgid(monthday)
 
         # translate translateable elements
         for key in name_elements:
             mapping[key] = translate(
-                mapping[key],
-                'plonelocales',
-                context=self.request, default=mapping[key]
+                mapping[key], "plonelocales", context=self.request, default=mapping[key]
             )
 
         # Apply the data to the format string:
