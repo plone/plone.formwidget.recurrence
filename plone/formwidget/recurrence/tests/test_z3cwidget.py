@@ -6,9 +6,9 @@ from z3c.form import form, field
 from z3c.form.testing import TestRequest
 from zope.schema.fieldproperty import FieldProperty
 
+import json
 import zope.interface
 import zope.schema
-
 
 class ITestForm(zope.interface.Interface):
     recurrence = zope.schema.Text(title=u'Recurrence', required=True)
@@ -36,18 +36,33 @@ class Z3CWidgetTestCase(IntegrationTestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
-
-    def test_widget_rendering(self):
         request = TestRequest()
         request.LANGUAGE = 'en'
         form = TestAddForm(self.portal, request)
         form.update()
 
-        widget = RecurrenceFieldWidget(form.fields['recurrence'].field,
-                                       request)
-        widget.form = form
-        widget.start_field = 'day'
-        widget.update()
+        self.widget = RecurrenceFieldWidget(
+            form.fields['recurrence'].field, request)
 
-        html = widget.render()
-        self.assertIn('recurrence', html)
+        self.widget.form = form
+        self.widget.start_field = 'day'
+        self.widget.update()
+
+    def test_widget_options(self):
+        pat_options = json.loads(self.widget.get_pattern_options())
+        self.assertEqual({
+                'ajaxContentType': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'ajaxURL': 'http://nohost/plone/@@json_recurrence',
+                'firstDay': 7,
+                'hasRepeatForeverButton': True,
+                'lang': 'en',
+                'readOnly': False,
+                'ributtonExtraClass': 'allowMultiSubmit',
+                'startField': 'form.widgets.day',
+            },
+            pat_options["configuration"],
+        )
+
+    def test_widget_rendering(self):
+        html = self.widget.render()
+        self.assertIn('pat-recurrence', html)

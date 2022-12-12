@@ -26,6 +26,7 @@ class RecurrenceWidget(TextAreaWidget):
     def site_url(self):
         return absoluteURL(getSite(), self.request)
 
+    @property
     def read_only(self):
         return self.mode == 'display'
 
@@ -60,7 +61,7 @@ class RecurrenceWidget(TextAreaWidget):
             firstDay=self.first_day(),
             hasRepeatForeverButton=self.show_repeat_forever,
             lang=self.request.LANGUAGE,
-            readOnly=self.read_only(),
+            readOnly=self.read_only,
             ributtonExtraClass='allowMultiSubmit',
             startField=self.get_start_field(),
         )
