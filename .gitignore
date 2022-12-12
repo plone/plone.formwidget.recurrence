@@ -6,3 +6,11 @@
 dist/
 !.gitattributes
 !.gitignore
+
+# mxdev
+/instance/
+/.make-sentinels/
+/*-mxdev.txt
+/reports/
+/sources/
+/venv/
