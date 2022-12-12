@@ -1,11 +1,11 @@
 *.egg-info
 *.mo
 *.py?
-.*
 *~
 dist/
 !.gitattributes
 !.gitignore
+news/.*
 
 # mxdev
 /instance/
@@ -14,3 +14,4 @@ dist/
 /reports/
 /sources/
 /venv/
+.installed.txt
