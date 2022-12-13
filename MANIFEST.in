@@ -5,4 +5,4 @@ global-include *.mo
 global-exclude *pyc *~
 include pyproject.toml
 recursive-exclude news *
-exclude news
+exclude news TODO.txt

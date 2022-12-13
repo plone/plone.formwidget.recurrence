@@ -1,16 +1,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       tal:omit-tag="">
-<textarea test=""
-   class="pat-recurrence"
-   tal:attributes="id view/id;
-                   name view/name;
-                   style view/style;
-                   title view/title;
-                   data-pat-recurrence python: view.get_pattern_options()"
-   tal:content="view/value"
-   condition="python:view.read_only() != 'true'"/>
-<tal:block condition="python:view.read_only() == 'true'">
-  <span style="display:none;" tal:attributes="id string:${view/id}-start;name string:${view/name}-start" tal:content="view/get_start_date"/>
-</tal:block>
+  <textarea
+    class="pat-recurrence"
+    tal:attributes="id view/id;
+                    name view/name;
+                    style view/style;
+                    title view/title;
+                    data-pat-recurrence python: view.get_pattern_options()"
+    tal:content="view/value"
+    tal:condition="python:view.read_only != 'true'"/>
+  <span tal:condition="python:view.read_only == 'true'" style="display:none;" tal:attributes="id string:${view/id}-start;name string:${view/name}-start" tal:content="view/get_start_date"/>
 </html>

@@ -1,8 +1,17 @@
 *.egg-info
 *.mo
 *.py?
-.*
 *~
 dist/
 !.gitattributes
 !.gitignore
+news/.*
+
+# mxdev
+/instance/
+/.make-sentinels/
+/*-mxdev.txt
+/reports/
+/sources/
+/venv/
+.installed.txt
