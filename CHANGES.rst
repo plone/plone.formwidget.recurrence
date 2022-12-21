@@ -8,6 +8,16 @@ Changelog
 
 .. towncrier release notes start
 
+3.0.0 (2022-12-21)
+------------------
+
+Breaking changes:
+
+
+- Remove Archetypes and python 2.7 support. Plone 6 only.
+  [petschki] (#28)
+
+
 2.1.5 (2021-10-16)
 ------------------
 
