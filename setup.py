@@ -32,8 +32,8 @@ setup(
     zip_safe=False,
     install_requires=[
         "setuptools",
+        "plone.base",
         "Products.CMFCore",
-        "Products.CMFPlone",
         "python-dateutil",
         "zope.component",
         "zope.i18n",

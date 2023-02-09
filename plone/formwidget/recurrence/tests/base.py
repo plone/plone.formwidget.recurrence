@@ -8,7 +8,6 @@ import unittest
 
 
 class PloneFormwidgetRecurrenceLayer(PloneSandboxLayer):
-
     defaultBases = (PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
