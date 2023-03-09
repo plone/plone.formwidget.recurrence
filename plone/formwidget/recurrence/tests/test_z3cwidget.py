@@ -52,7 +52,7 @@ class Z3CWidgetTestCase(IntegrationTestCase):
         pat_options = json.loads(self.widget.get_pattern_options())
         self.assertEqual(
             {
-                "ajaxContentType": "application/x-www-form-urlencoded; charset=UTF-8",
+                "ajaxContentType": "application/x-www-form-urlencoded",
                 "ajaxURL": "http://nohost/plone/@@json_recurrence",
                 "firstDay": 7,
                 "hasRepeatForeverButton": True,
