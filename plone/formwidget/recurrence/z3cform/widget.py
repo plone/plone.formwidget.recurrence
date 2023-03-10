@@ -57,7 +57,7 @@ class RecurrenceWidget(TextAreaWidget):
         portal = getToolByName(getSite(), "portal_url").getPortalObject()
         ajax_url = portal.absolute_url() + "/@@json_recurrence"
         conf = dict(
-            ajaxContentType="application/x-www-form-urlencoded; charset=UTF-8",
+            ajaxContentType="application/x-www-form-urlencoded",
             ajaxURL=ajax_url,
             firstDay=self.first_day(),
             hasRepeatForeverButton=self.show_repeat_forever,
