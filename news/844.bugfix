@@ -1,3 +1,0 @@
-Do not add charset to application/x-www-form-urlencoded header.
-Adding a charset to this Content-Type is illegal according to the definition, and fails with Zope master.
-[maurits]

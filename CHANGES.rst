@@ -8,6 +8,17 @@ Changelog
 
 .. towncrier release notes start
 
+3.0.2 (2023-03-13)
+------------------
+
+Bug fixes:
+
+
+- Do not add charset to application/x-www-form-urlencoded header.
+  Adding a charset to this Content-Type is illegal according to the definition, and fails with Zope master.
+  [maurits] (#844)
+
+
 3.0.1 (2023-02-22)
 ------------------
 
