@@ -8,7 +8,7 @@ setup(
     name="plone.formwidget.recurrence",
     version=version,
     description="Recurrence widget for Plone",
-    long_description="%s\n%s" % (open("README.rst").read(), open("CHANGES.rst").read()),
+    long_description="{}\n{}".format(open("README.rst").read(), open("CHANGES.rst").read()),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Framework :: Plone",
