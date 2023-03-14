@@ -158,7 +158,7 @@ Fixes:
 - plone.app.widgets support: Let the z3c.form widget's get_start_field method
   prefer 'name' attribute over the 'id' attribute. Looks like, with
   plone.app.widgets the rendered input field doesn't have an 'id' attribute any
-  more. Also, integrate lates changes from jquery.recurrenceinput.js, which
+  more. Also, integrate latest changes from jquery.recurrenceinput.js, which
   also handles 'name' attributes when trying to get the start field from the
   surrounding form.
   [thet]
@@ -249,7 +249,7 @@ Fixes:
   widget parameters which is available since plone.autoform 1.4.
   [thet]
 
-- For the z3cform widget, remove widget adaptee registration from ZCML code and
+- For the z3cform widget, remove widget adapter registration from ZCML code and
   keep it in Python code. More appropriate z3c.form class hierarchy for the
   widget. Cleanup.
   [thet]
@@ -334,14 +334,14 @@ Fixes:
 ------------------
 
 - By default, preselect the BYOCCURRENCES "End recurrence" field, so that
-  recurrence rules with unlimited occurences are not selected by accident but
+  recurrence rules with unlimited occurrences are not selected by accident but
   intentionally (from jquery.recurrenceinput.js).
   [thet]
 
 - Include z3c.form's meta.zcml, so widgetsTemplate directive is registered.
   [thet]
 
-- For conditional zcml incudes, use zcml:condition instead of zcml:provides.
+- For conditional zcml includes, use zcml:condition instead of zcml:provides.
   [thet]
 
 
