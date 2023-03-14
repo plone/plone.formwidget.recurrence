@@ -1,38 +1,42 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:z3c="http://namespaces.zope.org/z3c"
-    i18n_domain="plone">
+    i18n_domain="plone"
+    >
 
-  <include package="z3c.form" file="meta.zcml"/>
+  <include
+      package="z3c.form"
+      file="meta.zcml"
+      />
   <include package="z3c.form" />
 
-  <adapter factory=".widget.RecurrenceFieldWidget"/>
+  <adapter factory=".widget.RecurrenceFieldWidget" />
   <class class=".widget.RecurrenceWidget">
-  <require
-      permission="zope.Public"
-      interface=".interfaces.IRecurrenceWidget"
-      />
+    <require
+        permission="zope.Public"
+        interface=".interfaces.IRecurrenceWidget"
+        />
   </class>
 
   <z3c:widgetTemplate
+      widget=".interfaces.IRecurrenceWidget"
+      template="recurrence_input.pt"
+      layer="z3c.form.interfaces.IFormLayer"
       mode="display"
-      widget=".interfaces.IRecurrenceWidget"
-      template="recurrence_input.pt"
-      layer="z3c.form.interfaces.IFormLayer"
       />
 
   <z3c:widgetTemplate
+      widget=".interfaces.IRecurrenceWidget"
+      template="recurrence_input.pt"
+      layer="z3c.form.interfaces.IFormLayer"
       mode="input"
-      widget=".interfaces.IRecurrenceWidget"
-      template="recurrence_input.pt"
-      layer="z3c.form.interfaces.IFormLayer"
       />
 
   <z3c:widgetTemplate
-      mode="hidden"
       widget=".interfaces.IRecurrenceWidget"
       template="recurrence_hidden.pt"
       layer="z3c.form.interfaces.IFormLayer"
+      mode="hidden"
       />
 
 </configure>
