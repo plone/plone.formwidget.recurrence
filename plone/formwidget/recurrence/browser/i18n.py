@@ -164,6 +164,6 @@ def translations(request):
             yearly=translate(_("template_yearly"), context=request),
         ),
         # a bit wonky here, except is a reserved word
-        **{"except": translate(_("except"), context=request)}
+        **{"except": translate(_("except"), context=request)},
     )
     return translation_table

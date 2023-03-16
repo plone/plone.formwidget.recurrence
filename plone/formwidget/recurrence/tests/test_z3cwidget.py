@@ -23,7 +23,7 @@ class TestForm(SimpleItem):
     day = FieldProperty(ITestForm["day"])
 
     def __init__(self, recurrence, day):
-        super(TestForm, self).__init__(id)
+        super().__init__(id)
         self.recurrence = recurrence
         self.day = day
 

@@ -8,7 +8,9 @@ setup(
     name="plone.formwidget.recurrence",
     version=version,
     description="Recurrence widget for Plone",
-    long_description="%s\n%s" % (open("README.rst").read(), open("CHANGES.rst").read()),
+    long_description="{}\n{}".format(
+        open("README.rst").read(), open("CHANGES.rst").read()
+    ),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Framework :: Plone",
@@ -33,7 +35,7 @@ setup(
     install_requires=[
         "setuptools",
         "plone.base",
-        "Products.CMFCore",
+        "Products.GenericSetup",
         "python-dateutil",
         "zope.component",
         "zope.i18n",
@@ -48,7 +50,6 @@ setup(
         ],
         test=[
             "plone.app.testing",
-            "plone.testing",
             "plone.app.z3cform",
         ],
     ),

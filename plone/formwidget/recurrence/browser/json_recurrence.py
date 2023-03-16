@@ -152,7 +152,7 @@ class RecurrenceView(BrowserView):
 
         # Calculate no of occurrences, but only to a max of three times
         # the batch size. This will support infinite recurrence in a
-        # useable way, as there will always be more batches.
+        # usable way, as there will always be more batches.
         first_batch = max(0, cur_batch - BATCH_DELTA)
         last_batch = max(BATCH_DELTA * 2, cur_batch + BATCH_DELTA)
         maxcount = (batch_size * last_batch) - start

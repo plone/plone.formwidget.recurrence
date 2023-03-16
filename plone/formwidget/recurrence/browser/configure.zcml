@@ -2,12 +2,13 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:z3c="http://namespaces.zope.org/z3c"
-    i18n_domain="plone">
+    i18n_domain="plone"
+    >
 
   <!-- JSON recurrence view -->
   <browser:page
-      for="*"
       name="json_recurrence"
+      for="*"
       class=".json_recurrence.RecurrenceView"
       permission="zope2.View"
       />
