@@ -1,5 +1,20 @@
 # Generated from:
 # https://github.com/plone/meta/tree/master/config/default
+# See the inline comments on how to expand/tweak this configuration file
 [meta]
 template = "default"
-commit-id = "243ca9ec"
+commit-id = "c0d8988f"
+
+[pyproject]
+check_manifest_ignores = """
+    "Makefile",
+    "constraints.txt",
+    "instance.yaml",
+    "requirements.txt",
+    "sources.ini",
+"""
+dependencies_ignores = "['z3c.form']"
+extra_lines = """
+[tool.coverage.report]
+ignore_errors = true
+"""
