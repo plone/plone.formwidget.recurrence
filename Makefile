@@ -36,7 +36,6 @@ endif
 PROJECT_NAME=plone.formwidget.recurrence
 IMAGE_NAME=${PROJECT_NAME}
 CONSTRAINTS_IN=constraints.txt
-CONSTRAINTS_IN=constraints.txt
 CONSTRAINTS_MXDEV=constraints-mxdev.txt
 PIP_REQUIREMENTS_IN_FILE=requirements.txt
 ADDONBASE=./
@@ -49,7 +48,7 @@ PIP_PARAMS= --pre
 ##############################################################################
 # targets and prerequisites
 # target has to be one file, otherwise step gets executes for each file separate
-PREPARE_PREREQUISITES=${PIP_REQUIREMENTS_IN_FILE} ${CONSTRAINTS_IN} sources.ini ${ADDONBASE}setup.cfg
+PREPARE_PREREQUISITES=${PIP_REQUIREMENTS_IN_FILE} ${CONSTRAINTS_IN} mx.ini ${ADDONBASE}setup.cfg
 PREPARE_TARGET=requirements-mxdev.txt
 INSTALL_PREREQUSISTES=${PREPARE_TARGET}
 INSTALL_TARGET=.installed.txt
@@ -79,17 +78,6 @@ help: ## This help message
 	@echo "${WARN_COLOR}Targets:${NO_COLOR}"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-##############################################################################
-# targets and prerequisites
-# target has to be one file, otherwise step gets executes for each file separate
-PREPARE_PREREQUISITES=${PIP_REQUIREMENTS_IN_FILE} ${CONSTRAINTS_IN} sources.ini ${ADDONBASE}setup.cfg
-PREPARE_TARGET=requirements-mxdev.txt
-INSTALL_PREREQUSISTES=${PREPARE_TARGET}
-INSTALL_TARGET=.installed.txt
-INSTANCE_PREREQUISITES=${INSTALL_TARGET} ${INSTANCE_YAML}
-INSTANCE_TARGET=${INSTANCE_FOLDER}/etc/zope.ini ${INSTANCE_FOLDER}/etc/zope.conf ${INSTANCE_FOLDER}/etc/site.zcml
-TEST_PREREQUISITES=${INSTALL_TARGET}
-RUN_PREREQUISITES=${INSTANCE_TARGET}
 
 ##############################################################################
 # BASE
@@ -163,7 +151,7 @@ ${PREPARE_PREREQUISITES}:
 
 ${PREPARE_TARGET}: ${MXDEV_SENTINEL} ${PREPARE_PREREQUISITES}
 	@echo "$(OK_COLOR)Prepare sources and dependencies$(NO_COLOR)"
-	@${PYBIN}mxdev -c sources.ini
+	@${PYBIN}mxdev -c mx.ini
 
 .PHONY: install
 install: ${INSTALL_TARGET} ## pip install all dependencies and scripts
