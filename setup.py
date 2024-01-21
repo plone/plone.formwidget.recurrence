@@ -37,16 +37,11 @@ setup(
         "plone.base",
         "Products.GenericSetup",
         "python-dateutil",
-        "zope.component",
-        "zope.i18n",
-        "zope.i18nmessageid",
-        "zope.interface",
+        "Zope",
     ],
     extras_require=dict(
         z3cform=[
             "z3c.form",
-            "zope.schema",
-            "zope.traversing",
         ],
         test=[
             "plone.app.testing",
