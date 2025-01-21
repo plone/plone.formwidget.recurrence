@@ -1,5 +1,5 @@
 from OFS.SimpleItem import SimpleItem
-from plone.app.z3cform.widget import DateFieldWidget
+from plone.app.z3cform.widgets.datetime import DateFieldWidget
 from plone.formwidget.recurrence.tests.base import IntegrationTestCase
 from plone.formwidget.recurrence.z3cform.widget import RecurrenceFieldWidget
 from z3c.form import field
