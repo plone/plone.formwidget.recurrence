@@ -1,4 +1,5 @@
 from dateutil import rrule
+from plone.formwidget.recurrence import _
 from plone.base.i18nl10n import _interp_regex
 from plone.base.i18nl10n import datetime_formatvariables
 from plone.base.i18nl10n import monthname_msgid
@@ -65,7 +66,24 @@ class RecurrenceView(BrowserView):
         start_date = datetime.datetime(
             int(data["year"]), int(data["month"]), int(data["day"])
         )
-        rule = rrule.rrulestr(data["rrule"], dtstart=start_date)
+        # Validate the RRULE string to prevent invalid INTERVAL values
+        # INTERVAL=0 is invalid per RFC5545 and causes an infinite loop in
+        # python-dateutil when iterating the rule. Reject it early with a
+        # user-friendly, translated error message.
+        rrule_str = data["rrule"]
+        m = re.search(r"(?i)(?:^|;)INTERVAL\s*=\s*([-+]?[0-9]+)(?:;|$)", rrule_str)
+        if m:
+            try:
+                interval_val = int(m.group(1))
+            except Exception:
+                interval_val = None
+            if interval_val is not None and interval_val <= 0:
+                # Bad request: INTERVAL must be a positive integer
+                self.request.response.setStatus(400)
+                msg = translate(_("no_repeat_every"), context=self.request)
+                return {"error": msg}
+
+        rule = rrule.rrulestr(rrule_str, dtstart=start_date)
         iterator = iter(rule)
 
         if "batch_size" in data:
