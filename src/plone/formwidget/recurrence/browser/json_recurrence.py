@@ -1,5 +1,4 @@
 from dateutil import rrule
-from plone.formwidget.recurrence import _
 from plone.base.i18nl10n import _interp_regex
 from plone.base.i18nl10n import datetime_formatvariables
 from plone.base.i18nl10n import monthname_msgid
@@ -7,6 +6,7 @@ from plone.base.i18nl10n import monthname_msgid_abbr
 from plone.base.i18nl10n import name_formatvariables
 from plone.base.i18nl10n import weekdayname_msgid
 from plone.base.i18nl10n import weekdayname_msgid_abbr
+from plone.formwidget.recurrence import _
 from Products.Five import BrowserView
 from zope.i18n import interpolate
 from zope.i18n import translate
