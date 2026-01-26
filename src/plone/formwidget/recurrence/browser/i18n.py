@@ -163,6 +163,10 @@ def translations(request):
             monthly=translate(_("template_monthly"), context=request),
             yearly=translate(_("template_yearly"), context=request),
         ),
+        error_load_occurrences=translate(
+            _("error_load_occurrences", "Cannot load the occurrences preview."),
+            context=request,
+        ),
         # a bit wonky here, except is a reserved word
         **{"except": translate(_("except"), context=request)},
     )
