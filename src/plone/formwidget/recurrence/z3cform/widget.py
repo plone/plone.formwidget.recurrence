@@ -61,6 +61,10 @@ class RecurrenceWidget(TextAreaWidget):
             ajaxURL=ajax_url,
             firstDay=self.first_day(),
             hasRepeatForeverButton=self.show_repeat_forever,
+            # Disable the additional-dates (rdate) UI — it causes
+            # interoperability issues with some calendar clients
+            # (Outlook/Android). See issue referenced by the user.
+            allowAdditionalDates=False,
             lang=self.request.LANGUAGE,
             readOnly=self.read_only,
             ributtonExtraClass="allowMultiSubmit",

@@ -56,6 +56,7 @@ class Z3CWidgetTestCase(IntegrationTestCase):
                 "ajaxURL": "http://nohost/plone/@@json_recurrence",
                 "firstDay": 7,
                 "hasRepeatForeverButton": True,
+                "allowAdditionalDates": False,
                 "lang": "en",
                 "readOnly": False,
                 "ributtonExtraClass": "allowMultiSubmit",
