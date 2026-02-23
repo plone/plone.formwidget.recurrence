@@ -8,6 +8,22 @@ Changelog
 
 .. towncrier release notes start
 
+4.0.0a2 (2026-02-23)
+--------------------
+
+Breaking changes:
+
+
+- Disable additional dates (RDATE) feature in recurrence widget to prevent interoperability issues with Outlook and Android calendar clients when exporting/importing iCal events. (#48)
+
+
+Internal:
+
+
+- Add translation for recurrences preview error.
+  [thet] (#49)
+
+
 4.0.0a1 (2025-11-19)
 --------------------
 

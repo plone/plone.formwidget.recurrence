@@ -1,2 +1,0 @@
-Add translation for recurrences preview error.
-[thet]

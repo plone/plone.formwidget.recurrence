@@ -1,1 +1,0 @@
-Disable additional dates (RDATE) feature in recurrence widget to prevent interoperability issues with Outlook and Android calendar clients when exporting/importing iCal events.
