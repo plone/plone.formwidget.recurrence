@@ -14,7 +14,6 @@ import datetime
 import json
 import re
 
-
 BATCH_DELTA = 3  # How many batches to show before + after current batch
 BATCH_SIZE = 10  # How many items per batch
 
