@@ -14,7 +14,6 @@ import datetime
 import json
 import re
 
-
 BATCH_DELTA = 3  # How many batches to show before + after current batch
 BATCH_SIZE = 10  # How many items per batch
 
@@ -184,7 +183,7 @@ class RecurrenceView(BrowserView):
         # a list index out of range error
         cur_batch = cur_batch - first_batch
         # correct number of occurrences in current batch
-        (cur_batch_start, cur_batch_end) = batches[cur_batch]
+        cur_batch_start, cur_batch_end = batches[cur_batch]
         if cur_batch_end > num_occurrences:
             batches[cur_batch] = (cur_batch_start, num_occurrences)
 
