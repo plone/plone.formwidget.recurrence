@@ -183,7 +183,7 @@ class RecurrenceView(BrowserView):
         # a list index out of range error
         cur_batch = cur_batch - first_batch
         # correct number of occurrences in current batch
-        (cur_batch_start, cur_batch_end) = batches[cur_batch]
+        cur_batch_start, cur_batch_end = batches[cur_batch]
         if cur_batch_end > num_occurrences:
             batches[cur_batch] = (cur_batch_start, num_occurrences)
 
