@@ -1,0 +1,1 @@
+Prevent infinite loop when INTERVAL=0 is used in recurrence rules by adding server-side validation. INTERVAL=0 is invalid per RFC 5545 and now returns a proper error message instead of causing the server to hang.
